@@ -54,10 +54,10 @@ export function NewsletterSignup() {
             <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mx-auto mb-4">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <Typography.Heading2 className="text-2xl font-bold mb-2">
+            <Typography.Heading2 className="mb-2">
               Thank you for subscribing!
             </Typography.Heading2>
-            <Typography.Body className="text-muted-foreground">
+            <Typography.Body color="secondary">
               You'll be the first to know about our latest features and updates.
             </Typography.Body>
           </div>
@@ -74,13 +74,13 @@ export function NewsletterSignup() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
-          <Typography.Heading2
-            id="newsletter-heading"
-            className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4"
-          >
+          <Typography.Heading2 id="newsletter-heading" className="mb-3 sm:mb-4">
             Join Our Newsletter
           </Typography.Heading2>
-          <Typography.Body className="text-muted-foreground text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed px-4 sm:px-0">
+          <Typography.Body
+            color="secondary"
+            className="mb-6 sm:mb-8 px-4 sm:px-0"
+          >
             Stay updated with new features being deployed daily! Get exclusive
             insights, tips, and be the first to know about exciting updates to
             our platform.
@@ -122,7 +122,8 @@ export function NewsletterSignup() {
 
           <Typography.Body
             id="email-description"
-            className="text-xs sm:text-sm text-muted-foreground mt-3 sm:mt-4 px-4 sm:px-0"
+            color="secondary"
+            className="mt-3 sm:mt-4 px-4 sm:px-0"
           >
             No spam, unsubscribe at any time. We respect your privacy.
           </Typography.Body>

@@ -13,7 +13,7 @@ import {
 import { motion } from "motion/react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FaJava } from "react-icons/fa";
 import { FiCopy } from "react-icons/fi";
 import {
@@ -249,7 +249,7 @@ const PASTE_FLOW_STEP_IDS = new Set([
   ANALYSIS_STEP_ID,
   "mode",
 ]);
-const ANALYSIS_DOTS = [0, 1, 2];
+const _ANALYSIS_DOTS = [0, 1, 2];
 type ExtractDescriptionResponse = {
   success?: boolean;
   error?: unknown;
@@ -332,21 +332,27 @@ export function ConfigureContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { user } = useAuth();
+
+  const seedQuestion = searchParams.get("seedQuestion") ?? "";
+  const seedAnswer = searchParams.get("seedAnswer") ?? "";
+  const autoStart = searchParams.get("autoStart") === "1";
+  const hasAutoStartedRef = useRef(false);
+  const initialFlowMode = (() => {
+    const flow = searchParams.get("flow");
+    if (flow === "paste") return "paste";
+    if (flow === "custom") return "custom";
+    if (flow === "url") return "url";
+    return null;
+  })();
+  const autoStartInProgressRef = useRef(false);
   const [usageStatus, setUsageStatus] = useState<{
     canStart: boolean;
     remainingMinutes: number;
     isPro: boolean;
     checked: boolean;
   }>({ canStart: true, remainingMinutes: 0, isPro: false, checked: false });
-  const resolveInitialFlowMode = () => {
-    const flow = searchParams.get("flow");
-    if (flow === "paste") return "paste";
-    if (flow === "custom") return "custom";
-    if (flow === "url") return "url";
-    return null;
-  };
   const [config, setConfig] = useState<InterviewConfig>(() => ({
-    flowMode: resolveInitialFlowMode(),
+    flowMode: initialFlowMode,
     position: "",
     seniority: "",
     technologies: [],
@@ -359,11 +365,12 @@ export function ConfigureContent() {
     jobDescription: "",
     jobRequirements: "",
     contextType: "",
-    pastedDescription: "",
+    pastedDescription: searchParams.get("pastedDescription") ?? "",
+    pastedUrl: searchParams.get("pastedUrl") ?? "",
   }));
   const [currentStep, setCurrentStep] = useState(() => {
     const requestedStepId = searchParams.get("step");
-    const stepsForFlow = getVisibleStepsForFlow(resolveInitialFlowMode());
+    const stepsForFlow = getVisibleStepsForFlow(initialFlowMode);
     const requestedIndex = stepsForFlow.findIndex(
       (step) => step.id === requestedStepId,
     );
@@ -479,9 +486,15 @@ export function ConfigureContent() {
       };
 
       const urlParams = buildSearchParamsFromInterviewConfig(domainConfig);
+      if (seedQuestion.trim()) {
+        urlParams.set("seedQuestion", seedQuestion.trim());
+      }
+      if (seedAnswer.trim()) {
+        urlParams.set("seedAnswer", seedAnswer.trim());
+      }
       router.push(`/interview?${urlParams.toString()}`);
     },
-    [config, router],
+    [config, router, seedAnswer, seedQuestion],
   );
 
   const isConfigComplete = checkIsConfigComplete(config);
@@ -603,134 +616,231 @@ export function ConfigureContent() {
     setCurrentStep(1);
   };
 
-  const runAnalysis = async (
-    endpoint: string,
-    body: Record<string, string>,
-    _successMessage: string,
-  ) => {
-    setIsAnalyzingDescription(true);
-    setAnalysisError(null);
-    const stepBefore = currentStep;
+  const runAnalysis = useCallback(
+    async (
+      endpoint: string,
+      body: Record<string, string>,
+      _successMessage: string,
+    ): Promise<ExtractedJobDescription | null> => {
+      setIsAnalyzingDescription(true);
+      setAnalysisError(null);
+      const stepBefore = currentStep;
 
-    try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-
-      let payload: ExtractDescriptionResponse;
       try {
-        payload = await response.json();
-      } catch {
-        console.error("Server returned an invalid response");
-        setAnalysisError(
-          "Server returned an invalid response. Please try again.",
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+
+        let payload: ExtractDescriptionResponse;
+        try {
+          payload = await response.json();
+        } catch {
+          console.error("Server returned an invalid response");
+          setAnalysisError(
+            "Server returned an invalid response. Please try again.",
+          );
+          setCurrentStep(stepBefore);
+          return null;
+        }
+
+        if (!response.ok) {
+          const serverMessage =
+            payload && typeof payload === "object" && "error" in payload
+              ? (payload as { error?: unknown }).error
+              : null;
+
+          console.warn("Server error:", {
+            status: response.status,
+            error: serverMessage,
+          });
+
+          setAnalysisError(
+            serverMessage
+              ? formatAnalysisError(serverMessage)
+              : `Server error: ${response.status}. Please try again.`,
+          );
+          setCurrentStep(stepBefore);
+          return null;
+        }
+
+        if (!payload || typeof payload !== "object") {
+          console.error("Server returned an empty response");
+          setAnalysisError(
+            "Server returned an empty response. Please try again.",
+          );
+          setCurrentStep(stepBefore);
+          return null;
+        }
+
+        if (!payload.success) {
+          console.error("Analysis failed:", payload.error);
+          setAnalysisError(formatAnalysisError(payload.error));
+          setCurrentStep(stepBefore);
+          return null;
+        }
+
+        const data = payload.data as ExtractedJobDescription | undefined;
+        if (!data) {
+          console.error("Invalid analysis response");
+          setAnalysisError("Invalid analysis response. Please try again.");
+          setCurrentStep(stepBefore);
+          return null;
+        }
+
+        updateConfig("position", data.position);
+        updateConfig("seniority", data.seniority);
+        updateConfig("technologies", data.technologies);
+        updateConfig("company", data.company ?? "");
+        updateConfig("jobDescription", data.jobDescription);
+        updateConfig("jobRequirements", data.jobRequirements);
+        updateConfig(
+          "companyProfile",
+          data.companyProfile ?? config.companyProfile,
         );
-        setCurrentStep(stepBefore);
-        return;
-      }
+        updateConfig("contextType", "job-specific");
+        if (!config.interviewMode) {
+          updateConfig("interviewMode", "regular");
+        }
 
-      if (!response.ok) {
-        console.error(`Server error: ${response.status}`);
-        setAnalysisError(`Server error: ${response.status}. Please try again.`);
-        setCurrentStep(stepBefore);
-        return;
-      }
-
-      if (!payload || typeof payload !== "object") {
-        console.error("Server returned an empty response");
-        setAnalysisError(
-          "Server returned an empty response. Please try again.",
+        const analysisIndex = visibleSteps.findIndex(
+          (step) => step.id === ANALYSIS_STEP_ID,
         );
+        if (!autoStartInProgressRef.current) {
+          setCurrentStep(analysisIndex >= 0 ? analysisIndex : currentStep);
+        }
+        return data;
+      } catch (error) {
+        console.error("Analysis request failed:", error);
+        setAnalysisError(formatAnalysisError(error));
         setCurrentStep(stepBefore);
-        return;
+        return null;
+      } finally {
+        if (!autoStartInProgressRef.current) {
+          setIsAnalyzingDescription(false);
+        }
       }
-
-      if (!payload.success) {
-        console.error("Analysis failed:", payload.error);
-        setAnalysisError(formatAnalysisError(payload.error));
-        setCurrentStep(stepBefore);
-        return;
-      }
-
-      const data = payload.data as ExtractedJobDescription | undefined;
-      if (!data) {
-        console.error("Invalid analysis response");
-        setAnalysisError("Invalid analysis response. Please try again.");
-        setCurrentStep(stepBefore);
-        return;
-      }
-
-      updateConfig("position", data.position);
-      updateConfig("seniority", data.seniority);
-      updateConfig("technologies", data.technologies);
-      updateConfig("company", data.company ?? "");
-      updateConfig("jobDescription", data.jobDescription);
-      updateConfig("jobRequirements", data.jobRequirements);
-      updateConfig(
-        "companyProfile",
-        data.companyProfile ?? config.companyProfile,
-      );
-      updateConfig("contextType", "job-specific");
-
-      const analysisIndex = visibleSteps.findIndex(
-        (step) => step.id === ANALYSIS_STEP_ID,
-      );
-      setCurrentStep(analysisIndex >= 0 ? analysisIndex : currentStep);
-    } finally {
-      setIsAnalyzingDescription(false);
-    }
-  };
+    },
+    [
+      config.companyProfile,
+      config.interviewMode,
+      currentStep,
+      updateConfig,
+      visibleSteps,
+    ],
+  );
 
   const handleAnalyzeDescription = async (
     event?: React.FormEvent | React.MouseEvent,
-  ) => {
+  ): Promise<ExtractedJobDescription | null> => {
     event?.preventDefault();
 
     const trimmed = config.pastedDescription.trim();
     if (!trimmed) {
       setAnalysisError("Paste a job description first.");
-      return;
+      return null;
     }
     if (/^https?:\/\/\S+$/i.test(trimmed)) {
       setAnalysisError(
         'Looks like you pasted a URL. Switch to "Paste job link" flow to analyze a link, or paste the full job description text here.',
       );
-      return;
+      return null;
     }
     if (trimmed.length < 50) {
       setAnalysisError(
         "Please provide a job description with at least 50 characters.",
       );
-      return;
+      return null;
     }
-    await runAnalysis(
+    return await runAnalysis(
       "/api/job-description/extract",
       { description: config.pastedDescription },
       "Job description analyzed",
     );
   };
 
-  const handleAnalyzeUrl = async (
-    event?: React.FormEvent | React.MouseEvent,
-  ) => {
-    event?.preventDefault();
+  const handleAnalyzeUrl = useCallback(
+    async (
+      event?: React.FormEvent | React.MouseEvent,
+    ): Promise<ExtractedJobDescription | null> => {
+      event?.preventDefault();
+
+      const url = config.pastedUrl?.trim() ?? "";
+      if (!url) {
+        setAnalysisError("Paste a job URL first.");
+        return null;
+      }
+      if (!url.startsWith("https://")) {
+        setAnalysisError("Please use a valid https:// URL.");
+        return null;
+      }
+      return await runAnalysis(
+        "/api/job-description/extract-from-url",
+        { url },
+        "Job offer analyzed",
+      );
+    },
+    [config.pastedUrl, runAnalysis],
+  );
+
+  useEffect(() => {
+    if (!autoStart) return;
+    if (hasAutoStartedRef.current) return;
+    if (config.flowMode !== "url") return;
     const url = config.pastedUrl?.trim() ?? "";
-    if (!url) {
-      setAnalysisError("Paste a job URL first.");
-      return;
-    }
-    if (!url.startsWith("https://")) {
-      setAnalysisError("Please use a valid https:// URL.");
-      return;
-    }
-    await runAnalysis(
-      "/api/job-description/extract-from-url",
-      { url },
-      "Job offer analyzed",
-    );
-  };
+    if (!url.startsWith("https://")) return;
+
+    hasAutoStartedRef.current = true;
+    autoStartInProgressRef.current = true;
+    void (async () => {
+      try {
+        const extracted = await handleAnalyzeUrl();
+        if (!extracted) {
+          setConfig((prev) => ({
+            ...prev,
+            flowMode: "paste",
+            pastedDescription: "",
+          }));
+          setCurrentStep(1);
+          setAnalysisError(
+            (prev) =>
+              prev ??
+              "We couldn't extract info from that link. Paste the job description here instead.",
+          );
+          return;
+        }
+
+        const overrideConfig: InterviewConfig = {
+          ...config,
+          flowMode: "url",
+          position: extracted.position,
+          seniority: extracted.seniority,
+          technologies: extracted.technologies,
+          company: extracted.company ?? "",
+          jobDescription: extracted.jobDescription,
+          jobRequirements: extracted.jobRequirements,
+          companyProfile: extracted.companyProfile ?? config.companyProfile,
+          contextType: "job-specific",
+          interviewMode: "regular",
+        };
+
+        if (!canStartInterview(overrideConfig)) {
+          setAnalysisError(
+            "We extracted the job offer, but couldn't start the interview automatically. Please review the extracted details and click Next.",
+          );
+          return;
+        }
+
+        autoStartInProgressRef.current = false;
+        setIsAnalyzingDescription(false);
+        handleStartInterview(overrideConfig);
+      } finally {
+        autoStartInProgressRef.current = false;
+        setIsAnalyzingDescription(false);
+      }
+    })();
+  }, [autoStart, config, handleAnalyzeUrl, handleStartInterview]);
 
   const _handlePreviewKey = (
     event: React.KeyboardEvent<HTMLDivElement | HTMLButtonElement>,
@@ -757,7 +867,7 @@ export function ConfigureContent() {
       },
       {
         value: "paste",
-        title: "Paste job decription",
+        title: "Paste job description",
         description: "Provide the job description for AI analysis.",
         icon: FiCopy,
       },
@@ -772,56 +882,45 @@ export function ConfigureContent() {
     return (
       <div className="relative">
         {isAnalyzingDescription && (
-          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center rounded-2xl border border-primary/30 bg-background/90 backdrop-blur-md shadow-lg">
-            <div
-              className="absolute inset-4 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent animate-pulse"
-              aria-hidden
-            />
-            <div className="relative flex flex-col items-center gap-4 text-center px-6">
-              <div className="size-20 rounded-full border-2 border-primary/40 flex items-center justify-center bg-background shadow-inner">
-                <Loader2 className="size-8 animate-spin text-primary" />
-              </div>
-              <div>
-                <Typography.BodyBold>
-                  {config.flowMode === "url"
-                    ? "Analyzing job offer…"
-                    : "Analyzing job description…"}
-                </Typography.BodyBold>
-                <Typography.CaptionMedium className="text-muted-foreground">
-                  Extracting position, seniority, tech stack, and company cues.
-                </Typography.CaptionMedium>
-              </div>
-              <div className="flex items-center gap-2">
-                {ANALYSIS_DOTS.map((dot) => (
-                  <span
-                    key={dot}
-                    className="size-2 rounded-full bg-primary/80 animate-bounce"
-                    style={{ animationDelay: `${dot * 150}ms` }}
-                  />
-                ))}
-              </div>
+          <div className="absolute inset-0 z-20 flex items-center justify-center rounded-2xl border border-border bg-background/90 backdrop-blur-sm">
+            <div className="flex flex-col items-center gap-3 text-center px-6">
+              <Loader2 className="size-6 animate-spin text-primary" />
+              <Typography.BodyBold>
+                {config.flowMode === "url"
+                  ? "Analyzing job offer…"
+                  : "Analyzing job description…"}
+              </Typography.BodyBold>
+              <Typography.CaptionMedium color="secondary">
+                Extracting role, seniority, and tech stack.
+              </Typography.CaptionMedium>
             </div>
           </div>
         )}
 
         <div
-          className={`space-y-8 ${isAnalyzingDescription ? "pointer-events-none opacity-50" : ""}`}
+          className={
+            isAnalyzingDescription
+              ? "pointer-events-none opacity-50"
+              : undefined
+          }
         >
-          <div className="flex gap-4 flex-col md:flex-row">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {FLOW_OPTIONS.map((option) => {
               const Icon = option.icon;
               const isSelected = config.flowMode === option.value;
+
               return (
                 <Card
                   key={option.value}
-                  className={`cursor-pointer w-full md:w-60 transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 ${
-                    isSelected
+                  className={
+                    "cursor-pointer transition-all hover:bg-primary/5 hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:border-primary/40 " +
+                    (isSelected
                       ? "ring-1 ring-primary border-primary bg-primary/5"
-                      : ""
-                  }`}
+                      : "")
+                  }
                   onClick={() => handleFlowSelect(option.value)}
                 >
-                  <CardContent className="flex flex-col items-start gap-4">
+                  <CardContent className="flex flex-col items-start gap-3 px-5">
                     <Icon className="size-5 text-primary flex-shrink-0" />
                     <div className="flex flex-col gap-2">
                       <Typography.BodyBold>{option.title}</Typography.BodyBold>
@@ -858,8 +957,8 @@ export function ConfigureContent() {
 
     if (config.flowMode === "url") {
       return (
-        <div className="flex flex-col items-center justify-center space-y-6 min-h-[80vh] sm:min-h-[70vh]">
-          <Typography.Heading1 className="!text-4xl sm:!text-5xl tracking-tight drop-shadow !text-primary text-center">
+        <div className="flex flex-col items-center justify-center space-y-8 min-h-[80vh] sm:min-h-[70vh]">
+          <Typography.Heading1 className="drop-shadow text-5xl text-center">
             Paste link to an offer
           </Typography.Heading1>
           <div className="relative w-full max-w-3xl space-y-6 text-center">
@@ -1003,8 +1102,8 @@ export function ConfigureContent() {
     }
 
     return (
-      <div className="flex flex-col items-center justify-center space-y-6 min-h-[60vh]">
-        <Typography.Heading1 className="!text-4xl sm:!text-5xl tracking-tight drop-shadow !text-primary text-center">
+      <div className="flex flex-col items-center justify-center space-y-8 min-h-[60vh]">
+        <Typography.Heading1 className="drop-shadow text-5xl text-center">
           Paste job description
         </Typography.Heading1>
         <div className="relative w-full max-w-3xl space-y-6 text-center">
@@ -1095,16 +1194,6 @@ export function ConfigureContent() {
               </svg>
               <div className="flex-1">
                 <div>{analysisError}</div>
-                {analysisError.includes("isn't supported") && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="mt-2"
-                    onClick={() => updateConfig("flowMode", "paste")}
-                  >
-                    Switch to paste job description
-                  </Button>
-                )}
               </div>
             </Typography.CaptionMedium>
           </div>
@@ -1119,7 +1208,7 @@ export function ConfigureContent() {
         <Card>
           <CardContent className="space-y-3">
             <Typography.BodyBold>No AI analysis needed</Typography.BodyBold>
-            <Typography.CaptionMedium className="text-muted-foreground">
+            <Typography.CaptionMedium color="secondary">
               You chose manual configuration. Continue to the next steps to set
               everything yourself.
             </Typography.CaptionMedium>
@@ -1136,10 +1225,10 @@ export function ConfigureContent() {
 
             <div className="flex items-start gap-3 rounded-lg border border-yellow-500/30 bg-yellow-500/5 p-4">
               <div>
-                <Typography.BodyBold className="text-yellow-700 dark:text-yellow-400">
+                <Typography.BodyBold>
                   No job details extracted
                 </Typography.BodyBold>
-                <Typography.CaptionMedium className="text-yellow-600/80 dark:text-yellow-400/70">
+                <Typography.CaptionMedium color="secondary">
                   The pasted content didn't match typical job offer criteria.
                   You can still fill in the description and requirements
                   manually below.
@@ -1186,7 +1275,7 @@ export function ConfigureContent() {
   function renderPositionStep() {
     return (
       <div className="space-y-8">
-        <div className="grid grid-cols-2 lg:grid-cols-3 max-w-fit gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 max-w-fit gap-6">
           {POSITIONS.map((position) => {
             const Icon = position.icon;
             return (
@@ -1381,7 +1470,7 @@ export function ConfigureContent() {
           <div className="max-w-5xl mx-auto">
             <div className="mb-6 space-y-4 hidden lg:block">
               <div className="flex flex-col gap-2 lg:items-start lg:justify-between text-center lg:text-left">
-                <Typography.BodyBold className="text-2xl">
+                <Typography.BodyBold className="text-xl lg:text-2xl">
                   {(() => {
                     const step = visibleSteps[currentStep];
                     if (step?.id === "description") {
@@ -1394,7 +1483,7 @@ export function ConfigureContent() {
                     return step?.title ?? CONFIGURE_STEPS[0].title;
                   })()}
                 </Typography.BodyBold>
-                <Typography.Body className="text-muted-foreground text-sm sm:text-base">
+                <Typography.Body color="secondary" className="text-sm">
                   {(() => {
                     const step = visibleSteps[currentStep];
                     if (step?.id === "description" || step?.id === "paste")
@@ -1418,10 +1507,13 @@ export function ConfigureContent() {
                       />
                     </div>
                     <div className="flex-1">
-                      <Typography.BodyBold className="text-amber-800 dark:text-amber-200">
+                      <Typography.BodyBold>
                         Interview Limit Reached
                       </Typography.BodyBold>
-                      <Typography.CaptionMedium className="text-amber-700 dark:text-amber-300 mt-1">
+                      <Typography.CaptionMedium
+                        color="secondary"
+                        className="mt-1"
+                      >
                         You&apos;ve reached the temporary interview limit.
                         {usageStatus.remainingMinutes > 0 && (
                           <span className="flex items-center gap-2 mt-4">
@@ -1434,7 +1526,7 @@ export function ConfigureContent() {
                       </Typography.CaptionMedium>
                       <div className="mt-1 flex items-center gap-2">
                         <Crown className="size-4 text-amber-600 dark:text-amber-400" />
-                        <Typography.CaptionMedium className="text-amber-700 dark:text-amber-300">
+                        <Typography.CaptionMedium color="secondary">
                           Want unlimited interviews? Upgrade to Pro for
                           unrestricted access.
                         </Typography.CaptionMedium>

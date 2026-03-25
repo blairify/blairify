@@ -47,28 +47,42 @@ export function DashboardPromo() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
           <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-left-8 duration-1000 delay-200 flex flex-col items-center lg:items-start justify-center text-center lg:text-left max-w-xl mx-auto lg:mx-0">
             <div className="space-y-4 sm:space-y-6">
-              <Typography.Heading2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
-                Performance Analytics
-              </Typography.Heading2>
-              <Typography.Body className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <Typography.Heading2>Performance Analytics</Typography.Heading2>
+              <Typography.Body
+                color="secondary"
+                className="max-w-2xl mx-auto lg:mx-0"
+              >
                 Get detailed insights into your performance. Monitor your
                 scores, identify strengths, and focus on areas for improvement.
               </Typography.Body>
             </div>
             <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-md mx-auto lg:mx-0">
-              <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
-                <SiDatabricks className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
-                <div className="text-xs sm:text-sm font-medium">Analytics</div>
+              <div className="text-center p-3 sm:px-4 rounded-lg bg-background/80 backdrop-blur border border-border hover:bg-background transition-colors">
+                <SiDatabricks
+                  className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto"
+                  aria-hidden="true"
+                />
+                <Typography.CaptionMedium className="mt-2">
+                  Analytics
+                </Typography.CaptionMedium>
               </div>
-              <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
-                <SiTableau className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
-                <div className="text-xs sm:text-sm font-medium">Insights</div>
+              <div className="text-center p-3 sm:px-4 rounded-lg bg-background/80 backdrop-blur border border-border hover:bg-background transition-colors">
+                <SiTableau
+                  className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto"
+                  aria-hidden="true"
+                />
+                <Typography.CaptionMedium className="mt-2">
+                  Insights
+                </Typography.CaptionMedium>
               </div>
-              <div className="text-center p-3 sm:px-4 rounded-lg bg-card/50 backdrop-blur-sm border hover:bg-card/70 transition-colors">
-                <SiOpslevel className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto" />
-                <div className="text-xs sm:text-sm font-medium">
+              <div className="text-center p-3 sm:px-4 rounded-lg bg-background/80 backdrop-blur border border-border hover:bg-background transition-colors">
+                <SiOpslevel
+                  className="h-5 w-5 sm:h-6 sm:w-6 text-primary mx-auto"
+                  aria-hidden="true"
+                />
+                <Typography.CaptionMedium className="mt-2">
                   Achievements
-                </div>
+                </Typography.CaptionMedium>
               </div>
             </div>
 
@@ -79,15 +93,21 @@ export function DashboardPromo() {
                 className="group w-full sm:w-auto h-12 sm:h-10 text-base sm:text-sm font-medium px-6 sm:px-4"
               >
                 View Insights
-                <SiMinutemailer className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <SiMinutemailer
+                  className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform"
+                  aria-hidden="true"
+                />
               </Button>
             </div>
           </div>
           <div className="space-y-4 sm:space-y-6 animate-in slide-in-from-right-8 duration-1000 delay-400 flex flex-col justify-center order-last max-w-xl w-full mx-auto lg:mx-0">
-            <Card className="border-border bg-card w-full">
+            <Card className="border-border bg-background/80 backdrop-blur w-full">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <SiSpeedtest className="h-5 w-5 text-primary" />
+                  <SiSpeedtest
+                    className="h-5 w-5 text-primary"
+                    aria-hidden="true"
+                  />
                   Weekly Activity
                 </CardTitle>
                 <CardDescription>

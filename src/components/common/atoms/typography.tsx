@@ -11,6 +11,7 @@ export const COLOR_VALUES = [
   "brand",
   "brandLight",
   "brandDark",
+  "inverse",
   "disabled",
   "success",
   "error",
@@ -20,6 +21,9 @@ type Color = (typeof COLOR_VALUES)[number];
 
 export const VARIANT_VALUES = [
   "Heading1",
+  "HeroHeading1",
+  "HeroSubHeading",
+  "HeroHeadingAccent",
   "Heading2",
   "Heading3",
   "Body",
@@ -48,11 +52,12 @@ export const typographyVariants = /*tw:*/ cva<VariantSettings>(
     variants: {
       color: {
         primary: "text-gray-900 dark:text-gray-50",
-        secondary: "text-gray-500 dark:text-gray-300",
+        secondary: "text-gray-700 dark:text-gray-300",
         gray: "text-gray-700 dark:text-gray-400",
         brand: "text-primary dark:text-primary",
         brandLight: "text-primary/80 dark:text-primary/80",
         brandDark: "text-primary/90 dark:text-primary/90",
+        inverse: "text-primary-foreground",
         disabled: "text-gray-400 dark:text-gray-500",
         success: "text-green-700 dark:text-green-500",
         error: "text-red-700 dark:text-red-500",
@@ -61,6 +66,12 @@ export const typographyVariants = /*tw:*/ cva<VariantSettings>(
       },
       variant: {
         Heading1: "font-heading font-bold text-2xl",
+        HeroHeading1:
+          "font-heading font-bold whitespace-nowrap !text-4xl sm:!text-5xl md:!text-[50px] lg:!text-[60px] leading-[1.05]",
+        HeroSubHeading:
+          "font-heading font-bold !text-[30px] lg:!text-[40px] leading-[1.1]",
+        HeroHeadingAccent:
+          "font-heading font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05]",
         Heading2: "font-heading font-bold text-xl",
         Heading3: "font-heading font-semibold text-lg leading-6",
 
@@ -123,14 +134,83 @@ const Heading1: TypographyComponent = ({
     className,
   );
   return (
-    <h1
-      aria-level={1}
+    <h1 className={typographyClass} data-clickable={!!props.onClick} {...props}>
+      {children}
+    </h1>
+  );
+};
+
+const HeroHeading1: TypographyComponent = ({
+  children,
+  color,
+  className,
+  disabled,
+  ...props
+}) => {
+  const typographyClass = twMerge(
+    typographyVariants({
+      color,
+      variant: "HeroHeading1",
+      clickable: !!props.onClick,
+      disabled,
+    }),
+    className,
+  );
+  return (
+    <h1 className={typographyClass} data-clickable={!!props.onClick} {...props}>
+      {children}
+    </h1>
+  );
+};
+
+const HeroSubHeading: TypographyComponent = ({
+  children,
+  color,
+  className,
+  disabled,
+  ...props
+}) => {
+  const typographyClass = twMerge(
+    typographyVariants({
+      color,
+      variant: "HeroSubHeading",
+      clickable: !!props.onClick,
+      disabled,
+    }),
+    className,
+  );
+  return (
+    <h2 className={typographyClass} data-clickable={!!props.onClick} {...props}>
+      {children}
+    </h2>
+  );
+};
+
+const HeroHeadingAccent: TypographyComponent = ({
+  children,
+  color,
+  className,
+  disabled,
+  ...props
+}) => {
+  const typographyClass = twMerge(
+    typographyVariants({
+      color,
+      variant: "HeroHeadingAccent",
+      clickable: !!props.onClick,
+      disabled,
+    }),
+    className,
+  );
+
+  return (
+    <span
       className={typographyClass}
       data-clickable={!!props.onClick}
       {...props}
     >
       {children}
-    </h1>
+    </span>
   );
 };
 
@@ -151,12 +231,7 @@ const Heading2: TypographyComponent = ({
     className,
   );
   return (
-    <h2
-      aria-level={2}
-      className={typographyClass}
-      data-clickable={!!props.onClick}
-      {...props}
-    >
+    <h2 className={typographyClass} data-clickable={!!props.onClick} {...props}>
       {children}
     </h2>
   );
@@ -179,12 +254,7 @@ const Heading3: TypographyComponent = ({
     className,
   );
   return (
-    <h3
-      aria-level={3}
-      className={typographyClass}
-      data-clickable={!!props.onClick}
-      {...props}
-    >
+    <h3 className={typographyClass} data-clickable={!!props.onClick} {...props}>
       {children}
     </h3>
   );
@@ -425,6 +495,9 @@ const SubCaptionBold: TypographyComponent = ({
 
 const Typography = {
   Heading1,
+  HeroHeading1,
+  HeroSubHeading,
+  HeroHeadingAccent,
   Heading2,
   Heading3,
   Body,

@@ -7,21 +7,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Terraform",
       "description": "What is Terraform?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Terraform?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -32,20 +24,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -68,21 +49,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The key features of Terraform",
       "description": "What are the key features of Terraform?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key features of Terraform?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -93,20 +66,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -129,21 +91,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "IAC.",
       "description": "Define IAC.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Define IAC.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -154,20 +108,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -190,21 +133,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The most useful Terraform commands",
       "description": "What are the most useful Terraform commands?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the most useful Terraform commands?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -215,20 +150,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -251,21 +175,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Does Terraform support multi-provider deployments",
       "description": "Does Terraform support multi-provider deployments?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Does Terraform support multi-provider deployments?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -276,20 +192,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -312,21 +217,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Null resource in Terraform.",
       "description": "Define null resource in Terraform.?",
       "prompt": "You are evaluating a entry-level candidate. Answer the question: \"Define null resource in Terraform.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -337,19 +234,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -372,21 +259,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Terraform differ from other infrastructure",
       "description": "How does Terraform differ from other infrastructure as code tools like Ansible or Puppet?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Terraform differ from other infrastructure as code tools like Ansible or Puppet?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -397,20 +276,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -433,21 +301,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of a Terraform Provider.",
       "description": "Explain the concept of a Terraform Provider.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of a Terraform Provider.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -459,20 +319,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -495,21 +344,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Terraform's plan and apply phases.",
       "description": "Explain Terraform's plan and apply phases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Terraform's plan and apply phases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -522,20 +363,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -558,21 +388,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You manage secrets and sensitive data",
       "description": "How do you manage secrets and sensitive data in Terraform?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you manage secrets and sensitive data in Terraform?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -583,20 +405,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -619,21 +430,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Terraform State file",
       "description": "What is a Terraform State file?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Terraform State file?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -644,20 +447,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -680,21 +472,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A remote backend in Terraform",
       "description": "What is a remote backend in Terraform?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a remote backend in Terraform?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -705,20 +489,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -741,21 +514,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle infrastructure updates or changes",
       "description": "How do you handle infrastructure updates or changes without causing downtime?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle infrastructure updates or changes without causing downtime?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -766,20 +531,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -802,21 +556,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Terraform Modules",
       "description": "What are Terraform Modules?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Terraform Modules?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -827,20 +573,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -863,21 +598,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The remote state feature in Terraform.",
       "description": "Explain the remote state feature in Terraform.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the remote state feature in Terraform.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -889,20 +616,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -925,21 +641,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You version control your Terraform configurations",
       "description": "How do you version control your Terraform configurations?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you version control your Terraform configurations?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -950,20 +658,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -986,21 +683,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A challenging problem you faced while",
       "description": "Describe a challenging problem you faced while working with Terraform and how you solved it.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe a challenging problem you faced while working with Terraform and how you solved it.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1011,20 +700,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1047,21 +725,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Terraform remote backend",
       "description": "What is the Terraform remote backend?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Terraform remote backend?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1072,20 +742,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1108,21 +767,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between provisioners and null_resource",
       "description": "Explain the difference between provisioners and null_resource in Terraform.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between provisioners and null_resource in Terraform.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1134,20 +785,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1170,21 +810,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Data sources in Terraform, and how",
       "description": "What are data sources in Terraform, and how are they used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are data sources in Terraform, and how are they used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1195,20 +827,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1231,21 +852,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You manage dependencies between resources in",
       "description": "How do you manage dependencies between resources in Terraform?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you manage dependencies between resources in Terraform?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1256,20 +869,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1292,21 +894,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Sentinel policies",
       "description": "What are Sentinel policies?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Sentinel policies?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1317,20 +911,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1353,21 +936,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Provide a few examples where Sentinel",
       "description": "Provide a few examples where Sentinel policies can be used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Provide a few examples where Sentinel policies can be used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1378,20 +953,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1414,21 +978,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The different levels of Sentinel enforcement",
       "description": "What are the different levels of Sentinel enforcement?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the different levels of Sentinel enforcement?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1439,20 +995,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1475,21 +1020,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How you can implement a custom",
       "description": "Explain how you can implement a custom provider in Terraform.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can implement a custom provider in Terraform.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1501,20 +1038,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1537,21 +1063,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Terraform Registry",
       "description": "What is the Terraform Registry?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Terraform Registry?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1562,20 +1080,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1598,21 +1105,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You manage different environments (e.g., dev,",
       "description": "How do you manage different environments (e.g., dev, staging, production) using Terraform?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you manage different environments (e.g., dev, staging, production) using Terraform?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1623,20 +1122,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1659,21 +1147,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Terraform Workspaces.",
       "description": "Explain the concept of Terraform Workspaces.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Terraform Workspaces.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1685,20 +1165,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1721,21 +1190,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How you can automate the deployment",
       "description": "Explain how you can automate the deployment of Terraform configurations using CI/CD pipelines.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can automate the deployment of Terraform configurations using CI/CD pipelines.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1747,20 +1208,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1783,21 +1233,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the differences between count and",
       "description": "Discuss the differences between count and for_each in Terraform when working with resource blocks.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the differences between count and for_each in Terraform when working with resource blocks.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1808,20 +1250,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1844,21 +1275,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the advantages and disadvantages of",
       "description": "Discuss the advantages and disadvantages of using HCL (HashiCorp Configuration Language) for defining infrastructure as code.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the advantages and disadvantages of using HCL (HashiCorp Configuration Language) for defining infrastructure as code.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1870,20 +1293,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1906,21 +1318,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Terraform Core",
       "description": "What is Terraform Core?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Terraform Core?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1931,20 +1335,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -1967,21 +1360,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Give the terraform configuration for creating",
       "description": "Give the terraform configuration for creating a single EC2 instance on AWS.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Give the terraform configuration for creating a single EC2 instance on AWS.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1992,20 +1377,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2028,21 +1402,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Terraform refresh command",
       "description": "What is the Terraform refresh command?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Terraform refresh command?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2053,20 +1419,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2089,21 +1444,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Terraform Cloud",
       "description": "What is Terraform Cloud?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Terraform Cloud?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2114,20 +1461,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2150,21 +1486,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Terraform destroy and",
       "description": "Explain the concept of Terraform destroy and discuss best practices for handling resource destruction.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Terraform destroy and discuss best practices for handling resource destruction.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2176,20 +1504,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2212,21 +1529,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Between Terraform and Cloudformation.",
       "description": "Differentiate between Terraform and Cloudformation.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Differentiate between Terraform and Cloudformation.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2237,20 +1546,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2273,21 +1571,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Resource Graph in Terraform",
       "description": "What is the Resource Graph in Terraform?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Resource Graph in Terraform?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2298,20 +1588,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2334,21 +1613,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the \"destroy-before-create\" approach in Terraform",
       "description": "Discuss the \"destroy-before-create\" approach in Terraform and when it is useful.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the \"destroy-before-create\" approach in Terraform and when it is useful.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2360,20 +1631,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2396,21 +1656,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A tainted resource",
       "description": "What is a tainted resource?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a tainted resource?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2422,20 +1674,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2458,21 +1699,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"Terraform plan output\"",
       "description": "Explain the concept of \"Terraform plan output\" and how it can be saved and shared with the team.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"Terraform plan output\" and how it can be saved and shared with the team.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2484,20 +1717,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2520,21 +1742,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How you can manage the lifecycle",
       "description": "Explain how you can manage the lifecycle of a Terraform resource with the lifecycle block.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can manage the lifecycle of a Terraform resource with the lifecycle block.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2546,20 +1760,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2582,21 +1785,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Terraform state locking, and why is",
       "description": "What is Terraform state locking, and why is it important in a multi-user environment?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Terraform state locking, and why is it important in a multi-user environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2607,20 +1802,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2643,21 +1827,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The best practice for handling Terraform",
       "description": "What is the best practice for handling Terraform state locking and concurrency in a team environment?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the best practice for handling Terraform state locking and concurrency in a team environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2668,9 +1844,7 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
+      "primaryTechStack": ["terraform"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2678,10 +1852,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2704,21 +1875,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of remote-exec and local-exec",
       "description": "Explain the concept of remote-exec and local-exec provisioners in Terraform.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of remote-exec and local-exec provisioners in Terraform.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2730,20 +1893,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2766,21 +1918,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle resource drift or changes",
       "description": "How do you handle resource drift or changes that were made outside of Terraform?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle resource drift or changes that were made outside of Terraform?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2791,20 +1935,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2827,21 +1960,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "What a Terraform provider and a",
       "description": "Explain what a Terraform provider and a Terraform provisioner are, and how they differ in their use cases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what a Terraform provider and a Terraform provisioner are, and how they differ in their use cases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2853,20 +1978,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2889,21 +2003,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You ensure idempotence in Terraform configurations,",
       "description": "How do you ensure idempotence in Terraform configurations, and why is it important?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you ensure idempotence in Terraform configurations, and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2914,20 +2020,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -2950,22 +2045,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "this keyword",
       "description": "How does Terraform manage resource dependencies, and what is the role of the Terraform graph in this process?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does Terraform manage resource dependencies, and what is the role of the Terraform graph in this process?\" Requirements: - `this` depends on call-site (how the function is invoked) - Method call vs plain function call - Arrow functions capture lexical `this` - `bind`/`call`/`apply` can set `this` Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform",
-        "this"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform", "this"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: this depends on call-site (how the function is invoked); Method call vs plain function call; Arrow functions capture lexical this; bind/call/apply can set this. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2977,9 +2063,7 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
+      "primaryTechStack": ["terraform"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2987,10 +2071,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -3014,21 +2095,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can Terraform be used for on-prem",
       "description": "Can Terraform be used for on-prem infrastructure?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can Terraform be used for on-prem infrastructure?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3039,20 +2112,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -3075,21 +2137,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Terragrunt",
       "description": "What is Terragrunt?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Terragrunt?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3100,20 +2154,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",
@@ -3136,21 +2179,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Terraform ensure the idempotency of",
       "description": "How does Terraform ensure the idempotency of resource provisioning?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Terraform ensure the idempotency of resource provisioning?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "terraform"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["terraform"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3161,20 +2196,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "terraform"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["terraform"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:56:58.179Z",
       "updatedAt": "2025-12-19T17:56:58.179Z",
       "createdBy": "admin",

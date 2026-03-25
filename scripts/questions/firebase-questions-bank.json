@@ -7,44 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Firebase, and how does it work",
       "description": "What is Firebase, and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Firebase, and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -67,21 +43,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The differences between the Realtime Database",
       "description": "Explain the differences between the Realtime Database and Firestore in Firebase.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between the Realtime Database and Firestore in Firebase.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -92,20 +60,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -128,21 +85,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Firebase Authentication, and how does it",
       "description": "What is Firebase Authentication, and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Firebase Authentication, and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -153,20 +102,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -189,21 +127,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Firebase security rules and how",
       "description": "Explain the Firebase security rules and how they work.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Firebase security rules and how they work.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -215,20 +145,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -251,21 +170,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle authentication in a Firebase",
       "description": "How can you handle authentication in a Firebase app with multiple providers?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you handle authentication in a Firebase app with multiple providers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -277,20 +188,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -313,21 +213,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Firebase Realtime Database's data synchronization",
       "description": "Explain the Firebase Realtime Database's data synchronization and offline support.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Firebase Realtime Database's data synchronization and offline support.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -338,20 +230,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -374,21 +255,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Firebase Cloud Functions, and why are",
       "description": "What are Firebase Cloud Functions, and why are they useful?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Firebase Cloud Functions, and why are they useful?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -399,20 +272,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -435,21 +297,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Firebase Hosting and its benefits.",
       "description": "Explain Firebase Hosting and its benefits.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Firebase Hosting and its benefits.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -460,20 +314,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -496,21 +339,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You secure sensitive data in Firebase,",
       "description": "How can you secure sensitive data in Firebase, especially in Realtime Database or Firestore?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you secure sensitive data in Firebase, especially in Realtime Database or Firestore?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -521,20 +356,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -557,44 +381,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Firebase project you've worked on,",
       "description": "Describe a Firebase project you've worked on, and the challenges you faced.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe a Firebase project you've worked on, and the challenges you faced.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -617,44 +417,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Firebase handle data synchronization and",
       "description": "How does Firebase handle data synchronization and conflicts in a multi-user environment?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Firebase handle data synchronization and conflicts in a multi-user environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -677,21 +453,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Firebase Cloud Firestore listeners, and why",
       "description": "What are Firebase Cloud Firestore listeners, and why are they useful?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Firebase Cloud Firestore listeners, and why are they useful?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -702,20 +470,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -738,21 +495,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Firebase Cloud Messaging (FCM) service.",
       "description": "Explain the Firebase Cloud Messaging (FCM) service.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Firebase Cloud Messaging (FCM) service.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -764,20 +513,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -800,21 +538,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Firebase Test Lab, and how can",
       "description": "What is Firebase Test Lab, and how can it benefit the app development process?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Firebase Test Lab, and how can it benefit the app development process?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -825,20 +555,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -861,21 +580,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Firebase Analytics and its importance in",
       "description": "Explain Firebase Analytics and its importance in app development.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Firebase Analytics and its importance in app development.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -887,20 +598,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -923,21 +623,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you describe the process of",
       "description": "Can you describe the process of deploying a Firebase app to production?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you describe the process of deploying a Firebase app to production?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -948,20 +640,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -984,21 +665,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Firebase Crashlytics, and how can it",
       "description": "What is Firebase Crashlytics, and how can it help in identifying and resolving app crashes?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Firebase Crashlytics, and how can it help in identifying and resolving app crashes?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1009,20 +682,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1045,21 +707,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Firebase Cloud Storage, and how does",
       "description": "What is Firebase Cloud Storage, and how does it differ from Firebase Realtime Database and Firestore?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Firebase Cloud Storage, and how does it differ from Firebase Realtime Database and Firestore?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1070,20 +724,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1106,21 +749,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How Firebase Hosting can be integrated",
       "description": "Explain how Firebase Hosting can be integrated with a custom domain.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how Firebase Hosting can be integrated with a custom domain.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1131,20 +766,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1167,21 +791,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"cold start\" in",
       "description": "Explain the concept of \"cold start\" in the context of Firebase Cloud Functions and how it can impact application performance.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the concept of \"cold start\" in the context of Firebase Cloud Functions and how it can impact application performance.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1194,9 +810,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
+      "primaryTechStack": ["firebase"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1204,10 +818,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1230,21 +841,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Firebase Machine Learning Kit and how",
       "description": "Explain Firebase Machine Learning Kit and how it can be integrated into Firebase applications.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Firebase Machine Learning Kit and how it can be integrated into Firebase applications.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1256,20 +859,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1292,21 +884,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Firebase in-app messaging and Firebase Cloud",
       "description": "What are Firebase in-app messaging and Firebase Cloud Messaging (FCM), and how do they differ in their use cases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Firebase in-app messaging and Firebase Cloud Messaging (FCM), and how do they differ in their use cases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1318,20 +902,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1354,21 +927,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you describe Firebase Remote Config",
       "description": "Can you describe Firebase Remote Config and how it can be used to remotely control app features?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you describe Firebase Remote Config and how it can be used to remotely control app features?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1379,20 +944,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1415,21 +969,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Firebase Firestore be used to model",
       "description": "How can Firebase Firestore be used to model complex relationships between data entities in a database?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can Firebase Firestore be used to model complex relationships between data entities in a database?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1440,20 +986,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1476,33 +1011,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You optimize the performance of a",
       "description": "How can you optimize the performance of a Firebase Realtime Database or Firestore?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How can you optimize the performance of a Firebase Realtime Database or Firestore?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "firebase"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["firebase"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1510,10 +1030,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1536,21 +1053,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The security best practices for Firebase",
       "description": "What are the security best practices for Firebase applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the security best practices for Firebase applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1562,20 +1071,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1598,21 +1096,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How Firebase handles user authentication sessions",
       "description": "Explain how Firebase handles user authentication sessions and tokens.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how Firebase handles user authentication sessions and tokens.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1624,20 +1114,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1660,21 +1139,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you describe Firebase Predictions and",
       "description": "Can you describe Firebase Predictions and its role in app development?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you describe Firebase Predictions and its role in app development?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1686,20 +1157,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1722,21 +1182,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The benefits of using Firebase as",
       "description": "Explain the benefits of using Firebase as a backend for mobile applications compared to traditional server-side solutions.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the benefits of using Firebase as a backend for mobile applications compared to traditional server-side solutions.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1748,20 +1200,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",
@@ -1784,21 +1225,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Some common challenges when using Firebase",
       "description": "What are some common challenges when using Firebase for large-scale applications, and how can they be addressed?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some common challenges when using Firebase for large-scale applications, and how can they be addressed?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "firebase"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["firebase"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1809,20 +1242,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "firebase"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["firebase"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:44:36.878Z",
       "updatedAt": "2025-12-19T17:44:36.878Z",
       "createdBy": "admin",

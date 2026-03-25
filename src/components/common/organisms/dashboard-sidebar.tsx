@@ -117,7 +117,9 @@ export default function DashboardSidebar({
             aria-label="New Interview"
             data-tour="start-interview"
             className={`flex items-center px-3.5 py-2.5 rounded-lg transition-colors w-full ${
-              collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+              collapsed
+                ? "justify-center max-w-10 hover:w-10 mx-auto"
+                : "space-x-3"
             } ${
               isActive("/configure")
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
@@ -126,7 +128,11 @@ export default function DashboardSidebar({
           >
             <Plus className="size-5 flex-shrink-0" />
             <Typography.CaptionMedium
-              className={collapsed ? "sr-only" : "truncate"}
+              className={
+                collapsed
+                  ? "sr-only"
+                  : `truncate ${isActive("/configure") ? " text-white" : ""}`
+              }
             >
               New Interview
             </Typography.CaptionMedium>
@@ -146,7 +152,11 @@ export default function DashboardSidebar({
           >
             <MdOutlineLocalFireDepartment className="size-5 flex-shrink-0" />
             <Typography.CaptionMedium
-              className={collapsed ? "sr-only" : "truncate"}
+              className={
+                collapsed
+                  ? "sr-only"
+                  : `truncate ${isActive("/jobs") ? " text-white" : ""}`
+              }
             >
               Real Offers
             </Typography.CaptionMedium>
@@ -167,7 +177,11 @@ export default function DashboardSidebar({
           >
             <History className="size-5 flex-shrink-0" />
             <Typography.CaptionMedium
-              className={collapsed ? "sr-only" : "truncate"}
+              className={
+                collapsed
+                  ? "sr-only"
+                  : `truncate ${isActive("/history") ? " text-white" : ""}`
+              }
             >
               History
             </Typography.CaptionMedium>
@@ -207,12 +221,15 @@ export default function DashboardSidebar({
                   className={`relative flex items-center shrink-0 ${collapsed ? "" : "w-5"}`}
                 >
                   <Zap
-                    className={`size-4 transition-colors ${isActive("/upgrade") ? "fill-white text-white" : "text-[#10B981] fill-[#10B981]"}`}
+                    className={`size-4 transition-colors ${isActive("/upgrade") ? "fill-white text-white" : "text-green-700 dark:text-green-500 fill-green-700 dark:fill-green-500"}`}
                   />
                 </div>
 
                 {!collapsed && (
-                  <Typography.CaptionBold className="relative truncate">
+                  <Typography.CaptionBold
+                    color="success"
+                    className="relative truncate "
+                  >
                     Upgrade to Pro
                   </Typography.CaptionBold>
                 )}
@@ -222,12 +239,12 @@ export default function DashboardSidebar({
             </motion.div>
           )}
 
-          <div className={`pt-4 pb-2 ${collapsed ? "px-0" : "px-3"}`}>
+          <div className={`pt-2 pb-2 ${collapsed ? "px-0" : "px-3"}`}>
             <Typography.SubCaptionBold
               className={collapsed ? "sr-only" : ""}
               color="secondary"
             >
-              Progress
+              PROGRESS
             </Typography.SubCaptionBold>
           </div>
           <Link
@@ -245,7 +262,11 @@ export default function DashboardSidebar({
           >
             <TbProgressBolt className="size-5 flex-shrink-0" />
             <Typography.CaptionMedium
-              className={collapsed ? "sr-only" : "truncate"}
+              className={
+                collapsed
+                  ? "sr-only"
+                  : `truncate ${isActive("/dashboard") ? " text-white" : ""}`
+              }
             >
               Dashboard
             </Typography.CaptionMedium>
@@ -254,7 +275,7 @@ export default function DashboardSidebar({
             href="/achievements"
             title="Achievements"
             aria-label="Achievements"
-            className={`flex items-center px-3 py-1.5 rounded-md transition-colors w-full ${
+            className={`flex items-center px-3 py-2.5 rounded-lg transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
             } ${
               isActive("/achievements")
@@ -264,7 +285,11 @@ export default function DashboardSidebar({
           >
             <TiFlowChildren className="size-5 flex-shrink-0" />
             <Typography.CaptionMedium
-              className={collapsed ? "sr-only" : "truncate"}
+              className={
+                collapsed
+                  ? "sr-only"
+                  : `truncate ${isActive("/achievements") ? " text-white" : ""}`
+              }
             >
               Achievements
             </Typography.CaptionMedium>

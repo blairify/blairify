@@ -1,13 +1,13 @@
 import "dotenv/config";
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import { practiceDb } from "../../src/practice-library-db/client";
 import {
+  matchingQuestions,
   mcqQuestions,
   openQuestions,
-  truefalseQuestions,
-  matchingQuestions,
   systemDesignQuestions,
+  truefalseQuestions,
 } from "../../src/practice-library-db/schema";
 
 type QuestionStatus = "draft" | "published" | "archived";

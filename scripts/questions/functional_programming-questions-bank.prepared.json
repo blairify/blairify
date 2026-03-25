@@ -7,42 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Functional programming, and how does it",
       "description": "What is functional programming, and how does it differ from imperative programming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is functional programming, and how does it differ from imperative programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -66,42 +44,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Pure functions, and why are they",
       "description": "What are pure functions, and why are they important in functional programming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are pure functions, and why are they important in functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -125,43 +81,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of immutability in functional",
       "description": "Explain the concept of immutability in functional programming.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of immutability in functional programming.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -185,42 +118,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A higher-order function, and can you",
       "description": "What is a higher-order function, and can you provide an example of one?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a higher-order function, and can you provide an example of one?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -244,34 +155,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Closures",
       "description": "Explain the concept of closures in functional programming.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the concept of closures in functional programming.?\" Requirements: - Closure = function + captured lexical environment - Practical use cases (privacy, callbacks, factories) Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming",
-        "closures"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming", "closures"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -279,10 +174,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -305,42 +197,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Lazy evaluation, and how does it",
       "description": "What is lazy evaluation, and how does it relate to functional programming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is lazy evaluation, and how does it relate to functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -364,42 +234,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Currying, and how can it be",
       "description": "What is currying, and how can it be used in functional programming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is currying, and how can it be used in functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -423,42 +271,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Function composition, and why is it",
       "description": "What is function composition, and why is it important in functional programming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is function composition, and why is it important in functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -482,42 +308,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Some advantages of functional programming languages,",
       "description": "What are some advantages of functional programming languages, and when would you choose to use one?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some advantages of functional programming languages, and when would you choose to use one?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -541,43 +345,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of referential transparency in",
       "description": "Explain the concept of referential transparency in functional programming.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of referential transparency in functional programming.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -601,43 +382,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Tail recursion, and why is it",
       "description": "What is tail recursion, and why is it important in functional programming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is tail recursion, and why is it important in functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -661,43 +419,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Algebraic data types (ADTs) in functional",
       "description": "What are algebraic data types (ADTs) in functional programming, and how do they differ from primitive data types?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are algebraic data types (ADTs) in functional programming, and how do they differ from primitive data types?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -721,43 +456,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Pattern matching in functional programming and",
       "description": "Explain pattern matching in functional programming and provide an example.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain pattern matching in functional programming and provide an example.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -781,42 +493,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The map function, and how is",
       "description": "What is the map function, and how is it used in functional programming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the map function, and how is it used in functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -840,42 +530,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The \"fold\" (or \"reduce\") function in",
       "description": "What is the \"fold\" (or \"reduce\") function in functional programming, and how is it used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the \"fold\" (or \"reduce\") function in functional programming, and how is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -899,42 +567,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the advantages of immutability in",
       "description": "Discuss the advantages of immutability in functional programming and provide an example of a situation where immutability is crucial.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the advantages of immutability in functional programming and provide an example of a situation where immutability is crucial.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -958,42 +604,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The filter function in functional programming,",
       "description": "What is the filter function in functional programming, and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the filter function in functional programming, and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -1017,43 +641,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of category theory and",
       "description": "Explain the concept of category theory and its relevance in functional programming.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of category theory and its relevance in functional programming.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -1077,42 +678,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the benefits of using the",
       "description": "Discuss the benefits of using the \"Maybe\" or \"Option\" type in functional programming and provide an example of how it prevents null or undefined errors.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the benefits of using the \"Maybe\" or \"Option\" type in functional programming and provide an example of how it prevents null or undefined errors.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -1136,43 +715,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Monads in functional programming and provide",
       "description": "Explain monads in functional programming and provide an example.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain monads in functional programming and provide an example.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -1196,43 +752,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A monad transformer, and how is",
       "description": "What is a monad transformer, and how is it used in functional programming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a monad transformer, and how is it used in functional programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -1256,42 +789,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the principles of referential transparency",
       "description": "Discuss the principles of referential transparency and equational reasoning in functional programming.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the principles of referential transparency and equational reasoning in functional programming.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",
@@ -1315,43 +826,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of higher-kinded types (HKTs)",
       "description": "Explain the concept of higher-kinded types (HKTs) in functional programming and provide an example.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of higher-kinded types (HKTs) in functional programming and provide an example.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "functional-programming"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["functional-programming"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "functional-programming"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["functional-programming"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T18:05:32.118Z",
       "updatedAt": "2025-12-19T18:05:32.118Z",
       "createdBy": "admin",

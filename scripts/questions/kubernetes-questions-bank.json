@@ -7,44 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Kubernetes",
       "description": "What is Kubernetes?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Kubernetes?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -67,44 +43,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "K8s",
       "description": "What are K8s?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are K8s?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -127,44 +79,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Orchestration",
       "description": "What is orchestration?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is orchestration?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -187,21 +115,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The components of a Kubernetes cluster",
       "description": "Explain the components of a Kubernetes cluster and their roles.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the components of a Kubernetes cluster and their roles.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -212,20 +132,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -248,21 +157,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Master Node in Kubernetes.",
       "description": "Explain the Master Node in Kubernetes.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Master Node in Kubernetes.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -273,20 +174,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -309,21 +199,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Worker Node in Kubernetes.",
       "description": "Explain the Worker Node in Kubernetes.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the Worker Node in Kubernetes.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -334,9 +216,7 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
+      "primaryTechStack": ["kubernetes"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -344,10 +224,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -370,21 +247,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Kubelet in Kubernetes.",
       "description": "Explain the Kubelet in Kubernetes.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Kubelet in Kubernetes.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -395,20 +264,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -431,21 +289,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Kube-proxy in Kubernetes.",
       "description": "Explain the Kube-proxy in Kubernetes.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Kube-proxy in Kubernetes.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -456,20 +306,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -492,21 +331,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The API Server in Kubernetes.",
       "description": "Explain the API Server in Kubernetes.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the API Server in Kubernetes.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -517,20 +348,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -553,21 +373,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Controller Manager in Kubernetes.",
       "description": "Explain the Controller Manager in Kubernetes.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Controller Manager in Kubernetes.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -578,20 +390,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -614,44 +415,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Pod in Kubernetes, and why",
       "description": "What is a Pod in Kubernetes, and why is it the smallest deployable unit?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Pod in Kubernetes, and why is it the smallest deployable unit?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -674,44 +451,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The differences between Kubernetes and Docker",
       "description": "What are the differences between Kubernetes and Docker?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the differences between Kubernetes and Docker?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -734,21 +487,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The main differences between the Docker",
       "description": "What are the main differences between the Docker Swarm and Kubernetes?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the main differences between the Docker Swarm and Kubernetes?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -759,20 +504,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -795,21 +529,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of Kubernetes Labels and",
       "description": "Explain the purpose of Kubernetes Labels and Selectors.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Kubernetes Labels and Selectors.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -820,20 +546,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -856,44 +571,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Heapster in Kubernetes",
       "description": "Define Heapster in Kubernetes?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Define Heapster in Kubernetes?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -916,44 +607,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Kubernetes Deployment",
       "description": "What is a Kubernetes Deployment?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Kubernetes Deployment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -976,21 +643,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Persistent Volumes (PVs)",
       "description": "Explain the concept of Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) in Kubernetes.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) in Kubernetes.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1001,20 +660,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1037,44 +685,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Mention some key differences between Kubernetes",
       "description": "Mention some key differences between Kubernetes Volumes and Docker Volumes .?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Mention some key differences between Kubernetes Volumes and Docker Volumes .?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1097,44 +721,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "List some of the types of",
       "description": "List some of the types of Kubernetes volumes.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"List some of the types of Kubernetes volumes.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1157,45 +757,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Kubernetes StatefulSet, and in what",
       "description": "What is a Kubernetes StatefulSet, and in what scenarios would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Kubernetes StatefulSet, and in what scenarios would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1218,21 +793,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Horizontal Pod Autoscaling in Kubernetes.",
       "description": "Explain Horizontal Pod Autoscaling in Kubernetes.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Horizontal Pod Autoscaling in Kubernetes.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1243,20 +810,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1279,44 +835,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Kubernetes ConfigMaps and Secrets",
       "description": "What are Kubernetes ConfigMaps and Secrets?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Kubernetes ConfigMaps and Secrets?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1339,44 +871,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Kubernetes Operator",
       "description": "What is a Kubernetes Operator?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Kubernetes Operator?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1399,44 +907,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Minikube",
       "description": "What is Minikube?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Minikube?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1459,44 +943,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Kubectl",
       "description": "What is kubectl?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is kubectl?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1519,44 +979,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Kubernetes Helm",
       "description": "What is Kubernetes Helm?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Kubernetes Helm?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1579,21 +1015,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Kubernetes namespaces.",
       "description": "Explain the concept of Kubernetes namespaces.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Kubernetes namespaces.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1604,20 +1032,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1640,44 +1057,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You use custom namespaces",
       "description": "Why should you use custom namespaces ?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Why should you use custom namespaces ?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1700,44 +1093,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Kubernetes liveness and readiness probes",
       "description": "What are Kubernetes liveness and readiness probes?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Kubernetes liveness and readiness probes?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1760,21 +1129,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Kubernetes Network Policies.",
       "description": "Explain Kubernetes Network Policies.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Kubernetes Network Policies.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1785,20 +1146,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1821,44 +1171,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Kube-proxy",
       "description": "What is Kube-proxy?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Kube-proxy?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1881,21 +1207,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Node port",
       "description": "Explain node port?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain node port?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1906,20 +1224,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -1942,21 +1249,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How Kubernetes handles rolling back a",
       "description": "Explain how Kubernetes handles rolling back a failed deployment and maintaining application availability.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how Kubernetes handles rolling back a failed deployment and maintaining application availability.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1968,20 +1267,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -2004,21 +1292,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you explain Kubernetes' concept of",
       "description": "Can you explain Kubernetes' concept of affinity and anti-affinity rules and how they affect Pod scheduling?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain Kubernetes' concept of affinity and anti-affinity rules and how they affect Pod scheduling?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2029,20 +1309,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -2065,44 +1334,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Kubernetes Service, and why is",
       "description": "What is a Kubernetes Service, and why is it needed?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Kubernetes Service, and why is it needed?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -2125,44 +1370,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between a Kubernetes Service",
       "description": "What is the difference between a Kubernetes Service and an Ingress resource?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a Kubernetes Service and an Ingress resource?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -2185,44 +1406,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Kubernetes DaemonSet",
       "description": "What is a Kubernetes DaemonSet?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Kubernetes DaemonSet?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -2245,21 +1442,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How rolling updates work in Kubernetes",
       "description": "Explain how rolling updates work in Kubernetes Deployments.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how rolling updates work in Kubernetes Deployments.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2270,20 +1459,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -2306,44 +1484,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the Kubernetes Service",
       "description": "What is the purpose of the Kubernetes Service object?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the Kubernetes Service object?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -2366,21 +1520,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Kubernetes RBAC (Role-Based Access Control) and",
       "description": "Explain Kubernetes RBAC (Role-Based Access Control) and its significance in cluster security.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Kubernetes RBAC (Role-Based Access Control) and its significance in cluster security.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2392,20 +1538,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -2428,44 +1563,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Between a replica set and a",
       "description": "Differentiate between a replica set and a replication controller.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Differentiate between a replica set and a replication controller.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -2488,44 +1599,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Federated clusters",
       "description": "What are federated clusters?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are federated clusters?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -2548,44 +1635,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You get a static IP for",
       "description": "How can you get a static IP for a Kubernetes load balancer?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you get a static IP for a Kubernetes load balancer?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",
@@ -2608,21 +1671,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "OpenShift.",
       "description": "Explain OpenShift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain OpenShift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kubernetes"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kubernetes"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2633,20 +1688,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "kubernetes"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kubernetes"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:46.467Z",
       "updatedAt": "2025-12-19T17:55:46.467Z",
       "createdBy": "admin",

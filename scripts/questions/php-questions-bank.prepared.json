@@ -7,44 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "PHP, and how does it differ",
       "description": "What is PHP, and how does it differ from other programming languages like JavaScript or Python?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is PHP, and how does it differ from other programming languages like JavaScript or Python?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -68,45 +44,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The differences between single-quoted strings (')",
       "description": "Explain the differences between single-quoted strings (') and double-quoted strings (\") in PHP.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the differences between single-quoted strings (') and double-quoted strings (\") in PHP.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -130,44 +81,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the echo, print,",
       "description": "What is the purpose of the echo, print, and printf statements in PHP? How are they different?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the echo, print, and printf statements in PHP? How are they different?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -191,45 +118,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The use of the ternary operator",
       "description": "Explain the use of the ternary operator (? :) in PHP?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the use of the ternary operator (? :) in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -253,44 +155,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of PHP's $_GET and",
       "description": "What is the purpose of PHP's $_GET and $_POST superglobal variables?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP's $_GET and $_POST superglobal variables?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -314,44 +192,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the isset() and",
       "description": "What is the purpose of the isset() and empty() functions in PHP?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the isset() and empty() functions in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -375,22 +229,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "What PHP sessions are and how",
       "description": "Explain what PHP sessions are and how they work. How do you start and destroy a session in PHP?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain what PHP sessions are and how they work. How do you start and destroy a session in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -401,20 +246,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -438,44 +272,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of PHP namespaces, and",
       "description": "What is the purpose of PHP namespaces, and how do they prevent naming conflicts?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP namespaces, and how do they prevent naming conflicts?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -499,22 +309,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "SQL injection, and how can you",
       "description": "What is SQL injection, and how can you prevent it in PHP?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is SQL injection, and how can you prevent it in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -525,20 +326,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -562,45 +352,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of PHP's include and",
       "description": "Explain the purpose of PHP's include and require statements. How do they differ, and when should you use one over the other?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the purpose of PHP's include and require statements. How do they differ, and when should you use one over the other?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -624,44 +389,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Object-Oriented Programming (OOP) in PHP, and",
       "description": "What is Object-Oriented Programming (OOP) in PHP, and how does it differ from procedural programming?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is Object-Oriented Programming (OOP) in PHP, and how does it differ from procedural programming?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -685,45 +426,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between == and ===",
       "description": "Explain the difference between == and === in PHP for comparing values.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the difference between == and === in PHP for comparing values.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -747,44 +463,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of PHP's foreach loop,",
       "description": "What is the purpose of PHP's foreach loop, and how does it differ from other looping constructs like for and while?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP's foreach loop, and how does it differ from other looping constructs like for and while?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -808,45 +500,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A PHP trait, and how does",
       "description": "What is a PHP trait, and how does it differ from a class?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is a PHP trait, and how does it differ from a class?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -870,44 +537,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Autoloading in PHP, and why is",
       "description": "What is autoloading in PHP, and why is it useful?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is autoloading in PHP, and why is it useful?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -931,45 +574,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "What the PHP spl_autoload_register() function is",
       "description": "Explain what the PHP spl_autoload_register() function is used for.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain what the PHP spl_autoload_register() function is used for.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -993,44 +611,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "PHP Magic Methods",
       "description": "What are PHP Magic Methods?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are PHP Magic Methods?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1054,44 +648,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Composer in PHP, and how does",
       "description": "What is Composer in PHP, and how does it simplify dependency management?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is Composer in PHP, and how does it simplify dependency management?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1115,44 +685,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the PHP \"header\"",
       "description": "What is the purpose of the PHP \"header\" function? Provide an example of how it can be used.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the PHP \"header\" function? Provide an example of how it can be used.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1176,22 +722,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of cookies in PHP,",
       "description": "Explain the concept of cookies in PHP, and provide an example of how to set and retrieve cookies in a PHP script.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept of cookies in PHP, and provide an example of how to set and retrieve cookies in a PHP script.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1202,20 +739,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1239,22 +765,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of PHP sessions and",
       "description": "Explain the concept of PHP sessions and cookies.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept of PHP sessions and cookies.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1265,20 +782,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1302,45 +808,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the PHP \"mysqli\"",
       "description": "What is the purpose of the PHP \"mysqli\" extension, and how does it differ from the \"mysql\" extension?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the PHP \"mysqli\" extension, and how does it differ from the \"mysql\" extension?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1364,45 +845,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the mysqli and",
       "description": "What is the purpose of the mysqli and PDO extensions in PHP?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the mysqli and PDO extensions in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1426,44 +882,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The use of the $_SERVER superglobal",
       "description": "What is the use of the $_SERVER superglobal array in PHP?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the use of the $_SERVER superglobal array in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1487,44 +919,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the autoload feature",
       "description": "What is the purpose of the autoload feature in PHP, and how can it be implemented?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the autoload feature in PHP, and how can it be implemented?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1548,45 +956,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The use of the try, catch,",
       "description": "Explain the use of the try, catch, and finally blocks in exception handling in PHP.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the use of the try, catch, and finally blocks in exception handling in PHP.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1610,22 +993,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of PHP's $_SESSION variable",
       "description": "Explain the purpose of PHP's $_SESSION variable and how it can be used for session management.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the purpose of PHP's $_SESSION variable and how it can be used for session management.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1636,20 +1010,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1673,45 +1036,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The term \"PSR standards\" in PHP",
       "description": "Explain the term \"PSR standards\" in PHP development, and why are they important?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the term \"PSR standards\" in PHP development, and why are they important?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1735,44 +1073,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of PHP's serialize() and",
       "description": "What is the purpose of PHP's serialize() and unserialize() functions?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP's serialize() and unserialize() functions?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1796,44 +1110,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "PHP's cURL library used for, and",
       "description": "What is PHP's cURL library used for, and how can it be utilized in PHP scripts?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is PHP's cURL library used for, and how can it be utilized in PHP scripts?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1857,44 +1147,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "PHP's json_encode() function used for",
       "description": "What is PHP's json_encode() function used for?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is PHP's json_encode() function used for?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1918,22 +1184,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How to securely handle user authentication",
       "description": "Explain how to securely handle user authentication and password storage in PHP applications.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain how to securely handle user authentication and password storage in PHP applications.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1945,20 +1202,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -1982,45 +1228,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "What the Singleton design pattern is",
       "description": "Explain what the Singleton design pattern is and provide an example of how it can be implemented in PHP.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain what the Singleton design pattern is and provide an example of how it can be implemented in PHP.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -2044,44 +1265,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of PHP's array_map() function,",
       "description": "What is the purpose of PHP's array_map() function, and how is it used to manipulate arrays?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP's array_map() function, and how is it used to manipulate arrays?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -2105,22 +1302,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How to set up error handling",
       "description": "Explain how to set up error handling and logging in PHP applications to aid in debugging and monitoring.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain how to set up error handling and logging in PHP applications to aid in debugging and monitoring.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2132,20 +1320,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -2169,44 +1346,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of PHP's unset() function,",
       "description": "What is the purpose of PHP's unset() function, and how does it work?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP's unset() function, and how does it work?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -2230,45 +1383,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of PHP's filter_var() function",
       "description": "Explain the purpose of PHP's filter_var() function and how it can be used for data validation and sanitization.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the purpose of PHP's filter_var() function and how it can be used for data validation and sanitization.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -2292,44 +1420,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of PHP's ob_start() and",
       "description": "What is the purpose of PHP's ob_start() and ob_end_flush() functions?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of PHP's ob_start() and ob_end_flush() functions?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -2353,35 +1457,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Closures",
       "description": "What is a PHP closure (anonymous function), and how is it used?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is a PHP closure (anonymous function), and how is it used?\"\n\nRequirements:\n- Closure = function + captured lexical environment\n- Practical use cases (privacy, callbacks, factories)\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "closures",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "closures", "php"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2389,10 +1476,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -2415,45 +1499,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the __construct method",
       "description": "Explain the purpose of the __construct method in PHP classes and how it differs from other methods.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the purpose of the __construct method in PHP classes and how it differs from other methods.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -2477,44 +1536,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of output buffering in",
       "description": "What is the purpose of output buffering in PHP, and how can it be enabled and disabled?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of output buffering in PHP, and how can it be enabled and disabled?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -2538,22 +1573,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of dependency injection in",
       "description": "Explain the concept of dependency injection in PHP?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept of dependency injection in PHP?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2564,20 +1590,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -2601,44 +1616,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The PHP memory_limit setting, and why",
       "description": "What is the PHP memory_limit setting, and why is it important?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the PHP memory_limit setting, and why is it important?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "php"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "php"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "php"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",
@@ -2662,24 +1653,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "XSS",
       "description": "What is Cross-Site Scripting (XSS), and how can you prevent it in PHP applications?",
       "prompt": "You are evaluating a mid-level candidate.\nAnswer the question: \"What is Cross-Site Scripting (XSS), and how can you prevent it in PHP applications?\"\n\nRequirements:\n- Define the vulnerability and the attack vector\n- Concrete prevention/mitigation techniques\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "security"
-      ],
-      "tags": [
-        "javascript",
-        "xss",
-        "security",
-        "php"
-      ],
+      "subtopics": ["security"],
+      "tags": ["javascript", "xss", "security", "php"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the vulnerability and the attack vector; Concrete prevention/mitigation techniques. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2690,10 +1670,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "javascript",
-        "php"
-      ],
+      "primaryTechStack": ["javascript", "php"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2701,10 +1678,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:01:19.850Z",
       "updatedAt": "2025-12-19T15:01:19.850Z",
       "createdBy": "generated_by_ai",

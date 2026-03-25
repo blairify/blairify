@@ -25,9 +25,20 @@ export function detectPlatform(url: string): Platform {
 
 function normalizeUrl(url: string, platform: Platform): string {
   if (platform === "linkedin") {
+    let parsed: URL;
+    try {
+      parsed = new URL(url);
+    } catch {
+      return url;
+    }
+
+    const viewMatch = parsed.pathname.match(/\/jobs\/view\/(\d+)/i);
+    if (viewMatch?.[1]) {
+      return `https://www.linkedin.com/jobs/view/${viewMatch[1]}/`;
+    }
+
     // /jobs/collections/recommended/?currentJobId=123 → /jobs/view/123
     // /jobs/search/?currentJobId=123 → /jobs/view/123
-    const parsed = new URL(url);
     const currentJobId = parsed.searchParams.get("currentJobId");
     if (currentJobId && !/\/jobs\/view\//.test(parsed.pathname)) {
       return `https://www.linkedin.com/jobs/view/${currentJobId}/`;

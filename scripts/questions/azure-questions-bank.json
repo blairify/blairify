@@ -8,44 +8,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure and why is it important",
       "description": "What is Azure and why is it important?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -69,45 +45,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between Azure Virtual Machines",
       "description": "What is the difference between Azure Virtual Machines (VMs) and Azure App Service?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Azure Virtual Machines (VMs) and Azure App Service?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -131,21 +82,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Azure Resource Groups.",
       "description": "Explain the concept of Azure Resource Groups.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Azure Resource Groups.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -156,20 +99,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -193,21 +125,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between Azure SQL Database",
       "description": "Explain the difference between Azure SQL Database and Azure Cosmos DB.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Azure SQL Database and Azure Cosmos DB.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -219,20 +143,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -256,44 +169,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure DevOps and how can it",
       "description": "What is Azure DevOps and how can it be used in the software development lifecycle?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure DevOps and how can it be used in the software development lifecycle?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -317,21 +206,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The differences between Azure Functions and",
       "description": "Explain the differences between Azure Functions and Azure Logic Apps.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between Azure Functions and Azure Logic Apps.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -343,20 +224,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -380,21 +250,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Availability Zones, and how do",
       "description": "What are Azure Availability Zones, and how do they contribute to high availability?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Azure Availability Zones, and how do they contribute to high availability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -405,20 +267,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -442,21 +293,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How Azure Virtual Network (VNet) peering",
       "description": "Explain how Azure Virtual Network (VNet) peering works.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how Azure Virtual Network (VNet) peering works.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -467,20 +310,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -504,44 +336,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Managed Identity and Service Principal,",
       "description": "What are Azure Managed Identity and Service Principal, and when would you use each one?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Azure Managed Identity and Service Principal, and when would you use each one?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -565,44 +373,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure DevTest Labs, and how can",
       "description": "What is Azure DevTest Labs, and how can it benefit software development teams?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure DevTest Labs, and how can it benefit software development teams?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -626,21 +410,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between Azure Load Balancer",
       "description": "Explain the difference between Azure Load Balancer and Azure Application Gateway.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Azure Load Balancer and Azure Application Gateway.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -652,20 +428,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -689,21 +454,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Kubernetes Service (AKS), and why",
       "description": "What is Azure Kubernetes Service (AKS), and why would you use it for container orchestration?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Kubernetes Service (AKS), and why would you use it for container orchestration?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -714,20 +471,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -751,45 +497,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Key Vault, and why is",
       "description": "What is Azure Key Vault, and why is it essential for securing Azure applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Key Vault, and why is it essential for securing Azure applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -813,21 +534,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Azure Functions triggers",
       "description": "Explain the concept of Azure Functions triggers and bindings.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Azure Functions triggers and bindings.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -838,20 +551,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -875,21 +577,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Traffic Manager, and how does",
       "description": "What is Azure Traffic Manager, and how does it improve the availability and performance of applications?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is Azure Traffic Manager, and how does it improve the availability and performance of applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -902,9 +596,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
+      "primaryTechStack": ["azure"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -912,10 +604,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -939,21 +628,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Azure Durable Functions",
       "description": "Explain the concept of Azure Durable Functions and provide an example use case.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Azure Durable Functions and provide an example use case.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -964,20 +645,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1001,45 +671,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Managed Application, and how does",
       "description": "What is Azure Managed Application, and how does it benefit organizations and developers?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Managed Application, and how does it benefit organizations and developers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1063,44 +708,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Azure Well-Architected Framework and its",
       "description": "Describe the Azure Well-Architected Framework and its key pillars.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the Azure Well-Architected Framework and its key pillars.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1124,44 +745,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Policy and Azure Blueprints, and",
       "description": "What are Azure Policy and Azure Blueprints, and how do they help in enforcing compliance and governance in Azure environments?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Azure Policy and Azure Blueprints, and how do they help in enforcing compliance and governance in Azure environments?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1185,45 +782,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Application Insights, and how can",
       "description": "What is Azure Application Insights, and how can it help in monitoring and troubleshooting applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Application Insights, and how can it help in monitoring and troubleshooting applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1247,21 +819,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of Azure Resource Locks",
       "description": "Explain the purpose of Azure Resource Locks and when you might use them.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Azure Resource Locks and when you might use them.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1272,20 +836,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1309,21 +862,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of Azure Resource Manager",
       "description": "Explain the purpose of Azure Resource Manager (ARM) templates and how they support infrastructure as code (IaC) principles.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Azure Resource Manager (ARM) templates and how they support infrastructure as code (IaC) principles.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1334,20 +879,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1371,21 +905,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Bicep, and how does it",
       "description": "What is Azure Bicep, and how does it improve the authoring and management of Azure Resource Manager templates?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Bicep, and how does it improve the authoring and management of Azure Resource Manager templates?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1396,20 +922,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1433,21 +948,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can you explain the benefits of",
       "description": "Can you explain the benefits of using Azure DevOps for continuous integration and continuous deployment (CI/CD) pipelines?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can you explain the benefits of using Azure DevOps for continuous integration and continuous deployment (CI/CD) pipelines?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1459,20 +966,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1496,21 +992,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Active Directory Domain Services (Azure",
       "description": "What is Azure Active Directory Domain Services (Azure AD DS), and how does it differ from Azure Active Directory?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Active Directory Domain Services (Azure AD DS), and how does it differ from Azure Active Directory?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1521,20 +1009,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1558,21 +1035,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Data Factory and its role",
       "description": "Explain Azure Data Factory and its role in data integration and transformation.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Azure Data Factory and its role in data integration and transformation.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1584,20 +1053,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1621,21 +1079,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Policy Guest Configuration, and how",
       "description": "What is Azure Policy Guest Configuration, and how can it help in enforcing compliance and security policies for virtual machines?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Policy Guest Configuration, and how can it help in enforcing compliance and security policies for virtual machines?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1646,20 +1096,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1683,21 +1122,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Cache for Redis, and in",
       "description": "What is Azure Cache for Redis, and in what scenarios would you use it for caching data?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Cache for Redis, and in what scenarios would you use it for caching data?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1709,20 +1140,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1746,21 +1166,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Virtual WAN and how it",
       "description": "Explain Azure Virtual WAN and how it can simplify network connectivity in a distributed organization.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Azure Virtual WAN and how it can simplify network connectivity in a distributed organization.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1771,20 +1183,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1808,21 +1209,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of Azure Front Door",
       "description": "Explain the purpose of Azure Front Door and how it enhances the performance and security of web applications.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the purpose of Azure Front Door and how it enhances the performance and security of web applications.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1836,9 +1229,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
+      "primaryTechStack": ["azure"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1846,10 +1237,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1873,21 +1261,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of Azure IoT Hub",
       "description": "Explain the purpose of Azure IoT Hub and its role in IoT solutions.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Azure IoT Hub and its role in IoT solutions.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1898,20 +1278,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1935,21 +1304,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Firewall, and how does it",
       "description": "What is Azure Firewall, and how does it enhance network security in Azure environments?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Firewall, and how does it enhance network security in Azure environments?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1960,20 +1321,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -1997,21 +1347,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The role of Azure Service Fabric",
       "description": "Explain the role of Azure Service Fabric in building and managing microservices-based applications.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of Azure Service Fabric in building and managing microservices-based applications.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2023,20 +1365,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2060,44 +1391,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Managed Disks, and why are",
       "description": "What are Azure Managed Disks, and why are they advantageous for managing storage in Azure virtual machines?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Azure Managed Disks, and why are they advantageous for managing storage in Azure virtual machines?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2121,21 +1428,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Azure Blue-Green Deployment.",
       "description": "Explain the concept of Azure Blue-Green Deployment.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Azure Blue-Green Deployment.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2146,20 +1445,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2183,21 +1471,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Confidential Computing and how it",
       "description": "Explain Azure Confidential Computing and how it enhances security for sensitive workloads.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Azure Confidential Computing and how it enhances security for sensitive workloads.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2209,20 +1489,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2235,21 +1504,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The role of Azure API Management",
       "description": "Explain the role of Azure API Management and how it simplifies API creation, publishing, and management.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the role of Azure API Management and how it simplifies API creation, publishing, and management.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2260,20 +1521,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2297,44 +1547,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Quantum, and how does it",
       "description": "What is Azure Quantum, and how does it enable organizations to explore quantum computing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Quantum, and how does it enable organizations to explore quantum computing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2358,21 +1584,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Databricks, and how does it",
       "description": "What is Azure Databricks, and how does it facilitate big data analytics and machine learning tasks?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Databricks, and how does it facilitate big data analytics and machine learning tasks?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2383,20 +1601,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2420,45 +1627,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Site Recovery (ASR), and how",
       "description": "What is Azure Site Recovery (ASR), and how does it contribute to disaster recovery planning for Azure applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Site Recovery (ASR), and how does it contribute to disaster recovery planning for Azure applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2482,21 +1664,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Azure Service Bus",
       "description": "Explain the concept of Azure Service Bus and its role in building reliable messaging solutions.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Azure Service Bus and its role in building reliable messaging solutions.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2507,20 +1681,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2544,21 +1707,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Cognitive Services, and how can",
       "description": "What is Azure Cognitive Services, and how can they be integrated into applications to add AI capabilities?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Cognitive Services, and how can they be integrated into applications to add AI capabilities?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2570,20 +1725,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2607,21 +1751,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Bastion, and how does it",
       "description": "What is Azure Bastion, and how does it enhance secure remote management of Azure virtual machines?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Bastion, and how does it enhance secure remote management of Azure virtual machines?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2632,20 +1768,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2669,44 +1794,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Event Grid, and how does",
       "description": "What is Azure Event Grid, and how does it enable event-driven architectures in Azure?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Event Grid, and how does it enable event-driven architectures in Azure?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2730,21 +1831,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Stream Analytics and its use",
       "description": "Explain Azure Stream Analytics and its use cases in real-time data processing.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Azure Stream Analytics and its use cases in real-time data processing.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2755,20 +1848,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2792,21 +1874,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Container Instances (ACI), and how",
       "description": "What is Azure Container Instances (ACI), and how does it differ from Azure Kubernetes Service (AKS)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Container Instances (ACI), and how does it differ from Azure Kubernetes Service (AKS)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2817,20 +1891,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2854,44 +1917,20 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Active Directory B2C (Azure AD",
       "description": "What is Azure Active Directory B2C (Azure AD B2C), and how does it differ from Azure AD?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Azure Active Directory B2C (Azure AD B2C), and how does it differ from Azure AD?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2915,21 +1954,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Data Lake Storage and its",
       "description": "Explain Azure Data Lake Storage and its advantages for storing and processing large volumes of data.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Azure Data Lake Storage and its advantages for storing and processing large volumes of data.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2941,20 +1972,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",
@@ -2978,21 +1998,13 @@
       "reviewedAt": null,
 
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Azure Blob Storage, Azure File Storage,",
       "description": "Explain Azure Blob Storage, Azure File Storage, and Azure Disk Storage.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Azure Blob Storage, Azure File Storage, and Azure Disk Storage.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "azure"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["azure"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3003,20 +2015,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "azure"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["azure"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:55:03.329Z",
       "updatedAt": "2025-12-19T17:55:03.329Z",
       "createdBy": "admin",

@@ -7,46 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis",
       "description": "What is Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -70,46 +44,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The key features of Redis",
       "description": "What are the key features of Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key features of Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -133,46 +81,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You use Redis over a traditional",
       "description": "Why would you use Redis over a traditional relational database?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Why would you use Redis over a traditional relational database?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -196,46 +118,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The primary use case for Redis",
       "description": "What is the primary use case for Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the primary use case for Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -259,46 +155,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Redis differ from Memcached",
       "description": "How does Redis differ from Memcached?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Redis differ from Memcached?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -322,46 +192,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Data types does Redis support",
       "description": "What data types does Redis support?",
       "prompt": "You are evaluating a entry-level candidate. Answer the question: \"What data types does Redis support?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -385,24 +229,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis strings and their common use",
       "description": "Explain Redis strings and their common use cases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Redis strings and their common use cases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -413,19 +246,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -449,46 +272,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis lists and how are they",
       "description": "What are Redis lists and how are they used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Redis lists and how are they used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -512,46 +309,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis sets and when to use",
       "description": "Describe Redis sets and when to use them.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe Redis sets and when to use them.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -575,46 +346,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Sorted sets in Redis",
       "description": "What are sorted sets in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are sorted sets in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -638,24 +383,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Hashes in Redis.",
       "description": "Explain hashes in Redis.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain hashes in Redis.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -667,19 +401,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -703,46 +427,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Redis key and how are",
       "description": "What is a Redis key and how are keys managed?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Redis key and how are keys managed?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -766,46 +464,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The default port for Redis",
       "description": "What is the default port for Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the default port for Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -829,46 +501,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Redis handle expiration of keys",
       "description": "How does Redis handle expiration of keys?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Redis handle expiration of keys?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -892,46 +538,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The TTL command in Redis",
       "description": "What is the TTL command in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the TTL command in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -955,46 +575,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis persistence",
       "description": "What is Redis persistence?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Redis persistence?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1018,24 +612,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "RDB (Redis Database) snapshotting.",
       "description": "Explain RDB (Redis Database) snapshotting.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain RDB (Redis Database) snapshotting.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1046,19 +629,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1082,24 +655,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "AOF (Append Only File) in Redis",
       "description": "What is AOF (Append Only File) in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AOF (Append Only File) in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1110,19 +672,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1146,46 +698,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The differences between RDB and AOF",
       "description": "What are the differences between RDB and AOF persistence?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the differences between RDB and AOF persistence?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1209,46 +735,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You choose RDB over AOF",
       "description": "When would you choose RDB over AOF?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"When would you choose RDB over AOF?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1272,46 +772,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You configure persistence in Redis",
       "description": "How can you configure persistence in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you configure persistence in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1335,46 +809,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis replication",
       "description": "What is Redis replication?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Redis replication?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1398,24 +846,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Master-slave replication in Redis.",
       "description": "Explain master-slave replication in Redis.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain master-slave replication in Redis.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1426,19 +863,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1462,46 +889,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You set up replication in Redis",
       "description": "How do you set up replication in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you set up replication in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1525,46 +926,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The role of the SLAVEOF command",
       "description": "What is the role of the SLAVEOF command?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the SLAVEOF command?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1588,24 +963,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Happens during replication failover",
       "description": "What happens during replication failover?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What happens during replication failover?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1617,19 +981,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1653,46 +1007,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis Sentinel",
       "description": "What is Redis Sentinel?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Redis Sentinel?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1716,24 +1044,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Redis Sentinel provide high availability",
       "description": "How does Redis Sentinel provide high availability?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Redis Sentinel provide high availability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1744,19 +1061,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1780,46 +1087,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The components of Redis Sentinel",
       "description": "What are the components of Redis Sentinel?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the components of Redis Sentinel?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1843,46 +1124,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You configure Redis Sentinel",
       "description": "How do you configure Redis Sentinel?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you configure Redis Sentinel?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1906,46 +1161,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Pub/Sub messaging in Redis",
       "description": "What is Pub/Sub messaging in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Pub/Sub messaging in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -1969,24 +1198,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How publish and subscribe works in",
       "description": "Explain how publish and subscribe works in Redis.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how publish and subscribe works in Redis.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1997,19 +1215,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2033,46 +1241,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The limitations of Redis Pub/Sub",
       "description": "What are the limitations of Redis Pub/Sub?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the limitations of Redis Pub/Sub?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2096,46 +1278,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis transactions",
       "description": "What are Redis transactions?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Redis transactions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2159,46 +1315,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "MULTI and EXEC work in Redis",
       "description": "How do MULTI and EXEC work in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do MULTI and EXEC work in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2222,46 +1352,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The WATCH command and optimistic locking",
       "description": "What is the WATCH command and optimistic locking in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the WATCH command and optimistic locking in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2285,46 +1389,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Lua scripts in Redis",
       "description": "What are Lua scripts in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Lua scripts in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2348,46 +1426,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You execute Lua scripts in Redis",
       "description": "How can you execute Lua scripts in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you execute Lua scripts in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2411,46 +1463,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The benefits of using Lua scripts",
       "description": "What are the benefits of using Lua scripts in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of using Lua scripts in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2474,46 +1500,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Pipelining in Redis",
       "description": "What is pipelining in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is pipelining in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2537,36 +1537,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es pipelining improve performance",
       "description": "How does pipelining improve performance?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does pipelining improve performance?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2574,10 +1556,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2601,46 +1580,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Some common Redis commands for strings",
       "description": "What are some common Redis commands for strings?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some common Redis commands for strings?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2664,46 +1617,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Common commands for lists in Redis",
       "description": "What are common commands for lists in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are common commands for lists in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2727,24 +1654,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Commands for sets in Redis.",
       "description": "Explain commands for sets in Redis.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain commands for sets in Redis.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2755,19 +1671,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2791,46 +1697,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Commands are used for sorted sets",
       "description": "What commands are used for sorted sets?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What commands are used for sorted sets?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2854,46 +1734,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The role of the CONFIG command",
       "description": "What is the role of the CONFIG command in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the CONFIG command in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2917,36 +1771,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Redis handle memory management",
       "description": "How does Redis handle memory management?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does Redis handle memory management?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2954,10 +1790,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -2981,46 +1814,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The maxmemory configuration in Redis",
       "description": "What is the maxmemory configuration in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the maxmemory configuration in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3044,24 +1851,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Eviction policies in Redis.",
       "description": "Explain eviction policies in Redis.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain eviction policies in Redis.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3072,19 +1868,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3108,24 +1894,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The different eviction policies available",
       "description": "What are the different eviction policies available?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the different eviction policies available?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3136,19 +1911,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3172,36 +1937,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Redis handle out-of-memory situations",
       "description": "How does Redis handle out-of-memory situations?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does Redis handle out-of-memory situations?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -3209,10 +1956,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3236,46 +1980,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis clustering",
       "description": "What is Redis clustering?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Redis clustering?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3299,24 +2017,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How Redis Cluster works.",
       "description": "Explain how Redis Cluster works.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how Redis Cluster works.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3327,19 +2034,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3363,24 +2060,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Slot hashing in Redis Cluster",
       "description": "What is slot hashing in Redis Cluster?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is slot hashing in Redis Cluster?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3391,19 +2077,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3427,24 +2103,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Many hash slots are there in",
       "description": "How many hash slots are there in Redis Cluster?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How many hash slots are there in Redis Cluster?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3455,19 +2120,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3491,46 +2146,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Resharding in Redis Cluster",
       "description": "What is resharding in Redis Cluster?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is resharding in Redis Cluster?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3554,46 +2183,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You add or remove nodes in",
       "description": "How do you add or remove nodes in a Redis Cluster?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you add or remove nodes in a Redis Cluster?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3617,46 +2220,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between replication and clustering",
       "description": "What is the difference between replication and clustering in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between replication and clustering in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3680,46 +2257,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Redis ensure data consistency in",
       "description": "How does Redis ensure data consistency in a cluster?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Redis ensure data consistency in a cluster?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3743,46 +2294,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis modules",
       "description": "What are Redis modules?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Redis modules?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3806,46 +2331,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis Streams",
       "description": "What is Redis Streams?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Redis Streams?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3869,46 +2368,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis Streams differ from Pub/Sub",
       "description": "How do Redis Streams differ from Pub/Sub?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do Redis Streams differ from Pub/Sub?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3932,46 +2405,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Consumer groups in Redis Streams",
       "description": "What are consumer groups in Redis Streams?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are consumer groups in Redis Streams?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -3995,24 +2442,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You enable SSL/TLS in Redis",
       "description": "How can you enable SSL/TLS in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you enable SSL/TLS in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4023,19 +2459,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4059,36 +2485,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Redis handle concurrency",
       "description": "How does Redis handle concurrency?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does Redis handle concurrency?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -4096,10 +2504,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4123,24 +2528,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The threading model in Redis",
       "description": "What is the threading model in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the threading model in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4151,19 +2545,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4187,26 +2571,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Event loop",
       "description": "Explain the event loop in Redis.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the event loop in Redis.?\" Requirements: - Call stack + task queue + microtask queue - Why JS is non-blocking despite single-threaded execution Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "async"
-      ],
-      "tags": [
-        "redis",
-        "event-loop",
-        "async"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["async"],
+      "tags": ["redis", "event-loop", "async"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Call stack + task queue + microtask queue; Why JS is non-blocking despite single-threaded execution. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4217,9 +2588,7 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
+      "primaryTechStack": ["redis"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -4227,10 +2596,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4253,46 +2619,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Redis support geospatial data",
       "description": "How does Redis support geospatial data?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Redis support geospatial data?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4316,46 +2656,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Commands are used for geospatial operations",
       "description": "What commands are used for geospatial operations?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What commands are used for geospatial operations?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4379,46 +2693,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Bitmap in Redis and its use",
       "description": "What is Bitmap in Redis and its use cases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Bitmap in Redis and its use cases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4442,46 +2730,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Common use cases for Redis as",
       "description": "What are common use cases for Redis as a cache?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are common use cases for Redis as a cache?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4505,24 +2767,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis be used as a session",
       "description": "How can Redis be used as a session store?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can Redis be used as a session store?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4533,19 +2784,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4569,24 +2810,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Using Redis for rate limiting.",
       "description": "Explain using Redis for rate limiting.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain using Redis for rate limiting.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4597,19 +2827,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4633,46 +2853,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Leaderboards implementation using Redis",
       "description": "What is leaderboards implementation using Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is leaderboards implementation using Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4696,24 +2890,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redis be used for real-time analytics",
       "description": "How can Redis be used for real-time analytics?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can Redis be used for real-time analytics?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4724,19 +2907,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4760,46 +2933,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The limitations of Redis",
       "description": "What are the limitations of Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the limitations of Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4823,46 +2970,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Redis handle data durability",
       "description": "How does Redis handle data durability?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Redis handle data durability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4886,24 +3007,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Failover mechanisms in detail.",
       "description": "Explain failover mechanisms in detail.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain failover mechanisms in detail.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -4914,19 +3024,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -4950,46 +3050,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es quorum work in Redis Sentinel",
       "description": "How does quorum work in Redis Sentinel?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does quorum work in Redis Sentinel?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -5013,46 +3087,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Multi-data center considerations for Redis",
       "description": "What are multi-data center considerations for Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are multi-data center considerations for Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -5076,46 +3124,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You scale Redis horizontally",
       "description": "How can you scale Redis horizontally?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you scale Redis horizontally?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -5139,46 +3161,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Sharding in the context of Redis",
       "description": "What is sharding in the context of Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is sharding in the context of Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -5202,24 +3198,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Consistent hashing in Redis.",
       "description": "Explain consistent hashing in Redis.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain consistent hashing in Redis.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -5231,19 +3216,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -5267,24 +3242,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The trade-offs between consistency and availability",
       "description": "What are the trade-offs between consistency and availability in Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the trade-offs between consistency and availability in Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -5295,19 +3259,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -5331,46 +3285,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Redis support atomic operations",
       "description": "How does Redis support atomic operations?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Redis support atomic operations?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -5394,46 +3322,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You backup and restore Redis data",
       "description": "How can you backup and restore Redis data?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you backup and restore Redis data?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -5457,46 +3359,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Redis handle network partitions",
       "description": "How does Redis handle network partitions?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Redis handle network partitions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -5520,46 +3396,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Some anti-patterns when using Redis",
       "description": "What are some anti-patterns when using Redis?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some anti-patterns when using Redis?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -5583,24 +3433,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Using Redis for distributed locks.",
       "description": "Explain using Redis for distributed locks.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain using Redis for distributed locks.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -5611,19 +3450,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",
@@ -5647,46 +3476,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Redlock algorithm",
       "description": "What is Redlock algorithm?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Redlock algorithm?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
-      "topic": [
-        "backend",
-        "fullstack"
-      ],
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "redis"
-      ],
+      "topic": ["backend", "fullstack"],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["redis"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "redis"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["redis"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:57.993Z",
       "updatedAt": "2025-12-19T17:49:57.993Z",
       "createdBy": "admin",

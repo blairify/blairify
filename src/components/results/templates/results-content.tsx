@@ -17,24 +17,25 @@ import {
   TrendingUp,
   Trophy,
   User,
-  XCircle,
 } from "lucide-react";
 import { motion } from "motion/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { CiBookmarkCheck } from "react-icons/ci";
-import ReactMarkdown, { type Components } from "react-markdown";
+import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { toast } from "sonner";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
 import { AiFeedbackCard } from "@/components/common/molecules/ai-feedback-card";
-import { MarkdownContent } from "@/components/common/molecules/markdown-content";
 import {
-  CATEGORY_MAX,
-  DetailedScoreCard,
-  getCategoryScores,
-} from "@/components/results/molecules/detailed-score-card";
+  overallSummaryMarkdownComponents,
+  qaQuestionMarkdownComponents,
+  qaResponseMarkdownComponents,
+} from "@/components/results/atoms/result-markdown-renderers";
+import { DetailedScoreCard } from "@/components/results/molecules/detailed-score-card";
+import { GuestBlurOverlay } from "@/components/results/molecules/guest-blur-overlay";
+import { PassFailBanner } from "@/components/results/molecules/pass-fail-banner";
+import { KnowledgeGapsSection } from "@/components/results/organisms/knowledge-gaps-section";
 import {
   PostInterviewSurvey,
   type PostInterviewSurveyController,
@@ -50,6 +51,10 @@ import {
 } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
 import { ACHIEVEMENTS } from "@/lib/achievements";
+import {
+  getInterviewerForCompanyAndRole,
+  getInterviewerForRole,
+} from "@/lib/config/interviewers";
 import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
 import { addUserXP } from "@/lib/services/users/user-xp";
@@ -59,21 +64,18 @@ import {
   normalizeSeniorityValue,
 } from "@/lib/utils/interview-normalizers";
 import {
-  clampFinite,
-  getGapBlurbText,
-  getGapSummaryTextWithFallback,
-  getMarkdownText,
-  getPriorityClass,
-  getPriorityLabel,
   mapSessionToInterviewResults,
   normalizeOverallSummaryMarkdown,
   stripLinks,
-  toShortTopicTitle,
 } from "@/lib/utils/results-content-utils";
 import {
   generateAnalysisMessages,
   getResultsCopySeed,
 } from "@/lib/utils/results-copy";
+import {
+  clampCategoryScores,
+  clampTechnologyScores,
+} from "@/lib/utils/score-utils";
 import { useAuth } from "@/providers/auth-provider";
 import type { InterviewSession, UserProfile } from "@/types/firestore";
 import type {
@@ -90,160 +92,19 @@ type RewardsPayload = {
   newXP: number;
 };
 
-type MarkdownChildrenProps = {
-  children?: React.ReactNode;
-};
-
-const qaMarkdownComponents: Components = {
-  p({ children }: MarkdownChildrenProps) {
-    return (
-      <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 whitespace-pre-line my-2">
-        {children}
-      </p>
-    );
-  },
-  ul({ children }: MarkdownChildrenProps) {
-    return <ul className="space-y-2 list-disc pl-5 mt-1 mb-2">{children}</ul>;
-  },
-  ol({ children }: MarkdownChildrenProps) {
-    return (
-      <ol className="space-y-2 list-decimal pl-5 mt-1 mb-2">{children}</ol>
-    );
-  },
-  li({ children }: MarkdownChildrenProps) {
-    return (
-      <li className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-        {children}
-      </li>
-    );
-  },
-  pre({ children }: MarkdownChildrenProps) {
-    return (
-      <pre className="my-2 overflow-x-auto whitespace-pre rounded-md border border-border/60 bg-muted/40 p-3 font-mono text-xs leading-relaxed">
-        {children}
-      </pre>
-    );
-  },
-  code({ children }: MarkdownChildrenProps) {
-    return (
-      <code className="rounded bg-muted/40 px-1 py-0.5 font-mono text-[0.85em]">
-        {children}
-      </code>
-    );
-  },
-  strong({ children }: MarkdownChildrenProps) {
-    return (
-      <strong className="text-gray-900 dark:text-gray-100 font-semibold">
-        {children}
-      </strong>
-    );
-  },
-  hr() {
-    return null;
-  },
-};
-
-const qaQuestionMarkdownComponents: Components = {
-  ...qaMarkdownComponents,
-  p({ children }: MarkdownChildrenProps) {
-    return (
-      <p className="text-sm leading-relaxed text-gray-900 dark:text-gray-100 whitespace-pre-line my-2">
-        {children}
-      </p>
-    );
-  },
-  li({ children }: MarkdownChildrenProps) {
-    return (
-      <li className="text-sm leading-relaxed text-gray-900 dark:text-gray-100">
-        {children}
-      </li>
-    );
-  },
-};
-
-const overallSummaryMarkdownComponents: Components = {
-  p({ children }: MarkdownChildrenProps) {
-    const labelInfo = (() => {
-      const text = getMarkdownText(children).trim().replace(/\s+/g, " ");
-      const match = /^([A-Za-z][A-Za-z\s/]{2,40}):\s*(.+)$/.exec(text);
-      if (!match) return null;
-      const [, label, value] = match;
-      return { label, value };
-    })();
-
-    if (labelInfo) {
-      return (
-        <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 whitespace-pre-line my-2">
-          <span className="text-gray-900 dark:text-gray-100 font-semibold">
-            {labelInfo.label}:
-          </span>{" "}
-          <span className="text-gray-500 dark:text-gray-400">
-            {labelInfo.value}
-          </span>
-        </p>
-      );
-    }
-
-    return (
-      <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 whitespace-pre-line my-2">
-        {children}
-      </p>
-    );
-  },
-  ul({ children }: MarkdownChildrenProps) {
-    return <ul className="space-y-2 list-disc pl-5 mt-1 mb-2">{children}</ul>;
-  },
-  ol({ children }: MarkdownChildrenProps) {
-    return (
-      <ol className="space-y-2 list-decimal pl-5 mt-1 mb-2">{children}</ol>
-    );
-  },
-  li({ children }: MarkdownChildrenProps) {
-    return (
-      <li className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-        {children}
-      </li>
-    );
-  },
-  pre({ children }: MarkdownChildrenProps) {
-    return (
-      <pre className="my-2 overflow-x-auto whitespace-pre rounded-md border border-border/60 bg-muted/40 p-3 font-mono text-xs leading-relaxed">
-        {children}
-      </pre>
-    );
-  },
-  code({ children }: MarkdownChildrenProps) {
-    return (
-      <code className="rounded bg-muted/40 px-1 py-0.5 font-mono text-[0.85em]">
-        {children}
-      </code>
-    );
-  },
-  strong({ children }: MarkdownChildrenProps) {
-    const text = getMarkdownText(children).trim().replace(/\s+/g, " ");
-    if (text.endsWith(":")) {
-      return (
-        <strong className="text-gray-900 dark:text-gray-100 font-semibold">
-          {children}
-        </strong>
-      );
-    }
-
-    return <strong className="font-normal">{children}</strong>;
-  },
-  hr() {
-    return null;
-  },
-};
-
 interface ResultsContentProps {
-  user: UserData;
+  user: UserData | null;
 }
 
 export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { user: authUser, userData, refreshUserData } = useAuth();
+  const {
+    user: authUser,
+    userData,
+    refreshUserData,
+    loading: authLoading,
+  } = useAuth();
   const [isAnalyzing, setIsAnalyzing] = useState(true);
   const [results, setResults] = useState<InterviewResults | null>(null);
   const [interviewConfig, setInterviewConfig] =
@@ -391,14 +252,16 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     },
     [handleSurveyNavigation],
   );
-  const activeUserId = useMemo(
-    () => authUser?.uid ?? initialUser.uid,
-    [authUser?.uid, initialUser.uid],
-  );
+  const activeUserId = useMemo(() => {
+    if (authUser?.uid) return authUser.uid;
+    if (initialUser?.uid) return initialUser.uid;
+    return null;
+  }, [authUser?.uid, initialUser?.uid]);
   const activeUserEmail = useMemo(
-    () => authUser?.email ?? initialUser.email ?? "",
-    [authUser?.email, initialUser.email],
+    () => authUser?.email ?? initialUser?.email ?? "",
+    [authUser?.email, initialUser?.email],
   );
+  const isGuest = !authLoading && !authUser;
 
   const sessionIdFromQuery = useMemo(() => {
     const raw = searchParams.get("sessionId");
@@ -414,7 +277,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     const interviewSessionId = localStorage.getItem("interviewSessionId");
 
     if (!interviewSessionRaw && !sessionIdFromQuery) {
-      router.replace("/history");
+      router.replace(initialUser?.uid ? "/history" : "/");
       return;
     }
 
@@ -549,7 +412,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     } catch {
       // noop
     }
-  }, [router, sessionIdFromQuery]);
+  }, [router, sessionIdFromQuery, initialUser?.uid]);
 
   const getExampleAnswer = (question: Question): string | null => {
     switch (question.type) {
@@ -813,7 +676,13 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     void (async () => {
       try {
         setIsLoadingSession(true);
-        setIsAnalyzing(false);
+        setError(null);
+        setSavedSession(null);
+
+        if (!activeUserId) {
+          setIsLoadingSession(false);
+          return;
+        }
 
         const session = await DatabaseService.getSession(
           activeUserId,
@@ -823,7 +692,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         if (!active) return;
 
         if (!session || !session.analysis) {
-          router.replace("/history");
+          router.replace(activeUserId ? "/history" : "/");
           return;
         }
 
@@ -853,6 +722,8 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
       setIsAnalyzing(false);
       return;
     }
+
+    const shouldPersistToAccount = Boolean(activeUserId);
 
     let isMounted = true;
 
@@ -1138,9 +1009,14 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
 
         const existingSessionId = localStorage.getItem("interviewSessionId");
 
+        if (!shouldPersistToAccount) {
+          setIsAnalyzing(false);
+          return;
+        }
+
         try {
           const nextSavedSessionId = await DatabaseService.saveInterviewResults(
-            activeUserId,
+            activeUserId as string,
             {
               ...(session as {
                 messages: Array<{
@@ -1198,7 +1074,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             })();
 
             const xp = await addUserXP(
-              activeUserId,
+              activeUserId as string,
               data.feedback.score,
               durationMinutes,
             );
@@ -1453,6 +1329,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             sessionId={savedSessionId}
             results={results}
             rewards={rewards}
+            isGuest={isGuest}
             onRewardsConsumed={() => {
               window.sessionStorage.removeItem("postInterviewRewards");
             }}
@@ -1581,53 +1458,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               )}
 
               {results.passed !== undefined && (
-                <Card
-                  className={`border-2 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 ${
-                    results.passed
-                      ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30"
-                      : "border-red-500 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30"
-                  }`}
-                >
-                  <CardContent className="py-3">
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                      <div className="flex items-center gap-6">
-                        <div
-                          className={`flex-shrink-0 size-16 rounded-full flex items-center justify-center ${
-                            results.passed
-                              ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300"
-                              : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"
-                          }`}
-                        >
-                          {results.passed ? (
-                            <CheckCircle className="size-8" />
-                          ) : (
-                            <XCircle className="size-8" />
-                          )}
-                        </div>
-                        <div className="text-center sm:text-left">
-                          <div
-                            className={`text-3xl font-bold mb-3 ${
-                              results.passed
-                                ? "text-emerald-900 dark:text-emerald-100"
-                                : "text-red-900 dark:text-red-100"
-                            }`}
-                          >
-                            {results.passed ? "Interview Passed" : "Not Passed"}
-                          </div>
-                          <Typography.Body
-                            className={`text-lg leading-relaxed mb-2 ${
-                              results.passed
-                                ? "text-emerald-700 dark:text-emerald-300"
-                                : "text-red-700 dark:text-red-300"
-                            }`}
-                          >
-                            {outcomeMessage}
-                          </Typography.Body>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <PassFailBanner
+                  passed={results.passed}
+                  subtitle={outcomeMessage || undefined}
+                />
               )}
               <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
                 <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
@@ -1660,49 +1494,13 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                         </ReactMarkdown>
                       );
                     })()}
-                    categoryScores={
-                      results.categoryScores
-                        ? {
-                            technical: clampFinite(
-                              results.categoryScores.technical,
-                              0,
-                              CATEGORY_MAX.technical,
-                            ),
-                            problemSolving: clampFinite(
-                              results.categoryScores.problemSolving,
-                              0,
-                              CATEGORY_MAX.problemSolving,
-                            ),
-                            communication: clampFinite(
-                              results.categoryScores.communication,
-                              0,
-                              CATEGORY_MAX.communication,
-                            ),
-                            professional: clampFinite(
-                              results.categoryScores.professional,
-                              0,
-                              CATEGORY_MAX.professional,
-                            ),
-                          }
-                        : getCategoryScores(results.score)
-                    }
-                    technologyScores={
-                      results.technologyScores
-                        ? Object.entries(results.technologyScores)
-                            .map(([tech, score]) => ({
-                              tech,
-                              score:
-                                score === null
-                                  ? null
-                                  : clampFinite(score, 0, 100),
-                            }))
-                            .sort((a, b) => {
-                              const aScore = a.score ?? -1;
-                              const bScore = b.score ?? -1;
-                              return bScore - aScore;
-                            })
-                        : undefined
-                    }
+                    categoryScores={clampCategoryScores(
+                      results.categoryScores,
+                      results.score,
+                    )}
+                    technologyScores={clampTechnologyScores(
+                      results.technologyScores,
+                    )}
                   />
                 </CardContent>
               </Card>
@@ -1805,90 +1603,15 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
               })()}
 
               {results.knowledgeGaps && results.knowledgeGaps.length > 0 && (
-                <Card className="border shadow-md hover:shadow-lg transition-shadow duration-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                  <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
-                    <CiBookmarkCheck className="size-8 text-amber-600 dark:text-amber-400" />
-                    <div className="flex flex-col items-left gap-1">
-                      <Typography.BodyBold>
-                        Knowledge Gaps & Resources
-                      </Typography.BodyBold>
-                      <Typography.Caption>
-                        Focus on the high-priority items first. Each gap has
-                        curated links from the resource library.
-                      </Typography.Caption>
-                    </div>
-                  </CardTitle>
-                  <CardContent className="pt-6">
-                    <div className="space-y-6">
-                      {results.knowledgeGaps.map((gap, index) => (
-                        <div
-                          key={`${gap.title}-${index}`}
-                          className="rounded-lg border border-gray-200 dark:border-gray-800 p-4"
-                        >
-                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                            <div className="text-base font-semibold text-gray-900 dark:text-gray-100">
-                              {toShortTopicTitle(gap.title, gap.tags)}
-                            </div>
-                            <Typography.CaptionMedium
-                              className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getPriorityClass(
-                                gap.priority,
-                              )}`}
-                            >
-                              {getPriorityLabel(gap.priority)}
-                            </Typography.CaptionMedium>
-                          </div>
-
-                          {(() => {
-                            const summary = getGapSummaryTextWithFallback(gap);
-                            const blurb = getGapBlurbText(gap);
-                            const content = blurb || summary;
-                            if (!content) return null;
-                            return (
-                              <MarkdownContent
-                                className="text-gray-700 dark:text-gray-300 mb-3"
-                                markdown={content}
-                              />
-                            );
-                          })()}
-
-                          {gap.tags.length > 0 && (
-                            <div className="flex flex-wrap gap-2 mb-3">
-                              {gap.tags.map((tag) => (
-                                <Typography.Caption
-                                  key={tag}
-                                  className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                                >
-                                  {tag}
-                                </Typography.Caption>
-                              ))}
-                            </div>
-                          )}
-
-                          {gap.resources.length > 0 ? (
-                            <ul className="space-y-2">
-                              {gap.resources.map((r) => (
-                                <li key={r.id} className="text-sm">
-                                  <a
-                                    className="text-gray-700 dark:text-gray-300 hover:underline"
-                                    href={r.url}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                  >
-                                    {r.title}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          ) : (
-                            <div className="text-sm text-gray-500 dark:text-gray-500 italic">
-                              No curated links yet.
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                <GuestBlurOverlay
+                  enabled={isGuest}
+                  message="Sign up to explore your knowledge gaps & resources"
+                >
+                  <KnowledgeGapsSection
+                    knowledgeGaps={results.knowledgeGaps}
+                    mode="full"
+                  />
+                </GuestBlurOverlay>
               )}
 
               {qaRows.length > 0 && (
@@ -1904,157 +1627,187 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                       </Typography.Caption>
                     </div>
                   </CardTitle>
-                  <CardContent className="pt-6">
-                    <div className="space-y-6">
-                      {qaRows.map((row, uniqueRowIdx) => {
-                        const q = row.practiceQuestionId
-                          ? (practiceQuestionsById[row.practiceQuestionId] ??
-                            null)
-                          : null;
-                        const example =
-                          (q ? getExampleAnswer(q) : null) ??
-                          row.aiExampleAnswer ??
-                          getAiExampleAnswerForRow(row);
-                        const prompt = row.questionText.trim() || null;
-                        const yourAnswer = row.yourAnswer.trim() || null;
+                  <GuestBlurOverlay
+                    enabled={isGuest}
+                    message="Sign up to review your answers & example responses"
+                  >
+                    <CardContent className="pt-6">
+                      <div className="space-y-6">
+                        {qaRows.map((row, uniqueRowIdx) => {
+                          const q = row.practiceQuestionId
+                            ? (practiceQuestionsById[row.practiceQuestionId] ??
+                              null)
+                            : null;
+                          const example =
+                            (q ? getExampleAnswer(q) : null) ??
+                            row.aiExampleAnswer ??
+                            getAiExampleAnswerForRow(row);
+                          const prompt = row.questionText.trim() || null;
+                          const yourAnswer = row.yourAnswer.trim() || null;
 
-                        return (
-                          <Collapsible
-                            key={
-                              row.practiceQuestionId ?? `row_${uniqueRowIdx}`
-                            }
-                            defaultOpen={false}
-                            className={`border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow ${
-                              row.type === "follow-up"
-                                ? "border-l-4 border-l-border/70 bg-gradient-to-br from-muted/30 to-muted/10 border-y-border/50 border-r-border/50"
-                                : "border-border/50 bg-gradient-to-br from-card to-card/50"
-                            }`}
-                          >
-                            <CollapsibleTrigger className="w-full text-left group">
-                              <div className="flex items-center justify-between gap-3">
-                                <div className="flex flex-wrap items-center gap-2 min-w-0">
-                                  {row.type === "main" ? (
-                                    <Badge
-                                      variant="default"
-                                      className="font-semibold"
-                                    >
-                                      Question {row.idx + 1}
-                                    </Badge>
-                                  ) : (
-                                    <Badge
-                                      variant="secondary"
-                                      className="font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
-                                    >
-                                      Follow-up
-                                    </Badge>
-                                  )}
-                                  <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
-                                    {(() => {
-                                      if (row.type === "main" && q?.title)
-                                        return q.title;
-                                      const key = row.questionText.trim();
-                                      const mapped = questionTitlesByText[key];
-                                      if (mapped && mapped.trim().length > 0)
-                                        return mapped;
-                                      if (!prompt) return "Question Details";
-                                      return (
-                                        prompt.slice(0, 60) +
-                                        (prompt.length > 60 ? "..." : "")
-                                      );
-                                    })()}
+                          return (
+                            <Collapsible
+                              key={
+                                row.practiceQuestionId ?? `row_${uniqueRowIdx}`
+                              }
+                              defaultOpen={false}
+                              className={`border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow ${
+                                row.type === "follow-up"
+                                  ? "border-l-4 border-l-border/70 bg-gradient-to-br from-muted/30 to-muted/10 border-y-border/50 border-r-border/50"
+                                  : "border-border/50 bg-gradient-to-br from-card to-card/50"
+                              }`}
+                            >
+                              <CollapsibleTrigger className="w-full text-left group">
+                                <div className="flex items-center justify-between gap-3">
+                                  <div className="flex flex-wrap items-center gap-2 min-w-0">
+                                    {row.type === "main" ? (
+                                      <Badge
+                                        variant="default"
+                                        className="font-semibold"
+                                      >
+                                        Question {row.idx + 1}
+                                      </Badge>
+                                    ) : (
+                                      <Badge
+                                        variant="secondary"
+                                        className="font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+                                      >
+                                        Follow-up
+                                      </Badge>
+                                    )}
+                                    <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
+                                      {(() => {
+                                        if (row.type === "main" && q?.title)
+                                          return q.title;
+                                        const key = row.questionText.trim();
+                                        const mapped =
+                                          questionTitlesByText[key];
+                                        if (mapped && mapped.trim().length > 0)
+                                          return mapped;
+                                        if (!prompt) return "Question Details";
+                                        return (
+                                          prompt.slice(0, 60) +
+                                          (prompt.length > 60 ? "..." : "")
+                                        );
+                                      })()}
+                                    </div>
                                   </div>
+                                  <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
                                 </div>
-                                <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
-                              </div>
-                            </CollapsibleTrigger>
+                              </CollapsibleTrigger>
 
-                            <CollapsibleContent className="pt-4">
-                              <div className="whitespace-pre-line mb-3">
-                                {prompt ? (
-                                  <ReactMarkdown
-                                    remarkPlugins={[remarkGfm]}
-                                    components={qaQuestionMarkdownComponents}
-                                  >
-                                    {prompt}
-                                  </ReactMarkdown>
+                              <CollapsibleContent className="pt-4">
+                                <div className="whitespace-pre-line mb-3">
+                                  {prompt ? (
+                                    <ReactMarkdown
+                                      remarkPlugins={[remarkGfm]}
+                                      components={qaQuestionMarkdownComponents}
+                                    >
+                                      {prompt}
+                                    </ReactMarkdown>
+                                  ) : (
+                                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                                      Question prompt unavailable.
+                                    </div>
+                                  )}
+                                </div>
+
+                                {yourAnswer ? (
+                                  <>
+                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                      <User className="size-4 text-primary" />
+                                      Your Response:
+                                    </div>
+                                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                      <div className="whitespace-pre-line text-sm">
+                                        <ReactMarkdown
+                                          remarkPlugins={[remarkGfm]}
+                                          components={
+                                            qaResponseMarkdownComponents
+                                          }
+                                        >
+                                          {yourAnswer}
+                                        </ReactMarkdown>
+                                      </div>
+                                    </div>
+                                  </>
                                 ) : (
                                   <div className="text-sm text-gray-600 dark:text-gray-400">
-                                    Question prompt unavailable.
+                                    No response recorded.
                                   </div>
                                 )}
-                              </div>
 
-                              {yourAnswer ? (
-                                <>
-                                  <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                    <User className="size-4 text-primary" />
-                                    Your Response:
-                                  </div>
-                                  <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                    <div className="whitespace-pre-line text-sm">
-                                      <ReactMarkdown
-                                        remarkPlugins={[remarkGfm]}
-                                        components={qaMarkdownComponents}
-                                      >
-                                        {yourAnswer}
-                                      </ReactMarkdown>
+                                <Separator className="my-5" />
+
+                                {example ? (
+                                  <div>
+                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
+                                      <Lightbulb className="size-4 text-primary" />
+                                      Example Answer:
+                                    </div>
+                                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
+                                      <div className="whitespace-pre-line text-sm">
+                                        <ReactMarkdown
+                                          remarkPlugins={[remarkGfm]}
+                                          components={
+                                            qaResponseMarkdownComponents
+                                          }
+                                        >
+                                          {example}
+                                        </ReactMarkdown>
+                                      </div>
                                     </div>
                                   </div>
-                                </>
-                              ) : (
-                                <div className="text-sm text-gray-600 dark:text-gray-400">
-                                  No response recorded.
-                                </div>
-                              )}
-
-                              <Separator className="my-5" />
-
-                              {example ? (
-                                <div>
-                                  <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                    <Lightbulb className="size-4 text-primary" />
-                                    Example Answer:
+                                ) : (
+                                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                                    {q
+                                      ? "No example answer available for this question yet."
+                                      : "No example answer available."}
                                   </div>
-                                  <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                    <div className="whitespace-pre-line text-sm">
-                                      <ReactMarkdown
-                                        remarkPlugins={[remarkGfm]}
-                                        components={qaMarkdownComponents}
-                                      >
-                                        {example}
-                                      </ReactMarkdown>
-                                    </div>
-                                  </div>
-                                </div>
-                              ) : (
-                                <div className="text-sm text-gray-600 dark:text-gray-400">
-                                  {q
-                                    ? "No example answer available for this question yet."
-                                    : "No example answer available."}
-                                </div>
-                              )}
-                            </CollapsibleContent>
-                          </Collapsible>
-                        );
-                      })}
-                    </div>
-                  </CardContent>
+                                )}
+                              </CollapsibleContent>
+                            </Collapsible>
+                          );
+                        })}
+                      </div>
+                    </CardContent>
+                  </GuestBlurOverlay>
                 </Card>
               )}
-
               {(Boolean(results.overallScore?.trim()) ||
                 Boolean(results.detailedAnalysis?.trim()) ||
                 results.strengths.length > 0 ||
-                results.improvements.length > 0) && (
-                <AiFeedbackCard
-                  title="Blairify AI Feedback"
-                  icon={<FileText className="size-4" />}
-                  summaryMarkdown={null}
-                  strengths={null}
-                  improvements={results.improvements}
-                  detailsMarkdown={results.detailedAnalysis}
-                />
-              )}
+                results.improvements.length > 0) &&
+                (() => {
+                  const interviewer = interviewConfig?.specificCompany
+                    ? getInterviewerForCompanyAndRole(
+                        interviewConfig.specificCompany,
+                        interviewConfig.position,
+                      )
+                    : interviewConfig
+                      ? getInterviewerForRole(interviewConfig.position)
+                      : null;
+
+                  return (
+                    <GuestBlurOverlay
+                      enabled={isGuest}
+                      message="Sign up to read your personalised feedback"
+                    >
+                      <AiFeedbackCard
+                        title={
+                          interviewer
+                            ? `${interviewer.name}'s Feedback`
+                            : "Blairify Feedback"
+                        }
+                        interviewer={interviewer || undefined}
+                        summaryMarkdown={null}
+                        strengths={null}
+                        improvements={results.improvements}
+                        detailsMarkdown={results.detailedAnalysis}
+                      />
+                    </GuestBlurOverlay>
+                  );
+                })()}
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center py-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
                 <Button
@@ -2066,19 +1819,21 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                   {results.passed ? "Take Another Interview" : "Try Again"}
                 </Button>
 
-                <Button
-                  variant="outline"
-                  onClick={() => handleNavigationRequest("/history")}
-                  className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
-                >
-                  <BookOpen className="size-4 mr-2" />
-                  View Interview History
-                </Button>
+                {activeUserId && (
+                  <Button
+                    variant="outline"
+                    onClick={() => handleNavigationRequest("/history")}
+                    className="hover:scale-105 transition-all duration-200 hover:shadow-lg"
+                  >
+                    <BookOpen className="size-4 mr-2" />
+                    View Interview History
+                  </Button>
+                )}
               </div>
             </div>
 
             <PostInterviewSurvey
-              activeUserId={activeUserId}
+              activeUserId={activeUserId ?? undefined}
               activeUserEmail={activeUserEmail}
               userProfile={userProfile}
               setUserProfile={setUserProfile}

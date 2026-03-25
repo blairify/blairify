@@ -7,44 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Swift primarily used for in programming",
       "description": "What is Swift primarily used for in programming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Swift primarily used for in programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -67,21 +43,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Briefly explain the key characteristics of",
       "description": "Briefly explain the key characteristics of Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Briefly explain the key characteristics of Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -92,20 +60,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -128,43 +85,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Name the fundamental data types in",
       "description": "Name the fundamental data types in Swift.?",
       "prompt": "You are evaluating a entry-level candidate. Answer the question: \"Name the fundamental data types in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -187,21 +121,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between nil and null",
       "description": "Explain the difference between nil and null in Swift?",
       "prompt": "You are evaluating a entry-level candidate. Answer the question: \"Explain the difference between nil and null in Swift?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -212,19 +138,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -247,21 +163,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between the == operator",
       "description": "Explain the difference between the == operator and the === operator in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between the == operator and the === operator in Swift?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -272,20 +180,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -308,21 +205,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Is Swift an object-oriented programming language",
       "description": "Is Swift an object-oriented programming language?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Is Swift an object-oriented programming language?\" Requirements: - Answer the question directly, then explain - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Answer the question directly, then explain; Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -333,20 +222,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -370,44 +248,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The benefits of using Swift over",
       "description": "What are the benefits of using Swift over Objective-C for iOS development?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of using Swift over Objective-C for iOS development?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -430,45 +284,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between let and var",
       "description": "What is the difference between let and var in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between let and var in Swift?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift",
-        "scope"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift", "scope"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -490,21 +319,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Optionals in Swift and why they",
       "description": "Explain Optionals in Swift and why they are used.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Optionals in Swift and why they are used.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -515,20 +336,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -551,34 +361,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Closures",
       "description": "What is a closure in Swift?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is a closure in Swift?\" Requirements: - Closure = function + captured lexical environment - Practical use cases (privacy, callbacks, factories) Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift",
-        "closures"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift", "closures"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -586,10 +380,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -611,45 +402,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between let, var, and",
       "description": "What is the difference between let, var, and lazy var in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between let, var, and lazy var in Swift?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift",
-        "scope"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift", "scope"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -671,21 +437,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of type inference in",
       "description": "Explain the concept of type inference in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of type inference in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -696,20 +454,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -732,44 +479,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between a struct and",
       "description": "What is the difference between a struct and a class in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a struct and a class in Swift?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -792,44 +515,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A guard statement in Swift, and",
       "description": "What is a guard statement in Swift, and how is it used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a guard statement in Swift, and how is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -852,45 +551,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between if let from",
       "description": "What is the difference between if let from guard statements?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between if let from guard statements?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift",
-        "scope"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift", "scope"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -912,44 +586,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A tuple in Swift",
       "description": "What is a tuple in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a tuple in Swift?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -972,44 +622,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A typealias in Swift, and why",
       "description": "What is a typealias in Swift, and why might you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a typealias in Swift, and why might you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1032,21 +658,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The MVC (Model-View-Controller) design pattern in",
       "description": "Explain the MVC (Model-View-Controller) design pattern in iOS development.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the MVC (Model-View-Controller) design pattern in iOS development.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1057,20 +675,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1093,21 +700,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How error handling is done in",
       "description": "Explain how error handling is done in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how error handling is done in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1118,20 +717,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1154,33 +742,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A memory leak in iOS development,",
       "description": "What is a memory leak in iOS development, and how can it be prevented?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is a memory leak in iOS development, and how can it be prevented?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1188,10 +761,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1214,21 +784,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Codable in Swift.",
       "description": "Explain the concept of Codable in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Codable in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1239,20 +801,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1275,34 +826,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Closures",
       "description": "What is the difference between a delegate and a closure (block) in iOS development?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the difference between a delegate and a closure (block) in iOS development?\" Requirements: - Closure = function + captured lexical environment - Practical use cases (privacy, callbacks, factories) Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift",
-        "closures"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift", "closures"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1310,10 +845,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1335,21 +867,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of generics in Swift.",
       "description": "Explain the concept of generics in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of generics in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1360,20 +884,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1396,44 +909,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss opaque return types in Swift.",
       "description": "Discuss opaque return types in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss opaque return types in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1456,44 +945,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A protocol in Swift",
       "description": "What is a protocol in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a protocol in Swift?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1516,44 +981,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Key-Value Observing (KVO) in iOS development,",
       "description": "What is Key-Value Observing (KVO) in iOS development, and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Key-Value Observing (KVO) in iOS development, and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1576,21 +1017,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between synchronous and asynchronous",
       "description": "Explain the difference between synchronous and asynchronous tasks in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between synchronous and asynchronous tasks in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1601,20 +1034,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1637,44 +1059,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of a DispatchQueue in",
       "description": "What is the purpose of a DispatchQueue in Swift, and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of a DispatchQueue in Swift, and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1697,23 +1095,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Async/await",
       "description": "What is the difference between async/await and completion handlers in Swift for handling asynchronous operations?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between async/await and completion handlers in Swift for handling asynchronous operations?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "async"
-      ],
-      "tags": [
-        "swift",
-        "async-await",
-        "async"
-      ],
+      "subtopics": ["async"],
+      "tags": ["swift", "async-await", "async"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1724,20 +1112,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1760,44 +1137,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle asynchronous operations in Swift",
       "description": "How do you handle asynchronous operations in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle asynchronous operations in Swift?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1820,21 +1173,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How you can handle background tasks",
       "description": "Explain how you can handle background tasks and asynchronous operations in iOS using Grand Central Dispatch (GCD).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can handle background tasks and asynchronous operations in iOS using Grand Central Dispatch (GCD).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1845,20 +1190,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1881,44 +1215,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A didSet property observer in Swift,",
       "description": "What is a didSet property observer in Swift, and when would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a didSet property observer in Swift, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -1941,21 +1251,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between value types and",
       "description": "Explain the difference between value types and reference types in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between value types and reference types in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1966,20 +1268,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2002,21 +1293,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Singleton design pattern in Swift.",
       "description": "Explain the Singleton design pattern in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Singleton design pattern in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2027,20 +1310,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2063,44 +1335,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between a weak reference",
       "description": "What is the difference between a weak reference and an unowned reference in Swift, and when would you use each?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a weak reference and an unowned reference in Swift, and when would you use each?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2123,44 +1371,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the init() method",
       "description": "What is the purpose of the init() method in Swift, and what is designated vs. convenience initialization?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the init() method in Swift, and what is designated vs. convenience initialization?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2183,21 +1407,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of App Transport Security",
       "description": "Explain the concept of App Transport Security (ATS) in iOS development.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of App Transport Security (ATS) in iOS development.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2209,20 +1425,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2245,44 +1450,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "PLIST in iOS",
       "description": "What is PLIST in iOS?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is PLIST in iOS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2305,21 +1486,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "What ?? does in Swift",
       "description": "Explain what ?? does in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what ?? does in Swift?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2330,20 +1503,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2366,21 +1528,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "What defer does in Swift",
       "description": "Explain what defer does in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what defer does in Swift?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2391,20 +1545,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2427,21 +1570,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The main differences between classes and",
       "description": "What are the main differences between classes and structures in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the main differences between classes and structures in Swift?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2452,20 +1587,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2488,22 +1612,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Closures",
       "description": "What is a trailing closure in Swift?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is a trailing closure in Swift?\" Requirements: - Closure = function + captured lexical environment - Practical use cases (privacy, callbacks, factories) Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift",
-        "closures"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift", "closures"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
       "companies": null,
@@ -2514,9 +1629,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
+      "primaryTechStack": ["swift"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2524,10 +1637,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2549,44 +1659,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Name the access control keywords in",
       "description": "Name the access control keywords in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name the access control keywords in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2609,21 +1695,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of Swift's keyPath type",
       "description": "Explain the purpose of Swift's keyPath type?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Swift's keyPath type?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2634,20 +1712,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2670,44 +1737,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Swift module",
       "description": "What is a Swift module?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Swift module?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2730,21 +1773,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How to use custom operators in",
       "description": "Explain how to use custom operators in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how to use custom operators in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2755,20 +1790,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2791,21 +1815,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "What NotificationCenter is in Swift.",
       "description": "Explain what NotificationCenter is in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what NotificationCenter is in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2816,20 +1832,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2852,44 +1857,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss phantom types in Swift.",
       "description": "Discuss phantom types in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss phantom types in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2912,21 +1893,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Optional chaining in Swift.",
       "description": "Describe optional chaining in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe optional chaining in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2937,20 +1910,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -2973,21 +1935,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Init() in Swift",
       "description": "Explain init() in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain init() in Swift?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2998,20 +1952,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3034,22 +1977,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Closures",
       "description": "Explain the concept of retain cycles and how to avoid them in Swift when working with closures and reference types.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the concept of retain cycles and how to avoid them in Swift when working with closures and reference types.?\" Requirements: - Closure = function + captured lexical environment - Practical use cases (privacy, callbacks, factories) Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift",
-        "closures"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift", "closures"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
       "companies": null,
@@ -3060,9 +1994,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
+      "primaryTechStack": ["swift"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -3070,10 +2002,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3095,21 +2024,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Codable vs. NSCoding",
       "description": "Explain the concept of Codable vs. NSCoding in Swift, and when to use each for data serialization.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Codable vs. NSCoding in Swift, and when to use each for data serialization.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3120,20 +2041,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3156,44 +2066,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the autoreleasepool in",
       "description": "What is the purpose of the autoreleasepool in Swift, and when might you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the autoreleasepool in Swift, and when might you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3216,21 +2102,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of protocol-oriented programming (POP)",
       "description": "Explain the concept of protocol-oriented programming (POP) in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of protocol-oriented programming (POP) in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3241,20 +2119,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3277,21 +2144,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of method dispatch in",
       "description": "Explain the concept of method dispatch in Swift, including static dispatch and dynamic dispatch.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of method dispatch in Swift, including static dispatch and dynamic dispatch.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3302,20 +2161,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3338,21 +2186,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of reference counting and",
       "description": "Explain the concept of reference counting and how it relates to memory management in Swift.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the concept of reference counting and how it relates to memory management in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3363,9 +2203,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
+      "primaryTechStack": ["swift"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -3373,10 +2211,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3399,21 +2234,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of dependency injection in",
       "description": "Explain the concept of dependency injection in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of dependency injection in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3425,20 +2252,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3461,21 +2277,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of the main thread",
       "description": "Explain the concept of the main thread (UI thread) in iOS development and why it's important to perform UI updates on it.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of the main thread (UI thread) in iOS development and why it's important to perform UI updates on it.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3487,20 +2295,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3523,44 +2320,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of Swift's mutating keyword",
       "description": "What is the purpose of Swift's mutating keyword in methods?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of Swift's mutating keyword in methods?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3583,21 +2356,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Key-Value Coding (KVC)",
       "description": "Explain the concept of Key-Value Coding (KVC) and Key-Value Observing (KVO) in Swift and when you might use them.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Key-Value Coding (KVC) and Key-Value Observing (KVO) in Swift and when you might use them.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3608,20 +2373,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3644,21 +2398,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of function currying in",
       "description": "Explain the concept of function currying in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of function currying in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3669,20 +2415,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3705,44 +2440,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Dicsuss copy-on-write in Swift.",
       "description": "Dicsuss copy-on-write in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Dicsuss copy-on-write in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3765,33 +2476,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Swift handle memory management",
       "description": "How does Swift handle memory management?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does Swift handle memory management?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -3799,10 +2495,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3825,21 +2518,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "ARC (Automatic Reference Counting) in Swift.",
       "description": "Explain ARC (Automatic Reference Counting) in Swift.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain ARC (Automatic Reference Counting) in Swift.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3850,20 +2535,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3886,33 +2560,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Swift handle memory management for",
       "description": "How does Swift handle memory management for value and reference types?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does Swift handle memory management for value and reference types?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -3920,10 +2579,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -3946,44 +2602,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "To achieve thread safety in Swift",
       "description": "How to achieve thread safety in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How to achieve thread safety in Swift?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",
@@ -4006,44 +2638,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Core Data in Swift",
       "description": "What is Core Data in Swift?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Core Data in Swift?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "swift"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["swift"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "swift"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["swift"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:34:11.950Z",
       "updatedAt": "2025-12-19T17:34:11.950Z",
       "createdBy": "admin",

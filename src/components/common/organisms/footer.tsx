@@ -1,6 +1,8 @@
 "use client";
 import {
   Cookie,
+  Copyright,
+  Database,
   FileText,
   Instagram,
   Linkedin,
@@ -20,7 +22,11 @@ export default function Footer() {
     { href: "/terms-of-service", label: "Terms of Service", icon: FileText },
     { href: "/cookie-policy", label: "Cookie Policy", icon: Cookie },
     { href: "/gdpr-rights", label: "GDPR/RODO Rights", icon: Shield },
-    { href: "/data-processing-agreement", label: "DPA", icon: FileText },
+    {
+      href: "/data-processing-agreement",
+      label: "Data Processing",
+      icon: Database,
+    },
     { href: "/legal-notice", label: "Legal Notice", icon: Scale },
   ];
 
@@ -47,7 +53,7 @@ export default function Footer() {
       className="bg-[color:var(--card)] text-[color:var(--muted-foreground)] border-t border-[color:var(--border)] transition-colors duration-300 mt-auto"
       data-analytics-id="home-footer"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 max-w-7xl bg-[color:var(--muted)]/10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 max-w-7xl">
         {/* Top Section: Brand + Links + Badges */}
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 mb-6">
           {/* Brand + Legal Links */}
@@ -63,7 +69,12 @@ export default function Footer() {
                     className="inline-flex items-center gap-2 py-2 text-xs sm:text-sm hover:text-[color:var(--foreground)] transition-colors touch-manipulation underline-offset-4 hover:underline"
                   >
                     <Icon className="hidden sm:block size-4 flex-shrink-0" />
-                    <span className="whitespace-nowrap">{link.label}</span>
+                    <Typography.Caption
+                      color="secondary"
+                      className="whitespace-nowrap"
+                    >
+                      {link.label}
+                    </Typography.Caption>
                   </Link>
                 );
               })}
@@ -71,26 +82,26 @@ export default function Footer() {
           </div>
 
           {/* Compliance Badges */}
-          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-end w-full lg:w-auto">
-            <span className="flex items-center gap-1.5 sm:gap-2 bg-[color:var(--muted)] bg-opacity-30 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm whitespace-nowrap">
-              <Shield className="size-3 sm:size-4" />
-              GDPR Compliant
-            </span>
-            <span className="flex items-center gap-1.5 sm:gap-2 bg-[color:var(--muted)] bg-opacity-30 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm whitespace-nowrap">
-              <Lock className="size-3 sm:size-4" />
-              SSL Secured
-            </span>
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 justify-center lg:justify-end w-full lg:w-auto">
+            <Typography.Caption color="secondary">
+              BY ENGINEERS FOR ENGINEERS
+            </Typography.Caption>
+
+            <Typography.Caption color="secondary">
+              support@blairify.com
+            </Typography.Caption>
           </div>
         </div>
 
         {/* Bottom Section: Copyright, Contact & Social */}
         <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-3 sm:gap-4 pt-2 sm:pt-3 text-xs sm:text-sm">
-          <Typography.Caption
-            color="secondary"
-            className="text-center sm:text-left"
-          >
-            © {currentYear} Blairify. All rights reserved.
-          </Typography.Caption>
+          <div className="flex flex-row items-center gap-2 text-center sm:text-left">
+            <Copyright className="size-4" />
+            <Typography.Caption color="secondary">
+              {currentYear} Blairify. All rights reserved.
+            </Typography.Caption>
+          </div>
+
           <div className="flex items-center gap-3">
             {socialLinks.map((socialLink) => {
               const Icon = socialLink.icon;
@@ -100,26 +111,14 @@ export default function Footer() {
                   href={socialLink.href}
                   aria-label={socialLink.label}
                   target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex size-8 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--background)] hover:bg-[color:var(--muted)] hover:text-[color:var(--foreground)] transition-colors touch-manipulation"
+                  rel="noopener noreferrer"
+                  className="inline-flex size-8 items-center justify-center rounded-md border border-[color:var(--border)] bg-[color:var(--background)] hover:bg-[color:var(--muted)] hover:text-[color:var(--foreground)] transition-colors touch-manipulation"
                 >
                   <Icon className="size-4" />
                 </Link>
               );
             })}
           </div>
-          <Typography.Caption
-            color="secondary"
-            className="text-center sm:text-right"
-          >
-            <span className="block sm:inline">Support: </span>
-            <Link
-              href="mailto:support@blairify.com"
-              className="underline hover:text-[color:var(--foreground)] transition-colors py-1 px-1 -mx-1 touch-manipulation"
-            >
-              support@blairify.com
-            </Link>
-          </Typography.Caption>
         </div>
       </div>
     </footer>

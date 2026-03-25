@@ -7,42 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust, and what sets it apart",
       "description": "What is Rust, and what sets it apart from other programming languages?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Rust, and what sets it apart from other programming languages?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -66,42 +44,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Name some key features and aspects",
       "description": "Name some key features and aspects of Rust.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some key features and aspects of Rust.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -125,42 +81,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Some limitations of Rust",
       "description": "What are some limitations of Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are some limitations of Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -184,42 +118,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "To declare global variables in Rust",
       "description": "How to declare global variables in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How to declare global variables in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -243,42 +155,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's Crate system",
       "description": "What is Rust's Crate system?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Rust's Crate system?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -302,42 +192,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between String and str",
       "description": "What is the difference between String and str in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between String and str in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -361,43 +229,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Rust ownership model and the",
       "description": "Explain the Rust ownership model and the three main rules of ownership.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the Rust ownership model and the three main rules of ownership.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -421,43 +266,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Ownership, borrowing, and lifetimes in Rust.",
       "description": "Explain ownership, borrowing, and lifetimes in Rust.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain ownership, borrowing, and lifetimes in Rust.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -481,43 +303,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's ownership of threads and the",
       "description": "What is Rust's ownership of threads and the Send and Sync traits?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Rust's ownership of threads and the Send and Sync traits?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -541,42 +340,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's lifetime elision",
       "description": "What is Rust's lifetime elision?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Rust's lifetime elision?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -600,42 +377,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's modules",
       "description": "What are Rust's modules?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Rust's modules?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -659,43 +414,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose and usage of the",
       "description": "Explain the purpose and usage of the match expression in Rust.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose and usage of the match expression in Rust.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -719,42 +451,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The borrow checker in Rust",
       "description": "What is the borrow checker in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the borrow checker in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -778,43 +488,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's zero-cost abstractions.",
       "description": "Explain Rust's zero-cost abstractions.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Rust's zero-cost abstractions.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -838,42 +525,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Option type in Rust",
       "description": "What is the Option type in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Option type in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -897,42 +562,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A struct in Rust",
       "description": "What is a struct in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a struct in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -956,43 +599,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between Rust's async and",
       "description": "What is the difference between Rust's async and await keywords?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Rust's async and await keywords?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1016,42 +636,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's Result type, and how is",
       "description": "What is Rust's Result type, and how is it used for error handling?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Rust's Result type, and how is it used for error handling?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1075,42 +673,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Rust handle exceptions and error",
       "description": "How does Rust handle exceptions and error handling compared to languages with exceptions like Java or Python?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Rust handle exceptions and error handling compared to languages with exceptions like Java or Python?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1134,43 +710,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's Deref and Drop traits and",
       "description": "Explain Rust's Deref and Drop traits and their use cases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Rust's Deref and Drop traits and their use cases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1194,32 +747,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's ownership system's impact on memory",
       "description": "What is Rust's ownership system's impact on memory safety and concurrency?",
       "prompt": "You are evaluating a senior-level candidate. Answer the question: \"What is Rust's ownership system's impact on memory safety and concurrency?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 12,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1227,10 +766,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1254,42 +790,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A tuple in Rust",
       "description": "What is a tuple in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a tuple in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1313,42 +827,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A data race in Rust",
       "description": "What is a data race in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a data race in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1372,43 +864,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose and usage of Rust's",
       "description": "Explain the purpose and usage of Rust's Vec data structure.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose and usage of Rust's Vec data structure.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1432,33 +901,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Closures",
       "description": "What is the difference between a Rust function and a closure?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What is the difference between a Rust function and a closure?\" Requirements: - Closure = function + captured lexical environment - Practical use cases (privacy, callbacks, factories) Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust",
-        "closures"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust", "closures"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1466,10 +920,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1492,42 +943,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Rust support networking",
       "description": "How does Rust support networking?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Rust support networking?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1551,43 +980,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Rust support database programming",
       "description": "How does Rust support database programming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Rust support database programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1611,42 +1017,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You use Rust for web development",
       "description": "How can you use Rust for web development?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you use Rust for web development?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1670,42 +1054,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A reference in Rust",
       "description": "What is a reference in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a reference in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1729,43 +1091,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You perform I/O in Rust",
       "description": "How do you perform I/O in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you perform I/O in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1789,42 +1128,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Rust Rc (Reference Counting) smart",
       "description": "What is the Rust Rc (Reference Counting) smart pointer, and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Rust Rc (Reference Counting) smart pointer, and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1848,43 +1165,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's unsafe keyword and when it",
       "description": "Explain Rust's unsafe keyword and when it is used.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Rust's unsafe keyword and when it is used.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1908,42 +1202,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A conditional compilation in Rust",
       "description": "What is a conditional compilation in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a conditional compilation in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -1967,42 +1239,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's macros",
       "description": "What are Rust's macros?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Rust's macros?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2026,42 +1276,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "An iterator in Rust",
       "description": "What is an iterator in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is an iterator in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2085,42 +1313,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's slices, and how are they",
       "description": "What are Rust's slices, and how are they different from arrays?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Rust's slices, and how are they different from arrays?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2144,42 +1350,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of Rust's enums and",
       "description": "What is the purpose of Rust's enums and how are they used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of Rust's enums and how are they used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2203,43 +1387,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's generics.",
       "description": "Explain Rust's generics.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Rust's generics.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2263,43 +1424,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Rust's trait system.",
       "description": "Explain Rust's trait system.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Rust's trait system.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2323,43 +1461,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"move semantics\" in",
       "description": "Explain the concept of \"move semantics\" in Rust and how it differs from \"borrowing.\"?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of \"move semantics\" in Rust and how it differs from \"borrowing.\"?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2383,42 +1498,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of Rust's \"lifetime parameters\"",
       "description": "What is the purpose of Rust's \"lifetime parameters\" ('a, 'b, etc.) in function signatures?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of Rust's \"lifetime parameters\" ('a, 'b, etc.) in function signatures?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2442,32 +1535,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Rust handle concurrency",
       "description": "How does Rust handle concurrency?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does Rust handle concurrency?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2475,10 +1554,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2502,32 +1578,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Rust handle memory safety without",
       "description": "How does Rust handle memory safety without a garbage collector?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does Rust handle memory safety without a garbage collector?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2535,10 +1597,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2562,43 +1621,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Is Rust safe in comparison to",
       "description": "Is Rust safe in comparison to C and C++?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Is Rust safe in comparison to C and C++?\" Requirements: - Answer the question directly, then explain - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Answer the question directly, then explain; Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2623,42 +1659,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A channel in Rust",
       "description": "What is a channel in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a channel in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2682,42 +1696,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Multithreading handled in Rust",
       "description": "How is multithreading handled in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How is multithreading handled in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2741,42 +1733,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A mutex in Rust",
       "description": "What is a mutex in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a mutex in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",
@@ -2800,42 +1770,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Atomic in Rust",
       "description": "What is atomic in Rust?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is atomic in Rust?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "rust"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["rust"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "rust"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["rust"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T15:00:14.284Z",
       "updatedAt": "2025-12-19T15:00:14.284Z",
       "createdBy": "admin",

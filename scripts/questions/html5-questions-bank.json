@@ -7,44 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "HTML",
       "description": "What is HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -67,44 +43,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "HTML tags",
       "description": "What are HTML tags?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are HTML tags?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -127,44 +79,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Are HTML tags and elements the",
       "description": "Are HTML tags and elements the same thing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Are HTML tags and elements the same thing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -187,44 +115,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Attributes and how do you use",
       "description": "What are attributes and how do you use them?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are attributes and how do you use them?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -247,44 +151,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between a block-level element",
       "description": "What is the difference between a block-level element and an inline element?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a block-level element and an inline element?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -307,44 +187,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The syntax of comments in HTML",
       "description": "What is the syntax of comments in HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the syntax of comments in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -367,44 +223,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Semantic HTML",
       "description": "What is semantic HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is semantic HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -427,44 +259,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of main element",
       "description": "What is the purpose of main element?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of main element?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -487,44 +295,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You use section, div or article",
       "description": "When should you use section, div or article?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"When should you use section, div or article?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -547,44 +331,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Hyperlinks inserted in the HTML webpage",
       "description": "How are hyperlinks inserted in the HTML webpage?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How are hyperlinks inserted in the HTML webpage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -607,44 +367,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between an absolute and",
       "description": "What is the difference between an absolute and relative URL?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between an absolute and relative URL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -667,44 +403,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The benefits of server side rendering",
       "description": "What are the benefits of server side rendering (SSR) over client side rendering (CSR)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of server side rendering (SSR) over client side rendering (CSR)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -727,44 +439,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You add CSS styling in HTML",
       "description": "How do you add CSS styling in HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you add CSS styling in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -787,44 +475,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Stylesheets",
       "description": "What are stylesheets?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are stylesheets?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -847,44 +511,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The ‘class' attribute in HTML",
       "description": "What is the ‘class' attribute in HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the ‘class' attribute in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -907,44 +547,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "An iframe and how does it",
       "description": "What is an iframe and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is an iframe and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -967,44 +583,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The canvas element in HTML5",
       "description": "What is the canvas element in HTML5?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the canvas element in HTML5?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1027,44 +619,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "SVG",
       "description": "What is SVG?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is SVG?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1087,44 +655,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between <figure> tag and",
       "description": "What is the difference between <figure> tag and <img> tag?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between <figure> tag and <img> tag?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1147,44 +691,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You set the language in HTML",
       "description": "How do you set the language in HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you set the language in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1207,44 +727,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Character Encoding",
       "description": "What is Character Encoding?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Character Encoding?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1267,44 +763,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The list types in HTML",
       "description": "Define the list types in HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Define the list types in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1327,45 +799,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "DOM",
       "description": "What is the DOM and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the DOM and how does it work?\" Requirements: - Explain in the browser runtime context - Give a practical example Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "dom"
-      ],
-      "tags": [
-        "html",
-        "dom"
-      ],
+      "subtopics": ["dom"],
+      "tags": ["html", "dom"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical example. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1387,44 +834,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es a <DOCTYPE html> do",
       "description": "What does a <DOCTYPE html> do?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does a <DOCTYPE html> do?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1447,21 +870,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Happens when DOCTYPE is not specified",
       "description": "What happens when DOCTYPE is not specified?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What happens when DOCTYPE is not specified?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1472,20 +887,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1508,44 +912,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The significance of <head> and <body>",
       "description": "What is the significance of <head> and <body> tag in HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the significance of <head> and <body> tag in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1568,44 +948,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The role of the <meta> tag",
       "description": "What is the role of the <meta> tag in HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the <meta> tag in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1628,44 +984,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between the ‘id' and",
       "description": "What is the difference between the ‘id' and ‘class' attributes of HTML elements?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between the ‘id' and ‘class' attributes of HTML elements?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1688,44 +1020,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The role of the title attribute",
       "description": "What is the role of the title attribute in HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the title attribute in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1748,44 +1056,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The role of the alt attribute",
       "description": "What is the role of the alt attribute in HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the role of the alt attribute in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1808,44 +1092,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "To include JavaScript code in HTML",
       "description": "How to include JavaScript code in HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How to include JavaScript code in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1868,44 +1128,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Data- attributes good for",
       "description": "What are data- attributes good for?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are data- attributes good for?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1928,21 +1164,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A form in HTML",
       "description": "What is a form in HTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a form in HTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1953,20 +1181,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -1989,21 +1206,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "List the media types and formats",
       "description": "List the media types and formats supported by HTML.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"List the media types and formats supported by HTML.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2014,20 +1223,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -2050,24 +1248,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "CORS",
       "description": "What does CORS stand for and what issue does it address?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"What does CORS stand for and what issue does it address?\" Requirements: - Define the vulnerability and the attack vector - Concrete prevention/mitigation techniques Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "security"
-      ],
-      "tags": [
-        "html",
-        "cors",
-        "http",
-        "security"
-      ],
+      "subtopics": ["security"],
+      "tags": ["html", "cors", "http", "security"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the vulnerability and the attack vector; Concrete prevention/mitigation techniques. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2078,9 +1265,7 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "html"
-      ],
+      "primaryTechStack": ["html"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2088,10 +1273,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -2113,44 +1295,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between <script>, <script async>,",
       "description": "Describe the difference between <script>, <script async>, and <script defer>.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the difference between <script>, <script async>, and <script defer>.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -2173,44 +1331,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between layout, painting and",
       "description": "Explain the difference between layout, painting and compositing?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between layout, painting and compositing?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -2233,44 +1367,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between HTML and XHTML",
       "description": "What is the difference between HTML and XHTML?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between HTML and XHTML?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -2293,44 +1403,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Geolocation API in HTML5",
       "description": "What is the Geolocation API in HTML5?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Geolocation API in HTML5?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -2353,44 +1439,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Will you make an image draggable",
       "description": "How will you make an image draggable in HTML5?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How will you make an image draggable in HTML5?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",
@@ -2413,44 +1475,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of web storage in",
       "description": "Explain the concept of web storage in HTML5.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of web storage in HTML5.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "html"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["html"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "html"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["html"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:25:45.595Z",
       "updatedAt": "2025-12-19T17:25:45.595Z",
       "createdBy": "admin",

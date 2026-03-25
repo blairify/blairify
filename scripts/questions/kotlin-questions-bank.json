@@ -7,44 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Kotlin, and why is it used",
       "description": "What is Kotlin, and why is it used in Android development?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Kotlin, and why is it used in Android development?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -67,44 +43,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The key features of Kotlin compared",
       "description": "What are the key features of Kotlin compared to Java?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key features of Kotlin compared to Java?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -127,44 +79,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Nullable and non-nullable types in Kotlin",
       "description": "What are nullable and non-nullable types in Kotlin?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are nullable and non-nullable types in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -187,44 +115,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Inline functions in Kotlin",
       "description": "What are inline functions in Kotlin?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are inline functions in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -247,22 +151,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between val and var",
       "description": "Explain the difference between val and var in Kotlin.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between val and var in Kotlin.?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin",
-        "scope"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin", "scope"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
@@ -273,20 +168,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -308,44 +192,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Data classes in Kotlin, and why",
       "description": "What are data classes in Kotlin, and why are they useful?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are data classes in Kotlin, and why are they useful?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -368,21 +228,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of type inference in",
       "description": "Explain the concept of type inference in Kotlin.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of type inference in Kotlin.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -393,20 +245,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -429,44 +270,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Higher-order functions in Kotlin",
       "description": "What are higher-order functions in Kotlin?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are higher-order functions in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -489,21 +306,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of extension functions in",
       "description": "Explain the concept of extension functions in Kotlin.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of extension functions in Kotlin.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -514,20 +323,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -550,44 +348,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Extension properties in Kotlin, and how",
       "description": "What are extension properties in Kotlin, and how do they differ from extension functions?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are extension properties in Kotlin, and how do they differ from extension functions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -610,44 +384,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Kotlin coroutines, and how do they",
       "description": "What are Kotlin coroutines, and how do they differ from traditional threads?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Kotlin coroutines, and how do they differ from traditional threads?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -670,44 +420,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You handle exceptions in Kotlin",
       "description": "How do you handle exceptions in Kotlin?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle exceptions in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -730,44 +456,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Kotlin Standard Library",
       "description": "What is the Kotlin Standard Library?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Kotlin Standard Library?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -790,21 +492,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Sealed classes in Kotlin. When would",
       "description": "Explain sealed classes in Kotlin. When would you use them?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain sealed classes in Kotlin. When would you use them?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -815,20 +509,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -851,44 +534,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the init block",
       "description": "What is the purpose of the init block in Kotlin classes?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the init block in Kotlin classes?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -911,45 +570,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between apply and also",
       "description": "What is the difference between apply and also scope functions in Kotlin?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between apply and also scope functions in Kotlin?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin",
-        "scope"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin", "scope"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -971,44 +605,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Kotlin support functional programming paradigms",
       "description": "How does Kotlin support functional programming paradigms?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Kotlin support functional programming paradigms?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1031,44 +641,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Elvis operator in Kotlin, and",
       "description": "What is the Elvis operator in Kotlin, and when would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Elvis operator in Kotlin, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1091,21 +677,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The lateinit modifier in Kotlin. When",
       "description": "Explain the lateinit modifier in Kotlin. When and why would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the lateinit modifier in Kotlin. When and why would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1116,20 +694,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1152,45 +719,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between let, run, and",
       "description": "What is the difference between let, run, and with scope functions in Kotlin?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between let, run, and with scope functions in Kotlin?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin",
-        "scope"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin", "scope"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1212,44 +754,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Kotlin handle interoperability with Java",
       "description": "How does Kotlin handle interoperability with Java?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Kotlin handle interoperability with Java?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1272,44 +790,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Kotlin Android Extensions plugin",
       "description": "What is the Kotlin Android Extensions plugin?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Kotlin Android Extensions plugin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1332,44 +826,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The primary purpose of a companion",
       "description": "What is the primary purpose of a companion object in Kotlin?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the primary purpose of a companion object in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1392,44 +862,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the by lazy",
       "description": "What is the purpose of the by lazy delegate in Kotlin?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the by lazy delegate in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1452,44 +898,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A sealed interface in Kotlin",
       "description": "What is a sealed interface in Kotlin?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a sealed interface in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1512,21 +934,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The in and out variance modifiers",
       "description": "Explain the in and out variance modifiers in Kotlin's type system.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the in and out variance modifiers in Kotlin's type system.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1537,20 +951,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1573,21 +976,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the suspend modifier",
       "description": "Explain the purpose of the suspend modifier in Kotlin and its relation to coroutines.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the suspend modifier in Kotlin and its relation to coroutines.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1598,20 +993,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1634,44 +1018,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Kotlin data class and when",
       "description": "What is a Kotlin data class and when would you use it in your code?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Kotlin data class and when would you use it in your code?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1694,44 +1054,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Kotlin handle default arguments in",
       "description": "How does Kotlin handle default arguments in function declarations?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Kotlin handle default arguments in function declarations?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1754,33 +1090,18 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Kotlin handle concurrency and multithreading,",
       "description": "How does Kotlin handle concurrency and multithreading, and what are some advantages of using Kotlin for concurrent programming?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How does Kotlin handle concurrency and multithreading, and what are some advantages of using Kotlin for concurrent programming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1788,10 +1109,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1814,45 +1132,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The let extension function, and how",
       "description": "What is the let extension function, and how would you use it in practice?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the let extension function, and how would you use it in practice?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin",
-        "scope"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin", "scope"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1874,21 +1167,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of smart casts in",
       "description": "Explain the concept of smart casts in Kotlin. How do they improve type safety?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of smart casts in Kotlin. How do they improve type safety?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1899,20 +1184,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1935,44 +1209,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the crossinline modifier",
       "description": "What is the purpose of the crossinline modifier in Kotlin? When and why would you use it in a lambda expression?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the crossinline modifier in Kotlin? When and why would you use it in a lambda expression?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -1995,44 +1245,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between primary constructors and",
       "description": "What is the difference between primary constructors and secondary constructors in Kotlin?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between primary constructors and secondary constructors in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2055,44 +1281,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Property accessors in Kotlin, and how",
       "description": "What are property accessors in Kotlin, and how do you customize them using custom getters and setters?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are property accessors in Kotlin, and how do you customize them using custom getters and setters?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2115,21 +1317,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The differences between listOf, mutableListOf, and",
       "description": "Explain the differences between listOf, mutableListOf, and arrayListOf in Kotlin.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between listOf, mutableListOf, and arrayListOf in Kotlin.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2141,20 +1335,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2177,22 +1360,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between let, also, apply,",
       "description": "Explain the difference between let, also, apply, run, and with scope functions in Kotlin.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between let, also, apply, run, and with scope functions in Kotlin.?\" Requirements: - Function scope vs block scope - `var` vs `let`/`const` behavior Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin",
-        "scope"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin", "scope"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2203,20 +1377,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2238,44 +1401,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The benefits of using Kotlin for",
       "description": "What are the benefits of using Kotlin for Android app development compared to Java?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the benefits of using Kotlin for Android app development compared to Java?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2298,21 +1437,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The \"single expression\" rule for functions",
       "description": "Explain the \"single expression\" rule for functions in Kotlin.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the \"single expression\" rule for functions in Kotlin.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2323,20 +1454,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2359,44 +1479,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the when expression",
       "description": "What is the purpose of the when expression in Kotlin, and how does it differ from a switch statement in Java?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the when expression in Kotlin, and how does it differ from a switch statement in Java?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2419,44 +1515,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The @JvmOverloads annotation, and how does",
       "description": "What is the @JvmOverloads annotation, and how does it affect function overloading in Kotlin when targeting the JVM?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the @JvmOverloads annotation, and how does it affect function overloading in Kotlin when targeting the JVM?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2479,21 +1551,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The differences between the first, firstOrNull,",
       "description": "Explain the differences between the first, firstOrNull, single, and singleOrNull.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between the first, firstOrNull, single, and singleOrNull.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2504,20 +1568,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2540,21 +1593,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How Kotlin handles default arguments in",
       "description": "Explain how Kotlin handles default arguments in function declarations.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how Kotlin handles default arguments in function declarations.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2565,20 +1610,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2601,21 +1635,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The term \"coroutine context\" in Kotlin.",
       "description": "Explain the term \"coroutine context\" in Kotlin. How does it affect coroutine execution?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the term \"coroutine context\" in Kotlin. How does it affect coroutine execution?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2626,20 +1652,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2662,44 +1677,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A suspending function in Kotlin, and",
       "description": "What is a suspending function in Kotlin, and how does it differ from a regular function?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a suspending function in Kotlin, and how does it differ from a regular function?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2722,44 +1713,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between a top-level function",
       "description": "What is the difference between a top-level function and a member function in Kotlin?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a top-level function and a member function in Kotlin?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2782,44 +1749,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the @JvmStatic annotation",
       "description": "What is the purpose of the @JvmStatic annotation in Kotlin, and when would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the purpose of the @JvmStatic annotation in Kotlin, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2842,21 +1785,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The differences between sealed classes and",
       "description": "Explain the differences between sealed classes and abstract classes in Kotlin. When would you use one over the other?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the differences between sealed classes and abstract classes in Kotlin. When would you use one over the other?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2867,20 +1802,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2903,21 +1827,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the tailrec modifier",
       "description": "Explain the purpose of the tailrec modifier in Kotlin.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of the tailrec modifier in Kotlin.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2928,20 +1844,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",
@@ -2964,44 +1869,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between infix functions and",
       "description": "What is the difference between infix functions and regular functions in Kotlin, and when would you use an infix function?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between infix functions and regular functions in Kotlin, and when would you use an infix function?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "kotlin"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["kotlin"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "kotlin"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["kotlin"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior", "mid"],
       "createdAt": "2025-12-19T17:35:52.180Z",
       "updatedAt": "2025-12-19T17:35:52.180Z",
       "createdBy": "admin",

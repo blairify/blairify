@@ -7,44 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "TypeScript",
       "description": "What is TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -68,44 +44,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "List the benefits of TypeScript.",
       "description": "List the benefits of TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"List the benefits of TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -129,44 +81,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "List the disadvantages of TypeScript.",
       "description": "List the disadvantages of TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"List the disadvantages of TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -190,44 +118,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Static typing.",
       "description": "Define static typing.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Define static typing.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -251,44 +155,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "To declare a variable in TypeScript",
       "description": "How to declare a variable in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"How to declare a variable in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -312,44 +192,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Name the access modifiers supported in",
       "description": "Name the access modifiers supported in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Name the access modifiers supported in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -373,44 +229,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The use of the tsconfig.json file",
       "description": "What is the use of the tsconfig.json file?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the use of the tsconfig.json file?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -434,44 +266,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "TSX",
       "description": "What is TSX?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is TSX?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -484,44 +292,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Can TypeScript be used for the",
       "description": "Can TypeScript be used for the backend?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Can TypeScript be used for the backend?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -545,45 +329,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "What type inference is in TypeScript.",
       "description": "Explain what type inference is in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain what type inference is in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -607,44 +366,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "To create objects in TypeScript",
       "description": "How to create objects in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"How to create objects in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -668,44 +403,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You ensure that TypeScript code is",
       "description": "How can you ensure that TypeScript code is transpiled to ES5 for compatibility with older browsers?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"How can you ensure that TypeScript code is transpiled to ES5 for compatibility with older browsers?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -729,44 +440,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The any type in TypeScript, and",
       "description": "What is the any type in TypeScript, and when should you use it?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the any type in TypeScript, and when should you use it?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -779,44 +466,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The as keyword used for in",
       "description": "What is the as keyword used for in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the as keyword used for in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -829,45 +492,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The readonly modifier in TypeScript, and",
       "description": "What is the readonly modifier in TypeScript, and how can you use it to create immutable properties?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the readonly modifier in TypeScript, and how can you use it to create immutable properties?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -880,44 +518,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "TypeScript decorators",
       "description": "What are TypeScript decorators?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are TypeScript decorators?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -930,45 +544,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between interface and type",
       "description": "Explain the difference between interface and type alias in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the difference between interface and type alias in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -992,44 +581,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A type guard in TypeScript, and",
       "description": "What is a type guard in TypeScript, and how does it help narrow down types?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is a type guard in TypeScript, and how does it help narrow down types?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1053,45 +618,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The TypeScript Compiler (tsc) and how",
       "description": "What is the TypeScript Compiler (tsc) and how does it work? Explain the process of compiling TypeScript code to JavaScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the TypeScript Compiler (tsc) and how does it work? Explain the process of compiling TypeScript code to JavaScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1115,44 +655,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A class constant be implemented in",
       "description": "How can a class constant be implemented in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"How can a class constant be implemented in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1176,45 +692,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The different variants of the for",
       "description": "Explain the different variants of the for loop in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the different variants of the for loop in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1227,45 +718,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "What tuples are TypeScript.",
       "description": "Explain what tuples are TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain what tuples are TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1289,45 +755,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The never type in TypeScript.",
       "description": "Explain the never type in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the never type in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1351,44 +792,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "An enum in TypeScript.",
       "description": "What is an enum in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is an enum in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1412,44 +829,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Strict mode in TypeScript",
       "description": "What is strict mode in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is strict mode in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1473,44 +866,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The null and undefined type in",
       "description": "What is the null and undefined type in TypeScript?",
       "prompt": "You are evaluating a entry-level candidate.\nAnswer the question: \"What is the null and undefined type in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 5,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1534,44 +903,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A union type in TypeScript",
       "description": "What is a union type in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is a union type in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1595,44 +940,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Intersection types in TypeScript, and how",
       "description": "What are intersection types in TypeScript, and how do they differ from union types?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are intersection types in TypeScript, and how do they differ from union types?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1656,45 +977,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Mapped types in TypeScript",
       "description": "What are mapped types in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are mapped types in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1718,44 +1014,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es TypeScript handle asynchronous programming",
       "description": "How does TypeScript handle asynchronous programming?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"How does TypeScript handle asynchronous programming?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1779,44 +1051,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Void, and when to use the",
       "description": "What is void, and when to use the void type?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is void, and when to use the void type?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1840,45 +1088,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Optional chaining in TypeScript",
       "description": "What is optional chaining in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is optional chaining in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1902,44 +1125,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Mixins",
       "description": "What are mixins?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are mixins?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -1963,44 +1162,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of keyof in TypeScript",
       "description": "What is the purpose of keyof in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of keyof in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2024,44 +1199,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "\"conditional types\" in TypeScript",
       "description": "What are \"conditional types\" in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are \"conditional types\" in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2085,44 +1236,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Distributive conditional types",
       "description": "What are distributive conditional types?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are distributive conditional types?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2146,45 +1273,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of discriminated unions in",
       "description": "Explain the concept of discriminated unions in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept of discriminated unions in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2208,44 +1310,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The \"non-nullable assertion operator\" (!) in",
       "description": "What is the \"non-nullable assertion operator\" (!) in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the \"non-nullable assertion operator\" (!) in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2269,45 +1347,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"recursive types\" in",
       "description": "Explain the concept of \"recursive types\" in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept of \"recursive types\" in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2331,45 +1384,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of type predicates in",
       "description": "Explain the purpose of type predicates in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the purpose of type predicates in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2393,44 +1421,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of noImplicitAny",
       "description": "What is the purpose of noImplicitAny?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of noImplicitAny?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2454,44 +1458,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the unknown type",
       "description": "What is the purpose of the unknown type in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of the unknown type in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2515,44 +1495,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Partial utility type in TypeScript",
       "description": "What is the Partial utility type in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the Partial utility type in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2576,44 +1532,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Omit utility type in TypeScript",
       "description": "What is the Omit utility type in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the Omit utility type in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2637,44 +1569,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Meant by contextual typing",
       "description": "What is meant by contextual typing?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is meant by contextual typing?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2698,44 +1606,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The extensions .ts and .tsx differ",
       "description": "How do the extensions .ts and .tsx differ in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"How do the extensions .ts and .tsx differ in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2759,44 +1643,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "\"type-safe nullish coalescing\" in TypeScript",
       "description": "What is \"type-safe nullish coalescing\" in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is \"type-safe nullish coalescing\" in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2820,45 +1680,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Scope variable",
       "description": "What is Scope variable?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is Scope variable?\"\n\nRequirements:\n- Function scope vs block scope\n- `var` vs `let`/`const` behavior\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "scope",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "scope", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2881,44 +1716,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of \"string literal types\"",
       "description": "What is the purpose of \"string literal types\" in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the purpose of \"string literal types\" in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -2942,22 +1753,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of the \"key remapping\"",
       "description": "Explain the purpose of the \"key remapping\" feature in mapped types in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the purpose of the \"key remapping\" feature in mapped types in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2968,20 +1770,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3005,45 +1796,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of \"declaration files\" in",
       "description": "Explain the concept of \"declaration files\" in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the concept of \"declaration files\" in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3067,46 +1833,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The as const assertion in TypeScript.",
       "description": "Explain the as const assertion in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the as const assertion in TypeScript.?\"\n\nRequirements:\n- Function scope vs block scope\n- `var` vs `let`/`const` behavior\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "scope",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "scope", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Function scope vs block scope; var vs let/const behavior. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3129,44 +1869,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "An anonymous function in TypeScript",
       "description": "What is an anonymous function in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is an anonymous function in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3190,45 +1906,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Getters/Setters in TypeScript.",
       "description": "Explain Getters/Setters in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain Getters/Setters in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3252,45 +1943,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between String and string",
       "description": "Explain the difference between String and string in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the difference between String and string in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3303,45 +1969,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Modules in TypeScript.",
       "description": "Explain modules in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain modules in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3354,44 +1995,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Name the two primary types of",
       "description": "Name the two primary types of modules in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Name the two primary types of modules in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3415,44 +2032,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Namespaces in TypeScript",
       "description": "What are namespaces in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are namespaces in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3476,44 +2069,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between extends and implements",
       "description": "What is the difference between extends and implements in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is the difference between extends and implements in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3537,45 +2106,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The symbol type in TypeScript.",
       "description": "Explain the symbol type in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain the symbol type in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3599,45 +2143,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "\"module resolution\" in TypeScript.",
       "description": "Explain \"module resolution\" in TypeScript.?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Explain \"module resolution\" in TypeScript.?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-scientist",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-scientist", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3661,44 +2180,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "An abstract class in TypeScript, and",
       "description": "What is an abstract class in TypeScript, and how is it different from a regular class?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is an abstract class in TypeScript, and how is it different from a regular class?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3711,44 +2206,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Triple-slash directives",
       "description": "What are triple-slash directives?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What are triple-slash directives?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3772,44 +2243,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A generic type in TypeScript",
       "description": "What is a generic type in TypeScript?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is a generic type in TypeScript?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3833,44 +2280,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Name some use cases when generics",
       "description": "Name some use cases when generics can be useful?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"Name some use cases when generics can be useful?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",
@@ -3894,44 +2317,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Transpilation",
       "description": "What is transpilation?",
       "prompt": "You are evaluating a junior-level candidate.\nAnswer the question: \"What is transpilation?\"\n\nRequirements:\n- Define the concept in your own words\n- Give a small example\n- Mention a common pitfall or best practice\n\nStyle:\n- Clear, structured, concise.\n- Use code snippets only if they add clarity.\n- Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "javascript",
-        "typescript"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["javascript", "typescript"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "javascript",
-        "typescript"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "frontend", "fullstack"],
+      "primaryTechStack": ["javascript", "typescript"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T14:44:47.776Z",
       "updatedAt": "2025-12-19T14:44:47.776Z",
       "createdBy": "admin",

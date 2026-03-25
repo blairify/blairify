@@ -2,6 +2,7 @@
 
 import { Timestamp } from "firebase/firestore";
 import { Cookie, Settings, Shield, X } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { Typography } from "@/components/common/atoms/typography";
@@ -356,9 +357,9 @@ export const CookieBanner = () => {
                   <Typography.Heading3 className="mb-2">
                     We value your privacy
                   </Typography.Heading3>
-                  <p className="text-sm text-muted-foreground">
+                  <Typography.Body color="secondary">
                     Blairify uses cookies to enhance your experience
-                  </p>
+                  </Typography.Body>
                 </div>
               </div>
               <Button
@@ -372,27 +373,29 @@ export const CookieBanner = () => {
               </Button>
             </div>
 
-            <div className="text-sm text-muted-foreground space-y-2">
-              <p>
+            <div className="space-y-2">
+              <Typography.Body color="secondary">
                 We use cookies to provide essential functionality, analyze usage
                 patterns, and personalize your interview preparation experience.
                 By continuing to use our service, you agree to our use of
                 cookies as described in our{" "}
-                <a
+                <Link
                   href="/privacy"
                   className="text-primary hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Privacy Policy
-                </a>
+                </Link>
                 .
-              </p>
-              <p>
-                <strong>Essential cookies</strong> are required for the website
-                to function. Other cookies help us improve your experience and
-                are optional.
-              </p>
+              </Typography.Body>
+              <Typography.Body color="secondary">
+                <Typography.CaptionBold>
+                  Essential cookies
+                </Typography.CaptionBold>{" "}
+                are required for the website to function. Other cookies help us
+                improve your experience and are optional.
+              </Typography.Body>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -411,7 +414,7 @@ export const CookieBanner = () => {
                 disabled={loading}
                 className="flex-1 sm:flex-none"
               >
-                <Settings className="h-4 w-4 mr-2" />
+                <Settings className="h-4 w-4 mr-2" aria-hidden="true" />
                 Customize
               </Button>
               <Button
@@ -446,20 +449,26 @@ export const CookieBanner = () => {
             <div className="space-y-4">
               <div className="border rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-medium">Essential Cookies</h4>
-                  <div className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full dark:bg-green-900 dark:text-green-200">
-                    Always On
+                  <Typography.BodyMedium>
+                    Essential Cookies
+                  </Typography.BodyMedium>
+                  <div className="px-2 py-1 rounded-full border border-border bg-background/80 backdrop-blur">
+                    <Typography.CaptionBold color="brand">
+                      Always On
+                    </Typography.CaptionBold>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <Typography.Body color="secondary">
                   Required for basic website functionality, authentication, and
                   security. These cannot be disabled.
-                </p>
+                </Typography.Body>
               </div>
 
               <div className="border rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-medium">Analytics Cookies</h4>
+                  <Typography.BodyMedium>
+                    Analytics Cookies
+                  </Typography.BodyMedium>
                   <label className="relative inline-flex items-center cursor-pointer">
                     <input
                       type="checkbox"
@@ -475,7 +484,7 @@ export const CookieBanner = () => {
                       }`}
                     >
                       <div
-                        className={`size-5 bg-white rounded-full shadow transition-transform transform ${
+                        className={`size-5 bg-background rounded-full border border-border shadow transition-transform transform ${
                           preferences.analytics
                             ? "translate-x-5"
                             : "translate-x-0"
@@ -484,15 +493,17 @@ export const CookieBanner = () => {
                     </div>
                   </label>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <Typography.Body color="secondary">
                   Help us understand how visitors interact with our website by
                   collecting anonymous usage data and performance metrics.
-                </p>
+                </Typography.Body>
               </div>
 
               <div className="border rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-medium">Marketing Cookies</h4>
+                  <Typography.BodyMedium>
+                    Marketing Cookies
+                  </Typography.BodyMedium>
                   <label className="relative inline-flex items-center cursor-pointer">
                     <input
                       type="checkbox"
@@ -508,7 +519,7 @@ export const CookieBanner = () => {
                       }`}
                     >
                       <div
-                        className={`size-5 bg-white rounded-full shadow transition-transform transform ${
+                        className={`size-5 bg-background rounded-full border border-border shadow transition-transform transform ${
                           preferences.marketing
                             ? "translate-x-5"
                             : "translate-x-0"
@@ -517,16 +528,18 @@ export const CookieBanner = () => {
                     </div>
                   </label>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <Typography.Body color="secondary">
                   Used to deliver relevant advertisements and track the
                   effectiveness of marketing campaigns across websites.
-                </p>
+                </Typography.Body>
               </div>
 
               {/* Personalization Cookies */}
               <div className="border rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-medium">Personalization Cookies</h4>
+                  <Typography.BodyMedium>
+                    Personalization Cookies
+                  </Typography.BodyMedium>
                   <label className="relative inline-flex items-center cursor-pointer">
                     <input
                       type="checkbox"
@@ -544,7 +557,7 @@ export const CookieBanner = () => {
                       }`}
                     >
                       <div
-                        className={`size-5 bg-white rounded-full shadow transition-transform transform ${
+                        className={`size-5 bg-background rounded-full border border-border shadow transition-transform transform ${
                           preferences.personalization
                             ? "translate-x-5"
                             : "translate-x-0"
@@ -553,10 +566,10 @@ export const CookieBanner = () => {
                     </div>
                   </label>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <Typography.Body color="secondary">
                   Remember your preferences and settings to provide a more
                   personalized interview preparation experience.
-                </p>
+                </Typography.Body>
               </div>
             </div>
 

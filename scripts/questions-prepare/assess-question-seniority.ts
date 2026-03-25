@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
 type Difficulty = "entry" | "junior" | "mid" | "senior";
 
@@ -18,7 +18,9 @@ const normalizeDifficulty = (value: string): Difficulty => {
   }
 };
 
-const seniorityLevelsFromDifficulty = (difficulty: Difficulty): Difficulty[] => {
+const seniorityLevelsFromDifficulty = (
+  difficulty: Difficulty,
+): Difficulty[] => {
   switch (difficulty) {
     case "entry":
       return ["entry", "junior"];
@@ -38,10 +40,14 @@ const seniorityLevelsFromDifficulty = (difficulty: Difficulty): Difficulty[] => 
 const inferDifficultyFromPrompt = (prompt: string): Difficulty | null => {
   const p = prompt.toLowerCase();
 
-  const m = p.match(/evaluating a\s+(entry|junior|mid|senior)[-\s]?level\s+candidate/);
+  const m = p.match(
+    /evaluating a\s+(entry|junior|mid|senior)[-\s]?level\s+candidate/,
+  );
   if (m?.[1]) return normalizeDifficulty(m[1]);
 
-  const m2 = p.match(/you are evaluating a\s+(entry|junior|mid|senior)[-\s]?level\s+candidate/);
+  const m2 = p.match(
+    /you are evaluating a\s+(entry|junior|mid|senior)[-\s]?level\s+candidate/,
+  );
   if (m2?.[1]) return normalizeDifficulty(m2[1]);
 
   return null;
@@ -54,19 +60,39 @@ const assessDifficultyFromContent = (q: any): Difficulty => {
   const text = parts.join("\n").toLowerCase();
 
   const tags: string[] = [];
-  if (Array.isArray(q?.tags)) tags.push(...q.tags.filter((x: unknown) => typeof x === "string"));
-  if (Array.isArray(q?.subtopics)) tags.push(...q.subtopics.filter((x: unknown) => typeof x === "string"));
-  if (Array.isArray(q?.primaryTechStack)) tags.push(...q.primaryTechStack.filter((x: unknown) => typeof x === "string"));
+  if (Array.isArray(q?.tags))
+    tags.push(...q.tags.filter((x: unknown) => typeof x === "string"));
+  if (Array.isArray(q?.subtopics))
+    tags.push(...q.subtopics.filter((x: unknown) => typeof x === "string"));
+  if (Array.isArray(q?.primaryTechStack))
+    tags.push(
+      ...q.primaryTechStack.filter((x: unknown) => typeof x === "string"),
+    );
   const tagText = tags.join(" ").toLowerCase();
 
   let score = 0;
 
-  if (/\b(what is|define|basic|basics|syntax|hello world)\b/.test(text)) score -= 2;
+  if (/\b(what is|define|basic|basics|syntax|hello world)\b/.test(text))
+    score -= 2;
   if (/\b(difference between|compare)\b/.test(text)) score -= 1;
-  if (/\b(array|string|number|boolean|null|undefined|variable|loop|if statement)\b/.test(text)) score -= 1;
+  if (
+    /\b(array|string|number|boolean|null|undefined|variable|loop|if statement)\b/.test(
+      text,
+    )
+  )
+    score -= 1;
 
-  if (/\b(closure|closures|promise|promises|async\b|await\b|event loop|hoisting|prototype|generics?)\b/.test(text)) score += 2;
-  if (/\b(big\s*o|time complexity|space complexity|race condition|deadlock|thread|locking|mutex|semaphore)\b/.test(text))
+  if (
+    /\b(closure|closures|promise|promises|async\b|await\b|event loop|hoisting|prototype|generics?)\b/.test(
+      text,
+    )
+  )
+    score += 2;
+  if (
+    /\b(big\s*o|time complexity|space complexity|race condition|deadlock|thread|locking|mutex|semaphore)\b/.test(
+      text,
+    )
+  )
     score += 3;
 
   if (
@@ -75,12 +101,29 @@ const assessDifficultyFromContent = (q: any): Difficulty => {
     )
   )
     score += 5;
-  if (/\b(kubernetes|k8s|terraform|service mesh|istio|observability|slo|sla)\b/.test(text)) score += 5;
-  if (/\b(oauth|openid|oidc|jwt|tls|mTLS|encryption|xss|csrf|ssrf)\b/.test(text)) score += 4;
-  if (/\b(performance|profiling|throughput|latency|scalability|load balancing|backpressure)\b/.test(text))
+  if (
+    /\b(kubernetes|k8s|terraform|service mesh|istio|observability|slo|sla)\b/.test(
+      text,
+    )
+  )
+    score += 5;
+  if (
+    /\b(oauth|openid|oidc|jwt|tls|mTLS|encryption|xss|csrf|ssrf)\b/.test(text)
+  )
+    score += 4;
+  if (
+    /\b(performance|profiling|throughput|latency|scalability|load balancing|backpressure)\b/.test(
+      text,
+    )
+  )
     score += 4;
 
-  if (/\b(aws|gcp|azure|docker|redis|kafka|postgres|mysql|mongodb|firestore)\b/.test(tagText)) score += 1;
+  if (
+    /\b(aws|gcp|azure|docker|redis|kafka|postgres|mysql|mongodb|firestore)\b/.test(
+      tagText,
+    )
+  )
+    score += 1;
 
   if (text.length > 140) score += 1;
   if (text.length > 240) score += 1;
@@ -91,7 +134,9 @@ const assessDifficultyFromContent = (q: any): Difficulty => {
   return "senior";
 };
 
-const inferDifficultyFromSeniorityLevels = (levels: unknown): Difficulty | null => {
+const inferDifficultyFromSeniorityLevels = (
+  levels: unknown,
+): Difficulty | null => {
   if (!Array.isArray(levels)) return null;
 
   const set = new Set(levels.filter((x) => typeof x === "string"));
@@ -109,14 +154,17 @@ const inferDifficultyFromSeniorityLevels = (levels: unknown): Difficulty | null 
 const inferDifficulty = (q: any, opts: { force: boolean }): Difficulty => {
   if (opts.force) return assessDifficultyFromContent(q);
 
-  if (typeof q?.difficulty === "string" && q.difficulty) return normalizeDifficulty(q.difficulty);
+  if (typeof q?.difficulty === "string" && q.difficulty)
+    return normalizeDifficulty(q.difficulty);
 
   if (typeof q?.prompt === "string" && q.prompt) {
     const fromPrompt = inferDifficultyFromPrompt(q.prompt);
     if (fromPrompt) return fromPrompt;
   }
 
-  const fromSeniorityLevels = inferDifficultyFromSeniorityLevels(q?.seniorityLevels);
+  const fromSeniorityLevels = inferDifficultyFromSeniorityLevels(
+    q?.seniorityLevels,
+  );
   if (fromSeniorityLevels) return fromSeniorityLevels;
 
   const id = typeof q?.id === "string" ? q.id : "<unknown-id>";
@@ -131,7 +179,8 @@ const isQuestionArrayKey = (key: string) =>
   key === "system_design_questions";
 
 const normalizeBatch = (batch: any, opts: { force: boolean }) => {
-  if (typeof batch !== "object" || batch === null) throw new Error("Expected JSON object");
+  if (typeof batch !== "object" || batch === null)
+    throw new Error("Expected JSON object");
 
   const out: any = { ...batch };
 
@@ -170,7 +219,9 @@ const isJsonFile = (p: string) => p.endsWith(".json");
 const isPreparedFile = (p: string) => p.endsWith(".prepared.json");
 
 async function main() {
-  const { inPlace, onlyPrepared, includeSources, force } = parseArgs(process.argv);
+  const { inPlace, onlyPrepared, includeSources, force } = parseArgs(
+    process.argv,
+  );
 
   const root = path.resolve(process.cwd(), "scripts/questions");
   const entries = fs.readdirSync(root);
@@ -212,7 +263,9 @@ async function main() {
 
   if (failures.length > 0) {
     const details = failures.map((f) => `- ${f.file}: ${f.error}`).join("\n");
-    throw new Error(`Seniority assessment failed for ${failures.length} file(s):\n${details}`);
+    throw new Error(
+      `Seniority assessment failed for ${failures.length} file(s):\n${details}`,
+    );
   }
 }
 

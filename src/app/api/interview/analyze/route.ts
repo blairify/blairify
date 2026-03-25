@@ -14,7 +14,11 @@ import {
   generateAnalysisSystemPrompt,
   generatePresentationSystemPrompt,
 } from "@/lib/services/ai/prompt-generator";
-import { parseAnalysis } from "@/lib/services/interview/analysis-service";
+import {
+  deriveTagsFromTitle,
+  parseAnalysis,
+} from "@/lib/services/interview/analysis-service";
+
 import {
   analyzeResponseQuality,
   validateInterviewConfig,
@@ -885,6 +889,26 @@ function deriveFallbackGapsFromQuestion(question: string): FallbackGapSeed[] {
     ];
   }
 
+  if (q.includes("python") || q.includes("django") || q.includes("flask")) {
+    return [
+      {
+        title: "Pythonic patterns: comprehensions and generators",
+        tags: ["python", "generators", "list-comprehension"],
+        why: "you should explain when to use generators for memory efficiency vs list comprehensions for speed.",
+      },
+      {
+        title: "Memory management in Python (GIL, GC, ref counting)",
+        tags: ["python", "performance", "gil"],
+        why: "a strong answer explains the Global Interpreter Lock, how garbage collection works, and implications for concurrency.",
+      },
+      {
+        title: "Higher-order functions: decorators and closures",
+        tags: ["python", "decorators", "functional"],
+        why: "you should be able to explain how decorators wrap functions and give a practical example like logging or authentication.",
+      },
+    ];
+  }
+
   if (q.includes("react") || q.includes("render")) {
     return [
       {
@@ -934,13 +958,14 @@ function buildFallbackKnowledgeGaps(options: {
   config: InterviewConfig;
   score: number;
   passed?: boolean;
+  technologyScores?: Record<string, number | null>;
 }): KnowledgeGap[] {
   const questions = extractInterviewerQuestions(options.conversationHistory);
-  const q1 = questions[0];
-  const q2 = questions[1];
 
   const isPerfectish = options.score >= 95;
   if (isPerfectish) {
+    const q1 = questions[0];
+    const q2 = questions[1];
     return [
       {
         title: "Optimization: trade-offs and profiling mindset",
@@ -962,7 +987,7 @@ function buildFallbackKnowledgeGaps(options: {
           "Call out failure modes and edge cases, then explain how you would validate assumptions in production.",
         why: ensureWhyReferencesTranscript(
           "a senior-level answer typically calls out failure modes, constraints, and how you’d validate assumptions in production.",
-          q2,
+          q2 ?? q1,
         ),
         resources: [],
       },
@@ -973,13 +998,28 @@ function buildFallbackKnowledgeGaps(options: {
     ? options.config.position.toLowerCase().replace(/\s+/g, "-")
     : "interview";
 
-  const primarySeeds = q1 ? deriveFallbackGapsFromQuestion(q1) : [];
-  const secondarySeeds = q2 ? deriveFallbackGapsFromQuestion(q2) : [];
+  // Filter out questions that seem to be well-answered based on technology scores
+  const filteredQuestions = questions.filter((q) => {
+    if (!options.technologyScores) return true;
+    const lowerQ = q.toLowerCase();
+    for (const [tech, score] of Object.entries(options.technologyScores)) {
+      if (score !== null && score >= 85) {
+        if (lowerQ.includes(tech.toLowerCase())) return false;
+      }
+    }
+    return true;
+  });
+
+  const targetQuestions =
+    filteredQuestions.length > 0 ? filteredQuestions : questions;
+
+  const allSeeds = targetQuestions.flatMap((q) =>
+    deriveFallbackGapsFromQuestion(q),
+  );
 
   const candidates: FallbackGapSeed[] = [
-    ...primarySeeds,
-    ...secondarySeeds,
-    ...(q1 || q2
+    ...allSeeds,
+    ...(targetQuestions.length > 0
       ? []
       : [
           {
@@ -997,41 +1037,22 @@ function buildFallbackKnowledgeGaps(options: {
     if (!key || seenTitles.has(key)) continue;
     seenTitles.add(key);
     selected.push(c);
-    if (selected.length >= 2) break;
+    if (selected.length >= 5) break;
   }
 
-  return [
-    {
-      title:
-        selected[0]?.title ??
-        "Answer structure: definition → example → pitfall",
-      priority: options.passed === false ? "high" : "medium",
-      tags: selected[0]?.tags ?? [positionTag, "fundamentals"],
-      summary:
-        "Answer with a crisp definition, a tiny example, and one pitfall or best practice.",
-      why: ensureWhyReferencesTranscript(
-        selected[0]?.why ??
-          "aim for a crisp definition, then a tiny example, then one pitfall/best practice.",
-        q1,
-      ),
-      resources: [],
-    },
-    {
-      title:
-        selected[1]?.title ??
-        "Clarify reasoning: assumptions → steps → conclusion",
-      priority: options.passed === false ? "high" : "medium",
-      tags: selected[1]?.tags ?? ["communication", "problem-solving"],
-      summary:
-        "State assumptions, walk through steps, and end with a short conclusion so your reasoning is easy to verify.",
-      why: ensureWhyReferencesTranscript(
-        selected[1]?.why ??
-          "your answer should state assumptions, walk through steps, and then summarize the conclusion so it’s easy to verify.",
-        q2 ?? q1,
-      ),
-      resources: [],
-    },
-  ];
+  return selected.map((s, idx) => ({
+    title: s.title,
+    priority: options.passed === false ? "high" : "medium",
+    tags: s.tags,
+    summary:
+      "Answer with a crisp definition, a tiny example, and one pitfall or best practice.",
+    why: ensureWhyReferencesTranscript(
+      s.why ??
+        "aim for a crisp definition, then a tiny example, then one pitfall/best practice.",
+      targetQuestions[idx] ?? targetQuestions[0],
+    ),
+    resources: [],
+  }));
 }
 
 function ensureMinimumKnowledgeGaps(options: {
@@ -1040,6 +1061,7 @@ function ensureMinimumKnowledgeGaps(options: {
   config: InterviewConfig;
   score: number;
   passed?: boolean;
+  technologyScores?: Record<string, number | null>;
 }): KnowledgeGap[] {
   const normalizedFromModel = dedupeKnowledgeGaps(
     (Array.isArray(options.knowledgeGaps) ? options.knowledgeGaps : [])
@@ -1057,10 +1079,29 @@ function ensureMinimumKnowledgeGaps(options: {
               ? buildFallbackTitleFromTags(tags)
               : "";
         if (!title) return null;
+
+        // Skip gaps for topics that were well-answered
+        if (options.technologyScores) {
+          for (const [tech, score] of Object.entries(
+            options.technologyScores,
+          )) {
+            if (score !== null && score >= 85) {
+              const lowerTech = tech.toLowerCase();
+              if (
+                title.toLowerCase().includes(lowerTech) ||
+                tags.some((t) => t.toLowerCase().includes(lowerTech))
+              ) {
+                return null;
+              }
+            }
+          }
+        }
+
         return { ...g, title, tags };
       })
       .filter((g): g is NonNullable<typeof g> => g !== null),
   );
+
   if (normalizedFromModel.length >= 2) return normalizedFromModel.slice(0, 5);
 
   const fallback = buildFallbackKnowledgeGaps({
@@ -1068,6 +1109,7 @@ function ensureMinimumKnowledgeGaps(options: {
     config: options.config,
     score: options.score,
     passed: options.passed,
+    technologyScores: options.technologyScores,
   });
 
   const merged = dedupeKnowledgeGaps([
@@ -1128,12 +1170,18 @@ export async function POST(
     // Analyze response quality
     const responseAnalysis = analyzeResponseQuality(conversationHistory);
 
+    // Extract tags from all questions actually asked to improve resource matching
+    const askedQuestions = await Promise.all(
+      (questionIds ?? []).map((id) => getQuestionById(id)),
+    );
+
     // Generate analysis prompts
     const systemPrompt = generateAnalysisSystemPrompt(interviewConfig);
     const analysisPrompt = generateAnalysisPrompt(
       conversationHistory,
       interviewConfig,
       responseAnalysis,
+      askedQuestions,
     );
 
     let analysisText: string;
@@ -1206,9 +1254,7 @@ export async function POST(
       : [];
 
     // Extract tags from all questions actually asked to improve resource matching
-    const askedQuestions = await Promise.all(
-      (questionIds ?? []).map((id) => getQuestionById(id)),
-    );
+
     const allQuestionTags = Array.from(
       new Set(askedQuestions.flatMap((q) => q?.tags ?? [])),
     );
@@ -1224,24 +1270,51 @@ export async function POST(
 
     const enrichedKnowledgeGapsFromModel: KnowledgeGap[] = await Promise.all(
       knowledgeGaps.map(async (gap) => {
-        // If an asked question has a tag that overlaps with the gap's topic,
+        // If an asked question has a tag or title that overlaps with the gap's topic,
         // include it to bridge "general AI tags" with "specific bank tags".
-        const matchingQuestionTags = allQuestionTags.filter((qt) => {
-          const lowerQt = qt.toLowerCase();
-          return gap.tags.some((gt) => {
+        const matchingQuestions = askedQuestions.filter((q) => {
+          if (!q) return false;
+          const qTags = q.tags ?? [];
+          const qTitle = (q.title ?? "").toLowerCase();
+          const derivedGapTags = deriveTagsFromTitle(gap.title);
+
+          const matchesByTags = gap.tags.some((gt) => {
             const lowerGt = gt.toLowerCase();
-            // Match if one tag is a subset of another (e.g. "typescript" in "typescript-questions-bank-1")
-            return lowerQt.includes(lowerGt) || lowerGt.includes(lowerQt);
+            return (
+              qTags.some(
+                (qt) =>
+                  qt.toLowerCase().includes(lowerGt) ||
+                  lowerGt.includes(qt.toLowerCase()),
+              ) ||
+              q.id.toLowerCase().includes(lowerGt) ||
+              qTitle.includes(lowerGt)
+            );
           });
+
+          const matchesByTitleKeywords = derivedGapTags.some((t) => {
+            const lowerT = t.toLowerCase();
+            return (
+              qTags.some((qt) => qt.toLowerCase().includes(lowerT)) ||
+              q.id.toLowerCase().includes(lowerT) ||
+              qTitle.includes(lowerT)
+            );
+          });
+
+          return matchesByTags || matchesByTitleKeywords;
         });
 
-        // Search with AI-provided tags, bridged question tags, and question IDs
-        // (resources are often tagged with question IDs like "js-1026")
+        const matchingQuestionTags = Array.from(
+          new Set(matchingQuestions.flatMap((q) => q?.tags ?? [])),
+        );
+
+        const matchingQuestionIds = matchingQuestions.map((q) => q!.id);
+
+        // Search with AI-provided tags, bridged question tags, and specific matching question IDs
         const searchTags = Array.from(
           new Set([
             ...gap.tags,
             ...matchingQuestionTags,
-            ...(questionIds ?? []),
+            ...matchingQuestionIds,
           ]),
         );
         const resources = await getResourcesByTags(searchTags, 3);
@@ -1249,6 +1322,7 @@ export async function POST(
           gapTitle: gap.title,
           gapTags: gap.tags,
           matchingQuestionTags,
+          matchingQuestionIds,
           searchTags,
           resourceCount: resources.length,
           resourceIds: resources.map((r) => r.id),
@@ -1263,28 +1337,42 @@ export async function POST(
       config: interviewConfig,
       score: feedback.score,
       passed: feedback.passed,
+      technologyScores: feedback.technologyScores ?? undefined,
     });
 
-    // Second enrichment pass: gaps that lost resources during normalization
-    // or fallback gaps that were created with resources: [] still need resources.
-    // Also include question IDs directly since resources are tagged with them.
-    const allQuestionIds = (questionIds ?? []).filter(
-      (id): id is string => typeof id === "string" && id.length > 0,
-    );
+    // Second enrichment pass for gaps that might still need resources
     const reEnrichedGaps: KnowledgeGap[] = await Promise.all(
       ensuredKnowledgeGaps.map(async (gap) => {
         if (Array.isArray(gap.resources) && gap.resources.length > 0) {
           return gap;
         }
-        const matchingQuestionTags = allQuestionTags.filter((qt) => {
-          const lowerQt = qt.toLowerCase();
+
+        const matchingQuestions = askedQuestions.filter((q) => {
+          if (!q) return false;
+          const qTags = q.tags ?? [];
           return gap.tags.some((gt) => {
             const lowerGt = gt.toLowerCase();
-            return lowerQt.includes(lowerGt) || lowerGt.includes(lowerQt);
+            return (
+              qTags.some(
+                (qt) =>
+                  qt.toLowerCase().includes(lowerGt) ||
+                  lowerGt.includes(qt.toLowerCase()),
+              ) || q.id.toLowerCase().includes(lowerGt)
+            );
           });
         });
+
+        const matchingQuestionTags = Array.from(
+          new Set(matchingQuestions.flatMap((q) => q?.tags ?? [])),
+        );
+        const matchingQuestionIds = matchingQuestions.map((q) => q!.id);
+
         const searchTags = Array.from(
-          new Set([...gap.tags, ...matchingQuestionTags, ...allQuestionIds]),
+          new Set([
+            ...gap.tags,
+            ...matchingQuestionTags,
+            ...matchingQuestionIds,
+          ]),
         );
         const resources = await getResourcesByTags(searchTags, 3);
         console.info("[analyze] re-enrichment for gap without resources:", {
@@ -1481,6 +1569,7 @@ function generateAnalysisPrompt(
   conversationHistory: Message[],
   config: InterviewConfig,
   responseAnalysis: ResponseAnalysis,
+  askedQuestions?: (any | null)[],
 ): string {
   const conversation = conversationHistory
     .map(
@@ -1495,6 +1584,15 @@ function generateAnalysisPrompt(
 
 INTERVIEW TRANSCRIPT:
 ${conversation}
+
+${
+  askedQuestions?.length
+    ? `EXPECTED QUESTION TOPICS (from bank):
+${askedQuestions.map((q, i) => `${i + 1}. ${q?.title || "Unknown"}`).join("\n")}
+
+`
+    : ""
+}
 
 RESPONSE QUALITY ANALYSIS:
 📊 Total Questions Asked: ${responseAnalysis.totalQuestions}

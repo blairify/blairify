@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
 type Question = {
   tags?: string[];
@@ -60,7 +60,9 @@ const normalizeArray = (values: unknown): string[] => {
 };
 
 const ensureContains = (values: string[] | undefined, nextValue: string) => {
-  const normalized = normalizeArray(values).map((v) => v.trim()).filter(Boolean);
+  const normalized = normalizeArray(values)
+    .map((v) => v.trim())
+    .filter(Boolean);
   const set = new Set(normalized);
   set.add(nextValue);
   return Array.from(set);
@@ -83,7 +85,11 @@ async function main() {
   const banksDir = path.resolve(process.cwd(), "scripts/questions");
   const files = listPreparedBanks(banksDir);
 
-  const edits: Array<{ file: string; updated: boolean; canonicalTech: string }> = [];
+  const edits: Array<{
+    file: string;
+    updated: boolean;
+    canonicalTech: string;
+  }> = [];
 
   for (const filePath of files) {
     const canonicalTag = canonicalTagFromFilename(filePath);
@@ -94,10 +100,14 @@ async function main() {
 
     const before = raw;
 
-    for (const q of data.mcq_questions ?? []) normalizeQuestion(q, canonicalTag);
-    for (const q of data.open_questions ?? []) normalizeQuestion(q, canonicalTag);
-    for (const q of data.truefalse_questions ?? []) normalizeQuestion(q, canonicalTag);
-    for (const q of data.matching_questions ?? []) normalizeQuestion(q, canonicalTag);
+    for (const q of data.mcq_questions ?? [])
+      normalizeQuestion(q, canonicalTag);
+    for (const q of data.open_questions ?? [])
+      normalizeQuestion(q, canonicalTag);
+    for (const q of data.truefalse_questions ?? [])
+      normalizeQuestion(q, canonicalTag);
+    for (const q of data.matching_questions ?? [])
+      normalizeQuestion(q, canonicalTag);
     for (const q of data.system_design_questions ?? [])
       normalizeQuestion(q, canonicalTag);
 

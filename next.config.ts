@@ -22,6 +22,24 @@ const nextConfig: NextConfig & { serverExternalPackages: string[] } = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.jsdelivr.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
+      {
+        protocol: "https",
+        hostname: "cloudflare-ipfs.com",
+        pathname: "/**",
+      },
     ],
   },
   serverExternalPackages: [

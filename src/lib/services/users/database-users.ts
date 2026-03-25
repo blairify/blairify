@@ -193,10 +193,11 @@ export async function checkUsageStatus(userId: string): Promise<{
 
     const userData = userDoc.data() as UserProfile;
     const subscription = userData.subscription;
-    const usage = userData.usage || {
+    const usage = {
       interviewCount: 0,
       periodStart: Timestamp.now(),
       lastInterviewAt: Timestamp.now(),
+      ...(userData.usage ?? {}),
     };
 
     const isPro =
@@ -212,7 +213,13 @@ export async function checkUsageStatus(userId: string): Promise<{
     }
 
     const now = new Date();
-    const lastInterviewAtDate = usage.lastInterviewAt.toDate();
+    const lastInterviewAtDate =
+      usage.lastInterviewAt instanceof Date
+        ? usage.lastInterviewAt
+        : typeof (usage.lastInterviewAt as Timestamp | undefined)?.toDate ===
+            "function"
+          ? (usage.lastInterviewAt as Timestamp).toDate()
+          : now;
     const diffMs = now.getTime() - lastInterviewAtDate.getTime();
     const diffMin = diffMs / (1000 * 60);
 
@@ -260,18 +267,24 @@ export async function checkAndIncrementUsage(userId: string): Promise<{
       const userData = userDoc.data() as UserProfile;
       const subscription = userData.subscription;
 
-      // Default usage if missing
-      const usage = userData.usage || {
+      const usage = {
         interviewCount: 0,
         periodStart: Timestamp.now(),
         lastInterviewAt: Timestamp.now(),
+        ...(userData.usage ?? {}),
       };
 
       const isPro =
         subscription?.plan === "pro" && subscription?.status === "active";
 
       const now = new Date();
-      const lastInterviewAtDate = usage.lastInterviewAt.toDate();
+      const lastInterviewAtDate =
+        usage.lastInterviewAt instanceof Date
+          ? usage.lastInterviewAt
+          : typeof (usage.lastInterviewAt as Timestamp | undefined)?.toDate ===
+              "function"
+            ? (usage.lastInterviewAt as Timestamp).toDate()
+            : now;
 
       // 1. SKIP LIMITS FOR PRO
       if (isPro) {

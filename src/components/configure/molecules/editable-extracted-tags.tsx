@@ -16,6 +16,7 @@ import {
   ComboboxTrigger,
 } from "@/components/tailgrids/core/combobox";
 import { Input } from "@/components/tailgrids/core/input";
+import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { POSITIONS, SENIORITY_LEVELS } from "@/constants/configure";
 import type { PositionValue } from "@/types/global";
@@ -63,6 +64,7 @@ export function EditableExtractedTags({
           onChange={(value) =>
             onUpdateConfig("position", value as PositionValue)
           }
+          aria-label="Role"
         >
           <ComboboxInputWrapper className="min-w-[205px] border-border rounded-lg">
             <ComboboxInput className="text-sm" placeholder="Select role" />
@@ -84,6 +86,7 @@ export function EditableExtractedTags({
         <Combobox
           value={config.seniority}
           onChange={(value) => onUpdateConfig("seniority", value as string)}
+          aria-label="Seniority level"
         >
           <ComboboxInputWrapper className="min-w-[130px] border-border rounded-lg">
             <ComboboxInput className="text-sm" placeholder="Select level" />
@@ -102,9 +105,12 @@ export function EditableExtractedTags({
         </Combobox>
       </div>
       <div className="space-y-2">
+        <Label htmlFor="company">Company</Label>
         <Input
+          id="company"
           value={config.company ?? ""}
           onChange={(event) => onUpdateConfig("company", event.target.value)}
+          aria-label="Company"
           placeholder="Enter company name"
           className="w-[200px] text-sm max-w-[335px] py-2"
         />

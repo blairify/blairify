@@ -1,6 +1,5 @@
-import { readFile } from "node:fs/promises";
-import { writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
+import { readFile, writeFile } from "node:fs/promises";
 import dotenv from "dotenv";
 
 type TrustedSitemapsConfig = {
@@ -90,7 +89,7 @@ function decodeXml(value: string): string {
 function extractLocs(xml: string): string[] {
   const out: string[] = [];
   const re = /<loc>\s*([^<]+)\s*<\/loc>/gi;
-  for (; ;) {
+  for (;;) {
     const match = re.exec(xml);
     if (!match) break;
     const value = decodeXml(match[1] ?? "").trim();
@@ -283,22 +282,22 @@ async function mapWithConcurrency<T, R>(
   const results: R[] = new Array(items.length);
   let idx = 0;
 
-  const workers = Array.from({ length: Math.min(concurrency, items.length) }).map(
-    async () => {
-      for (; ;) {
-        const next = idx;
-        idx += 1;
-        if (next >= items.length) return;
-        results[next] = await fn(items[next]);
-      }
-    },
-  );
+  const workers = Array.from({
+    length: Math.min(concurrency, items.length),
+  }).map(async () => {
+    for (;;) {
+      const next = idx;
+      idx += 1;
+      if (next >= items.length) return;
+      results[next] = await fn(items[next]);
+    }
+  });
 
   await Promise.all(workers);
   return results;
 }
 
-async function expandSitemaps(
+async function _expandSitemaps(
   sitemapUrl: string,
   visited: Set<string>,
 ): Promise<string[]> {
@@ -323,7 +322,7 @@ async function expandSitemaps(
   const nested = await mapWithConcurrency(
     locs,
     6,
-    async (child) => await expandSitemaps(child, visited),
+    async (child) => await _expandSitemaps(child, visited),
   );
 
   return nested.flat();
@@ -463,9 +462,9 @@ async function main(): Promise<void> {
   const shouldWriteToDb = !opts.dryRun && !opts.outFile;
   const db = shouldWriteToDb
     ? await Promise.all([
-      import("../../src/practice-library-db/client"),
-      import("../../src/practice-library-db/schema"),
-    ])
+        import("../../src/practice-library-db/client"),
+        import("../../src/practice-library-db/schema"),
+      ])
     : null;
   const practiceDb = db?.[0].practiceDb;
   const resources = db?.[1].resources;
@@ -475,45 +474,45 @@ async function main(): Promise<void> {
     ? config.sources
     : config.sources.filter((s) => s.host.toLowerCase() === onlyHost);
 
-  const urlsPerSource = await mapWithConcurrency(
-    sources,
-    3,
-    async (source) => {
-      const discovered = await discoverSitemapsFromRobots(source.host);
-      const sitemapUrls = uniqStrings([...(source.sitemapUrls ?? []), ...discovered]);
-      if (sitemapUrls.length === 0) {
-        console.warn("[resources] no sitemaps found", {
-          host: source.host,
-        });
-        return { source, urls: [] as string[] };
-      }
-
-      const visited = new Set<string>();
-      const perSourceCap = typeof opts.maxPerSource === "number" ? opts.maxPerSource : 10_000;
-      const expandedLimited = await mapWithConcurrency(
-        sitemapUrls,
-        2,
-        async (u) =>
-          await expandSitemapsLimited({
-            sitemapUrl: u,
-            visited,
-            maxUrls: Math.max(perSourceCap, 1),
-            expectedHost: source.host,
-          }),
-      );
-
-      const limited = expandedLimited.flat().slice(0, perSourceCap);
-
-      console.info("[resources] discovered", {
+  const urlsPerSource = await mapWithConcurrency(sources, 3, async (source) => {
+    const discovered = await discoverSitemapsFromRobots(source.host);
+    const sitemapUrls = uniqStrings([
+      ...(source.sitemapUrls ?? []),
+      ...discovered,
+    ]);
+    if (sitemapUrls.length === 0) {
+      console.warn("[resources] no sitemaps found", {
         host: source.host,
-        sitemaps: sitemapUrls.length,
-        urls: limited.length,
-        selected: limited.length,
       });
+      return { source, urls: [] as string[] };
+    }
 
-      return { source, urls: limited };
-    },
-  );
+    const visited = new Set<string>();
+    const perSourceCap =
+      typeof opts.maxPerSource === "number" ? opts.maxPerSource : 10_000;
+    const expandedLimited = await mapWithConcurrency(
+      sitemapUrls,
+      2,
+      async (u) =>
+        await expandSitemapsLimited({
+          sitemapUrl: u,
+          visited,
+          maxUrls: Math.max(perSourceCap, 1),
+          expectedHost: source.host,
+        }),
+    );
+
+    const limited = expandedLimited.flat().slice(0, perSourceCap);
+
+    console.info("[resources] discovered", {
+      host: source.host,
+      sitemaps: sitemapUrls.length,
+      urls: limited.length,
+      selected: limited.length,
+    });
+
+    return { source, urls: limited };
+  });
 
   const allUncapped = urlsPerSource.flatMap(({ source, urls }) =>
     urls.map((url) => ({ source, url })),
@@ -535,34 +534,38 @@ async function main(): Promise<void> {
 
   const now = new Date();
 
-  const fetched = await mapWithConcurrency(all, opts.concurrency, async (item) => {
-    try {
-      const html = await fetchText(item.url);
-      const title = extractTitle(html);
-      const type = guessType(item.url);
+  const fetched = await mapWithConcurrency(
+    all,
+    opts.concurrency,
+    async (item) => {
+      try {
+        const html = await fetchText(item.url);
+        const title = extractTitle(html);
+        const type = guessType(item.url);
 
-      const urlTokens = tokenize(item.url);
-      const titleTokens = tokenize(title);
-      const tags = sanitizeTags([
-        ...item.source.baseTags,
-        ...urlTokens,
-        ...titleTokens,
-      ]).slice(0, 10);
+        const urlTokens = tokenize(item.url);
+        const titleTokens = tokenize(title);
+        const tags = sanitizeTags([
+          ...item.source.baseTags,
+          ...urlTokens,
+          ...titleTokens,
+        ]).slice(0, 10);
 
-      if (!title) return null;
-      if (tags.length === 0) return null;
+        if (!title) return null;
+        if (tags.length === 0) return null;
 
-      return {
-        id: computeId(item.url),
-        title,
-        url: item.url,
-        type,
-        tags,
-      };
-    } catch {
-      return null;
-    }
-  });
+        return {
+          id: computeId(item.url),
+          title,
+          url: item.url,
+          type,
+          tags,
+        };
+      } catch {
+        return null;
+      }
+    },
+  );
 
   const rows = fetched.filter((r): r is NonNullable<typeof r> => r !== null);
 
@@ -572,7 +575,8 @@ async function main(): Promise<void> {
   });
 
   if (opts.outFile) {
-    const format: NonNullable<CliOptions["outFormat"]> = opts.outFormat ?? "json";
+    const format: NonNullable<CliOptions["outFormat"]> =
+      opts.outFormat ?? "json";
     const content =
       format === "ndjson"
         ? `${rows.map((r) => JSON.stringify(r)).join("\n")}\n`

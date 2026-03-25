@@ -7,7 +7,7 @@ import { InterviewContent } from "@/components/interview/templates/interview-con
 import type { UserData } from "@/lib/services/auth/auth";
 
 interface InterviewPageClientProps {
-  user: UserData;
+  user: UserData | null;
 }
 
 export function InterviewPageClient({ user }: InterviewPageClientProps) {

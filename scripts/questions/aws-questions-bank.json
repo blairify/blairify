@@ -12,12 +12,8 @@
       "description": "Explain what AWS is and its core services.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what AWS is and its core services.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -29,19 +25,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -70,12 +56,8 @@
       "description": "What are the advantages of using AWS over traditional on-premises infrastructure?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages of using AWS over traditional on-premises infrastructure?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -86,19 +68,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -127,12 +99,8 @@
       "description": "What is the difference between horizontal scaling and vertical scaling in AWS?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between horizontal scaling and vertical scaling in AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -143,19 +111,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -184,12 +142,8 @@
       "description": "What is the Amazon DynamoDB database and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Amazon DynamoDB database and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -200,19 +154,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -241,12 +185,8 @@
       "description": "What is the Amazon Web Services (AWS) Shared Responsibility Model?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Amazon Web Services (AWS) Shared Responsibility Model?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -259,19 +199,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -300,12 +230,8 @@
       "description": "Explain what AWS Lambda is and its use cases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what AWS Lambda is and its use cases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -317,19 +243,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -358,12 +274,8 @@
       "description": "Explain what AWS EC2 is and its use cases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what AWS EC2 is and its use cases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -375,19 +287,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -416,12 +318,8 @@
       "description": "What is the difference between EC2 and Lambda, and when would you choose one over the other for a specific use case?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between EC2 and Lambda, and when would you choose one over the other for a specific use case?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -432,19 +330,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -473,12 +361,8 @@
       "description": "What is Auto Scaling, and how does it work in AWS?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Auto Scaling, and how does it work in AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -489,19 +373,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -530,12 +404,8 @@
       "description": "How does Amazon S3 achieve high availability and durability?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Amazon S3 achieve high availability and durability?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -547,19 +417,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -588,12 +448,8 @@
       "description": "How do you ensure the security of data stored in Amazon S3 buckets?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you ensure the security of data stored in Amazon S3 buckets?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -605,19 +461,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -646,12 +492,8 @@
       "description": "What is a CDN (Content Delivery Network).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a CDN (Content Delivery Network).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -662,19 +504,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -703,12 +535,8 @@
       "description": "What is Amazon Elastic Load Balancing (ELB), and how does it work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Elastic Load Balancing (ELB), and how does it work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -719,19 +547,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -760,12 +578,8 @@
       "description": "What is AWS Lambda@Edge, and what are its use cases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AWS Lambda@Edge, and what are its use cases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -776,19 +590,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -817,12 +621,8 @@
       "description": "What is Amazon SQS (Simple Queue Service), and how does it differ from Amazon SNS (Simple Notification Service)?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon SQS (Simple Queue Service), and how does it differ from Amazon SNS (Simple Notification Service)?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -833,19 +633,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -874,12 +664,8 @@
       "description": "What is Amazon RDS (Relational Database Service), and what are its benefits?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon RDS (Relational Database Service), and what are its benefits?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -890,19 +676,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -931,12 +707,8 @@
       "description": "Explain the difference between Amazon RDS and Amazon DynamoDB.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Amazon RDS and Amazon DynamoDB.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -948,19 +720,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -989,12 +751,8 @@
       "description": "Explain the use of Amazon CloudWatch and its key metrics for monitoring AWS resources.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the use of Amazon CloudWatch and its key metrics for monitoring AWS resources.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1006,19 +764,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1047,12 +795,8 @@
       "description": "What is AWS Identity and Access Management (IAM), and why is it important?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AWS Identity and Access Management (IAM), and why is it important?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1064,19 +808,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1105,12 +839,8 @@
       "description": "Explain the difference between IAM roles and IAM users in AWS.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between IAM roles and IAM users in AWS.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1123,19 +853,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1164,12 +884,8 @@
       "description": "What is Amazon ECS (Elastic Container Service), and how does it simplify container management?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon ECS (Elastic Container Service), and how does it simplify container management?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1181,19 +897,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1222,12 +928,8 @@
       "description": "Explain the concept of Amazon Aurora, and how does it differ from traditional relational databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Amazon Aurora, and how does it differ from traditional relational databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1239,19 +941,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1280,12 +972,8 @@
       "description": "Explain AWS Lambda Layers and how they enable code reuse and management in serverless applications.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain AWS Lambda Layers and how they enable code reuse and management in serverless applications.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1298,19 +986,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1339,12 +1017,8 @@
       "description": "What is Amazon Redshift, and how does it differ from other data warehousing solutions?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Redshift, and how does it differ from other data warehousing solutions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1355,19 +1029,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1396,12 +1060,8 @@
       "description": "Explain the different storage classes in Amazon S3 and when to use each one.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the different storage classes in Amazon S3 and when to use each one.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1413,19 +1073,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1454,12 +1104,8 @@
       "description": "What is Amazon Polly, and how does it enable text-to-speech capabilities for applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Polly, and how does it enable text-to-speech capabilities for applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1471,19 +1117,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1512,12 +1148,8 @@
       "description": "What is Amazon Elastic Beanstalk, and how does it simplify application deployment and management?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Elastic Beanstalk, and how does it simplify application deployment and management?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1529,19 +1161,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1570,12 +1192,8 @@
       "description": "What is the AWS Well-Architected Framework, and why is it important when designing solutions on AWS?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the AWS Well-Architected Framework, and why is it important when designing solutions on AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1586,19 +1204,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1627,12 +1235,8 @@
       "description": "Explain what Amazon Cognito is and its role in identity management for applications.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what Amazon Cognito is and its role in identity management for applications.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1645,19 +1249,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1686,12 +1280,8 @@
       "description": "Explain the AWS Well-Architected Framework and its pillars.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the AWS Well-Architected Framework and its pillars.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1703,19 +1293,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1744,12 +1324,8 @@
       "description": "What are AWS Availability Zones, and why are they important for high availability and fault tolerance?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are AWS Availability Zones, and why are they important for high availability and fault tolerance?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1761,19 +1337,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1802,12 +1368,8 @@
       "description": "Explain the concept of AWS CloudTrail and its role in auditing and monitoring AWS resources.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of AWS CloudTrail and its role in auditing and monitoring AWS resources.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1819,19 +1381,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1860,12 +1412,8 @@
       "description": "What is Amazon Route 53, and how does it contribute to DNS and domain name management in AWS?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Route 53, and how does it contribute to DNS and domain name management in AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1877,19 +1425,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1918,12 +1456,8 @@
       "description": "Explain the benefits of using Amazon Lambda in serverless application architectures.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the benefits of using Amazon Lambda in serverless application architectures.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1936,19 +1470,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -1977,12 +1501,8 @@
       "description": "Explain the AWS Lambda execution environment and its lifecycle.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the AWS Lambda execution environment and its lifecycle.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1994,19 +1514,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2035,12 +1545,8 @@
       "description": "How does AWS handle disaster recovery, and what are the key components for building a disaster recovery plan?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does AWS handle disaster recovery, and what are the key components for building a disaster recovery plan?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2051,19 +1557,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2092,12 +1588,8 @@
       "description": "Explain the concept of serverless computing in AWS.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of serverless computing in AWS.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2109,19 +1601,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2150,12 +1632,8 @@
       "description": "How do you manage secrets and sensitive information in AWS applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you manage secrets and sensitive information in AWS applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2167,19 +1645,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2208,15 +1676,8 @@
       "description": "Explain the concept of Cross-Origin Resource Sharing (CORS) and how it is relevant in AWS.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain the concept of Cross-Origin Resource Sharing (CORS) and how it is relevant in AWS.?\" Requirements: - Define the vulnerability and the attack vector - Concrete prevention/mitigation techniques Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "security"
-      ],
-      "tags": [
-        "aws",
-        "cors",
-        "http",
-        "security"
-      ],
+      "subtopics": ["security"],
+      "tags": ["aws", "cors", "http", "security"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the vulnerability and the attack vector; Concrete prevention/mitigation techniques. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2228,9 +1689,7 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
+      "primaryTechStack": ["aws"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -2238,10 +1697,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2269,12 +1725,8 @@
       "description": "How do you optimize costs when using AWS services?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you optimize costs when using AWS services?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2285,19 +1737,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2326,12 +1768,8 @@
       "description": "Describe a situation where you had to troubleshoot a complex issue in an AWS environment. How did you approach it, and what was the outcome?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe a situation where you had to troubleshoot a complex issue in an AWS environment. How did you approach it, and what was the outcome?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2343,19 +1781,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2384,12 +1812,8 @@
       "description": "How do you secure data in transit and at rest in AWS?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you secure data in transit and at rest in AWS?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2401,19 +1825,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2442,12 +1856,8 @@
       "description": "What is AWS Elasticache, and when would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AWS Elasticache, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2458,19 +1868,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2499,12 +1899,8 @@
       "description": "What is AWS Step Functions, and how does it enable the coordination of distributed microservices and serverless workflows?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is AWS Step Functions, and how does it enable the coordination of distributed microservices and serverless workflows?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2515,19 +1911,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2556,12 +1942,8 @@
       "description": "What is Amazon Kinesis, and how can it be used for real-time data streaming?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon Kinesis, and how can it be used for real-time data streaming?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2572,19 +1954,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2613,12 +1985,8 @@
       "description": "How does AWS handle data replication and backup for high availability and disaster recovery?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does AWS handle data replication and backup for high availability and disaster recovery?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2630,19 +1998,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2671,12 +2029,8 @@
       "description": "Explain what a VPC (Virtual Private Cloud) is and its role in AWS.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what a VPC (Virtual Private Cloud) is and its role in AWS.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2688,19 +2042,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2729,12 +2073,8 @@
       "description": "What is the Amazon Elastic File System (EFS), and when would you use it over Amazon S3 or Amazon EBS for file storage?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Amazon Elastic File System (EFS), and when would you use it over Amazon S3 or Amazon EBS for file storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2745,19 +2085,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2786,12 +2116,8 @@
       "description": "What is Amazon CloudFront, and how does it improve content delivery and latency for web applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Amazon CloudFront, and how does it improve content delivery and latency for web applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2803,19 +2129,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2844,12 +2160,8 @@
       "description": "Explain what AWS CloudFormation is and its role in infrastructure as code (IAC).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what AWS CloudFormation is and its role in infrastructure as code (IAC).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2861,19 +2173,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2902,12 +2204,8 @@
       "description": "Explain the concept of Amazon Elastic MapReduce (EMR) and its use cases in big data processing.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Amazon Elastic MapReduce (EMR) and its use cases in big data processing.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2919,19 +2217,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -2960,12 +2248,8 @@
       "description": "How do you handle security and compliance in an AWS environment?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you handle security and compliance in an AWS environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2977,19 +2261,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",
@@ -3018,12 +2292,8 @@
       "description": "Explain the purpose of AWS Glue and how it simplifies ETL (Extract, Transform, Load) processes for data analytics.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of AWS Glue and how it simplifies ETL (Extract, Transform, Load) processes for data analytics.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "aws"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["aws"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3035,19 +2305,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "aws"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["aws"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:55.627Z",
       "updatedAt": "2025-12-19T17:52:55.627Z",
       "createdBy": "admin",

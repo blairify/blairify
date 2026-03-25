@@ -396,11 +396,11 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
     <main className="flex-1 overflow-y-auto bg-background">
       <div className="max-w-5xl mx-auto px-2 py-8 space-y-8">
         <div className="mb-6 space-y-4 hidden lg:block">
-          <div className="flex flex-col gap-2 lg:items-start lg:justify-between text-center lg:text-left">
+          <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between text-center lg:text-left">
             <Typography.BodyBold className="text-2xl">
               Achievements{" "}
             </Typography.BodyBold>
-            <Typography.Body className="text-muted-foreground text-sm sm:text-base">
+            <Typography.Body className="text-muted-foreground text-sm sm:text-base max-w-md">
               Track your progress and unlock milestones as you improve your
               interview skills.
             </Typography.Body>
@@ -452,93 +452,93 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
         </div>
 
         <section className="space-y-4">
-          <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <Typography.Heading2>All Achievements</Typography.Heading2>
-            <div className="flex items-center gap-3">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-1">
+              <Typography.Heading2>All Achievements</Typography.Heading2>
               <Typography.SubCaptionMedium color="secondary">
                 {achievementStats.unlockedCount} /{" "}
                 {achievementStats.totalAchievements} unlocked
               </Typography.SubCaptionMedium>
+            </div>
 
-              <div className="flex items-center gap-2">
-                <Select
-                  value={statusFilter}
-                  onValueChange={(value) =>
-                    setStatusFilter(value as StatusFilter)
-                  }
-                >
-                  <SelectTrigger className="h-9 w-[140px] border border-border/60 bg-transparent px-3 text-sm shadow-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0">
-                    <SelectValue placeholder="Status" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem
-                      value="all"
-                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                    >
-                      All
-                    </SelectItem>
-                    <SelectItem
-                      value="unlocked"
-                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                    >
-                      Unlocked
-                    </SelectItem>
-                    <SelectItem
-                      value="locked"
-                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                    >
-                      Locked
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
+            <div className="flex flex-wrap items-center gap-2 sm:flex-nowrap">
+              <Select
+                value={statusFilter}
+                onValueChange={(value) =>
+                  setStatusFilter(value as StatusFilter)
+                }
+              >
+                <SelectTrigger className="h-9 w-full sm:w-[140px] border border-border/60 bg-transparent px-3 text-sm shadow-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0">
+                  <SelectValue placeholder="Status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem
+                    value="all"
+                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                  >
+                    All
+                  </SelectItem>
+                  <SelectItem
+                    value="unlocked"
+                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                  >
+                    Unlocked
+                  </SelectItem>
+                  <SelectItem
+                    value="locked"
+                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                  >
+                    Locked
+                  </SelectItem>
+                </SelectContent>
+              </Select>
 
-                <Select
-                  value={tierFilter}
-                  onValueChange={(value) => setTierFilter(value as TierFilter)}
-                >
-                  <SelectTrigger className="h-9 w-[140px] border border-border/60 bg-transparent px-3 text-sm shadow-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0">
-                    <SelectValue placeholder="Tier" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem
-                      value="all"
-                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                    >
-                      All tiers
-                    </SelectItem>
-                    <SelectItem
-                      value="bronze"
-                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                    >
-                      Bronze
-                    </SelectItem>
-                    <SelectItem
-                      value="silver"
-                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                    >
-                      Silver
-                    </SelectItem>
-                    <SelectItem
-                      value="gold"
-                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                    >
-                      Gold
-                    </SelectItem>
-                    <SelectItem
-                      value="platinum"
-                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                    >
-                      Platinum
-                    </SelectItem>
-                    <SelectItem
-                      value="diamond"
-                      className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                    >
-                      Diamond
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+              <Select
+                value={tierFilter}
+                onValueChange={(value) => setTierFilter(value as TierFilter)}
+              >
+                <SelectTrigger className="h-9 w-full sm:w-[140px] border border-border/60 bg-transparent px-3 text-sm shadow-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0">
+                  <SelectValue placeholder="Tier" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem
+                    value="all"
+                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                  >
+                    All tiers
+                  </SelectItem>
+                  <SelectItem
+                    value="bronze"
+                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                  >
+                    Bronze
+                  </SelectItem>
+                  <SelectItem
+                    value="silver"
+                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                  >
+                    Silver
+                  </SelectItem>
+                  <SelectItem
+                    value="gold"
+                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                  >
+                    Gold
+                  </SelectItem>
+                  <SelectItem
+                    value="platinum"
+                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                  >
+                    Platinum
+                  </SelectItem>
+                  <SelectItem
+                    value="diamond"
+                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
+                  >
+                    Diamond
+                  </SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
 
@@ -640,11 +640,11 @@ function AchievementCard({ item }: AchievementCardProps) {
           </div>
         )}
 
-        <CardContent className="p-5 flex flex-col h-full relative z-0">
+        <CardContent className="p-4 sm:p-5 flex flex-col h-full relative z-0">
           <div className="flex flex-col items-center text-center gap-3">
             <div
               className={cn(
-                "p-3 rounded-2xl",
+                "p-3 rounded-2xl flex-shrink-0",
                 currentStyle.bg,
                 !isUnlocked && "grayscale",
               )}
@@ -655,14 +655,14 @@ function AchievementCard({ item }: AchievementCardProps) {
               />
             </div>
 
-            <div className="space-y-1">
-              <Typography.BodyMedium className="line-clamp-2">
+            <div className="space-y-2 w-full">
+              <Typography.BodyMedium className="line-clamp-2 text-sm leading-tight">
                 {achievement.name}
               </Typography.BodyMedium>
               <Badge
                 variant="outline"
                 className={cn(
-                  "text-xs",
+                  "text-xs shrink-0",
                   isUnlocked
                     ? tierStyle.badge
                     : "bg-background/60 text-foreground border-border/70",
@@ -673,7 +673,7 @@ function AchievementCard({ item }: AchievementCardProps) {
             </div>
 
             {!isUnlocked && (
-              <div className="w-full space-y-2">
+              <div className="w-full space-y-2 flex-shrink-0">
                 <div className="flex justify-between text-xs text-muted-foreground">
                   <Typography.SubCaption>Progress</Typography.SubCaption>
                   <Typography.SubCaption>
@@ -685,10 +685,11 @@ function AchievementCard({ item }: AchievementCardProps) {
             )}
           </div>
 
-          <div className="mt-4 flex items-center justify-between">
+          <div className="mt-auto pt-3 flex items-center justify-between gap-2">
             <Badge
               variant={isUnlocked ? "default" : "secondary"}
               className={cn(
+                "text-xs shrink-0",
                 isUnlocked
                   ? "bg-green-500/20 text-green-600 dark:text-green-400 border-green-500/30"
                   : "bg-muted/50 text-muted-foreground border-muted",
@@ -696,7 +697,10 @@ function AchievementCard({ item }: AchievementCardProps) {
             >
               {isUnlocked ? "Unlocked" : "Locked"}
             </Badge>
-            <Typography.SubCaptionMedium color="secondary">
+            <Typography.SubCaptionMedium
+              color="secondary"
+              className="text-xs shrink-0"
+            >
               +{achievement.xpReward} XP
             </Typography.SubCaptionMedium>
           </div>

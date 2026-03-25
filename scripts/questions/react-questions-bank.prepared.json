@@ -13,32 +13,15 @@
       "description": "What is React, and what problem does it solve?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is React, and what problem does it solve?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -67,32 +50,15 @@
       "description": "What is JSX? Do you have to use it with React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is JSX? Do you have to use it with React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -121,32 +87,15 @@
       "description": "What is the difference between a React element and a React component?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a React element and a React component?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -175,32 +124,15 @@
       "description": "What are props in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are props in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -229,32 +161,15 @@
       "description": "What is state in React, and how is it different from props?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is state in React, and how is it different from props?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -283,32 +198,15 @@
       "description": "What does \"render\" mean in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does \"render\" mean in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -337,32 +235,15 @@
       "description": "Why are keys important when rendering lists in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Why are keys important when rendering lists in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -391,32 +272,15 @@
       "description": "What is conditional rendering in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is conditional rendering in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -445,32 +309,15 @@
       "description": "How do you pass data from child to parent in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you pass data from child to parent in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -499,32 +346,15 @@
       "description": "What is a controlled component in React forms?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a controlled component in React forms?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -553,32 +383,15 @@
       "description": "What is an uncontrolled component in React forms?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is an uncontrolled component in React forms?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -607,32 +420,15 @@
       "description": "What is the difference between onClick={handleClick} and onClick={handleClick()}?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between onClick={handleClick} and onClick={handleClick()}?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -661,33 +457,15 @@
       "description": "What is the virtual DOM (at a high level) and why does React use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the virtual DOM (at a high level) and why does React use it?\" Requirements: - Explain in the browser runtime context - Give a practical example Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "dom"
-      ],
-      "tags": [
-        "react",
-        "dom"
-      ],
+      "subtopics": ["dom"],
+      "tags": ["react", "dom"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical example. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -715,32 +493,15 @@
       "description": "What is reconciliation in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is reconciliation in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -769,32 +530,15 @@
       "description": "What are React Fragments and when would you use them?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are React Fragments and when would you use them?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -823,32 +567,15 @@
       "description": "What is useState and how does setState work?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is useState and how does setState work?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -877,32 +604,15 @@
       "description": "Why can\"t you mutate state directly in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Why can\"t you mutate state directly in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -931,32 +641,15 @@
       "description": "What is useEffect used for?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is useEffect used for?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -985,32 +678,15 @@
       "description": "What does the dependency array in useEffect mean?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does the dependency array in useEffect mean?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1039,32 +715,15 @@
       "description": "What is cleanup in useEffect and why is it needed?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is cleanup in useEffect and why is it needed?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1093,32 +752,15 @@
       "description": "What is lifting state up?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is lifting state up?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1147,32 +789,15 @@
       "description": "What is prop drilling and when is it a problem?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is prop drilling and when is it a problem?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1201,32 +826,15 @@
       "description": "What is React Context and when should you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is React Context and when should you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1255,32 +863,15 @@
       "description": "What is useMemo and what problem does it solve?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is useMemo and what problem does it solve?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1309,32 +900,15 @@
       "description": "What is useCallback and how is it related to useMemo?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is useCallback and how is it related to useMemo?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1363,32 +937,15 @@
       "description": "What is React.memo and when would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is React.memo and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1417,32 +974,15 @@
       "description": "What are common causes of unnecessary re-renders in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are common causes of unnecessary re-renders in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1471,32 +1011,15 @@
       "description": "What is a custom hook and when is it useful?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a custom hook and when is it useful?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1525,33 +1048,15 @@
       "description": "Explain stale closures in React hooks with an example.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Explain stale closures in React hooks with an example.?\" Requirements: - Closure = function + captured lexical environment - Practical use cases (privacy, callbacks, factories) Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react",
-        "closures"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react", "closures"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Closure = function + captured lexical environment; Practical use cases (privacy, callbacks, factories). Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1579,32 +1084,15 @@
       "description": "What is the difference between useEffect and useLayoutEffect?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between useEffect and useLayoutEffect?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1633,32 +1121,15 @@
       "description": "What does \"batching\" mean in React updates?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does \"batching\" mean in React updates?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1687,32 +1158,15 @@
       "description": "What is code splitting in React and how do you do it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is code splitting in React and how do you do it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1741,32 +1195,15 @@
       "description": "Explain Suspense at a high level.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain Suspense at a high level.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1795,32 +1232,15 @@
       "description": "How would you structure state in a larger React app?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How would you structure state in a larger React app?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1849,32 +1269,15 @@
       "description": "Describe how React rendering and committing work at a high level.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe how React rendering and committing work at a high level.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1903,32 +1306,15 @@
       "description": "What does mounted mean in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does mounted mean in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -1957,32 +1343,15 @@
       "description": "What does unmounted mean in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does unmounted mean in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2011,32 +1380,15 @@
       "description": "What are lifecycle methods?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are lifecycle methods?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2065,32 +1417,15 @@
       "description": "Discuss custom hooks in React.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss custom hooks in React.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2119,32 +1454,15 @@
       "description": "What is NextJS and major features of it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is NextJS and major features of it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2173,33 +1491,15 @@
       "description": "What is the virtual DOM?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the virtual DOM?\" Requirements: - Explain in the browser runtime context - Give a practical example Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "dom"
-      ],
-      "tags": [
-        "react",
-        "dom"
-      ],
+      "subtopics": ["dom"],
+      "tags": ["react", "dom"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical example. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2227,32 +1527,15 @@
       "description": "What does reconciliation mean in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does reconciliation mean in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2281,32 +1564,15 @@
       "description": "What are React Fragments?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are React Fragments?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2335,32 +1601,15 @@
       "description": "Can web browsers read JSX directly?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Can web browsers read JSX directly?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2389,32 +1638,15 @@
       "description": "What are the purpose of keys in React lists?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the purpose of keys in React lists?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2443,32 +1675,15 @@
       "description": "What are the two primary ways of creating components in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the two primary ways of creating components in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2497,32 +1712,15 @@
       "description": "What are forward refs?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are forward refs?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2551,32 +1749,15 @@
       "description": "What is a pure function in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a pure function in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2605,32 +1786,15 @@
       "description": "What is the difference between controlled vs. uncontrolled components in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between controlled vs. uncontrolled components in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2659,32 +1823,15 @@
       "description": "Why can hooks not be conditional in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Why can hooks not be conditional in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2713,32 +1860,15 @@
       "description": "What is an arrow function and how is it used in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is an arrow function and how is it used in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2767,32 +1897,15 @@
       "description": "Explain the key concepts of functional components?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the key concepts of functional components?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2821,32 +1934,15 @@
       "description": "How do you conditionally render components?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you conditionally render components?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2875,32 +1971,15 @@
       "description": "Explain how component composition can be used to create larger components?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how component composition can be used to create larger components?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2929,32 +2008,15 @@
       "description": "Why is it important to maintain immutability when updating state in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Why is it important to maintain immutability when updating state in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -2983,32 +2045,15 @@
       "description": "What is a React error boundary, and how can it be useful for handling errors in components?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a React error boundary, and how can it be useful for handling errors in components?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3037,32 +2082,15 @@
       "description": "What is a Higher-Order Component (HOC) in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Higher-Order Component (HOC) in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3091,32 +2119,15 @@
       "description": "What is React.memo, and how can it be used to optimize functional components?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is React.memo, and how can it be used to optimize functional components?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3145,32 +2156,15 @@
       "description": "What are the equivalent hooks for common component lifecycle methods in class components?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the equivalent hooks for common component lifecycle methods in class components?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3199,32 +2193,15 @@
       "description": "What is web accessibility (a11y), and why is it important in React applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is web accessibility (a11y), and why is it important in React applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3253,32 +2230,15 @@
       "description": "What are ARIA attributes in React, and how can you use them to improve accessibility?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are ARIA attributes in React, and how can you use them to improve accessibility?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3307,32 +2267,15 @@
       "description": "How can you implement lazy loading in a React application, and why is it beneficial?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you implement lazy loading in a React application, and why is it beneficial?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3361,32 +2304,15 @@
       "description": "What is Client-Side Rendering (CSR) in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Client-Side Rendering (CSR) in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3415,33 +2341,15 @@
       "description": "What is Server-Side Rendering (SSR) in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Server-Side Rendering (SSR) in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "backend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "backend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3470,32 +2378,15 @@
       "description": "What is Static Site Generation (SSG) in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Static Site Generation (SSG) in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3524,32 +2415,15 @@
       "description": "What is Incremental Static Regeneration (ISR) in React?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Incremental Static Regeneration (ISR) in React?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3578,32 +2452,15 @@
       "description": "Discuss common strategies to improve the performance of React applications.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Discuss common strategies to improve the performance of React applications.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3632,32 +2489,15 @@
       "description": "What are Progressive Web Apps (PWAs), and how can they enhance the user experience of a React application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Progressive Web Apps (PWAs), and how can they enhance the user experience of a React application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3686,32 +2526,15 @@
       "description": "Discuss the importance of caching in React applications and how you might implement it.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the importance of caching in React applications and how you might implement it.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3740,32 +2563,15 @@
       "description": "Discuss different caching strategies you might use to improve the performance of a React application.?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Discuss different caching strategies you might use to improve the performance of a React application.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3794,33 +2600,15 @@
       "description": "Discuss security best practices you would follow when developing a React application to protect against common vulnerabilities.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss security best practices you would follow when developing a React application to protect against common vulnerabilities.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "cybersecurity",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "cybersecurity", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3849,33 +2637,15 @@
       "description": "What security considerations should you keep in mind when implementing user authentication in a React application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What security considerations should you keep in mind when implementing user authentication in a React application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "cybersecurity",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "cybersecurity", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3904,32 +2674,15 @@
       "description": "What is the difference between Element and Component?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between Element and Component?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -3958,32 +2711,15 @@
       "description": "Discuss the importance of internationalization (i18n) and localization in a React application, and how would you implement it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the importance of internationalization (i18n) and localization in a React application, and how would you implement it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -4012,32 +2748,15 @@
       "description": "Exlplain hydration in React.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Exlplain hydration in React.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",
@@ -4066,32 +2785,15 @@
       "description": "How to facilitate real-time communication in React applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How to facilitate real-time communication in React applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "react"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["react"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "react"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["frontend", "fullstack"],
+      "primaryTechStack": ["react"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-20T18:15:00.000Z",
       "updatedAt": "2025-12-20T18:15:00.000Z",
       "createdBy": "admin",

@@ -7,45 +7,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "NoSQL",
       "description": "What is NoSQL?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is NoSQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -69,45 +44,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The key characteristics of NoSQL",
       "description": "What are the key characteristics of NoSQL?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the key characteristics of NoSQL?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -131,22 +81,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The main differences between NoSQL and",
       "description": "What are the main differences between NoSQL and traditional relational databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the main differences between NoSQL and traditional relational databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -157,20 +98,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -194,22 +124,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The CAP theorem in the context",
       "description": "Explain the CAP theorem in the context of NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the CAP theorem in the context of NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -220,20 +141,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -257,45 +167,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es it mean for a NoSQL",
       "description": "What does it mean for a NoSQL database to be \"AP,\" \"CP,\" or \"CA\"?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What does it mean for a NoSQL database to be \"AP,\" \"CP,\" or \"CA\"?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -319,22 +204,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The BASE acronym in NoSQL databases.",
       "description": "Explain the BASE acronym in NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the BASE acronym in NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -345,20 +221,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -382,45 +247,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es BASE differ from the ACID",
       "description": "How does BASE differ from the ACID properties of relational databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does BASE differ from the ACID properties of relational databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -444,45 +284,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The common types of NoSQL databases",
       "description": "What are the common types of NoSQL databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the common types of NoSQL databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -506,45 +321,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You choose one type of NoSQL",
       "description": "When would you choose one type of NoSQL databases over another?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"When would you choose one type of NoSQL databases over another?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -568,23 +358,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "DOM",
       "description": "Explain the characteristics and use cases of a document-oriented NoSQL database.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the characteristics and use cases of a document-oriented NoSQL database.?\" Requirements: - Explain in the browser runtime context - Give a practical example Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "dom"
-      ],
-      "tags": [
-        "nosql",
-        "sql",
-        "dom"
-      ],
+      "subtopics": ["dom"],
+      "tags": ["nosql", "sql", "dom"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical example. Penalize answers that miss key requirements.",
       "companies": null,
@@ -595,20 +375,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -631,22 +400,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The characteristics and use cases of",
       "description": "Explain the characteristics and use cases of a Key-Value Stores NoSQL database.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the characteristics and use cases of a Key-Value Stores NoSQL database.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -657,20 +417,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -694,22 +443,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The characteristics and use cases of",
       "description": "Explain the characteristics and use cases of a Column-Family Stores NoSQL database.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the characteristics and use cases of a Column-Family Stores NoSQL database.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -720,20 +460,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -757,22 +486,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The characteristics and use cases of",
       "description": "Explain the characteristics and use cases of a Graph Databases NoSQL database.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the characteristics and use cases of a Graph Databases NoSQL database.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -783,20 +503,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -820,22 +529,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of eventual consistency in",
       "description": "Explain the concept of eventual consistency in distributed NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of eventual consistency in distributed NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -846,20 +546,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -883,45 +572,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es eventual consistency differ from strong",
       "description": "How does eventual consistency differ from strong consistency?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does eventual consistency differ from strong consistency?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -945,22 +609,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the challenges of data modeling",
       "description": "Discuss the challenges of data modeling in NoSQL databases compared to relational databases. How do you approach data modeling in a NoSQL context?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"Discuss the challenges of data modeling in NoSQL databases compared to relational databases. How do you approach data modeling in a NoSQL context?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -972,10 +627,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -983,10 +635,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1010,22 +659,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A composite key in NoSQL databases,",
       "description": "What is a composite key in NoSQL databases, and why might you use it in data modelling?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a composite key in NoSQL databases, and why might you use it in data modelling?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1036,20 +676,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1073,45 +702,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between sharding and replication",
       "description": "What is the difference between sharding and replication in NoSQL databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between sharding and replication in NoSQL databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1135,22 +739,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of consistent hashing in",
       "description": "Explain the concept of consistent hashing in the context of distributed NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of consistent hashing in the context of distributed NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1162,20 +757,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1199,22 +783,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Name some consistent hashing techniques.",
       "description": "Name some consistent hashing techniques.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some consistent hashing techniques.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1225,20 +800,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1262,45 +826,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the challenges and strategies for",
       "description": "Discuss the challenges and strategies for handling data consistency in distributed NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the challenges and strategies for handling data consistency in distributed NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1324,22 +863,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of tombstones in NoSQL",
       "description": "Explain the concept of tombstones in NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of tombstones in NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1350,20 +880,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1387,45 +906,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The advantages and disadvantages of using",
       "description": "What are the advantages and disadvantages of using a distributed NoSQL database like Apache HBase for large-scale data storage?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are the advantages and disadvantages of using a distributed NoSQL database like Apache HBase for large-scale data storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1449,45 +943,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Polyglot persistence in the context of",
       "description": "What is polyglot persistence in the context of NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is polyglot persistence in the context of NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1511,23 +980,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "DOM",
       "description": "What is document-level locking in NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is document-level locking in NoSQL databases.?\" Requirements: - Explain in the browser runtime context - Give a practical example Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "dom"
-      ],
-      "tags": [
-        "nosql",
-        "sql",
-        "dom"
-      ],
+      "subtopics": ["dom"],
+      "tags": ["nosql", "sql", "dom"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Explain in the browser runtime context; Give a practical example. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1538,20 +997,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1574,45 +1022,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Secondary indexes in NoSQL databases",
       "description": "What are secondary indexes in NoSQL databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are secondary indexes in NoSQL databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1636,45 +1059,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Point-in-time backups in NoSQL databases",
       "description": "What are point-in-time backups in NoSQL databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are point-in-time backups in NoSQL databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1698,22 +1096,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of normalization in NoSQL",
       "description": "Explain the concept of normalization in NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of normalization in NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1724,20 +1113,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1761,22 +1139,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of denormalization in NoSQL",
       "description": "Explain the concept of denormalization in NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of denormalization in NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1787,20 +1156,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1824,22 +1182,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of schemaless databases in",
       "description": "Explain the concept of schemaless databases in the context of NoSQL.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of schemaless databases in the context of NoSQL.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1850,20 +1199,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1887,45 +1225,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Write amplification in the context of",
       "description": "What is write amplification in the context of NoSQL databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is write amplification in the context of NoSQL databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -1949,22 +1262,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of geo-replication in NoSQL",
       "description": "Explain the concept of geo-replication in NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of geo-replication in NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1975,20 +1279,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2012,22 +1305,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of offline-first applications and",
       "description": "Explain the concept of offline-first applications and how NoSQL databases can support them.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of offline-first applications and how NoSQL databases can support them.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2039,20 +1323,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2076,45 +1349,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Batch processing, and how can NoSQL",
       "description": "What is batch processing, and how can NoSQL databases support it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is batch processing, and how can NoSQL databases support it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2138,22 +1386,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The principles of event sourcing and",
       "description": "Explain the principles of event sourcing and CQRS (Command Query Responsibility Segregation) and how they relate to NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the principles of event sourcing and CQRS (Command Query Responsibility Segregation) and how they relate to NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2164,20 +1403,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2201,45 +1429,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A Bloom filter",
       "description": "What is a Bloom filter?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is a Bloom filter?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2263,45 +1466,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Graph traversal and graph algorithms in",
       "description": "What are graph traversal and graph algorithms in the context of graph databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are graph traversal and graph algorithms in the context of graph databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2325,45 +1503,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Name some popular graph algorithms.",
       "description": "Name some popular graph algorithms.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some popular graph algorithms.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2387,22 +1540,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of compensating transactions in",
       "description": "Explain the concept of compensating transactions in NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of compensating transactions in NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2413,20 +1557,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2450,22 +1583,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The leader-follower replication model in NoSQL",
       "description": "Explain the leader-follower replication model in NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the leader-follower replication model in NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2476,20 +1600,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2513,22 +1626,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of read-your-writes consistency in",
       "description": "Explain the concept of read-your-writes consistency in NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of read-your-writes consistency in NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2539,20 +1643,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2576,22 +1669,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of distributed locking in",
       "description": "Explain the concept of distributed locking in NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of distributed locking in NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2602,19 +1686,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "senior"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["senior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2638,45 +1712,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Materialized view in NoSQL databases",
       "description": "What is materialized view in NoSQL databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is materialized view in NoSQL databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2700,45 +1749,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Data lineage tracking, and why is",
       "description": "What is data lineage tracking, and why is it important in NoSQL databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is data lineage tracking, and why is it important in NoSQL databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2762,45 +1786,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Discuss the advantages and disadvantages of",
       "description": "Discuss the advantages and disadvantages of using NoSQL databases for time-series data storage.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Discuss the advantages and disadvantages of using NoSQL databases for time-series data storage.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2824,45 +1823,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Name some NoSQL databases suitable for",
       "description": "Name some NoSQL databases suitable for time-series data.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Name some NoSQL databases suitable for time-series data.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "data-engineer",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "data-engineer", "frontend", "fullstack"],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",
@@ -2886,22 +1860,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of linearizability in distributed",
       "description": "Explain the concept of linearizability in distributed systems and how it relates to data consistency in NoSQL databases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of linearizability in distributed systems and how it relates to data consistency in NoSQL databases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "nosql",
-        "sql"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["nosql", "sql"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2912,20 +1877,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "nosql",
-        "sql"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "primaryTechStack": ["nosql", "sql"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:49:13.586Z",
       "updatedAt": "2025-12-19T17:49:13.586Z",
       "createdBy": "admin",

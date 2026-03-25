@@ -7,21 +7,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The key services offered by Google",
       "description": "Explain the key services offered by Google Cloud Platform (GCP).?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the key services offered by Google Cloud Platform (GCP).?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -33,19 +25,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -69,21 +51,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between Google Cloud Platform",
       "description": "Explain the difference between Google Cloud Platform (GCP), Amazon Web Services (AWS), and Microsoft Azure.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the difference between Google Cloud Platform (GCP), Amazon Web Services (AWS), and Microsoft Azure.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -95,19 +69,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -131,43 +95,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Google Cloud Functions, and when would",
       "description": "What is Google Cloud Functions, and when would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Functions, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -191,21 +132,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Google Cloud Functions",
       "description": "Explain the concept of Google Cloud Functions Triggers and how they work.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Google Cloud Functions Triggers and how they work.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -216,19 +149,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -252,43 +175,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "A scenario where you would use",
       "description": "Describe a scenario where you would use Google Cloud Endpoints.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe a scenario where you would use Google Cloud Endpoints.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -312,21 +212,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of serverless computing in",
       "description": "Explain the concept of serverless computing in GCP.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of serverless computing in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -337,19 +229,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -373,21 +255,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How you can implement load balancing",
       "description": "Explain how you can implement load balancing in GCP.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can implement load balancing in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -398,19 +272,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -434,43 +298,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Cloud Shell in GCP, and why",
       "description": "What is Cloud Shell in GCP, and why is it useful for developers?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Cloud Shell in GCP, and why is it useful for developers?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -494,21 +335,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You ensure data redundancy and high",
       "description": "How can you ensure data redundancy and high availability in Google Cloud Storage?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you ensure data redundancy and high availability in Google Cloud Storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -519,19 +352,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -555,21 +378,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The benefits of using Google Cloud",
       "description": "Explain the benefits of using Google Cloud Firestore as a NoSQL database in GCP.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the benefits of using Google Cloud Firestore as a NoSQL database in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -581,19 +396,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -617,43 +422,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Google Kubernetes Engine (GKE), and how",
       "description": "What is Google Kubernetes Engine (GKE), and how does it differ from Kubernetes?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Kubernetes Engine (GKE), and how does it differ from Kubernetes?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -677,21 +459,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Virtual Private Cloud",
       "description": "Explain the concept of Virtual Private Cloud (VPC) in GCP.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Virtual Private Cloud (VPC) in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -702,19 +476,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -738,43 +502,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The difference between a regional and",
       "description": "What is the difference between a regional and zonal resource in GCP?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the difference between a regional and zonal resource in GCP?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "entry",
-        "junior"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["entry", "junior"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -798,21 +539,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of Cloud Identity and",
       "description": "Explain the purpose of Cloud Identity and Access Management (IAM) in GCP.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Cloud Identity and Access Management (IAM) in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -824,19 +557,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -860,43 +583,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You transfer data into Google Cloud",
       "description": "How do you transfer data into Google Cloud Storage?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you transfer data into Google Cloud Storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -920,21 +620,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "BigQuery, and how does it differ",
       "description": "What is BigQuery, and how does it differ from traditional databases?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is BigQuery, and how does it differ from traditional databases?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -945,19 +637,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -981,21 +663,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of Google Cloud Pub/Sub.",
       "description": "Explain the concept of Google Cloud Pub/Sub.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of Google Cloud Pub/Sub.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1006,19 +680,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1042,21 +706,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You ensure high availability and disaster",
       "description": "How can you ensure high availability and disaster recovery in GCP?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you ensure high availability and disaster recovery in GCP?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1067,19 +723,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1103,43 +749,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Cloud Deployment Manager in GCP,",
       "description": "What is the Cloud Deployment Manager in GCP, and how is it used?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Cloud Deployment Manager in GCP, and how is it used?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1163,21 +786,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Identity Platform in GCP, and why",
       "description": "What is Identity Platform in GCP, and why is it important for application security?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Identity Platform in GCP, and why is it important for application security?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1190,19 +805,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1226,21 +831,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You monitor and troubleshoot performance issues",
       "description": "How can you monitor and troubleshoot performance issues in a Google Cloud application?",
       "prompt": "You are evaluating a mid-level candidate. Answer the question: \"How can you monitor and troubleshoot performance issues in a Google Cloud application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 10,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1252,9 +849,7 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
+      "primaryTechStack": ["gcp"],
       "interviewTypes": [
         "regular",
         "practice",
@@ -1262,10 +857,7 @@
         "teacher",
         "competitive"
       ],
-      "seniorityLevels": [
-        "mid",
-        "senior"
-      ],
+      "seniorityLevels": ["mid", "senior"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1289,43 +881,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Google Cloud Composer, and when would",
       "description": "What is Google Cloud Composer, and when would you use it?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Composer, and when would you use it?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1349,21 +918,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es GCP handle data security and",
       "description": "How does GCP handle data security and compliance?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does GCP handle data security and compliance?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1374,19 +935,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1410,43 +961,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Google Cloud Storage Nearline and how",
       "description": "What is Google Cloud Storage Nearline and how is it different from Coldline storage?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Storage Nearline and how is it different from Coldline storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1470,21 +998,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How you can achieve automatic scaling",
       "description": "Explain how you can achieve automatic scaling in Google App Engine.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how you can achieve automatic scaling in Google App Engine.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1496,19 +1016,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1532,21 +1042,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Google Cloud Bigtable, and in what",
       "description": "What is Google Cloud Bigtable, and in what scenarios is it a suitable choice for data storage?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Bigtable, and in what scenarios is it a suitable choice for data storage?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1558,19 +1060,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1594,43 +1086,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "GCP's recommendations for optimizing costs in",
       "description": "What are GCP's recommendations for optimizing costs in a cloud environment?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are GCP's recommendations for optimizing costs in a cloud environment?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1654,21 +1123,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The differences between Google Cloud Spanner",
       "description": "Describe the differences between Google Cloud Spanner and Google Cloud Bigtable.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Describe the differences between Google Cloud Spanner and Google Cloud Bigtable.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1679,19 +1140,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1715,43 +1166,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Es Google Cloud Monitoring differ from",
       "description": "How does Google Cloud Monitoring differ from Google Cloud Logging, and when would you use each one?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How does Google Cloud Monitoring differ from Google Cloud Logging, and when would you use each one?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1775,21 +1203,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "What Google Cloud Datastore is and",
       "description": "Explain what Google Cloud Datastore is and how it differs from other database systems.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain what Google Cloud Datastore is and how it differs from other database systems.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1801,19 +1221,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1837,21 +1247,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of a service account",
       "description": "Explain the concept of a service account in GCP and its role in security.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of a service account in GCP and its role in security.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -1863,19 +1265,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1899,44 +1291,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Google Cloud CDN, and why is",
       "description": "What is Google Cloud CDN, and why is it important for web applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud CDN, and why is it important for web applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack",
-        "mobile"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack", "mobile"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -1960,43 +1328,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Google Cloud Memorystore, and when is",
       "description": "What is Google Cloud Memorystore, and when is it used for caching?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Memorystore, and when is it used for caching?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2020,21 +1365,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The advantages of using Infrastructure as",
       "description": "Explain the advantages of using Infrastructure as Code (IAC) tools like Terraform or Deployment Manager in GCP.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the advantages of using Infrastructure as Code (IAC) tools like Terraform or Deployment Manager in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2046,18 +1383,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "senior"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["senior"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2081,21 +1409,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of a GCP project",
       "description": "Explain the concept of a GCP project and its significance in resource management.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of a GCP project and its significance in resource management.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2106,19 +1426,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2142,21 +1452,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Cloud Run in GCP, and when",
       "description": "What is Cloud Run in GCP, and when is it a suitable choice for deploying applications?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Cloud Run in GCP, and when is it a suitable choice for deploying applications?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2168,19 +1470,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2204,21 +1496,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The advantages of using Google Cloud's",
       "description": "Explain the advantages of using Google Cloud's multi-region and dual-region storage options.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the advantages of using Google Cloud's multi-region and dual-region storage options.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2229,19 +1513,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2265,43 +1539,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Google Cloud Data Catalog, and how",
       "description": "What is Google Cloud Data Catalog, and how can it help in data governance and discovery?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud Data Catalog, and how can it help in data governance and discovery?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2325,43 +1576,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Google Cloud IoT Core, and",
       "description": "What is the Google Cloud IoT Core, and how can it be utilized for building scalable IoT solutions?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Google Cloud IoT Core, and how can it be utilized for building scalable IoT solutions?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2385,21 +1613,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of GCP's Cloud Audit",
       "description": "Explain the concept of GCP's Cloud Audit Logs and their role in compliance and security.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of GCP's Cloud Audit Logs and their role in compliance and security.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2411,19 +1631,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2447,43 +1657,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You optimize the cost of running",
       "description": "How can you optimize the cost of running virtual machines (VMs) in Google Compute Engine?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How can you optimize the cost of running virtual machines (VMs) in Google Compute Engine?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2507,43 +1694,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The Google Cloud SDK, and how",
       "description": "What is the Google Cloud SDK, and how can it be useful for developers working with GCP resources?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is the Google Cloud SDK, and how can it be useful for developers working with GCP resources?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2567,21 +1731,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The significance of Google Cloud AutoML.",
       "description": "Explain the significance of Google Cloud AutoML.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the significance of Google Cloud AutoML.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2592,19 +1748,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2628,43 +1774,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Google Cloud Dataflow and Apache Beam,",
       "description": "What are Google Cloud Dataflow and Apache Beam, and how do they relate?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What are Google Cloud Dataflow and Apache Beam, and how do they relate?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2688,21 +1811,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The concept of VPC Peering in",
       "description": "Explain the concept of VPC Peering in GCP and its use cases.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the concept of VPC Peering in GCP and its use cases.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2713,19 +1828,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2749,43 +1854,20 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Google Cloud's Anthos, and how does",
       "description": "What is Google Cloud's Anthos, and how does it enable hybrid and multi-cloud deployments?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud's Anthos, and how does it enable hybrid and multi-cloud deployments?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
-      "positions": [
-        "backend",
-        "devops",
-        "frontend",
-        "fullstack"
-      ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "positions": ["backend", "devops", "frontend", "fullstack"],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2809,21 +1891,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "The purpose of Cloud Armor in",
       "description": "Explain the purpose of Cloud Armor in GCP.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain the purpose of Cloud Armor in GCP.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2834,19 +1908,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2870,21 +1934,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "Google Cloud AI Platform, and how",
       "description": "What is Google Cloud AI Platform, and how can it be used for machine learning projects?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"What is Google Cloud AI Platform, and how can it be used for machine learning projects?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2896,19 +1952,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2932,21 +1978,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "How Google Cloud Interconnect works and",
       "description": "Explain how Google Cloud Interconnect works and when you might use it.?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"Explain how Google Cloud Interconnect works and when you might use it.?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -2957,19 +1995,9 @@
         "frontend",
         "fullstack"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
@@ -2993,21 +2021,13 @@
       "reviewerId": null,
       "reviewedAt": null,
       "isDemoMode": false,
-      "companyType": [
-        "faang",
-        "startup",
-        "enterprise"
-      ],
+      "companyType": ["faang", "startup", "enterprise"],
       "title": "You manage secrets and sensitive information",
       "description": "How do you manage secrets and sensitive information securely in a GCP application?",
       "prompt": "You are evaluating a junior-level candidate. Answer the question: \"How do you manage secrets and sensitive information securely in a GCP application?\" Requirements: - Define the concept in your own words - Give a small example - Mention a common pitfall or best practice Style: - Clear, structured, concise. - Use code snippets only if they add clarity. - Avoid vague statements.",
       "topic": "fullstack",
-      "subtopics": [
-        "language-fundamentals"
-      ],
-      "tags": [
-        "gcp"
-      ],
+      "subtopics": ["language-fundamentals"],
+      "tags": ["gcp"],
       "estimatedTimeMinutes": 7,
       "aiEvaluationHint": "Expect the answer to address: Define the concept in your own words; Give a small example; Mention a common pitfall or best practice. Penalize answers that miss key requirements.",
       "companies": null,
@@ -3020,19 +2040,9 @@
         "fullstack",
         "mobile"
       ],
-      "primaryTechStack": [
-        "gcp"
-      ],
-      "interviewTypes": [
-        "regular",
-        "practice",
-        "flash",
-        "teacher"
-      ],
-      "seniorityLevels": [
-        "junior",
-        "mid"
-      ],
+      "primaryTechStack": ["gcp"],
+      "interviewTypes": ["regular", "practice", "flash", "teacher"],
+      "seniorityLevels": ["junior", "mid"],
       "createdAt": "2025-12-19T17:52:48.985Z",
       "updatedAt": "2025-12-19T17:52:48.985Z",
       "createdBy": "admin",
