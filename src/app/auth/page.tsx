@@ -1,16 +1,18 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import LoadingPage from "@/components/common/atoms/loading-page";
 import AuthForm from "@/components/landing-page/organisms/auth-form";
 import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 
 type AuthMode = "login" | "register";
 type AuthAudience = "individual" | "enterprise";
 
-export default function AuthPage() {
+function AuthPageContent() {
   const searchParams = useSearchParams();
   const modeParam = searchParams.get("mode");
+  const redirectParam = searchParams.get("redirect");
   const initialMode: AuthMode = modeParam === "login" ? "login" : "register";
   const [mode, setMode] = useState<AuthMode>(initialMode);
   const [audience, setAudience] = useState<AuthAudience>(() => {
@@ -55,8 +57,17 @@ export default function AuthPage() {
           onModeChange={handleModeChange}
           audience={audience}
           onAudienceChange={handleAudienceChange}
+          redirect={redirectParam}
         />
       </main>
     </div>
+  );
+}
+
+export default function AuthPage() {
+  return (
+    <Suspense fallback={<LoadingPage />}>
+      <AuthPageContent />
+    </Suspense>
   );
 }

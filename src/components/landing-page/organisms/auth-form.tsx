@@ -22,6 +22,7 @@ import {
   signInWithGitHub,
   signInWithGoogle,
 } from "@/lib/services/auth/auth";
+import { safeRedirect } from "@/lib/utils/safe-redirect";
 
 type AuthMode = "login" | "register";
 
@@ -30,6 +31,7 @@ interface AuthFormProps {
   onModeChange?: (mode: AuthMode) => void;
   audience?: "individual" | "enterprise";
   onAudienceChange?: (audience: "individual" | "enterprise") => void;
+  redirect?: string | null;
 }
 
 export default function AuthForm({
@@ -37,9 +39,12 @@ export default function AuthForm({
   onModeChange,
   audience: _audience,
   onAudienceChange,
+  redirect,
 }: AuthFormProps) {
   const router = useRouter();
-  const { loading: authLoading } = useGuestGuard();
+  const postAuthDestination = safeRedirect(redirect ?? null, "/onboarding");
+  const guardDestination = safeRedirect(redirect ?? null, "/dashboard");
+  const { loading: authLoading } = useGuestGuard(guardDestination);
   const [currentStep, setCurrentStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -174,7 +179,7 @@ export default function AuthForm({
       }
 
       if (user) {
-        router.push("/onboarding");
+        router.push(postAuthDestination);
       }
     } catch (error) {
       console.error("Login failed:", error);
@@ -259,7 +264,7 @@ export default function AuthForm({
       }
 
       if (user) {
-        router.push("/onboarding");
+        router.push(postAuthDestination);
       }
     } catch (error) {
       console.error("Registration failed:", error);
@@ -281,7 +286,7 @@ export default function AuthForm({
       }
 
       if (user) {
-        router.push("/onboarding");
+        router.push(postAuthDestination);
       }
     } catch (error) {
       console.error("Google login failed:", error);
@@ -303,7 +308,7 @@ export default function AuthForm({
       }
 
       if (user) {
-        router.push("/onboarding");
+        router.push(postAuthDestination);
       }
     } catch (error) {
       console.error("GitHub login failed:", error);

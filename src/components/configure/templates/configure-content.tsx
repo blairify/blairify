@@ -651,7 +651,7 @@ export function ConfigureContent() {
               ? (payload as { error?: unknown }).error
               : null;
 
-          console.error("Server error:", {
+          console.warn("Server error:", {
             status: response.status,
             error: serverMessage,
           });
@@ -797,10 +797,16 @@ export function ConfigureContent() {
       try {
         const extracted = await handleAnalyzeUrl();
         if (!extracted) {
+          setConfig((prev) => ({
+            ...prev,
+            flowMode: "paste",
+            pastedDescription: "",
+          }));
+          setCurrentStep(1);
           setAnalysisError(
             (prev) =>
               prev ??
-              "We couldn't analyze this job URL. Please try again or paste the job description directly.",
+              "We couldn't extract info from that link. Paste the job description here instead.",
           );
           return;
         }
@@ -1188,16 +1194,6 @@ export function ConfigureContent() {
               </svg>
               <div className="flex-1">
                 <div>{analysisError}</div>
-                {analysisError.includes("isn't supported") && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="mt-2"
-                    onClick={() => updateConfig("flowMode", "paste")}
-                  >
-                    Switch to paste job description
-                  </Button>
-                )}
               </div>
             </Typography.CaptionMedium>
           </div>

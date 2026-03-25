@@ -2,6 +2,7 @@
 
 import { Lock } from "lucide-react";
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 
@@ -12,12 +13,22 @@ interface GuestBlurOverlayProps {
   message?: string;
 }
 
+function useSignupHref(): string {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const search = searchParams.toString();
+  const returnTo = search ? `${pathname}?${search}` : pathname;
+  return `/auth?mode=register&redirect=${encodeURIComponent(returnTo)}`;
+}
+
 export function GuestBlurOverlay({
   children,
   enabled,
   className,
   message = "Create a free account to unlock your full results",
 }: GuestBlurOverlayProps) {
+  const signupHref = useSignupHref();
+
   if (!enabled) return <>{children}</>;
 
   return (
@@ -37,7 +48,7 @@ export function GuestBlurOverlay({
           <Typography.CaptionBold>{message}</Typography.CaptionBold>
         </div>
         <Button asChild size="sm" className="mt-1">
-          <Link href="/auth?mode=register">Sign up free</Link>
+          <Link href={signupHref}>Sign up free</Link>
         </Button>
       </section>
     </div>
