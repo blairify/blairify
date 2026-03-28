@@ -1069,7 +1069,9 @@ function LeaderboardTable({
           {topEntries.map((entry) => (
             <tr
               key={entry.rank}
-              className="border-b border-border/20 hover:bg-background/50 transition-colors"
+              className={`border-b border-border/20 hover:bg-background/50 transition-colors ${
+                entry.rank === topEntries.length ? "border-b-0" : ""
+              }`}
             >
               <th scope="row" className="p-3 text-left font-normal">
                 <div className="flex items-center gap-3">

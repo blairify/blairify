@@ -16,7 +16,6 @@ import {
   ComboboxTrigger,
 } from "@/components/tailgrids/core/combobox";
 import { Input } from "@/components/tailgrids/core/input";
-import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { POSITIONS, SENIORITY_LEVELS } from "@/constants/configure";
 import type { PositionValue } from "@/types/global";
@@ -105,7 +104,6 @@ export function EditableExtractedTags({
         </Combobox>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="company">Company</Label>
         <Input
           id="company"
           value={config.company ?? ""}

@@ -21,9 +21,15 @@ export default function PracticeSection() {
               className="mb-4 flex items-center justify-center gap-2 flex-wrap"
             >
               Practice{" "}
-              <ArrowRight className="size-6 text-primary" aria-hidden="true" />{" "}
+              <ArrowRight
+                className="size-6 text-primary/90 mt-1"
+                aria-hidden="true"
+              />{" "}
               Performance{" "}
-              <ArrowRight className="size-6 text-primary" aria-hidden="true" />{" "}
+              <ArrowRight
+                className="size-6 text-primary/90 mt-1"
+                aria-hidden="true"
+              />{" "}
               Offer
             </Typography.HeroSubHeading>
             <Typography.Body color="secondary" className="mb-8">
@@ -34,10 +40,7 @@ export default function PracticeSection() {
             <ul className="space-y-6" aria-label="Practice benefits">
               <li className="flex items-start gap-4">
                 <div className="size-8 px-2 rounded-full bg-primary/10 flex  items-center justify-center mt-0.5">
-                  <Check
-                    className="size-5 text-primary dark:text-white "
-                    aria-hidden="true"
-                  />
+                  <Check className="size-5 text-primary" aria-hidden="true" />
                 </div>
                 <div>
                   <Typography.Heading3 className="mb-1">

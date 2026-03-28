@@ -12,16 +12,16 @@ export default function ComparisonSection() {
       data-analytics-id="home-comparison"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,146,60,0.05),transparent_70%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(251,146,60,0.05),transparent_100%)] dark:bg-[linear-gradient(180deg,rgba(251,146,60,0.05),transparent_100%)]"
         aria-hidden="true"
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <header className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="flex items-center justify-center gap-5 mb-10 sm:mb-12 text-4xl font-bold sm:gap-10">
-            <PiOpenAiLogoThin className="size-30 flex-shrink-0 text-gray-500 sm:size-25" />
-            <Typography.CaptionMedium color="secondary">
+            <PiOpenAiLogoThin className="size-30 flex-shrink-0 text-black dark:text-white sm:size-25" />
+            <Typography.CaptionBold color="secondary">
               VS
-            </Typography.CaptionMedium>
+            </Typography.CaptionBold>
             <div className="flex-shrink-0 hidden sm:block">
               <Logo variant="transparent" iconSize={100} />
             </div>
@@ -64,7 +64,7 @@ export default function ComparisonSection() {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-border/30 hover:bg-background/50 transition-colors">
+              <tr className="border-b border-border/30 transition-colors">
                 <th scope="row" className="p-4 sm:p-6 text-left font-normal">
                   <Typography.Body color="secondary">
                     Uses real interview questions
@@ -72,7 +72,7 @@ export default function ComparisonSection() {
                 </th>
                 <td className="p-4 sm:p-6 text-center">
                   <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
-                    <X className="size-7 text-red-600" aria-hidden="true" />
+                    <X className="size-7 text-red-500" aria-hidden="true" />
                   </div>
                 </td>
                 <td className="p-4 sm:p-6 text-center">
@@ -84,7 +84,7 @@ export default function ComparisonSection() {
                   </div>
                 </td>
               </tr>
-              <tr className="border-b border-border/30 hover:bg-background/50 transition-colors">
+              <tr className="border-b border-border/30 transition-colors">
                 <th scope="row" className="p-4 sm:p-6 text-left font-normal">
                   <Typography.Body color="secondary">
                     Avoids generic "Hello World" templates
@@ -92,7 +92,7 @@ export default function ComparisonSection() {
                 </th>
                 <td className="p-4 sm:p-6 text-center">
                   <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
-                    <X className="size-7 text-red-600" aria-hidden="true" />
+                    <X className="size-7 text-red-500" aria-hidden="true" />
                   </div>
                 </td>
                 <td className="p-4 sm:p-6 text-center">
@@ -104,7 +104,7 @@ export default function ComparisonSection() {
                   </div>
                 </td>
               </tr>
-              <tr className="border-b border-border/30 hover:bg-background/50 transition-colors">
+              <tr className="border-b border-border/30 transition-colors">
                 <th scope="row" className="p-4 sm:p-6 text-left font-normal">
                   <Typography.Body color="secondary">
                     Tests implementation limits
@@ -112,7 +112,7 @@ export default function ComparisonSection() {
                 </th>
                 <td className="p-4 sm:p-6 text-center">
                   <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
-                    <X className="size-7 text-red-600" aria-hidden="true" />
+                    <X className="size-7 text-red-500" aria-hidden="true" />
                   </div>
                 </td>
                 <td className="p-4 sm:p-6 text-center">
@@ -124,7 +124,7 @@ export default function ComparisonSection() {
                   </div>
                 </td>
               </tr>
-              <tr className="border-b border-border/30 hover:bg-background/50 transition-colors">
+              <tr className="border-b border-border/30 transition-colors">
                 <th scope="row" className="p-4 sm:p-6 text-left font-normal">
                   <Typography.Body color="secondary">
                     Includes real-world failure scenarios
@@ -132,7 +132,7 @@ export default function ComparisonSection() {
                 </th>
                 <td className="p-4 sm:p-6 text-center">
                   <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
-                    <X className="size-7 text-red-600" aria-hidden="true" />
+                    <X className="size-7 text-red-500" aria-hidden="true" />
                   </div>
                 </td>
                 <td className="p-4 sm:p-6 text-center">
@@ -144,7 +144,7 @@ export default function ComparisonSection() {
                   </div>
                 </td>
               </tr>
-              <tr className="border-b border-border/30 hover:bg-background/50 transition-colors">
+              <tr className="border-b border-border/30 transition-colors">
                 <th scope="row" className="p-4 sm:p-6 text-left font-normal">
                   <Typography.Body color="secondary">
                     Provides real-time feedback
@@ -152,7 +152,7 @@ export default function ComparisonSection() {
                 </th>
                 <td className="p-4 sm:p-6 text-center">
                   <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
-                    <X className="size-7 text-red-600" aria-hidden="true" />
+                    <X className="size-7 text-red-500" aria-hidden="true" />
                   </div>
                 </td>
                 <td className="p-4 sm:p-6 text-center">
@@ -164,7 +164,7 @@ export default function ComparisonSection() {
                   </div>
                 </td>
               </tr>
-              <tr className="hover:bg-background/50 transition-colors">
+              <tr className="transition-colors">
                 <th scope="row" className="p-4 sm:p-6 text-left font-normal">
                   <Typography.Body color="secondary">
                     Stress-tests reasoning against edge cases
@@ -172,7 +172,7 @@ export default function ComparisonSection() {
                 </th>
                 <td className="p-4 sm:p-6 text-center">
                   <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
-                    <X className="size-7 text-red-600" aria-hidden="true" />
+                    <X className="size-7 text-red-500" aria-hidden="true" />
                   </div>
                 </td>
                 <td className="p-4 sm:p-6 text-center">

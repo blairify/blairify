@@ -1,7 +1,7 @@
 "use client";
 
-import { Star } from "lucide-react";
 import Image from "next/image";
+import { FaStar } from "react-icons/fa";
 import { Typography } from "@/components/common/atoms/typography";
 
 type Testimonial = {
@@ -128,13 +128,10 @@ export default function TestimonialsSection() {
         aria-hidden="true"
       />
       <div className=" mx-auto px-4 sm:px-6 lg:px-8 w-[90%]">
-        <header className="text-center mb-10 sm:mb-12">
-          <Typography.HeroSubHeading id="testimonials-heading" className="mb-3">
-            Don't just take our word for it.
-          </Typography.HeroSubHeading>
-          <Typography.Body color="secondary">
-            Engineers use Blairify to secure offers at top-tier companies.
-          </Typography.Body>
+        <header className="text-center my-10 pb-16 sm:mb-12">
+          <Typography.HeroHeading1 id="testimonials-heading">
+            BY ENGINEERS FOR ENGINEERS
+          </Typography.HeroHeading1>
         </header>
 
         <div className="relative">
@@ -175,8 +172,10 @@ export default function TestimonialsSection() {
                             unoptimized={t.imageType === "dataUri"}
                           />
                         </div>
-                        <div>
-                          <Typography.BodyBold>{t.name}</Typography.BodyBold>
+                        <div className="flex flex-col gap-0">
+                          <Typography.CaptionBold className="text-sm ">
+                            {t.name}
+                          </Typography.CaptionBold>
                           <Typography.SubCaptionMedium color="secondary">
                             {t.role}
                           </Typography.SubCaptionMedium>
@@ -198,9 +197,9 @@ export default function TestimonialsSection() {
                       aria-label="5 star rating"
                     >
                       {Array.from({ length: 5 }).map((_, starIndex) => (
-                        <Star
+                        <FaStar
                           key={starIndex}
-                          className="size-4 fill-current"
+                          className="size-4 fill-yellow-400 text-yellow-400"
                           aria-hidden="true"
                         />
                       ))}
@@ -216,12 +215,12 @@ export default function TestimonialsSection() {
           </section>
         </div>
 
-        <div className="text-center mt-12 sm:mt-16">
-          <Typography.Body color="secondary" className="max-w-2xl mx-auto">
+        <div className="text-center max-w-xl mx-auto mt-12 sm:mt-16">
+          <Typography.Caption color="secondary">
             We update reviews monthly. Want to see your story here? Earn the
             "Competent Communicator" achievement and reach "Gold I - Solid
             Performer" status, and we'll reach out for your feedback.
-          </Typography.Body>
+          </Typography.Caption>
         </div>
       </div>
     </section>

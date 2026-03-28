@@ -2,7 +2,6 @@
 
 import {
   ArrowRight,
-  ArrowUp,
   Crown,
   Link2Icon,
   Loader2,
@@ -37,6 +36,10 @@ import { TiFlowChildren } from "react-icons/ti";
 import { PaginationIndicator } from "@/components/common/atoms/pagination-indicator";
 import { Typography } from "@/components/common/atoms/typography";
 import { InterviewerAvatar } from "@/components/common/interviewer-avatar";
+import {
+  type InputFlow,
+  JobInput,
+} from "@/components/common/molecules/job-input";
 import { EditableExtractedTags } from "@/components/configure/molecules/editable-extracted-tags";
 import { ModeSelectionStep } from "@/components/configure/templates/mode-selection-step";
 import type { MarkdownField } from "@/components/configure/types/markdown";
@@ -52,12 +55,6 @@ import type {
   ConfigureFlowMode,
   InterviewConfig,
 } from "@/components/configure/utils/types";
-import {
-  PromptInput,
-  PromptInputAction,
-  PromptInputActions,
-  PromptInputTextarea,
-} from "@/components/prompt-kit/prompt-input";
 import { TextArea } from "@/components/tailgrids/core/text-area";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -689,6 +686,17 @@ export function ConfigureContent() {
           return null;
         }
 
+        const hasJobDetails =
+          data.jobDescription?.trim() || data.jobRequirements?.trim();
+        if (!hasJobDetails) {
+          console.warn("No job details extracted from content");
+          setAnalysisError(
+            "Could not extract job details from this content. Please try pasting a more detailed job description with clear role requirements and responsibilities.",
+          );
+          setCurrentStep(stepBefore);
+          return null;
+        }
+
         updateConfig("position", data.position);
         updateConfig("seniority", data.seniority);
         updateConfig("technologies", data.technologies);
@@ -962,138 +970,91 @@ export function ConfigureContent() {
             Paste link to an offer
           </Typography.Heading1>
           <div className="relative w-full max-w-3xl space-y-6 text-center">
-            <form
-              onSubmit={handleAnalyzeUrl}
-              className="mx-auto w-full max-w-3xl"
+            <JobInput
+              value={config.pastedUrl ?? ""}
+              onChange={(value: string) => updateConfig("pastedUrl", value)}
+              onSubmit={(flow: InputFlow) => {
+                if (flow === "url") handleAnalyzeUrl();
+              }}
+              placeholder="Paste a LinkedIn, Indeed, JustJoin, ZipRecruiter or FlexJobs URL…"
+              isLoading={isAnalyzingDescription}
+              size="large"
+              aria-label="Job URL input"
+            />
+            <Typography.Caption
+              color="secondary"
+              className="mt-3 block text-center sm:text-center"
             >
-              <div className="relative flex items-center gap-3 rounded-4xl border border-border/60 bg-card/95 px-5 py-3.5 shadow-2xl backdrop-blur">
-                <PromptInput
-                  value={config.pastedUrl ?? ""}
-                  onValueChange={(value: string) =>
-                    updateConfig("pastedUrl", value)
-                  }
-                  isLoading={isAnalyzingDescription}
-                  onSubmit={handleAnalyzeUrl}
-                  className="w-full"
+              <span className="inline-flex items-center gap-1 flex-wrap justify-center sm:justify-start">
+                <a
+                  href="https://www.linkedin.com/jobs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline transition-colors"
                 >
-                  <PromptInputTextarea
-                    id="ai-message-landing"
-                    value={config.pastedUrl ?? ""}
-                    onChange={(e) => updateConfig("pastedUrl", e.target.value)}
-                    placeholder="Paste a LinkedIn, Indeed, JustJoin, ZipRecruiter or FlexJobs URL…"
-                    className="flex-1 resize-none border-none shadow-none !bg-transparent pr-12 sm:pr-28 text-base focus-visible:ring-0"
-                    onKeyDown={(
-                      event: React.KeyboardEvent<HTMLTextAreaElement>,
-                    ) => {
-                      if (
-                        event.key === "Enter" &&
-                        !event.shiftKey &&
-                        !event.nativeEvent.isComposing
-                      ) {
-                        event.preventDefault();
-                        handleAnalyzeUrl();
-                      }
-                    }}
-                    rows={3}
-                    autoFocus
-                  />
-                  <PromptInputActions className="justify-end pt-2">
-                    <PromptInputAction
-                      tooltip={
-                        isAnalyzingDescription
-                          ? "Stop generation"
-                          : "Send message"
-                      }
-                    >
-                      <Button
-                        type="submit"
-                        variant="default"
-                        size="icon"
-                        className="h-8 w-8 rounded-full"
-                      >
-                        {isAnalyzingDescription ? (
-                          <Loader2 className="size-5 animate-spin" />
-                        ) : (
-                          <ArrowUp className="size-5" />
-                        )}
-                      </Button>
-                    </PromptInputAction>
-                  </PromptInputActions>
-                </PromptInput>
-              </div>
-              <Typography.Caption
-                color="secondary"
-                className="mt-3 block text-center sm:text-center"
-              >
-                <span className="inline-flex items-center gap-1 flex-wrap justify-center sm:justify-start">
-                  <a
-                    href="https://www.linkedin.com/jobs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium hover:underline transition-colors"
-                  >
-                    LinkedIn
-                  </a>
-                  <span className="text-muted-foreground">•</span>
-                  <a
-                    href="https://www.indeed.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium hover:underline transition-colors"
-                  >
-                    Indeed
-                  </a>
-                  <span className="text-muted-foreground">•</span>
-                  <a
-                    href="https://justjoin.it"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium hover:underline transition-colors"
-                  >
-                    JustJoin.it
-                  </a>
-                  <span className="text-muted-foreground">•</span>
-                  <a
-                    href="https://www.google.com/search?q=jobs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium hover:underline transition-colors"
-                  >
-                    Google Jobs
-                  </a>
-                  <span className="text-muted-foreground">•</span>
-                  <a
-                    href="https://www.ziprecruiter.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium hover:underline transition-colors"
-                  >
-                    ZipRecruiter
-                  </a>
-                  <span className="text-muted-foreground">•</span>
-                  <a
-                    href="https://www.flexjobs.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium hover:underline transition-colors"
-                  >
-                    FlexJobs
-                  </a>
-                </span>
-              </Typography.Caption>
-            </form>
+                  LinkedIn
+                </a>
+                <span className="text-muted-foreground">•</span>
+                <a
+                  href="https://www.indeed.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline transition-colors"
+                >
+                  Indeed
+                </a>
+                <span className="text-muted-foreground">•</span>
+                <a
+                  href="https://justjoin.it"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline transition-colors"
+                >
+                  JustJoin.it
+                </a>
+                <span className="text-muted-foreground">•</span>
+                <a
+                  href="https://www.google.com/search?q=jobs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline transition-colors"
+                >
+                  Google Jobs
+                </a>
+                <span className="text-muted-foreground">•</span>
+                <a
+                  href="https://www.ziprecruiter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline transition-colors"
+                >
+                  ZipRecruiter
+                </a>
+                <span className="text-muted-foreground">•</span>
+                <a
+                  href="https://www.flexjobs.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium hover:underline transition-colors"
+                >
+                  FlexJobs
+                </a>
+              </span>
+            </Typography.Caption>
           </div>
 
           {analysisError && (
-            <div className="flex gap-4 items-center">
-              <InterviewerAvatar interviewer={INTERVIEWERS[2]} size={40} />
-              <div className="rounded-md border border-destructive/20 bg-destructive/5 p-3 py-2">
-                <Typography.CaptionMedium
-                  color="error"
-                  className="flex items-center gap-2"
-                >
-                  {analysisError}
-                </Typography.CaptionMedium>
+            <div className="w-full max-w-3xl">
+              <div className="flex items-start gap-3 rounded-lg border border-primary/40 bg-primary/5 p-4">
+                <InterviewerAvatar interviewer={INTERVIEWERS[2]} size={40} />
+                <div className="flex-1">
+                  <Typography.BodyBold className="text-primary">
+                    Could not extract job details
+                  </Typography.BodyBold>
+                  <Typography.CaptionMedium color="secondary">
+                    {analysisError}
+                  </Typography.CaptionMedium>
+                </div>
               </div>
             </div>
           )}
@@ -1107,95 +1068,31 @@ export function ConfigureContent() {
           Paste job description
         </Typography.Heading1>
         <div className="relative w-full max-w-3xl space-y-6 text-center">
-          <form
-            onSubmit={handleAnalyzeDescription}
-            className="mx-auto w-full max-w-3xl"
-          >
-            <div className="relative flex items-center gap-3 rounded-4xl border border-border/60 bg-card/95 px-5 py-3.5 shadow-2xl backdrop-blur">
-              <PromptInput
-                value={config.pastedDescription}
-                onValueChange={(value: string) =>
-                  updateConfig("pastedDescription", value)
-                }
-                isLoading={isAnalyzingDescription}
-                onSubmit={handleAnalyzeDescription}
-                className="w-full"
-              >
-                <PromptInputTextarea
-                  value={config.pastedDescription}
-                  onChange={(e) =>
-                    updateConfig("pastedDescription", e.target.value)
-                  }
-                  placeholder="Paste the full job post. We'll extract role, seniority, tech stack, and company..."
-                  className="flex-1 resize-none border-none shadow-none !bg-transparent pr-12 sm:pr-28 text-base focus-visible:ring-0"
-                  onKeyDown={(
-                    event: React.KeyboardEvent<HTMLTextAreaElement>,
-                  ) => {
-                    if (
-                      event.key === "Enter" &&
-                      !event.shiftKey &&
-                      !event.nativeEvent.isComposing
-                    ) {
-                      event.preventDefault();
-                      handleAnalyzeDescription();
-                    }
-                  }}
-                  rows={3}
-                  autoFocus
-                />
-                <PromptInputActions className="justify-end pt-2">
-                  <PromptInputAction
-                    tooltip={
-                      isAnalyzingDescription
-                        ? "Stop generation"
-                        : "Send message"
-                    }
-                  >
-                    <Button
-                      type="submit"
-                      variant="default"
-                      size="icon"
-                      className="h-8 w-8 rounded-full"
-                    >
-                      {isAnalyzingDescription ? (
-                        <Loader2 className="size-5 animate-spin" />
-                      ) : (
-                        <ArrowUp className="size-5" />
-                      )}
-                    </Button>
-                  </PromptInputAction>
-                </PromptInputActions>
-              </PromptInput>
-            </div>
-          </form>
+          <JobInput
+            value={config.pastedDescription}
+            onChange={(value: string) =>
+              updateConfig("pastedDescription", value)
+            }
+            onSubmit={(flow: InputFlow) => {
+              if (flow === "description") handleAnalyzeDescription();
+            }}
+            placeholder="Paste the full job post. We'll extract role, seniority, tech stack, and company..."
+            isLoading={isAnalyzingDescription}
+            size="large"
+            aria-label="Job description input"
+          />
         </div>
 
         {analysisError && (
-          <div className="mt-3 rounded-md border border-destructive/20 bg-destructive/5 p-3">
-            <Typography.CaptionMedium
-              color="error"
-              className="flex items-start gap-2"
-            >
-              <svg
-                className="size-4 shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                role="img"
-                aria-label="Error"
-              >
-                <title>Error</title>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+          <div className="w-full max-w-3xl">
+            <div className="flex items-start gap-3 rounded-2xl border-2 border-primary bg-primary/5 p-4">
+              <InterviewerAvatar interviewer={INTERVIEWERS[2]} size={40} />
               <div className="flex-1">
-                <div>{analysisError}</div>
+                <Typography.CaptionMedium color="secondary">
+                  {analysisError}
+                </Typography.CaptionMedium>
               </div>
-            </Typography.CaptionMedium>
+            </div>
           </div>
         )}
       </div>

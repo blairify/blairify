@@ -12,7 +12,7 @@ export default function HowItWorksSection() {
       data-analytics-id="home-how-it-works"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(59,130,246,0.05),transparent_65%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_0%_80%,rgba(251,146,60,0.01),transparent_60%)] dark:bg-[radial-gradient(circle_at_20%_80%,rgba(251,146,60,0.05),transparent_30%)]"
         aria-hidden="true"
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">

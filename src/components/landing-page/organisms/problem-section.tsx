@@ -12,7 +12,7 @@ export default function ProblemSection() {
       data-analytics-id="home-problem"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(168,85,247,0.06),transparent_60%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_0%_80%,rgba(251,146,60,0.01),transparent_60%)] dark:bg-[radial-gradient(circle_at_20%_80%,rgba(251,146,60,0.05),transparent_70%)]"
         aria-hidden="true"
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -52,7 +52,7 @@ export default function ProblemSection() {
               />
             </div>
             <Typography.Heading3 className="mt-6 mb-2">
-              The ChatGPT Illusion
+              The ChatGPT Halucinations
             </Typography.Heading3>
             <Typography.Body color="secondary">
               Even the perfect prompt can't bypass static training data.
