@@ -24,7 +24,8 @@
     "questions:normalize": "ts-node --project scripts/tsconfig.json scripts/normalize-prepared-question-banks.ts",
     "questions:validate": "ts-node --project scripts/tsconfig.json scripts/validate-prepared-question-banks.ts",
     "questions:preimport": "pnpm -s questions:normalize && pnpm -s questions:validate",
-    "resources:ingest": "ts-node --project scripts/tsconfig.json scripts/resources/ingest-trusted-docs.ts"
+    "resources:ingest": "ts-node --project scripts/tsconfig.json scripts/resources/ingest-trusted-docs.ts",
+    "seed:blog": "ts-node --project scripts/tsconfig.json scripts/blog/seed-blog-posts.ts"
   },
   "dependencies": {
     "@faker-js/faker": "^10.3.0",

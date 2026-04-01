@@ -8,6 +8,40 @@ const JOB_LIMIT = 500;
 
 const prisma = new PrismaClient();
 
+async function fetchBlogEntries(): Promise<MetadataRoute.Sitemap> {
+  try {
+    const posts = await prisma.blogPost.findMany({
+      where: {
+        status: "PUBLISHED",
+        publishedAt: { not: null },
+      },
+      select: {
+        slug: true,
+        updatedAt: true,
+      },
+      orderBy: { publishedAt: "desc" },
+    });
+
+    return [
+      {
+        url: `${BASE_URL}/blog`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: "daily" as const,
+        priority: 0.8,
+      },
+      ...posts.map((post) => ({
+        url: `${BASE_URL}/blog/${post.slug}`,
+        lastModified: post.updatedAt.toISOString(),
+        changeFrequency: "weekly" as const,
+        priority: 0.7,
+      })),
+    ];
+  } catch (error) {
+    console.error("Error fetching blog posts for sitemap:", error);
+    return [];
+  }
+}
+
 async function fetchJobEntries(): Promise<MetadataRoute.Sitemap> {
   try {
     const recentJobs = await prisma.job.findMany({
@@ -35,8 +69,6 @@ async function fetchJobEntries(): Promise<MetadataRoute.Sitemap> {
   } catch (error) {
     console.error("Error fetching jobs for sitemap:", error);
     return [];
-  } finally {
-    await prisma.$disconnect();
   }
 }
 
@@ -71,7 +103,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: page.priority,
   }));
 
-  const jobEntries = await fetchJobEntries();
+  const [jobEntries, blogEntries] = await Promise.all([
+    fetchJobEntries(),
+    fetchBlogEntries(),
+  ]);
 
-  return [...staticEntries, ...jobEntries];
+  await prisma.$disconnect();
+
+  return [...staticEntries, ...blogEntries, ...jobEntries];
 }

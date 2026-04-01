@@ -340,28 +340,29 @@ export default function DashboardSidebar({
             )}
           </button>
 
-          <button
-            type="button"
-            disabled
-            className={`flex items-center px-3 py-1.5 rounded-md w-full text-sidebar-foreground/40 cursor-not-allowed ${
+          <Link
+            href="/blog"
+            title="Tech News"
+            aria-label="Tech News"
+            className={`flex items-center px-3.5 py-2.5 rounded-lg transition-colors w-full ${
               collapsed ? "justify-center max-w-9 mx-auto" : "space-x-3"
+            } ${
+              isActive("/blog")
+                ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             }`}
-            aria-label="Tech news coming soon"
           >
             <IoIosRadio className="size-5 flex-shrink-0" />
             <Typography.CaptionMedium
-              className={collapsed ? "sr-only" : "truncate"}
+              className={
+                collapsed
+                  ? "sr-only"
+                  : `truncate ${isActive("/blog") ? " text-white" : ""}`
+              }
             >
               Tech News
             </Typography.CaptionMedium>
-            {!collapsed && (
-              <div className="ml-auto bg-sidebar-accent/20 px-2 py-0.5 rounded-full">
-                <Typography.SubCaptionBold color="secondary">
-                  Soon
-                </Typography.SubCaptionBold>
-              </div>
-            )}
-          </button>
+          </Link>
 
           <button
             type="button"

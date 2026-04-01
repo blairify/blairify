@@ -26,6 +26,7 @@ const MARKETING_LINKS = [
   { href: "#comparison", label: "Us vs GPT" },
   { href: "#pricing", label: "Pricing" },
   { href: "#faq", label: "FAQ" },
+  { href: "/blog", label: "Blog" },
 ] as const;
 
 export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
@@ -102,17 +103,21 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
             </div>
             <div className="hidden md:flex items-center gap-6">
               <div className="flex items-center gap-6">
-                {MARKETING_LINKS.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="px-4 py-2 rounded-md  outline-none focus-visible:outline focus-visible:outline-border focus-visible:outline-offset-2 hover:bg-muted/50 hover:text-foreground transition-colors duration-200"
-                  >
-                    <Typography.CaptionMedium color="secondary">
-                      {link.label}
-                    </Typography.CaptionMedium>
-                  </a>
-                ))}
+                {MARKETING_LINKS.map((link) => {
+                  const isInternal = link.href.startsWith("/");
+                  const Component = isInternal ? Link : "a";
+                  return (
+                    <Component
+                      key={link.href}
+                      href={link.href}
+                      className="px-4 py-2 rounded-md  outline-none focus-visible:outline focus-visible:outline-border focus-visible:outline-offset-2 hover:bg-muted/50 hover:text-foreground transition-colors duration-200"
+                    >
+                      <Typography.CaptionMedium color="secondary">
+                        {link.label}
+                      </Typography.CaptionMedium>
+                    </Component>
+                  );
+                })}
               </div>
 
               {!loading && user ? (
@@ -286,16 +291,22 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
           >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-6">
               <div className="space-y-2 pb-4 border-b border-border/60">
-                {MARKETING_LINKS.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="tap-highlight-transparent flex items-center justify-between gap-3 p-3 rounded-lg text-foreground visited:text-foreground no-underline outline-none hover:bg-muted/50 focus:bg-muted/60 active:bg-muted/60 active:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <Typography.BodyMedium>{link.label}</Typography.BodyMedium>
-                  </a>
-                ))}
+                {MARKETING_LINKS.map((link) => {
+                  const isInternal = link.href.startsWith("/");
+                  const Component = isInternal ? Link : "a";
+                  return (
+                    <Component
+                      key={link.href}
+                      href={link.href}
+                      className="tap-highlight-transparent flex items-center justify-between gap-3 p-3 rounded-lg text-foreground visited:text-foreground no-underline outline-none hover:bg-muted/50 focus:bg-muted/60 active:bg-muted/60 active:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-border focus-visible:outline-offset-2"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <Typography.BodyMedium>
+                        {link.label}
+                      </Typography.BodyMedium>
+                    </Component>
+                  );
+                })}
               </div>
 
               {!loading && user ? (

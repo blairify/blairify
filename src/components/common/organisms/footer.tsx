@@ -81,15 +81,24 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Compliance Badges */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 justify-center lg:justify-end w-full lg:w-auto">
-            <Typography.Caption color="secondary">
-              BY ENGINEERS FOR ENGINEERS
-            </Typography.Caption>
-
-            <Typography.Caption color="secondary">
-              support@blairify.com
-            </Typography.Caption>
+          {/* Quick Links */}
+          <div className="flex flex-col items-center lg:items-end gap-4 w-full lg:w-auto">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 py-2 transition-colors touch-manipulation underline-offset-4 hover:underline"
+            >
+              <Typography.Caption color="secondary">
+                Tech News & Blog
+              </Typography.Caption>
+            </Link>
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 justify-center lg:justify-end">
+              <Typography.Caption color="secondary">
+                BY ENGINEERS FOR ENGINEERS
+              </Typography.Caption>
+              <Typography.Caption color="secondary">
+                support@blairify.com
+              </Typography.Caption>
+            </div>
           </div>
         </div>
 

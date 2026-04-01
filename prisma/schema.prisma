@@ -11,6 +11,43 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+enum BlogPostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model BlogPost {
+  id              String         @id @default(cuid())
+  slug            String         @unique @db.VarChar(255)
+  title           String         @db.VarChar(255)
+  description     String         @db.Text
+  content         String         @db.Text
+  coverImage      String?        @map("cover_image") @db.Text
+  authorName      String         @map("author_name") @db.VarChar(100)
+  authorAvatar    String?        @map("author_avatar") @db.Text
+  readTimeMinutes Int            @default(5) @map("read_time_minutes")
+  status          BlogPostStatus @default(DRAFT)
+  publishedAt     DateTime?      @map("published_at") @db.Timestamp
+  createdAt       DateTime       @default(now()) @map("created_at") @db.Timestamp
+  updatedAt       DateTime       @updatedAt @map("updated_at") @db.Timestamp
+  tags            BlogTag[]      @relation("BlogPostTags")
+
+  @@map("blog_posts")
+  @@index([status, publishedAt(sort: Desc)], name: "idx_blog_posts_status_published")
+  @@index([slug], name: "idx_blog_posts_slug")
+}
+
+model BlogTag {
+  id    String     @id @default(cuid())
+  name  String     @unique @db.VarChar(50)
+  slug  String     @unique @db.VarChar(50)
+  posts BlogPost[] @relation("BlogPostTags")
+
+  @@map("blog_tags")
+  @@index([slug], name: "idx_blog_tags_slug")
+}
+
 model Job {
   id                  String    @id @db.VarChar(255)
   site                String?   @db.VarChar(50)
