@@ -2,68 +2,18 @@ import { FieldValue } from "firebase-admin/firestore";
 import { type NextRequest, NextResponse } from "next/server";
 import type Stripe from "stripe";
 import {
+  FREE_SUBSCRIPTION,
+  PRO_SUBSCRIPTION,
+} from "@/lib/services/subscriptions/subscription-constants";
+import {
   findUserByStripeCustomerIdAdmin,
-  getUserProfileAdmin,
-  updateUserProfileAdmin,
+  mergeSubscriptionIfNotPartner,
+  type SubscriptionUpdate,
+  updateSubscriptionIfNotPartner,
 } from "@/lib/services/users/database-users.server";
 import { stripe } from "@/lib/stripe";
 
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
-
-type SubscriptionStatus = "active" | "cancelled" | "expired";
-
-interface SubscriptionUpdate {
-  plan: "free" | "pro";
-  status: SubscriptionStatus;
-  features: string[];
-  limits: {
-    sessionsPerMonth: number;
-    skillsTracking: number;
-    analyticsRetention: number;
-  };
-  stripeSubscriptionId?: string;
-  currentPeriodEnd?: Date;
-  cancelAtPeriodEnd?: boolean;
-}
-
-const PRO_SUBSCRIPTION: SubscriptionUpdate = {
-  plan: "pro",
-  status: "active",
-  features: ["unlimited_interviews", "advanced_analytics", "skill_roadmaps"],
-  limits: {
-    sessionsPerMonth: 9999,
-    skillsTracking: 9999,
-    analyticsRetention: 365,
-  },
-};
-
-const FREE_SUBSCRIPTION: SubscriptionUpdate = {
-  plan: "free",
-  status: "active",
-  features: ["basic-interviews", "progress-tracking"],
-  limits: {
-    sessionsPerMonth: 10,
-    skillsTracking: 5,
-    analyticsRetention: 30,
-  },
-};
-
-async function updateUserSubscription(
-  userId: string,
-  subscription: Partial<SubscriptionUpdate>,
-  additionalData?: { stripeCustomerId?: string },
-): Promise<void> {
-  try {
-    await updateUserProfileAdmin(userId, {
-      subscription,
-      stripeCustomerId: additionalData?.stripeCustomerId,
-    });
-    console.log(`✅ Updated subscription for user ${userId}:`, subscription);
-  } catch (error) {
-    console.error(`Error updating subscription for user ${userId}:`, error);
-    throw error;
-  }
-}
 
 async function handleCheckoutCompleted(
   session: Stripe.Checkout.Session,
@@ -103,16 +53,23 @@ async function handleCheckoutCompleted(
     cancelAtPeriodEnd = subData.cancel_at_period_end;
   }
 
-  await updateUserSubscription(
+  const updated = await updateSubscriptionIfNotPartner(
     userId,
     {
       ...PRO_SUBSCRIPTION,
+      subscriptionSource: "stripe",
       stripeSubscriptionId: subscriptionId,
       currentPeriodEnd,
       cancelAtPeriodEnd,
     },
     { stripeCustomerId },
   );
+
+  if (updated) {
+    console.log(`✅ Updated subscription for user ${userId}`);
+  } else {
+    console.log(`⏭️ Skipping Stripe checkout update for partner user ${userId}`);
+  }
 }
 
 async function handleSubscriptionUpdated(
@@ -140,7 +97,7 @@ async function handleSubscriptionUpdated(
   const cancelAtPeriodEnd = subData.cancel_at_period_end;
   const currentPeriodEnd = new Date(subData.current_period_end * 1000);
 
-  let subscriptionStatus: SubscriptionStatus = "active";
+  let subscriptionStatus: SubscriptionUpdate["status"] = "active";
   let plan: "free" | "pro" = "pro";
 
   switch (status) {
@@ -176,13 +133,22 @@ async function handleSubscriptionUpdated(
   const baseSubscription =
     plan === "pro" ? PRO_SUBSCRIPTION : FREE_SUBSCRIPTION;
 
-  await updateUserSubscription(userId, {
+  const updated = await updateSubscriptionIfNotPartner(userId, {
     ...baseSubscription,
+    subscriptionSource: "stripe",
     status: subscriptionStatus,
     stripeSubscriptionId: subData.id,
     currentPeriodEnd,
     cancelAtPeriodEnd,
   });
+
+  if (updated) {
+    console.log(`✅ Updated subscription for user ${userId}`);
+  } else {
+    console.log(
+      `⏭️ Skipping Stripe subscription update for partner user ${userId}`,
+    );
+  }
 }
 
 async function handleSubscriptionDeleted(
@@ -200,12 +166,20 @@ async function handleSubscriptionDeleted(
 
   console.log(`🗑️ Subscription deleted for user ${userId}`);
 
-  await updateUserSubscription(userId, {
+  const updated = await updateSubscriptionIfNotPartner(userId, {
     ...FREE_SUBSCRIPTION,
     stripeSubscriptionId: undefined,
     currentPeriodEnd: undefined,
     cancelAtPeriodEnd: undefined,
   });
+
+  if (updated) {
+    console.log(`✅ Subscription cleared for user ${userId}`);
+  } else {
+    console.log(
+      `⏭️ Skipping Stripe subscription deletion for partner user ${userId}`,
+    );
+  }
 }
 
 async function handleInvoicePaymentFailed(
@@ -223,21 +197,18 @@ async function handleInvoicePaymentFailed(
 
   console.log(`⚠️ Invoice payment failed for user ${userId}`);
 
-  // Get current user profile to preserve existing subscription data
-  const currentProfile = await getUserProfileAdmin(userId);
-  if (!currentProfile?.subscription) {
-    console.error(`❌ No subscription found for user ${userId}`);
-    return;
-  }
-
-  await updateUserProfileAdmin(userId, {
-    subscription: {
-      ...currentProfile.subscription,
-      paymentFailed: true,
-      lastPaymentFailedAt:
-        FieldValue.serverTimestamp() as FirebaseFirestore.Timestamp,
-    },
+  const updated = await mergeSubscriptionIfNotPartner(userId, {
+    paymentFailed: true,
+    lastPaymentFailedAt: FieldValue.serverTimestamp(),
   });
+
+  if (updated) {
+    console.log(`✅ Marked payment failed for user ${userId}`);
+  } else {
+    console.log(
+      `⏭️ Skipping Stripe invoice failure update for partner user ${userId}`,
+    );
+  }
 }
 
 async function handleInvoicePaymentSucceeded(
@@ -252,21 +223,18 @@ async function handleInvoicePaymentSucceeded(
 
   console.log(`✅ Invoice payment succeeded for user ${userId}`);
 
-  // Get current user profile to preserve existing subscription data
-  const currentProfile = await getUserProfileAdmin(userId);
-  if (!currentProfile?.subscription) {
-    console.error(`❌ No subscription found for user ${userId}`);
-    return;
-  }
-
-  await updateUserProfileAdmin(userId, {
-    subscription: {
-      ...currentProfile.subscription,
-      paymentFailed: false,
-      lastPaymentSucceededAt:
-        FieldValue.serverTimestamp() as FirebaseFirestore.Timestamp,
-    },
+  const updated = await mergeSubscriptionIfNotPartner(userId, {
+    paymentFailed: false,
+    lastPaymentSucceededAt: FieldValue.serverTimestamp(),
   });
+
+  if (updated) {
+    console.log(`✅ Marked payment succeeded for user ${userId}`);
+  } else {
+    console.log(
+      `⏭️ Skipping Stripe invoice success update for partner user ${userId}`,
+    );
+  }
 }
 
 export async function POST(req: NextRequest) {
@@ -285,10 +253,13 @@ export async function POST(req: NextRequest) {
 
   try {
     if (!sig || !endpointSecret) {
-      console.warn(
-        "⚠️ Webhook signature verification skipped (missing secret or signature)",
+      console.error(
+        "❌ Webhook rejected: missing signature or endpoint secret",
       );
-      event = JSON.parse(body);
+      return NextResponse.json(
+        { error: "Missing signature or webhook secret" },
+        { status: 400 },
+      );
     } else {
       event = stripe.webhooks.constructEvent(body, sig, endpointSecret);
       console.log("✅ Signature verification passed!");

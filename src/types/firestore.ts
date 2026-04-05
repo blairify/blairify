@@ -94,6 +94,8 @@ export interface UserPreferences {
   careerGoals?: string[];
 }
 
+export type SubscriptionSource = "stripe" | "partner";
+
 export interface UserSubscription {
   plan: "free" | "pro";
   status: "active" | "cancelled" | "expired";
@@ -104,6 +106,8 @@ export interface UserSubscription {
     skillsTracking: number;
     analyticsRetention: number;
   };
+  subscriptionSource?: SubscriptionSource;
+  partnerDomain?: string;
   stripeSubscriptionId?: string;
   currentPeriodEnd?: Timestamp | Date;
   cancelAtPeriodEnd?: boolean;

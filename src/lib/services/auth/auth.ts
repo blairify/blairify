@@ -6,6 +6,7 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendEmailVerification,
   sendPasswordResetEmail,
   signInWithPopup,
   signOut,
@@ -16,6 +17,7 @@ import { doc, getDoc, Timestamp } from "firebase/firestore";
 import type { UserPreferences, UserProfile } from "../../../types/firestore";
 import { DatabaseService } from "../../database";
 import { auth, db } from "../../firebase";
+import { isPartnerEmail } from "../subscriptions/partner-domains";
 
 // Auth providers
 const githubProvider = new GithubAuthProvider();
@@ -234,6 +236,10 @@ export const registerWithEmailAndPassword = async (
 
     await DatabaseService.createUserWithCompleteProfile(user.uid, profileData);
 
+    if (isPartnerEmail(email)) {
+      await sendEmailVerification(user);
+    }
+
     return { user, error: null };
   } catch (error) {
     const authError = error as AuthError;
@@ -311,6 +317,10 @@ export const signInWithGitHub = async (): Promise<{
         ...(user.photoURL && { photoURL: user.photoURL }),
         ...gdprFields,
       });
+
+      if (user.email && isPartnerEmail(user.email) && !user.emailVerified) {
+        await sendEmailVerification(user);
+      }
     } else {
       // Update last login time
       await updateUserLastLogin(user.uid);
@@ -346,6 +356,10 @@ export const signInWithGoogle = async (): Promise<{
         ...(user.photoURL && { photoURL: user.photoURL }),
         ...gdprFields,
       });
+
+      if (user.email && isPartnerEmail(user.email) && !user.emailVerified) {
+        await sendEmailVerification(user);
+      }
     } else {
       // Update last login time
       await updateUserLastLogin(user.uid);

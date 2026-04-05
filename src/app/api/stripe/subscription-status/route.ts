@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { getAdminFirestore } from "@/lib/firebase-admin";
+import { getAdminAuth, getAdminFirestore } from "@/lib/firebase-admin";
+import { PRO_SUBSCRIPTION } from "@/lib/services/subscriptions/subscription-constants";
 import { stripe } from "@/lib/stripe";
 
 interface SubscriptionStatusResponse {
@@ -8,33 +9,28 @@ interface SubscriptionStatusResponse {
   message?: string;
 }
 
-type SubscriptionUpdate = {
-  plan: "free" | "pro";
-  status: "active" | "cancelled" | "expired";
-  features: string[];
-  limits: {
-    sessionsPerMonth: number;
-    skillsTracking: number;
-    analyticsRetention: number;
-  };
-  stripeSubscriptionId?: string;
-  currentPeriodEnd?: Date;
-  cancelAtPeriodEnd?: boolean;
-};
-
-const PRO_SUBSCRIPTION: SubscriptionUpdate = {
-  plan: "pro",
-  status: "active",
-  features: ["unlimited_interviews", "advanced_analytics", "skill_roadmaps"],
-  limits: {
-    sessionsPerMonth: 9999,
-    skillsTracking: 9999,
-    analyticsRetention: 365,
-  },
-};
-
 export async function POST(req: NextRequest) {
   try {
+    const authHeader = req.headers.get("authorization");
+    if (!authHeader?.startsWith("Bearer ")) {
+      return NextResponse.json(
+        { error: "Missing or invalid authorization header" },
+        { status: 401 },
+      );
+    }
+
+    const idToken = authHeader.slice(7);
+    let authenticatedUid: string;
+    try {
+      const decodedToken = await getAdminAuth().verifyIdToken(idToken);
+      authenticatedUid = decodedToken.uid;
+    } catch {
+      return NextResponse.json(
+        { error: "Invalid or expired token" },
+        { status: 401 },
+      );
+    }
+
     const { userId, sessionId } = (await req.json()) as {
       userId?: string;
       sessionId?: string;
@@ -47,6 +43,13 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    if (userId !== authenticatedUid) {
+      return NextResponse.json(
+        { error: "User ID does not match authenticated user" },
+        { status: 403 },
+      );
+    }
+
     const adminDb = getAdminFirestore();
     const userDoc = await adminDb.collection("users").doc(userId).get();
 
@@ -56,7 +59,7 @@ export async function POST(req: NextRequest) {
 
     const userData = userDoc.data();
     const subscription = userData?.subscription as
-      | { plan?: "free" | "pro"; status?: string }
+      | { plan?: "free" | "pro"; status?: string; subscriptionSource?: string }
       | undefined;
     const stripeCustomerId = userData?.stripeCustomerId as string | undefined;
 
@@ -121,6 +124,15 @@ export async function POST(req: NextRequest) {
         cancelAtPeriodEnd = subData.cancel_at_period_end;
       }
 
+      if (subscription?.subscriptionSource === "partner") {
+        const response: SubscriptionStatusResponse = {
+          status: "active",
+          plan: "pro",
+          message: "Partner subscription is already active.",
+        };
+        return NextResponse.json(response);
+      }
+
       await adminDb
         .collection("users")
         .doc(userId)
@@ -129,6 +141,7 @@ export async function POST(req: NextRequest) {
             stripeCustomerId: customer,
             subscription: {
               ...PRO_SUBSCRIPTION,
+              subscriptionSource: "stripe",
               ...(typeof stripeSubscriptionId === "string"
                 ? { stripeSubscriptionId }
                 : {}),

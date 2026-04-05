@@ -5,7 +5,7 @@
 
 import { getAdminFirestore } from "@/lib/firebase-admin";
 
-interface SubscriptionUpdate {
+export interface SubscriptionUpdate {
   plan: "free" | "pro";
   status: "active" | "cancelled" | "expired";
   features: string[];
@@ -14,6 +14,8 @@ interface SubscriptionUpdate {
     skillsTracking: number;
     analyticsRetention: number;
   };
+  subscriptionSource?: "stripe" | "partner";
+  partnerDomain?: string;
   stripeSubscriptionId?: string;
   currentPeriodEnd?: Date;
   cancelAtPeriodEnd?: boolean;
@@ -97,6 +99,90 @@ export async function getUserProfileAdmin(
     );
     throw error;
   }
+}
+
+export async function updateSubscriptionIfNotPartner(
+  userId: string,
+  subscription: Partial<SubscriptionUpdate>,
+  additionalData?: { stripeCustomerId?: string },
+): Promise<boolean> {
+  if (!process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
+    throw new Error(
+      "FIREBASE_SERVICE_ACCOUNT_KEY is required for admin operations",
+    );
+  }
+
+  const adminDb = getAdminFirestore();
+  const userRef = adminDb.collection("users").doc(userId);
+
+  return adminDb.runTransaction(async (transaction) => {
+    const doc = await transaction.get(userRef);
+    if (!doc.exists) return false;
+
+    const data = doc.data();
+    const existing = data?.subscription as
+      | { subscriptionSource?: string }
+      | undefined;
+
+    if (existing?.subscriptionSource === "partner") return false;
+
+    const updateData: Record<string, unknown> = {
+      lastActiveAt: new Date(),
+    };
+
+    for (const [key, value] of Object.entries(subscription)) {
+      if (value !== undefined) {
+        updateData[`subscription.${key}`] = value;
+      }
+    }
+
+    if (additionalData?.stripeCustomerId) {
+      updateData.stripeCustomerId = additionalData.stripeCustomerId;
+    }
+
+    transaction.update(userRef, updateData);
+    return true;
+  });
+}
+
+export async function mergeSubscriptionIfNotPartner(
+  userId: string,
+  mergeFields: Record<string, unknown>,
+): Promise<boolean> {
+  if (!process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
+    throw new Error(
+      "FIREBASE_SERVICE_ACCOUNT_KEY is required for admin operations",
+    );
+  }
+
+  const adminDb = getAdminFirestore();
+  const userRef = adminDb.collection("users").doc(userId);
+
+  return adminDb.runTransaction(async (transaction) => {
+    const doc = await transaction.get(userRef);
+    if (!doc.exists) return false;
+
+    const data = doc.data();
+    const existing = data?.subscription as
+      | { subscriptionSource?: string }
+      | undefined;
+
+    if (existing?.subscriptionSource === "partner") return false;
+    if (!data?.subscription) return false;
+
+    const updateData: Record<string, unknown> = {
+      lastActiveAt: new Date(),
+    };
+
+    for (const [key, value] of Object.entries(mergeFields)) {
+      if (value !== undefined) {
+        updateData[`subscription.${key}`] = value;
+      }
+    }
+
+    transaction.update(userRef, updateData);
+    return true;
+  });
 }
 
 export async function findUserByStripeCustomerIdAdmin(

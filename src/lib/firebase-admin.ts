@@ -1,4 +1,5 @@
 import { cert, getApps, initializeApp } from "firebase-admin/app";
+import { getAuth } from "firebase-admin/auth";
 import { getFirestore } from "firebase-admin/firestore";
 
 type ServiceAccount = {
@@ -45,7 +46,7 @@ function getServiceAccount(): ServiceAccount | null {
   }
 }
 
-export function getAdminFirestore() {
+function ensureAdminApp() {
   if (getApps().length === 0) {
     const serviceAccount = getServiceAccount();
     if (!serviceAccount) {
@@ -56,6 +57,14 @@ export function getAdminFirestore() {
 
     initializeApp({ credential: cert(serviceAccount) });
   }
+}
 
+export function getAdminFirestore() {
+  ensureAdminApp();
   return getFirestore();
+}
+
+export function getAdminAuth() {
+  ensureAdminApp();
+  return getAuth();
 }
