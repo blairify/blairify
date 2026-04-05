@@ -97,9 +97,7 @@ export const readableMarkdownComponents: Components = {
     );
   },
   strong({ children }: MarkdownChildrenProps) {
-    return (
-      <Typography.BodyBold className="inline">{children}</Typography.BodyBold>
-    );
+    return <strong className="font-semibold">{children}</strong>;
   },
   hr() {
     return null;
@@ -199,9 +197,7 @@ export const overallSummaryMarkdownComponents: Components = {
     );
   },
   strong({ children }: MarkdownChildrenProps) {
-    return (
-      <Typography.BodyBold className="inline">{children}</Typography.BodyBold>
-    );
+    return <strong className="font-semibold">{children}</strong>;
   },
   hr() {
     return null;

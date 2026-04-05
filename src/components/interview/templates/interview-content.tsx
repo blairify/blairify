@@ -392,7 +392,7 @@ export function InterviewContent({
     };
 
     const handlePopState = () => {
-      if (!shouldBlockExit) {
+      if (allowExitRef.current) {
         return;
       }
 
@@ -1196,7 +1196,7 @@ export function InterviewContent({
                   return;
                 }
 
-                window.history.back();
+                window.history.go(-2);
               }}
             >
               Leave

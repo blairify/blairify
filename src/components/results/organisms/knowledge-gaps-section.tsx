@@ -77,7 +77,7 @@ function GapResources({ resources }: { resources: ResourceLink[] }) {
       {filtered.map((r, idx) => (
         <li key={`${r.id}-${idx}`} className="text-sm">
           <a
-            className="text-gray-700 dark:text-gray-300 hover:underline"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
             href={r.url}
             target="_blank"
             rel="noopener noreferrer"

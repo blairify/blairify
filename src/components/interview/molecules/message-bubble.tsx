@@ -104,7 +104,7 @@ export function MessageBubble({
         <div
           className={`relative rounded-2xl shadow-lg border backdrop-blur-sm transition-all duration-200 hover:shadow-xl ${
             isUser
-              ? "bg-gradient-to-br from-secondary via-secondary to-secondary/90 text-secondary-foreground border-secondary/20"
+              ? "bg-gradient-to-br from-secondary via-secondary to-secondary/90 text-secondary-foreground border-primary/10"
               : "bg-gradient-to-br from-card to-card/95 text-card-foreground border-border/50 shadow-black/5 dark:shadow-black/20"
           }`}
         >

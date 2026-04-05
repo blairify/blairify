@@ -10,7 +10,6 @@ import {
   ChevronDown,
   Clock,
   FileText,
-  Lightbulb,
   RotateCcw,
   Shield,
   Target,
@@ -27,21 +26,21 @@ import { toast } from "sonner";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
 import { AiFeedbackCard } from "@/components/common/molecules/ai-feedback-card";
-import {
-  overallSummaryMarkdownComponents,
-  qaQuestionMarkdownComponents,
-  qaResponseMarkdownComponents,
-} from "@/components/results/atoms/result-markdown-renderers";
+import { overallSummaryMarkdownComponents } from "@/components/results/atoms/result-markdown-renderers";
 import { DetailedScoreCard } from "@/components/results/molecules/detailed-score-card";
 import { GuestBlurOverlay } from "@/components/results/molecules/guest-blur-overlay";
 import { PassFailBanner } from "@/components/results/molecules/pass-fail-banner";
+import {
+  CandidateBubble,
+  ExampleAnswerCard,
+  InterviewerBubble,
+} from "@/components/results/molecules/transcript-bubbles";
 import { KnowledgeGapsSection } from "@/components/results/organisms/knowledge-gaps-section";
 import {
   PostInterviewSurvey,
   type PostInterviewSurveyController,
 } from "@/components/results/organisms/post-interview-survey";
 import { ResultsDeck } from "@/components/results/organisms/results-deck";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -1614,166 +1613,206 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                 </GuestBlurOverlay>
               )}
 
-              {qaRows.length > 0 && (
-                <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
-                  <CardTitle className="flex flex-row items-start gap-3 mt-2 ml-8">
-                    <Lightbulb className="size-8 text-amber-600 dark:text-amber-400" />
-                    <div className="flex flex-col items-left gap-1">
-                      <Typography.BodyBold>
-                        Questions & Example Answers
-                      </Typography.BodyBold>
-                      <Typography.Caption>
-                        Practice-library examples to benchmark your responses.
-                      </Typography.Caption>
-                    </div>
-                  </CardTitle>
-                  <GuestBlurOverlay
-                    enabled={isGuest}
-                    message="Sign up to review your answers & example responses"
-                  >
-                    <CardContent className="pt-6">
-                      <div className="space-y-6">
-                        {qaRows.map((row, uniqueRowIdx) => {
-                          const q = row.practiceQuestionId
-                            ? (practiceQuestionsById[row.practiceQuestionId] ??
-                              null)
-                            : null;
-                          const example =
-                            (q ? getExampleAnswer(q) : null) ??
-                            row.aiExampleAnswer ??
-                            getAiExampleAnswerForRow(row);
-                          const prompt = row.questionText.trim() || null;
-                          const yourAnswer = row.yourAnswer.trim() || null;
+              {qaRows.length > 0 &&
+                (() => {
+                  const interviewer = interviewConfig?.specificCompany
+                    ? getInterviewerForCompanyAndRole(
+                        interviewConfig.specificCompany,
+                        interviewConfig.position,
+                      )
+                    : interviewConfig
+                      ? getInterviewerForRole(interviewConfig.position)
+                      : null;
 
-                          return (
-                            <Collapsible
-                              key={
-                                row.practiceQuestionId ?? `row_${uniqueRowIdx}`
-                              }
-                              defaultOpen={false}
-                              className={`border-2 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-lg transition-shadow ${
-                                row.type === "follow-up"
-                                  ? "border-l-4 border-l-border/70 bg-gradient-to-br from-muted/30 to-muted/10 border-y-border/50 border-r-border/50"
-                                  : "border-border/50 bg-gradient-to-br from-card to-card/50"
-                              }`}
-                            >
-                              <CollapsibleTrigger className="w-full text-left group">
-                                <div className="flex items-center justify-between gap-3">
-                                  <div className="flex flex-wrap items-center gap-2 min-w-0">
-                                    {row.type === "main" ? (
-                                      <Badge
-                                        variant="default"
-                                        className="font-semibold"
-                                      >
-                                        Question {row.idx + 1}
-                                      </Badge>
-                                    ) : (
-                                      <Badge
-                                        variant="secondary"
-                                        className="font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
-                                      >
-                                        Follow-up
-                                      </Badge>
-                                    )}
-                                    <div className="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">
-                                      {(() => {
-                                        if (row.type === "main" && q?.title)
-                                          return q.title;
-                                        const key = row.questionText.trim();
-                                        const mapped =
-                                          questionTitlesByText[key];
-                                        if (mapped && mapped.trim().length > 0)
-                                          return mapped;
-                                        if (!prompt) return "Question Details";
-                                        return (
-                                          prompt.slice(0, 60) +
-                                          (prompt.length > 60 ? "..." : "")
-                                        );
-                                      })()}
-                                    </div>
-                                  </div>
-                                  <ChevronDown className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
-                                </div>
-                              </CollapsibleTrigger>
+                  if (!interviewer) return null;
 
-                              <CollapsibleContent className="pt-4">
-                                <div className="whitespace-pre-line mb-3">
-                                  {prompt ? (
-                                    <ReactMarkdown
-                                      remarkPlugins={[remarkGfm]}
-                                      components={qaQuestionMarkdownComponents}
-                                    >
-                                      {prompt}
-                                    </ReactMarkdown>
-                                  ) : (
-                                    <div className="text-sm text-gray-600 dark:text-gray-400">
-                                      Question prompt unavailable.
-                                    </div>
-                                  )}
-                                </div>
+                  const displayInitial = (() => {
+                    if (authUser?.displayName?.[0])
+                      return authUser.displayName[0];
+                    if (initialUser?.displayName?.[0])
+                      return initialUser.displayName[0];
+                    return "ME";
+                  })();
 
-                                {yourAnswer ? (
-                                  <>
-                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                      <User className="size-4 text-primary" />
-                                      Your Response:
-                                    </div>
-                                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                      <div className="whitespace-pre-line text-sm">
-                                        <ReactMarkdown
-                                          remarkPlugins={[remarkGfm]}
-                                          components={
-                                            qaResponseMarkdownComponents
-                                          }
-                                        >
-                                          {yourAnswer}
-                                        </ReactMarkdown>
-                                      </div>
-                                    </div>
-                                  </>
-                                ) : (
-                                  <div className="text-sm text-gray-600 dark:text-gray-400">
-                                    No response recorded.
-                                  </div>
-                                )}
-
-                                <Separator className="my-5" />
-
-                                {example ? (
-                                  <div>
-                                    <div className="text-sm font-bold mb-3 flex items-center gap-2">
-                                      <Lightbulb className="size-4 text-primary" />
-                                      Example Answer:
-                                    </div>
-                                    <div className="bg-gradient-to-br from-muted/50 to-muted/30 p-4 rounded-xl border border-border/50">
-                                      <div className="whitespace-pre-line text-sm">
-                                        <ReactMarkdown
-                                          remarkPlugins={[remarkGfm]}
-                                          components={
-                                            qaResponseMarkdownComponents
-                                          }
-                                        >
-                                          {example}
-                                        </ReactMarkdown>
-                                      </div>
-                                    </div>
-                                  </div>
-                                ) : (
-                                  <div className="text-sm text-gray-600 dark:text-gray-400">
-                                    {q
-                                      ? "No example answer available for this question yet."
-                                      : "No example answer available."}
-                                  </div>
-                                )}
-                              </CollapsibleContent>
-                            </Collapsible>
-                          );
-                        })}
+                  return (
+                    <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
+                      <div className="flex flex-col items-center gap-2 px-3 pt-6 pb-2">
+                        <Typography.Caption className="text-xl sm:text-2xl font-bold tracking-tight text-center">
+                          Answers & Transcript
+                        </Typography.Caption>
+                        <Typography.Caption className="text-center">
+                          Conducted by {interviewer.name}
+                        </Typography.Caption>
                       </div>
-                    </CardContent>
-                  </GuestBlurOverlay>
-                </Card>
-              )}
+                      <GuestBlurOverlay
+                        enabled={isGuest}
+                        message="Sign up to review your answers & example responses"
+                      >
+                        <CardContent className="px-6 py-0">
+                          <div className="max-w-4xl mx-auto">
+                            {qaRows.map((row, uniqueRowIdx) => {
+                              const q = row.practiceQuestionId
+                                ? (practiceQuestionsById[
+                                    row.practiceQuestionId
+                                  ] ?? null)
+                                : null;
+                              const example =
+                                (q ? getExampleAnswer(q) : null) ??
+                                row.aiExampleAnswer ??
+                                getAiExampleAnswerForRow(row);
+                              const prompt = row.questionText.trim() || null;
+                              const yourAnswer = row.yourAnswer.trim() || null;
+
+                              const normalizedExample = example
+                                ? example
+                                    .replace(
+                                      /^\s*(Example\s+Answer|Example)\s*:\s*/i,
+                                      "",
+                                    )
+                                    .replace(
+                                      /^\s*(Example\s+Answer|Example)\s*\n+/i,
+                                      "",
+                                    )
+                                    .trim()
+                                : null;
+
+                              if (row.type === "follow-up") {
+                                return (
+                                  <div key={`row_${uniqueRowIdx}`}>
+                                    {uniqueRowIdx > 0 && (
+                                      <Separator className="my-0 opacity-30" />
+                                    )}
+                                    <Collapsible
+                                      defaultOpen={false}
+                                      className="group transition-all ml-6 border-l-2 border-border/40 pl-4"
+                                    >
+                                      <CollapsibleTrigger className="w-full text-left py-4 hover:bg-muted/5 transition-colors items-center">
+                                        <div className="flex items-center gap-4">
+                                          <div className="flex-1 min-w-0">
+                                            <div className="flex items-center gap-2 mb-1 text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
+                                              Follow-up
+                                            </div>
+                                            <div className="text-sm font-medium text-foreground line-clamp-2 leading-tight group-hover:text-primary transition-colors">
+                                              {(() => {
+                                                if (!prompt) return "Follow-up";
+                                                const key = prompt;
+                                                return (
+                                                  questionTitlesByText[key] ??
+                                                  prompt
+                                                );
+                                              })()}
+                                            </div>
+                                          </div>
+                                          <div className="flex-shrink-0 mt-1">
+                                            <ChevronDown className="size-5 text-muted-foreground/40 transition-transform group-data-[state=open]:rotate-180" />
+                                          </div>
+                                        </div>
+                                      </CollapsibleTrigger>
+
+                                      <CollapsibleContent className="pt-2 px-6 pb-6">
+                                        <div className="space-y-6">
+                                          {prompt && (
+                                            <InterviewerBubble
+                                              interviewer={interviewer}
+                                              markdown={prompt}
+                                            />
+                                          )}
+
+                                          {yourAnswer && (
+                                            <CandidateBubble
+                                              displayInitial={displayInitial}
+                                              markdown={yourAnswer}
+                                            />
+                                          )}
+
+                                          {normalizedExample && (
+                                            <ExampleAnswerCard
+                                              markdown={normalizedExample}
+                                            />
+                                          )}
+                                        </div>
+                                      </CollapsibleContent>
+                                    </Collapsible>
+                                  </div>
+                                );
+                              }
+
+                              // Main question
+                              return (
+                                <div
+                                  key={
+                                    row.practiceQuestionId ??
+                                    `row_${uniqueRowIdx}`
+                                  }
+                                >
+                                  {uniqueRowIdx > 0 && (
+                                    <Separator className="my-0 opacity-30" />
+                                  )}
+                                  <Collapsible
+                                    defaultOpen={false}
+                                    className="group transition-all"
+                                  >
+                                    <CollapsibleTrigger className="w-full text-left py-5 hover:bg-muted/5 transition-colors items-center">
+                                      <div className="flex items-center gap-4">
+                                        <div className="flex-1 min-w-0">
+                                          <div className="text-base font-semibold text-foreground line-clamp-2 leading-tight group-hover:text-primary transition-colors">
+                                            {(() => {
+                                              if (q?.title) return q.title;
+                                              const key =
+                                                row.questionText.trim();
+                                              const mapped =
+                                                questionTitlesByText[key];
+                                              if (
+                                                mapped &&
+                                                mapped.trim().length > 0
+                                              )
+                                                return mapped;
+                                              if (!prompt)
+                                                return "Question Details";
+                                              return prompt;
+                                            })()}
+                                          </div>
+                                        </div>
+
+                                        <div className="flex items-center gap-3 flex-shrink-0 mt-0.5">
+                                          <ChevronDown className="size-5 text-muted-foreground/40 transition-transform group-data-[state=open]:rotate-180" />
+                                        </div>
+                                      </div>
+                                    </CollapsibleTrigger>
+
+                                    <CollapsibleContent className="pt-2 px-6 pb-3">
+                                      <div className="space-y-6">
+                                        {prompt && (
+                                          <InterviewerBubble
+                                            interviewer={interviewer}
+                                            markdown={prompt}
+                                          />
+                                        )}
+
+                                        {yourAnswer && (
+                                          <CandidateBubble
+                                            displayInitial={displayInitial}
+                                            markdown={yourAnswer}
+                                          />
+                                        )}
+
+                                        {normalizedExample && (
+                                          <ExampleAnswerCard
+                                            markdown={normalizedExample}
+                                          />
+                                        )}
+                                      </div>
+                                    </CollapsibleContent>
+                                  </Collapsible>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </CardContent>
+                      </GuestBlurOverlay>
+                    </Card>
+                  );
+                })()}
               {(Boolean(results.overallScore?.trim()) ||
                 Boolean(results.detailedAnalysis?.trim()) ||
                 results.strengths.length > 0 ||

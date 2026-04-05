@@ -117,15 +117,14 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
 
               {!loading && user ? (
                 <>
-                  <a
-                    key="/configure"
-                    href="/configure"
-                    className="px-4 py-2 rounded-md outline-none flex flex-row gap-2 focus-visible:outline focus-visible:outline-border focus-visible:outline-offset-2 hover:bg-muted/50 hover:text-foreground transition-colors duration-200"
+                  <Button
+                    onClick={() => router.push("/configure")}
+                    aria-label="Start a new interview"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 lg:px-5"
+                    size="lg"
                   >
-                    <Typography.CaptionMedium color="secondary">
-                      New Interview
-                    </Typography.CaptionMedium>
-                  </a>
+                    New Interview
+                  </Button>
 
                   <div className="flex items-center gap-2">
                     <ThemeToggle />
