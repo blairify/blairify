@@ -9,9 +9,9 @@ import {
   useMemo,
   useState,
 } from "react";
+import { DatabaseService } from "@/lib/database";
 import type { UserData } from "@/lib/services/auth/auth";
 import { getUserData, onAuthStateChange } from "@/lib/services/auth/auth";
-import { DatabaseService } from "@/lib/database";
 import { cookieUtils } from "@/lib/utils/cookies";
 
 function sleep(ms: number) {
@@ -61,7 +61,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         // Auth state change can fire before user profile write completes
         // (esp. right after sign up), so we retry briefly.
         try {
-          console.log(`🔍 [AuthProvider] Fetching userData for uid=${user.uid}, email=${user.email}`);
+          console.log(
+            `🔍 [AuthProvider] Fetching userData for uid=${user.uid}, email=${user.email}`,
+          );
           let data: UserData | null = null;
           const delaysMs = [0, 150, 300, 600, 1000];
           for (let i = 0; i < delaysMs.length; i++) {
@@ -69,12 +71,16 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             if (delayMs > 0) await sleep(delayMs);
 
             data = await getUserData(user.uid);
-            console.log(`🔍 [AuthProvider] Attempt ${i + 1}: getUserData returned ${data ? "data" : "null"}`);
+            console.log(
+              `🔍 [AuthProvider] Attempt ${i + 1}: getUserData returned ${data ? "data" : "null"}`,
+            );
             if (data) break;
           }
 
           if (!data) {
-            console.warn(`⚠️ [AuthProvider] No Firestore profile found for ${user.uid}. Creating one now...`);
+            console.warn(
+              `⚠️ [AuthProvider] No Firestore profile found for ${user.uid}. Creating one now...`,
+            );
             try {
               await DatabaseService.createUserWithCompleteProfile(user.uid, {
                 email: user.email || "",
@@ -82,9 +88,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
                 ...(user.photoURL && { photoURL: user.photoURL }),
               });
               data = await getUserData(user.uid);
-              console.log(`✅ [AuthProvider] Profile auto-created, userData: ${data ? "found" : "still null"}`);
+              console.log(
+                `✅ [AuthProvider] Profile auto-created, userData: ${data ? "found" : "still null"}`,
+              );
             } catch (createError) {
-              console.error("❌ [AuthProvider] Failed to auto-create profile:", createError);
+              console.error(
+                "❌ [AuthProvider] Failed to auto-create profile:",
+                createError,
+              );
             }
           }
 
