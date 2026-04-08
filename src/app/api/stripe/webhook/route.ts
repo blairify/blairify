@@ -168,9 +168,9 @@ async function handleSubscriptionDeleted(
 
   const updated = await updateSubscriptionIfNotPartner(userId, {
     ...FREE_SUBSCRIPTION,
-    stripeSubscriptionId: undefined,
-    currentPeriodEnd: undefined,
-    cancelAtPeriodEnd: undefined,
+    stripeSubscriptionId: FieldValue.delete() as unknown as string,
+    currentPeriodEnd: FieldValue.delete() as unknown as Date,
+    cancelAtPeriodEnd: FieldValue.delete() as unknown as boolean,
   });
 
   if (updated) {

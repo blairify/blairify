@@ -758,6 +758,46 @@ export default function AuthForm({
                   )
                 ) : (
                   <>
+                    {currentStep === 1 && (
+                      <>
+                        <div className="flex flex-row items-stretch gap-3 justify-center">
+                          <Button
+                            type="button"
+                            variant="outline"
+                            className="w-[45%]"
+                            size="lg"
+                            onClick={handleGithubLogin}
+                            disabled={isLoading}
+                          >
+                            <FaGithub className="mr-2 flex-shrink-0" />
+                            GitHub
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            className="w-[45%]"
+                            size="lg"
+                            onClick={handleGoogleLogin}
+                            disabled={isLoading}
+                          >
+                            <FaGoogle className="mr-2 flex-shrink-0" />
+                            Google
+                          </Button>
+                        </div>
+
+                        <div className="relative my-6">
+                          <div className="absolute inset-0 flex items-center">
+                            <Separator className="w-full" />
+                          </div>
+                          <div className="relative flex justify-center text-xs uppercase">
+                            <Typography.Caption className="bg-card px-2">
+                              Or sign up with email
+                            </Typography.Caption>
+                          </div>
+                        </div>
+                      </>
+                    )}
+
                     <div className="overflow-hidden">
                       <div
                         className="flex transition-transform duration-300 ease-in-out"
@@ -811,43 +851,6 @@ export default function AuthForm({
                           Next
                         </Button>
                       )}
-                    </div>
-
-                    <div className="relative my-6">
-                      <div className="absolute inset-0 flex items-center">
-                        <Separator className="w-full" />
-                      </div>
-                      <div className="relative flex justify-center text-xs uppercase">
-                        <Typography.Caption className="bg-card px-2">
-                          Or sign up with
-                        </Typography.Caption>
-                      </div>
-                    </div>
-
-                    <div className="my-6">
-                      <div className="flex flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center">
-                        <Button
-                          type="button"
-                          variant="outline"
-                          className="w-[45%]"
-                          size="lg"
-                          onClick={handleGithubLogin}
-                          disabled={isLoading}
-                        >
-                          <FaGithub className="mr-2 flex-shrink-0" />
-                          GitHub
-                        </Button>
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="lg"
-                          onClick={handleGoogleLogin}
-                          disabled={isLoading}
-                        >
-                          <FaGoogle className="mr-2 flex-shrink-0" />
-                          Google
-                        </Button>
-                      </div>
                     </div>
                   </>
                 )}
@@ -993,6 +996,26 @@ export default function AuthForm({
                       )
                     ) : (
                       <>
+                        {currentStep === 1 && (
+                          <>
+                            {renderSocialButtons()}
+
+                            <div className="relative my-6">
+                              <div className="absolute inset-0 flex items-center">
+                                <Separator className="w-full" />
+                              </div>
+                              <div className="relative flex justify-center text-xs uppercase">
+                                <Typography.Caption
+                                  color="secondary"
+                                  className="bg-card px-2"
+                                >
+                                  Or sign up with email
+                                </Typography.Caption>
+                              </div>
+                            </div>
+                          </>
+                        )}
+
                         <div className="overflow-hidden">
                           <div
                             className="flex transition-transform duration-300 ease-in-out"

@@ -173,21 +173,12 @@ export const checkEmailExists = async (
     // This is a client-side method that works without Cloud Functions
     const signInMethods = await fetchSignInMethodsForEmail(auth, email);
     return { exists: signInMethods.length > 0, error: null };
-  } catch (error) {
-    const authError = error as AuthError;
-
-    // Firebase might have email enumeration protection enabled
-    // In this case, we can't reliably check if email exists beforehand
-    // So we'll return false and let the registration handle the duplicate email error
-    if (
-      authError.code === "auth/configuration-not-found" ||
-      authError.code === "auth/invalid-api-key" ||
-      authError.code === "auth/operation-not-allowed"
-    ) {
-      return { exists: false, error: null };
-    }
-
-    return { exists: false, error: getErrorMessage(authError) };
+  } catch {
+    // fetchSignInMethodsForEmail is unreliable with email enumeration
+    // protection (enabled by default since Sept 2023). On any failure,
+    // let the user proceed — duplicate emails will be caught by
+    // createUserWithEmailAndPassword during actual registration.
+    return { exists: false, error: null };
   }
 };
 
