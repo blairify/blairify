@@ -34,6 +34,8 @@ export function InterviewCompleteCard({
         return "Interview terminated: inappropriate language";
       case "inappropriate-behavior":
         return "Interview terminated: inappropriate behavior";
+      case "cheat":
+        return "Interview terminated: policy violation";
       default: {
         const _never: never = terminationReason;
         throw new Error(`Unhandled termination reason: ${_never}`);
@@ -56,6 +58,8 @@ export function InterviewCompleteCard({
         return "This interview ended early due to inappropriate language.";
       case "inappropriate-behavior":
         return "This interview ended early due to inappropriate behavior.";
+      case "cheat":
+        return "This interview ended early due to policy violation.";
       default: {
         const _never: never = terminationReason;
         throw new Error(`Unhandled termination reason: ${_never}`);

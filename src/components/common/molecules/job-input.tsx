@@ -121,7 +121,9 @@ export function JobInput({
               <span className="text-green-500">✓ Supported job board</span>
             )}
             {flow === "description" && (
-              <span className="text-green-500">✓ Job description detected</span>
+              <span className="text-green-500 bg-background rounded-full px-3 py-1">
+                ✓ Job description detected
+              </span>
             )}
             {flow === "custom" && (
               <span className="text-primary">→ Custom setup</span>

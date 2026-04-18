@@ -8,6 +8,8 @@ import {
   type InputFlow,
   JobInput,
 } from "@/components/common/molecules/job-input";
+import { buildSearchParamsFromInterviewConfig } from "@/lib/interview";
+import type { ExtractedJobDescription } from "@/lib/services/job-description/extractor";
 
 const BLAIR_MESSAGE =
   "Hey! I'm Blair. Paste a job posting URL and I'll break down what they're looking for. No link? Paste the description and I'll prep a session. Nothing specific? Type `/custom` to configure a interview from my templates.";
@@ -30,30 +32,63 @@ function renderBlairMessage(text: string) {
   });
 }
 
-function buildConfigureUrlFromUrl(jobUrl: string): string {
-  const params = new URLSearchParams({
-    flow: "url",
-    pastedUrl: jobUrl,
-    autoStart: "1",
-  });
-  return `/configure?${params.toString()}`;
-}
-
-function buildConfigureUrlFromDescription(description: string): string {
-  const params = new URLSearchParams({
-    flow: "paste",
-    pastedDescription: description,
-    step: "analysis",
-  });
-  return `/configure?${params.toString()}`;
-}
-
 function buildConfigureUrlForCustom(): string {
-  const params = new URLSearchParams({
-    flow: "custom",
-    step: "position",
-  });
+  const params = new URLSearchParams({ flow: "custom", step: "position" });
   return `/configure?${params.toString()}`;
+}
+
+function buildInterviewUrlFromExtracted(
+  extracted: ExtractedJobDescription,
+): string {
+  const params = buildSearchParamsFromInterviewConfig({
+    position: extracted.position,
+    seniority: extracted.seniority,
+    technologies: extracted.technologies,
+    companyProfile: extracted.companyProfile,
+    company: extracted.company,
+    interviewMode: "regular",
+    interviewType: "mixed",
+    duration: "30",
+    isDemoMode: false,
+    contextType: "job-specific",
+    jobDescription: extracted.jobDescription,
+    jobRequirements: extracted.jobRequirements,
+  });
+  return `/interview?${params.toString()}`;
+}
+
+async function extractFromDescription(
+  description: string,
+): Promise<ExtractedJobDescription | null> {
+  try {
+    const response = await fetch("/api/job-description/extract", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ description }),
+    });
+    const payload = await response.json();
+    if (!payload.success || !payload.data) return null;
+    return payload.data as ExtractedJobDescription;
+  } catch {
+    return null;
+  }
+}
+
+async function extractFromUrl(
+  url: string,
+): Promise<ExtractedJobDescription | null> {
+  try {
+    const response = await fetch("/api/job-description/extract-from-url", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url }),
+    });
+    const payload = await response.json();
+    if (!payload.success || !payload.data) return null;
+    return payload.data as ExtractedJobDescription;
+  } catch {
+    return null;
+  }
 }
 
 interface TypingAnimationState {
@@ -98,12 +133,14 @@ interface HeroInterviewCardProps {
   inputDraft: string;
   onInputChange: (value: string) => void;
   onSubmit: (flow: InputFlow) => void;
+  isLoading: boolean;
 }
 
 function HeroInterviewCard({
   inputDraft,
   onInputChange,
   onSubmit,
+  isLoading,
 }: HeroInterviewCardProps) {
   const { displayText } = useHeroTypingAnimation();
 
@@ -157,6 +194,7 @@ function HeroInterviewCard({
         value={inputDraft}
         onChange={onInputChange}
         onSubmit={onSubmit}
+        isLoading={isLoading}
         size="default"
       />
     </section>
@@ -166,20 +204,37 @@ function HeroInterviewCard({
 export default function HeroSection() {
   const router = useRouter();
   const [inputDraft, setInputDraft] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (flow: InputFlow) => {
+  const handleSubmit = async (flow: InputFlow) => {
     const trimmed = inputDraft.trim();
 
-    switch (flow) {
-      case "url":
-        router.push(buildConfigureUrlFromUrl(trimmed));
-        break;
-      case "description":
-        router.push(buildConfigureUrlFromDescription(trimmed));
-        break;
-      case "custom":
-        router.push(buildConfigureUrlForCustom());
-        break;
+    if (flow === "custom") {
+      router.push(buildConfigureUrlForCustom());
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const extracted =
+        flow === "url"
+          ? await extractFromUrl(trimmed)
+          : await extractFromDescription(trimmed);
+
+      console.info("[hero] extracted config:", extracted);
+
+      if (!extracted?.jobDescription?.trim()) {
+        router.push(
+          flow === "url"
+            ? `/configure?flow=url&pastedUrl=${encodeURIComponent(trimmed)}&autoStart=1`
+            : `/configure?flow=paste&pastedDescription=${encodeURIComponent(trimmed)}&autoAnalyze=1`,
+        );
+        return;
+      }
+
+      router.push(buildInterviewUrlFromExtracted(extracted));
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -222,6 +277,7 @@ export default function HeroSection() {
                 inputDraft={inputDraft}
                 onInputChange={setInputDraft}
                 onSubmit={handleSubmit}
+                isLoading={isLoading}
               />
             </div>
           </div>

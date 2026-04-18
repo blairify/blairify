@@ -324,7 +324,7 @@ export function OnboardingPageClient({
     if (userData.onboardingCompleted) {
       cookieUtils.set("onboarding-complete", "1", { path: "/" });
       if (!isStartingNextAction) {
-        router.replace("/dashboard");
+        window.location.replace("/dashboard");
       }
       return;
     }
@@ -352,7 +352,7 @@ export function OnboardingPageClient({
     setEarlyJobMatchingEnabled(
       Boolean(userData.preferences?.earlyJobMatchingEnabled),
     );
-  }, [isStartingNextAction, router, userData]);
+  }, [isStartingNextAction, userData]);
 
   const totalSteps = STEPS.length;
   const currentStep = STEPS[stepIndex];
@@ -660,6 +660,10 @@ export function OnboardingPageClient({
 
   if (!userData) {
     return <LoadingPage message="Preparing your onboarding..." />;
+  }
+
+  if (userData.onboardingCompleted && !isStartingNextAction) {
+    return <LoadingPage message="Entering application..." />;
   }
 
   return (

@@ -188,12 +188,7 @@ export default function DashboardSidebar({
           </Link>
 
           {!isPro && (
-            <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
-              className="py-2"
-            >
+            <div className="py-2">
               <Link
                 href="/settings?tab=subscription"
                 title="Upgrade to Pro"
@@ -236,7 +231,7 @@ export default function DashboardSidebar({
 
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
               </Link>
-            </motion.div>
+            </div>
           )}
 
           <div className={`pt-2 pb-2 ${collapsed ? "px-0" : "px-3"}`}>

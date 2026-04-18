@@ -39,6 +39,26 @@ export async function POST(req: NextRequest) {
 
       if (customers.data.length > 0) {
         stripeCustomerId = customers.data[0].id;
+      } else {
+        // Create a new customer if one doesn't exist
+        const customer = await stripe.customers.create({
+          email: userEmail,
+          metadata: { userId },
+        });
+        stripeCustomerId = customer.id;
+
+        // Save the customer ID to the user's profile
+        try {
+          const { getUserProfileAdmin, updateUserProfileAdmin } = await import(
+            "@/lib/services/users/database-users.server"
+          );
+          const userProfile = await getUserProfileAdmin(userId);
+          if (userProfile) {
+            await updateUserProfileAdmin(userId, { stripeCustomerId });
+          }
+        } catch (error) {
+          console.warn("⚠️ Failed to save stripeCustomerId to profile:", error);
+        }
       }
     }
 

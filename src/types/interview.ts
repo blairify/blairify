@@ -58,6 +58,7 @@ export interface InterviewSession {
 export type TerminationReason =
   | "language"
   | "profanity"
+  | "cheat"
   | "inappropriate-behavior";
 
 export interface InterviewTermination {

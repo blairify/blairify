@@ -113,6 +113,22 @@ async function handleCheckoutCompleted(
     },
     { stripeCustomerId },
   );
+
+  // Reset usage so the new Pro user has a clean slate immediately.
+  try {
+    await updateUserProfileAdmin(userId, {
+      usage: {
+        interviewCount: 0,
+        lastInterviewAt:
+          FieldValue.serverTimestamp() as FirebaseFirestore.Timestamp,
+        periodStart:
+          FieldValue.serverTimestamp() as FirebaseFirestore.Timestamp,
+      },
+    });
+    console.log(`✅ Reset usage for Pro upgrade: user ${userId}`);
+  } catch (err) {
+    console.error(`⚠️ Failed to reset usage on Pro upgrade for ${userId}:`, err);
+  }
 }
 
 async function handleSubscriptionUpdated(
@@ -183,6 +199,29 @@ async function handleSubscriptionUpdated(
     currentPeriodEnd,
     cancelAtPeriodEnd,
   });
+
+  // If just activated as Pro, reset usage so they have a clean slate.
+  if (plan === "pro" && subscriptionStatus === "active") {
+    try {
+      await updateUserProfileAdmin(userId, {
+        usage: {
+          interviewCount: 0,
+          lastInterviewAt:
+            FieldValue.serverTimestamp() as FirebaseFirestore.Timestamp,
+          periodStart:
+            FieldValue.serverTimestamp() as FirebaseFirestore.Timestamp,
+        },
+      });
+      console.log(
+        `✅ Reset usage on Pro subscription activation: user ${userId}`,
+      );
+    } catch (err) {
+      console.error(
+        `⚠️ Failed to reset usage on subscription update for ${userId}:`,
+        err,
+      );
+    }
+  }
 }
 
 async function handleSubscriptionDeleted(

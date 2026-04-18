@@ -104,7 +104,21 @@ export default function DashboardNavbar({
               "relative size-[30px] right-[4px] items-center rounded-full hover:ring-1 hover:ring-primary/20 transition-all cursor-pointer",
             )}
           >
-            {userData?.avatarIcon ? (
+            {user?.photoURL ? (
+              <Avatar className="size-[30px] my-auto border-[0.5px] border-green-900 rounded-full">
+                <AvatarImage
+                  src={user.photoURL}
+                  alt={userData?.displayName || user?.displayName || "User"}
+                />
+                <AvatarFallback className="bg-primary/10 text-primary">
+                  <Typography.SubCaptionBold>
+                    {getInitials(
+                      userData?.displayName || user?.displayName || null,
+                    )}
+                  </Typography.SubCaptionBold>
+                </AvatarFallback>
+              </Avatar>
+            ) : userData?.avatarIcon ? (
               <AvatarIconDisplay
                 iconId={userData.avatarIcon}
                 size="sm"
@@ -112,10 +126,6 @@ export default function DashboardNavbar({
               />
             ) : (
               <Avatar className="size-[30px] bg-card my-auto border-[0.5px] border-green-900 rounded-full">
-                <AvatarImage
-                  src={user?.photoURL || userData?.photoURL}
-                  alt={userData?.displayName || user?.displayName || "User"}
-                />
                 <AvatarFallback className="bg-primary/10 text-primary">
                   <Typography.SubCaptionBold>
                     {getInitials(
@@ -134,7 +144,21 @@ export default function DashboardNavbar({
               "relative size-[30px] items-center right-[10px] rounded-full hover:ring-1 hover:ring-primary/20 transition-all cursor-pointer",
             )}
           >
-            {userData?.avatarIcon ? (
+            {user?.photoURL ? (
+              <Avatar className="size-[30px] my-auto border-[0.5px] border-border/50 rounded-full">
+                <AvatarImage
+                  src={user.photoURL}
+                  alt={userData?.displayName || user?.displayName || "User"}
+                />
+                <AvatarFallback className="bg-primary/10 text-primary">
+                  <Typography.SubCaptionBold>
+                    {getInitials(
+                      userData?.displayName || user?.displayName || null,
+                    )}
+                  </Typography.SubCaptionBold>
+                </AvatarFallback>
+              </Avatar>
+            ) : userData?.avatarIcon ? (
               <AvatarIconDisplay
                 iconId={userData.avatarIcon}
                 size="sm"
@@ -142,10 +166,6 @@ export default function DashboardNavbar({
               />
             ) : (
               <Avatar className="size-[30px] my-auto border-[0.5px] border-border/50 rounded-full">
-                <AvatarImage
-                  src={user?.photoURL || userData?.photoURL}
-                  alt={userData?.displayName || user?.displayName || "User"}
-                />
                 <AvatarFallback className="bg-primary/10 text-primary">
                   <Typography.SubCaptionBold>
                     {getInitials(

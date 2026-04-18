@@ -176,6 +176,7 @@ export async function checkUsageStatus(userId: string): Promise<{
   currentCount: number;
   isPro: boolean;
   remainingMinutes: number;
+  resetAtMs: number | null;
 }> {
   try {
     const database = ensureDatabase();
@@ -188,17 +189,35 @@ export async function checkUsageStatus(userId: string): Promise<{
         currentCount: 0,
         isPro: false,
         remainingMinutes: 0,
+        resetAtMs: null,
       };
     }
 
     const userData = userDoc.data() as UserProfile;
     const subscription = userData.subscription;
-    const usage = {
-      interviewCount: 0,
-      periodStart: Timestamp.now(),
-      lastInterviewAt: Timestamp.now(),
-      ...(userData.usage ?? {}),
+
+    // Safely extract usage — do NOT default periodStart to now() inside the
+    // spread, because that would silently hide missing-periodStart bugs.
+    const rawUsage = userData.usage;
+    const interviewCount = rawUsage?.interviewCount ?? 0;
+
+    // Helper to coerce a Firestore Timestamp or Date to a JS Date.
+    const toJsDate = (v: unknown): Date | null => {
+      if (!v) return null;
+      if (v instanceof Date) return v;
+      if (typeof (v as Timestamp).toDate === "function")
+        return (v as Timestamp).toDate();
+      return null;
     };
+
+    // Prefer periodStart. Fall back to lastInterviewAt for users whose
+    // documents pre-date the periodStart field (they hit their limit, so
+    // lastInterviewAt is the closest anchor we have). Only use `now` as a
+    // last resort when no usage record exists at all.
+    const periodStartDate: Date =
+      toJsDate(rawUsage?.periodStart) ??
+      toJsDate(rawUsage?.lastInterviewAt) ??
+      new Date();
 
     const isPro =
       subscription?.plan === "pro" && subscription?.status === "active";
@@ -206,37 +225,42 @@ export async function checkUsageStatus(userId: string): Promise<{
     if (isPro) {
       return {
         canStart: true,
-        currentCount: usage.interviewCount,
+        currentCount: interviewCount,
         isPro: true,
         remainingMinutes: 0,
+        resetAtMs: null,
       };
     }
 
     const now = new Date();
-    const lastInterviewAtDate =
-      usage.lastInterviewAt instanceof Date
-        ? usage.lastInterviewAt
-        : typeof (usage.lastInterviewAt as Timestamp | undefined)?.toDate ===
-            "function"
-          ? (usage.lastInterviewAt as Timestamp).toDate()
-          : now;
-    const diffMs = now.getTime() - lastInterviewAtDate.getTime();
-    const diffMin = diffMs / (1000 * 60);
+    const diffMs = now.getTime() - periodStartDate.getTime();
+    const diffHours = diffMs / (1000 * 60 * 60);
 
-    // Reset period: 60 minutes (1 hour)
-    const RESET_PERIOD_MINUTES = 60;
-    let currentCount = usage.interviewCount;
-    if (diffMin >= RESET_PERIOD_MINUTES) {
+    // Reset period: 24 hours
+    const RESET_PERIOD_HOURS = 24;
+    let currentCount = interviewCount;
+    if (diffHours >= RESET_PERIOD_HOURS) {
       currentCount = 0;
     }
 
     const DAILY_LIMIT = 2;
     const canStart = currentCount < DAILY_LIMIT;
+
+    // Absolute epoch ms when the current 24-h window resets.
+    const resetAtMs =
+      periodStartDate.getTime() + RESET_PERIOD_HOURS * 60 * 60 * 1000;
+    const remainingMs = resetAtMs - now.getTime();
     const remainingMinutes = canStart
       ? 0
-      : Math.max(0, Math.ceil(RESET_PERIOD_MINUTES - diffMin));
+      : Math.max(0, Math.ceil(remainingMs / (1000 * 60)));
 
-    return { canStart, currentCount, isPro: false, remainingMinutes };
+    return {
+      canStart,
+      currentCount,
+      isPro: false,
+      remainingMinutes,
+      resetAtMs: canStart ? null : resetAtMs,
+    };
   } catch (error) {
     console.error("Error checking usage status:", error);
     return {
@@ -244,6 +268,7 @@ export async function checkUsageStatus(userId: string): Promise<{
       currentCount: 0,
       isPro: false,
       remainingMinutes: 0,
+      resetAtMs: null,
     };
   }
 }
@@ -286,6 +311,14 @@ export async function checkAndIncrementUsage(userId: string): Promise<{
             ? (usage.lastInterviewAt as Timestamp).toDate()
             : now;
 
+      const periodStartDate =
+        usage.periodStart instanceof Date
+          ? usage.periodStart
+          : typeof (usage.periodStart as Timestamp | undefined)?.toDate ===
+              "function"
+            ? (usage.periodStart as Timestamp).toDate()
+            : now;
+
       // 1. SKIP LIMITS FOR PRO
       if (isPro) {
         return {
@@ -296,15 +329,15 @@ export async function checkAndIncrementUsage(userId: string): Promise<{
         };
       }
 
-      // 2. CHECK 1-HOUR RESET
-      const diffMs = now.getTime() - lastInterviewAtDate.getTime();
-      const diffMin = diffMs / (1000 * 60);
+      // 2. CHECK 24-HOUR RESET
+      const diffMs = now.getTime() - periodStartDate.getTime();
+      const diffHours = diffMs / (1000 * 60 * 60);
 
-      // Reset period: 60 minutes (1 hour)
-      const RESET_PERIOD_MINUTES = 60;
+      // Reset period: 24 hours
+      const RESET_PERIOD_HOURS = 24;
       let currentCount = usage.interviewCount;
 
-      if (diffMin >= RESET_PERIOD_MINUTES) {
+      if (diffHours >= RESET_PERIOD_HOURS) {
         currentCount = 0;
       }
 
@@ -321,11 +354,14 @@ export async function checkAndIncrementUsage(userId: string): Promise<{
 
       // 4. INCREMENT USAGE
       const updatedTimestamp = Timestamp.now();
+      const newPeriodStart =
+        currentCount === 0 ? updatedTimestamp : usage.periodStart;
+
       transaction.update(docRef, {
         usage: {
           interviewCount: currentCount + 1,
           lastInterviewAt: updatedTimestamp,
-          periodStart: usage.periodStart, // Keep existing periodStart
+          periodStart: newPeriodStart,
         },
       });
 

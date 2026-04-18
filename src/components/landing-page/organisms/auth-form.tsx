@@ -58,13 +58,11 @@ export default function AuthForm({
   const [isResettingPassword, setIsResettingPassword] = useState(false);
   const [resetMessage, setResetMessage] = useState("");
 
-  // Login form data
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
 
-  // Register form data
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -74,7 +72,6 @@ export default function AuthForm({
 
   const totalSteps = 3;
 
-  // Add state for email validation step
   const [_showEmailValidation, _setShowEmailValidation] = useState(false);
 
   useEffect(() => {
@@ -82,12 +79,10 @@ export default function AuthForm({
       setIsTransitioning(true);
       setError("");
 
-      // Reset form states when switching modes
       setCurrentStep(1);
       setShowPassword(false);
       setShowConfirmPassword(false);
 
-      // Animate transition
       const timer = setTimeout(() => {
         setCurrentMode(mode);
         setIsTransitioning(false);
@@ -103,12 +98,11 @@ export default function AuthForm({
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Initial check
+    handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Show loading while checking auth state
   if (authLoading) {
     return <LoadingPage />;
   }
@@ -127,14 +121,12 @@ export default function AuthForm({
       }
 
       if (exists) {
-        // Email exists - redirect to login
         if (onModeChange) {
           onModeChange("login");
         }
         setLoginData((prev) => ({ ...prev, email }));
       } else {
-        // Email doesn't exist - continue with signup
-        setCurrentStep(2); // Move to next step in signup flow
+        setCurrentStep(2);
       }
     } catch (_error) {
       setIsCheckingEmail(false);
@@ -146,13 +138,11 @@ export default function AuthForm({
 
   const handleNext = async () => {
     if (currentStep < totalSteps) {
-      // Check if email already exists when moving from step 1 (email validation step)
       if (currentStep === 1 && formData.email) {
         await handleEmailValidation(formData.email);
-        return;
+      } else {
+        setCurrentStep((prev) => prev + 1);
       }
-
-      setCurrentStep(currentStep + 1);
     }
   };
 
@@ -224,7 +214,6 @@ export default function AuthForm({
     setError("");
 
     try {
-      // Basic validation
       if (
         !formData.name ||
         !formData.email ||
@@ -375,12 +364,12 @@ export default function AuthForm({
       if (showResetForm) {
         return "Enter your email address to receive a password reset link";
       }
-      return "Sign in to continue your interview preparation journey";
+      return "";
     }
 
     switch (currentStep) {
       case 1:
-        return "We'll use this to sign you in";
+        return "";
       case 2:
         return "We'll use this as your display name";
       case 3:
@@ -410,7 +399,7 @@ export default function AuthForm({
               value={loginData.email}
               onChange={(e) => handleInputChange("email", e.target.value)}
               required
-              className="bg-input border-border"
+              className="bg-input border-gray-300"
               disabled={isLoading || isResettingPassword}
             />
           </div>
@@ -453,7 +442,7 @@ export default function AuthForm({
             value={loginData.email}
             onChange={(e) => handleInputChange("email", e.target.value)}
             required
-            className="bg-input border-border"
+            className="bg-input border-gray-300"
             disabled={isLoading || isResettingPassword}
           />
         </div>
@@ -468,7 +457,7 @@ export default function AuthForm({
               value={loginData.password}
               onChange={(e) => handleInputChange("password", e.target.value)}
               required
-              className="bg-input border-border pr-10"
+              className="bg-input border-gray-300 pr-10"
               disabled={isLoading || isResettingPassword}
             />
             <Button
@@ -528,7 +517,7 @@ export default function AuthForm({
                 value={formData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
                 required
-                className="bg-input border-border"
+                className="bg-input border-gray-300"
                 disabled={isLoading || isCheckingEmail}
               />
             </div>
@@ -547,7 +536,7 @@ export default function AuthForm({
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
                 required
-                className="bg-input border-border"
+                className="bg-input border-gray-300"
                 disabled={isLoading}
               />
             </div>
@@ -570,7 +559,7 @@ export default function AuthForm({
                   }
                   required
                   minLength={6}
-                  className="bg-input border-border pr-10"
+                  className="bg-input border-gray-300 pr-10"
                   disabled={isLoading}
                 />
                 <Button
@@ -595,9 +584,9 @@ export default function AuthForm({
                 {formData.password &&
                   formData.confirmPassword &&
                   formData.password !== formData.confirmPassword && (
-                    <Typography.Body color="error">
+                    <Typography.Caption color="error">
                       Passwords do not match
-                    </Typography.Body>
+                    </Typography.Caption>
                   )}
               </div>
               <div className="relative">
@@ -610,7 +599,7 @@ export default function AuthForm({
                     handleInputChange("confirmPassword", e.target.value)
                   }
                   required
-                  className="bg-input border-border pr-10"
+                  className="bg-input border-gray-300 pr-10"
                   disabled={isLoading}
                 />
                 <Button
@@ -642,7 +631,7 @@ export default function AuthForm({
       <Button
         type="button"
         variant="outline"
-        className="flex flex-1 min-w-0 items-center justify-center bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors h-12 sm:h-10"
+        className="flex flex-1 min-w-0 items-center justify-center bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors h-10 sm:h-9"
         onClick={handleGithubLogin}
         disabled={isLoading}
       >
@@ -652,7 +641,7 @@ export default function AuthForm({
       <Button
         type="button"
         variant="outline"
-        className="flex flex-1 min-w-0 items-center justify-center bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors h-12 sm:h-10"
+        className="flex flex-1 min-w-0 items-center justify-center bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors h-10 sm:h-9"
         onClick={handleGoogleLogin}
         disabled={isLoading}
       >
@@ -678,7 +667,7 @@ export default function AuthForm({
                     : "opacity-100 transform translate-y-0 scale-100"
                 }`}
               >
-                <Typography.BodyBold>{getStepTitle()}</Typography.BodyBold>
+                <Typography.Heading1>{getStepTitle()}</Typography.Heading1>
                 <Typography.Body color="secondary">
                   {getStepDescription()}
                 </Typography.Body>
@@ -706,7 +695,7 @@ export default function AuthForm({
                         <Button
                           type="button"
                           variant="outline"
-                          size="lg"
+                          size="sm"
                           className="w-[45%]"
                           onClick={handleGithubLogin}
                           disabled={isLoading}
@@ -717,7 +706,7 @@ export default function AuthForm({
                         <Button
                           type="button"
                           variant="outline"
-                          size="lg"
+                          size="sm"
                           className="w-[45%]"
                           onClick={handleGoogleLogin}
                           disabled={isLoading}
@@ -731,7 +720,7 @@ export default function AuthForm({
                         <div className="absolute inset-0 flex items-center">
                           <Separator className="w-full" />
                         </div>
-                        <div className="relative flex justify-center text-xs uppercase">
+                        <div className="relative flex justify-center text-[7px] uppercase">
                           <Typography.Caption
                             color="secondary"
                             className="bg-card px-2"
@@ -758,6 +747,41 @@ export default function AuthForm({
                   )
                 ) : (
                   <>
+                    <div className="flex flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center mb-8">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="w-[45%]"
+                        size="sm"
+                        onClick={handleGithubLogin}
+                        disabled={isLoading}
+                      >
+                        <FaGithub className="mr-2 flex-shrink-0" />
+                        GitHub
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={handleGoogleLogin}
+                        disabled={isLoading}
+                      >
+                        <FaGoogle className="mr-2 flex-shrink-0" />
+                        Google
+                      </Button>
+                    </div>
+
+                    <div className="relative my-8">
+                      <div className="absolute inset-0 flex items-center">
+                        <Separator className="w-full" />
+                      </div>
+                      <div className="relative flex justify-center text-[7px] uppercase">
+                        <Typography.Caption className="bg-card px-2">
+                          Or sign up with email
+                        </Typography.Caption>
+                      </div>
+                    </div>
+
                     <div className="overflow-hidden">
                       <div
                         className="flex transition-transform duration-300 ease-in-out"
@@ -776,7 +800,7 @@ export default function AuthForm({
                       </div>
                     </div>
 
-                    <div className="mt-6 flex justify-between">
+                    <div className="mt-8 flex justify-between">
                       <Button
                         type="button"
                         variant="outline"
@@ -806,54 +830,17 @@ export default function AuthForm({
                             isLoading ||
                             isCheckingEmail
                           }
-                          size="lg"
+                          size="sm"
                         >
                           Next
                         </Button>
                       )}
                     </div>
-
-                    <div className="relative my-6">
-                      <div className="absolute inset-0 flex items-center">
-                        <Separator className="w-full" />
-                      </div>
-                      <div className="relative flex justify-center text-xs uppercase">
-                        <Typography.Caption className="bg-card px-2">
-                          Or sign up with
-                        </Typography.Caption>
-                      </div>
-                    </div>
-
-                    <div className="my-6">
-                      <div className="flex flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center">
-                        <Button
-                          type="button"
-                          variant="outline"
-                          className="w-[45%]"
-                          size="lg"
-                          onClick={handleGithubLogin}
-                          disabled={isLoading}
-                        >
-                          <FaGithub className="mr-2 flex-shrink-0" />
-                          GitHub
-                        </Button>
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="lg"
-                          onClick={handleGoogleLogin}
-                          disabled={isLoading}
-                        >
-                          <FaGoogle className="mr-2 flex-shrink-0" />
-                          Google
-                        </Button>
-                      </div>
-                    </div>
                   </>
                 )}
 
                 <div className="text-center mt-6">
-                  <Typography.Body
+                  <Typography.Caption
                     color="secondary"
                     className={currentMode === "login" ? "mt-4" : "mt-0"}
                   >
@@ -902,7 +889,7 @@ export default function AuthForm({
                         )}
                       </>
                     )}
-                  </Typography.Body>
+                  </Typography.Caption>
                 </div>
               </div>
             </CardContent>
@@ -925,7 +912,7 @@ export default function AuthForm({
                     type="button"
                     onClick={() => onAudienceChange("enterprise")}
                     variant="outline"
-                    className="border-border/60 text-muted-foreground hover:text-foreground hover:bg-background/80 h-9 px-3"
+                    className="border-border/30 text-muted-foreground hover:text-foreground hover:bg-background/80 h-9 px-2 text-xs leading-tight"
                   >
                     Blairify for Enterprise
                   </Button>
@@ -941,7 +928,7 @@ export default function AuthForm({
                     : "opacity-100 transform translate-y-0 scale-100"
                 }`}
               >
-                <Typography.BodyBold>{getStepTitle()}</Typography.BodyBold>
+                <Typography.Heading1>{getStepTitle()}</Typography.Heading1>
                 <Typography.Body color="secondary">
                   {getStepDescription()}
                 </Typography.Body>
@@ -978,7 +965,7 @@ export default function AuthForm({
                             <div className="absolute inset-0 flex items-center">
                               <Separator className="w-full" />
                             </div>
-                            <div className="relative flex justify-center text-xs uppercase">
+                            <div className="relative flex justify-center text-[7px] uppercase">
                               <Typography.Caption
                                 color="secondary"
                                 className="bg-card px-2"
@@ -993,6 +980,22 @@ export default function AuthForm({
                       )
                     ) : (
                       <>
+                        <div className="mb-8">{renderSocialButtons()}</div>
+
+                        <div className="relative my-8">
+                          <div className="absolute inset-0 flex items-center">
+                            <Separator className="w-full" />
+                          </div>
+                          <div className="relative flex justify-center text-[7px] uppercase">
+                            <Typography.Caption
+                              color="secondary"
+                              className="bg-card px-2"
+                            >
+                              Or sign up with email
+                            </Typography.Caption>
+                          </div>
+                        </div>
+
                         <div className="overflow-hidden">
                           <div
                             className="flex transition-transform duration-300 ease-in-out"
@@ -1012,11 +1015,11 @@ export default function AuthForm({
                           </div>
                         </div>
 
-                        <div className="flex justify-between mt-6">
+                        <div className="flex justify-between mt-8">
                           <Button
                             type="button"
                             variant="outline"
-                            size="lg"
+                            size="sm"
                             onClick={handlePrevious}
                             disabled={
                               currentStep === 1 || isLoading || isCheckingEmail
@@ -1029,7 +1032,7 @@ export default function AuthForm({
                             <Button
                               onClick={handleRegisterSubmit}
                               disabled={!canProceedToNextStep() || isLoading}
-                              size="sm"
+                              size="lg"
                             >
                               {isLoading
                                 ? "Creating Account..."
@@ -1056,7 +1059,7 @@ export default function AuthForm({
                 </div>
 
                 <div className="text-center mt-6">
-                  <Typography.Body
+                  <Typography.Caption
                     color="secondary"
                     className={currentMode === "login" ? "mt-4" : "mt-0"}
                   >
@@ -1105,7 +1108,7 @@ export default function AuthForm({
                         )}
                       </>
                     )}
-                  </Typography.Body>
+                  </Typography.Caption>
                 </div>
               </div>
             </div>

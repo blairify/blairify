@@ -2,7 +2,8 @@
 
 import { Timestamp } from "firebase/firestore";
 import { Loader2 } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { toast } from "sonner";
 import { FloatingNotification } from "@/components/common/molecules/floating-notification";
 import { Button } from "@/components/ui/button";
 import {
@@ -63,6 +64,7 @@ interface ChatInterviewResponse {
   terminatedForLanguage?: boolean;
   terminatedForProfanity?: boolean;
   terminatedForBehavior?: boolean;
+  terminatedForCheat?: boolean;
   aiErrorType?: string;
   matchedBehaviorPatterns?: string[];
   usage?: {
@@ -88,6 +90,13 @@ function getUserFacingInterviewErrorMessage(error: unknown) {
 
   return "I ran into an issue processing that. Your answer is saved in the transcript. Please try again in a moment.";
 }
+
+const countUserAnswers = (messages: Message[]): number =>
+  messages.reduce((count, m) => {
+    if (m.type !== "user") return count;
+    if (typeof m.content !== "string") return count;
+    return m.content.trim() ? count + 1 : count;
+  }, 0);
 
 export function InterviewContent({
   user,
@@ -145,14 +154,6 @@ export function InterviewContent({
         m.type === "user" && typeof m.content === "string" && m.content.trim(),
     );
 
-  const countUserAnswers = (messages: Message[]): number =>
-    messages.reduce((count, m) => {
-      if (m.type !== "user") return count;
-      if (typeof m.content !== "string") return count;
-      if (m.content.trim().length === 0) return count;
-      return count + 1;
-    }, 0);
-
   const ensureDatabaseSession = async (messages: Message[]) => {
     if (!user?.uid) return null;
     if (databaseSessionId) return databaseSessionId;
@@ -206,57 +207,173 @@ export function InterviewContent({
     }
   };
 
-  const markInterviewComplete = (
-    messagesOverride?: Message[],
-    sessionIdOverride?: string | null,
-  ) => {
-    if (session.isComplete || interviewCompletedRef.current) {
-      return;
-    }
-
-    interviewCompletedRef.current = true;
-    completeInterview();
-    const sessionData = {
-      ...session,
-      messages: messagesOverride ?? session.messages,
-      endTime: new Date(),
-      totalDuration: Math.round(
-        (Date.now() - session.startTime.getTime()) / 1000 / 60,
-      ),
-      isComplete: true,
-    };
-
-    const userAnswerCount = countUserAnswers(sessionData.messages);
-    const shouldKeepInHistory = (() => {
-      if (userAnswerCount === 0) return false;
-      if (sessionData.termination?.reason && userAnswerCount < 2) return false;
-      return true;
-    })();
-
-    const resolvedSessionId = sessionIdOverride ?? databaseSessionId;
-
-    if (!shouldKeepInHistory) {
-      if (resolvedSessionId && user?.uid) {
-        void (async () => {
-          try {
-            await DatabaseService.deleteSession(user.uid, resolvedSessionId);
-          } catch (error) {
-            console.error("Error deleting session from database:", error);
-          }
-        })();
+  const markInterviewComplete = useCallback(
+    (messagesOverride?: Message[], sessionIdOverride?: string | null) => {
+      if (session.isComplete || interviewCompletedRef.current) {
+        return;
       }
 
-      setDatabaseSessionId(null);
-      localStorage.removeItem("interviewSessionId");
-    }
+      interviewCompletedRef.current = true;
+      completeInterview();
+      const sessionData = {
+        ...session,
+        messages: messagesOverride ?? session.messages,
+        endTime: new Date(),
+        totalDuration: Math.round(
+          (Date.now() - session.startTime.getTime()) / 1000 / 60,
+        ),
+        isComplete: true,
+      };
 
-    localStorage.setItem("interviewSession", JSON.stringify(sessionData));
-    localStorage.setItem("interviewConfig", JSON.stringify(config));
+      const userAnswerCount = countUserAnswers(sessionData.messages);
+      const shouldKeepInHistory = (() => {
+        if (userAnswerCount === 0) return false;
+        if (sessionData.termination?.reason && userAnswerCount < 2)
+          return false;
+        return true;
+      })();
 
-    if (resolvedSessionId && shouldKeepInHistory) {
-      localStorage.setItem("interviewSessionId", resolvedSessionId);
-    }
-  };
+      const resolvedSessionId = sessionIdOverride ?? databaseSessionId;
+
+      if (!shouldKeepInHistory) {
+        if (resolvedSessionId && user?.uid) {
+          void (async () => {
+            try {
+              await DatabaseService.deleteSession(user.uid, resolvedSessionId);
+            } catch (error) {
+              console.error("Error deleting session from database:", error);
+            }
+          })();
+        }
+
+        setDatabaseSessionId(null);
+        localStorage.removeItem("interviewSessionId");
+      }
+
+      localStorage.setItem("interviewSession", JSON.stringify(sessionData));
+      localStorage.setItem("interviewConfig", JSON.stringify(config));
+
+      if (resolvedSessionId && shouldKeepInHistory) {
+        localStorage.setItem("interviewSessionId", resolvedSessionId);
+      }
+    },
+    [
+      session,
+      session.isComplete,
+      session.messages,
+      session.startTime,
+      session.termination,
+      databaseSessionId,
+      user?.uid,
+      config,
+      completeInterview,
+    ],
+  );
+
+  const forceCheatTermination = useCallback(
+    (reasonMessage: string) => {
+      if (session.isComplete || interviewCompletedRef.current) return;
+
+      interviewCompletedRef.current = true;
+      setCompletionTerminationReason("cheat");
+      updateSession({
+        isComplete: true,
+        termination: {
+          reason: "cheat",
+          message: reasonMessage,
+          at: new Date(),
+        },
+      });
+
+      const terminationData = {
+        messages: session.messages,
+        config,
+        interviewer,
+        startTime: session.startTime,
+        endTime: new Date(),
+        questionIds: session.questionIds,
+        isComplete: true,
+        terminatedForCheat: true,
+        termination: {
+          reason: "cheat",
+          message: reasonMessage,
+          at: new Date(),
+        },
+        finalScore: 0,
+      };
+
+      localStorage.setItem("interviewSession", JSON.stringify(terminationData));
+      localStorage.setItem("interviewConfig", JSON.stringify(config));
+
+      if (databaseSessionId) {
+        localStorage.setItem("interviewSessionId", databaseSessionId);
+      }
+      markInterviewComplete(session.messages, databaseSessionId);
+    },
+    [
+      session.isComplete,
+      session.messages,
+      session.questionIds,
+      config,
+      interviewer,
+      session.startTime,
+      databaseSessionId,
+      updateSession,
+      markInterviewComplete,
+    ],
+  );
+
+  const tabSwitchCountRef = useRef(0);
+  const tabLeaveTimeRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (
+      !isInterviewStarted ||
+      session.isComplete ||
+      interviewCompletedRef.current ||
+      config.isDemoMode ||
+      config.interviewMode !== "competitive"
+    )
+      return;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        tabLeaveTimeRef.current = Date.now();
+      } else {
+        if (tabLeaveTimeRef.current !== null) {
+          const timeAwayMs = Date.now() - tabLeaveTimeRef.current;
+          tabSwitchCountRef.current += 1;
+
+          if (timeAwayMs > 15000) {
+            forceCheatTermination(
+              "Usage of external tools during assessment is frowned upon. You left the interview tab for over 15 seconds. Ending the interview immediately. Your score is 0.",
+            );
+          } else if (tabSwitchCountRef.current > 2) {
+            forceCheatTermination(
+              "Usage of external tools during assessment is frowned upon. You've switched away from the browser tab too many times. Ending the interview immediately. Your score is 0.",
+            );
+          } else {
+            toast.error(
+              "Please stay on this tab during the interview. Excessive tab switching will result in automatic termination.",
+            );
+          }
+
+          tabLeaveTimeRef.current = null;
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [
+    isInterviewStarted,
+    session.isComplete,
+    config.isDemoMode,
+    config.interviewMode,
+    forceCheatTermination,
+  ]);
 
   const shouldBlockExit =
     isInterviewStarted && !session.isComplete && !allowExitRef.current;
@@ -525,6 +642,8 @@ export function InterviewContent({
         }
       }
 
+      console.info("[interview/start] sending config:", effectiveConfig);
+
       const response = await fetch("/api/interview/start", {
         method: "POST",
         headers: {
@@ -537,7 +656,20 @@ export function InterviewContent({
         }),
       });
 
-      const data: StartInterviewResponse = await response.json();
+      let data: StartInterviewResponse;
+      try {
+        data = await response.json();
+      } catch {
+        const rawText = await response.text().catch(() => "(unreadable)");
+        console.error("❌ Failed to parse interview start response:", {
+          status: response.status,
+          rawText: rawText.slice(0, 500),
+          config: effectiveConfig,
+        });
+        throw new Error(
+          `Server returned a non-JSON response (${response.status})`,
+        );
+      }
 
       if (!response.ok) {
         console.error("❌ Failed to start interview:", {
@@ -549,8 +681,14 @@ export function InterviewContent({
         });
 
         if (data.code === "GUEST_DEMO_USED") {
-          allowExitRef.current = true;
-          window.location.href = "/auth?mode=register&redirect=%2Fresults";
+          addMessage({
+            id: Date.now().toString(),
+            type: "ai",
+            content:
+              "🎬 **Demo already completed**\n\nYou've already used your free guest demo. [Create a free account](/auth?mode=register&redirect=%2Finterview) to continue practicing — you'll get more interviews per day and unlock the full experience.",
+            timestamp: new Date(),
+          });
+          setIsLoading(false);
           return;
         }
 
@@ -911,6 +1049,49 @@ export function InterviewContent({
             return;
           }
 
+          if (data.terminatedForCheat) {
+            interviewCompletedRef.current = true;
+            setCompletionTerminationReason("cheat");
+            updateSession({
+              isComplete: true,
+              termination: {
+                reason: "cheat",
+                message: data.message,
+                at: new Date(),
+              },
+            });
+
+            const terminationData = {
+              messages: nextMessages,
+              config,
+              interviewer,
+              startTime: session.startTime,
+              endTime: new Date(),
+              questionIds: session.questionIds,
+              isComplete: true,
+              terminatedForCheat: true,
+              termination: {
+                reason: "cheat",
+                message: data.message,
+                at: new Date(),
+              },
+              finalScore: 0,
+            };
+
+            localStorage.setItem(
+              "interviewSession",
+              JSON.stringify(terminationData),
+            );
+            localStorage.setItem("interviewConfig", JSON.stringify(config));
+
+            if (ensuredSessionId) {
+              localStorage.setItem("interviewSessionId", ensuredSessionId);
+            }
+
+            markInterviewComplete(nextMessages, ensuredSessionId);
+            return;
+          }
+
           markInterviewComplete(nextMessages, ensuredSessionId);
         }
 
@@ -930,6 +1111,19 @@ export function InterviewContent({
       setIsLoading(false);
     }
   };
+
+  const hasAutoStartedRef = useRef(false);
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: handleStartInterview omitted intentionally — hasAutoStartedRef.current prevents stale re-execution
+  useEffect(() => {
+    if (!mounted) return;
+    if (isInterviewStarted) return;
+    if (hasAutoStartedRef.current) return;
+    if (config.contextType !== "job-specific") return;
+
+    hasAutoStartedRef.current = true;
+    void handleStartInterview();
+  }, [mounted, isInterviewStarted, config.contextType]);
 
   const handleSkipQuestion = async () => {
     if (session.isComplete || interviewCompletedRef.current) {

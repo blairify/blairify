@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { checkUsageStatus } from "@/lib/services/users/database-users";
 import { useAuth } from "@/providers/auth-provider";
 
 interface UsageStatus {
@@ -12,6 +11,8 @@ interface UsageStatus {
   remainingMinutes: number;
   isLoading: boolean;
   error: string | null;
+  /** Absolute epoch ms when limits reset. null when user can already start. */
+  resetAtMs: number | null;
 }
 
 interface FormattedTimeRemaining {
@@ -22,7 +23,7 @@ interface FormattedTimeRemaining {
 }
 
 const MAX_INTERVIEWS = 2;
-const RESET_PERIOD_MINUTES = 60;
+const RESET_PERIOD_MINUTES = 24 * 60;
 
 export function useUsageStatus() {
   const { user, userData } = useAuth();
@@ -34,6 +35,7 @@ export function useUsageStatus() {
     remainingMinutes: 0,
     isLoading: true,
     error: null,
+    resetAtMs: null,
   });
   const [timeRemaining, setTimeRemaining] = useState<FormattedTimeRemaining>({
     hours: 0,
@@ -54,15 +56,20 @@ export function useUsageStatus() {
     }
 
     try {
-      const result = await checkUsageStatus(user.uid);
+      const response = await fetch(
+        `/api/usage/status?uid=${encodeURIComponent(user.uid)}`,
+      );
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const result = await response.json();
       setStatus({
         canStart: result.canStart,
         currentCount: result.currentCount,
-        maxCount: MAX_INTERVIEWS,
+        maxCount: result.maxCount ?? MAX_INTERVIEWS,
         isPro: result.isPro,
-        remainingMinutes: result.remainingMinutes,
+        remainingMinutes: 0,
         isLoading: false,
         error: null,
+        resetAtMs: result.resetAtMs ?? null,
       });
     } catch (error) {
       console.error("Error fetching usage status:", error);
@@ -79,9 +86,10 @@ export function useUsageStatus() {
     fetchUsageStatus();
   }, [fetchUsageStatus]);
 
-  // Real-time countdown timer
+  // Real-time countdown timer — anchored to the absolute resetAtMs epoch so
+  // page refreshes never restart the countdown.
   useEffect(() => {
-    if (status.isPro || status.remainingMinutes <= 0) {
+    if (status.isPro || status.resetAtMs === null) {
       setTimeRemaining({
         hours: 0,
         minutes: 0,
@@ -91,11 +99,10 @@ export function useUsageStatus() {
       return;
     }
 
-    // Initialize with remaining minutes converted to seconds
-    let totalSeconds = Math.ceil(status.remainingMinutes * 60);
+    const tick = () => {
+      const remaining = Math.max(0, status.resetAtMs! - Date.now());
 
-    const updateTime = () => {
-      if (totalSeconds <= 0) {
+      if (remaining === 0) {
         setTimeRemaining({
           hours: 0,
           minutes: 0,
@@ -107,6 +114,7 @@ export function useUsageStatus() {
         return;
       }
 
+      const totalSeconds = Math.ceil(remaining / 1000);
       const hours = Math.floor(totalSeconds / 3600);
       const minutes = Math.floor((totalSeconds % 3600) / 60);
       const seconds = totalSeconds % 60;
@@ -121,17 +129,13 @@ export function useUsageStatus() {
       }
 
       setTimeRemaining({ hours, minutes, seconds, formatted });
-      totalSeconds -= 1;
     };
 
-    // Initial update
-    updateTime();
-
-    // Update every second
-    const interval = setInterval(updateTime, 1000);
-
+    // Run immediately then every second
+    tick();
+    const interval = setInterval(tick, 1000);
     return () => clearInterval(interval);
-  }, [status.remainingMinutes, status.isPro, fetchUsageStatus]);
+  }, [status.resetAtMs, status.isPro, fetchUsageStatus]);
 
   // Computed values
   const remainingInterviews = Math.max(0, MAX_INTERVIEWS - status.currentCount);

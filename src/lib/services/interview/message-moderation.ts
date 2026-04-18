@@ -268,6 +268,41 @@ function isSecurityPenTestContext(normalized: string): boolean {
   return false;
 }
 
+const AI_CHEAT_PATTERNS = [
+  // Formatting anomalies
+  /\*\*[^*]+\*\*/, // bolding
+  /^\s*(?:\d+\.|\*|-)\s+/m, // markdown lists (any line starting with a number., *, or -)
+
+  // Semantic boilerplate
+  /\bhere is a (?:breakdown|step-by-step)/i,
+  /\bcould you please clarify\b/i,
+  /\bcertainly,? i can help\b/i,
+  /\bas an ai language model\b/i,
+  /\b(it is|it's) important to note\b/i,
+  /\bin conclusion,?\b/i,
+
+  // Honeypot payload
+  /\bpineapple\b/i,
+];
+
+export function detectAiCheat(message: string) {
+  // Em dashes ("—") are very commonly output by AI
+  if (message.includes("—")) {
+    return { containsAiCheat: true };
+  }
+
+  // Check for AI cheat heuristic patterns
+  for (const pattern of AI_CHEAT_PATTERNS) {
+    if (pattern.test(message)) {
+      return { containsAiCheat: true };
+    }
+  }
+
+  return {
+    containsAiCheat: false,
+  };
+}
+
 function wholeWord(word: string): RegExp {
   const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   return new RegExp(`(?<![\\p{L}\\p{N}_])${escaped}(?![\\p{L}\\p{N}_])`, "iu");

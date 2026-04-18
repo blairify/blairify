@@ -1622,7 +1622,7 @@ export function ResultsDeck({
                                 const readiness = getReadiness(scoreValue);
                                 const categoryScores =
                                   getCategoryScoresForResults(results);
-                                const technologyScores =
+                                const _technologyScores =
                                   getTechnologyScoresForResults(results);
 
                                 const narrative = sanitizeOutcomeNarrative(
@@ -1784,78 +1784,6 @@ export function ResultsDeck({
                                         );
                                       })}
                                     </div>
-
-                                    {technologyScores.length > 0 ? (
-                                      <div className="rounded-2xl border bg-background/40 px-4 py-3">
-                                        <div className="flex items-center justify-between gap-3">
-                                          <div className="text-sm font-semibold">
-                                            Technology scores
-                                          </div>
-                                          <div className="text-xs tabular-nums text-muted-foreground">
-                                            /100
-                                          </div>
-                                        </div>
-
-                                        {technologyScores.every(
-                                          (t) => t.score === null,
-                                        ) && (
-                                          <div className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                                            Not assessed — none of the selected
-                                            technologies were discussed or used
-                                            in the questions.
-                                          </div>
-                                        )}
-
-                                        <div className="mt-3 space-y-2">
-                                          {technologyScores
-                                            .slice(0, 6)
-                                            .map((t) => {
-                                              const pct =
-                                                t.score === null
-                                                  ? null
-                                                  : Math.round(
-                                                      clampFinite(
-                                                        t.score,
-                                                        0,
-                                                        100,
-                                                      ),
-                                                    );
-                                              return (
-                                                <div
-                                                  key={t.tech}
-                                                  className="space-y-1"
-                                                >
-                                                  <div className="flex items-center justify-between gap-3">
-                                                    <div className="text-sm font-medium">
-                                                      {t.tech}
-                                                    </div>
-                                                    <div className="text-xs tabular-nums text-muted-foreground">
-                                                      {pct === null
-                                                        ? "N/A"
-                                                        : `${pct}/100`}
-                                                    </div>
-                                                  </div>
-                                                  <div className="h-2 overflow-hidden rounded-full bg-muted">
-                                                    <motion.div
-                                                      className="h-full rounded-full bg-foreground/60"
-                                                      initial={{ width: 0 }}
-                                                      animate={{
-                                                        width: outcomeLoading
-                                                          ? "0%"
-                                                          : `${pct ?? 0}%`,
-                                                      }}
-                                                      transition={{
-                                                        duration: 0.7,
-                                                        ease: "easeOut",
-                                                      }}
-                                                    />
-                                                  </div>
-                                                </div>
-                                              );
-                                            })}
-                                        </div>
-                                      </div>
-                                    ) : null}
                                   </div>
                                 );
                               }
@@ -2116,23 +2044,6 @@ export function ResultsDeck({
                               }
                             />
                           ))}
-                        </div>
-
-                        <div className="mt-8 max-sm:mt-4 flex items-center justify-center">
-                          {index < lastIndex ? (
-                            <Button
-                              type="button"
-                              className="h-11 px-8"
-                              onPointerDown={(e) => e.stopPropagation()}
-                              onClick={() => {
-                                pauseForInteraction(INTERACTION_PAUSE_MS);
-                                goNext();
-                              }}
-                            >
-                              Next
-                              <ArrowRight className="ml-2 size-4" />
-                            </Button>
-                          ) : null}
                         </div>
                       </div>
                     </div>

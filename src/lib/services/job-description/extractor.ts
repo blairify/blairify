@@ -103,17 +103,17 @@ async function extractUsingAI(
 ): Promise<ExtractedJobDescription | null> {
   const systemPrompt = `
 You are an expert technical recruiter. Extract structured data from a job description.
-Return ONLY JSON that matches this schema:
+Return ONLY JSON that matches this schema exactly:
 {
-  "summary": "Concise summary of the job (max 120 words).",
+  "summary": "3-5 sentence description of the role, responsibilities, and mission. MUST be non-empty — if unsure, copy the first 2-3 sentences from the input verbatim.",
   "position": "One of: frontend, backend, fullstack, devops, mobile, data-engineer, data-scientist, cybersecurity, product",
   "seniority": "One of: entry, junior, mid, senior",
   "technologies": ["lowercase technology keywords, max 8"],
-  "company": "Company name if available",
-  "requirements": "Key requirements bullet summary (max 120 words)",
+  "company": "Company name if mentioned, otherwise empty string",
+  "requirements": "Key requirements as bullet points (max 120 words). If no explicit requirements section, list 3-5 implied skills from the description.",
   "companyProfile": "generic | faang | startup"
 }
-If a field is unknown, return an empty string. Respond with valid JSON only, no markdown.
+The summary field MUST always contain text. Never return an empty string for summary. Respond with valid JSON only, no markdown.
 `.trim();
 
   const userPrompt = `Job Description:
@@ -123,6 +123,7 @@ Return the JSON now.`;
   const response = await generateAnalysis(client, systemPrompt, userPrompt);
 
   if (!response.success || !response.content) {
+    console.warn("[extractor] AI call failed:", response.error);
     return null;
   }
 
@@ -130,8 +131,11 @@ Return the JSON now.`;
     const jsonPayload = extractJsonObject(response.content);
     const parsed = extractionSchema.parse(jsonPayload);
 
+    const summaryText =
+      parsed.summary.trim() || extractFirstMeaningfulText(description);
+
     return {
-      jobDescription: parsed.summary.trim(),
+      jobDescription: summaryText,
       position: normalizePositionValue(parsed.position),
       seniority: normalizeSeniorityValue(parsed.seniority ?? undefined),
       technologies: normalizeTechnologies(parsed.technologies),
@@ -140,15 +144,31 @@ Return the JSON now.`;
       companyProfile: normalizeCompanyProfileValue(parsed.companyProfile),
     };
   } catch (error) {
-    console.warn("AI response parsing failed:", error);
+    console.warn(
+      "[extractor] AI response parsing failed:",
+      error,
+      "\nRaw content:",
+      response.content.slice(0, 500),
+    );
     return null;
   }
+}
+
+function extractFirstMeaningfulText(
+  description: string,
+  maxLength = 600,
+): string {
+  const lines = description
+    .split(/\n/)
+    .map((l) => l.trim())
+    .filter((l) => l.length > 20);
+  return lines.slice(0, 5).join(" ").slice(0, maxLength);
 }
 
 function buildFallbackExtraction(description: string): ExtractedJobDescription {
   const lower = description.toLowerCase();
 
-  const jobDescription = description.split(/\n{2,}/)[0]?.trim() ?? description;
+  const jobDescription = extractFirstMeaningfulText(description);
 
   const technologies = KNOWN_TECH_VALUES.filter((tech) => lower.includes(tech));
 
@@ -159,7 +179,7 @@ function buildFallbackExtraction(description: string): ExtractedJobDescription {
   const company = extractCompanyName(description);
 
   return {
-    jobDescription: jobDescription.slice(0, 600),
+    jobDescription,
     position: normalizePositionValue(description),
     seniority,
     technologies,

@@ -84,7 +84,6 @@ export default function PracticeSection() {
           </div>
 
           <div className="relative mx-auto lg:mx-0">
-            {/* iPhone container */}
             <div className="relative">
               <Image
                 src="/devices/iphonedemo.svg"
@@ -93,17 +92,6 @@ export default function PracticeSection() {
                 height={500}
                 className="relative z-10"
               />
-              {/* Video overlay positioned inside phone frame */}
-              <div className="absolute top-[15px] left-[15px] w-[220px] h-[480px] z-0">
-                <video
-                  src="/devices/video.mov"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover rounded-[24px]"
-                />
-              </div>
             </div>
           </div>
         </div>

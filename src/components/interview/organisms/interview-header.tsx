@@ -106,7 +106,7 @@ export function InterviewHeader({
                     onClick={onEnd}
                     disabled={isComplete}
                     aria-label="End interview"
-                    className="text-foreground hover:bg-muted/60 hover:text-foreground transition-colors"
+                    className="bg-transparent border border-border/80 text-foreground hover:bg-destructive hover:text-white transition-colors"
                   >
                     <Square className="size-4" />
                   </Button>

@@ -13,13 +13,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
   type AchievementProgress,
   useAchievements,
 } from "@/hooks/use-achievements";
@@ -240,8 +233,8 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
     totalTime: 0,
   });
   const [loading, setLoading] = useState(true);
-  const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
-  const [tierFilter, setTierFilter] = useState<TierFilter>("all");
+  const [statusFilter, _setStatusFilter] = useState<StatusFilter>("all");
+  const [tierFilter, _setTierFilter] = useState<TierFilter>("all");
 
   useEffect(() => {
     async function loadUserStats() {
@@ -323,11 +316,7 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
   }, [user?.uid]);
 
   const achievementData = useAchievements(stats);
-  const {
-    achievementsWithProgress,
-    stats: achievementStats,
-    nextAchievement,
-  } = achievementData;
+  const { achievementsWithProgress, nextAchievement } = achievementData;
 
   const tierOrder = useMemo<AchievementTier[]>(
     () => [
@@ -452,96 +441,6 @@ export function AchievementsContent({ user }: AchievementsContentProps) {
         </div>
 
         <section className="space-y-4">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex flex-col gap-1">
-              <Typography.Heading2>All Achievements</Typography.Heading2>
-              <Typography.SubCaptionMedium color="secondary">
-                {achievementStats.unlockedCount} /{" "}
-                {achievementStats.totalAchievements} unlocked
-              </Typography.SubCaptionMedium>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2 sm:flex-nowrap">
-              <Select
-                value={statusFilter}
-                onValueChange={(value) =>
-                  setStatusFilter(value as StatusFilter)
-                }
-              >
-                <SelectTrigger className="h-9 w-full sm:w-[140px] border border-border/60 bg-transparent px-3 text-sm shadow-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0">
-                  <SelectValue placeholder="Status" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem
-                    value="all"
-                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                  >
-                    All
-                  </SelectItem>
-                  <SelectItem
-                    value="unlocked"
-                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                  >
-                    Unlocked
-                  </SelectItem>
-                  <SelectItem
-                    value="locked"
-                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                  >
-                    Locked
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-
-              <Select
-                value={tierFilter}
-                onValueChange={(value) => setTierFilter(value as TierFilter)}
-              >
-                <SelectTrigger className="h-9 w-full sm:w-[140px] border border-border/60 bg-transparent px-3 text-sm shadow-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0">
-                  <SelectValue placeholder="Tier" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem
-                    value="all"
-                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                  >
-                    All tiers
-                  </SelectItem>
-                  <SelectItem
-                    value="bronze"
-                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                  >
-                    Bronze
-                  </SelectItem>
-                  <SelectItem
-                    value="silver"
-                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                  >
-                    Silver
-                  </SelectItem>
-                  <SelectItem
-                    value="gold"
-                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                  >
-                    Gold
-                  </SelectItem>
-                  <SelectItem
-                    value="platinum"
-                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                  >
-                    Platinum
-                  </SelectItem>
-                  <SelectItem
-                    value="diamond"
-                    className="data-[highlighted]:bg-muted data-[state=checked]:bg-muted focus:bg-muted"
-                  >
-                    Diamond
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {filteredAchievements.map((item) => (
               <AchievementCard key={item.achievement.id} item={item} />

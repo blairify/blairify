@@ -21,6 +21,7 @@ import {
   validateQuestionSequence,
 } from "@/lib/services/ai/response-validator";
 import {
+  detectAiCheat,
   detectDisallowedTopic,
   detectInappropriateBehavior,
   detectLanguageRequest,
@@ -270,6 +271,24 @@ export async function POST(request: NextRequest) {
         isFollowUp: false,
         isComplete: true,
         terminatedForProfanity: true,
+      });
+    }
+
+    const aiCheatCheck = detectAiCheat(message);
+
+    if (aiCheatCheck.containsAiCheat) {
+      console.warn("🤖 AI cheat detected:", {
+        message: message,
+      });
+      return NextResponse.json({
+        success: true,
+        message:
+          "Usage of Artificial Intelligence is frowned upon during skills assessment. Unfortunately, I need to end this interview session now. Your final score is 0.",
+        questionType: "termination",
+        validated: true,
+        isFollowUp: false,
+        isComplete: true,
+        terminatedForCheat: true,
       });
     }
 

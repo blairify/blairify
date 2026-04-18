@@ -641,7 +641,7 @@ export const INTERVIEW_MODES = [
   {
     value: "competitive",
     label: "Competitive",
-    description: "Coming soon...",
+    description: "Higher stakes with anti-cheat enabled",
     icon: LuSwords,
   },
   {

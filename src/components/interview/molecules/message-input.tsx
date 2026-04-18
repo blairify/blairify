@@ -1,5 +1,6 @@
 import { ArrowUp, Loader2, Mic, MicOff } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -93,6 +94,15 @@ export function MessageInput({
                   onChange(newValue);
                 }
               }}
+              onPaste={(e) => {
+                const pastedText = e.clipboardData.getData("text");
+                if (pastedText.length > 50) {
+                  e.preventDefault();
+                  toast.error(
+                    "Pasting large blocks of text is restricted during interviews to ensure fairness.",
+                  );
+                }
+              }}
               maxLength={MAX_CHARS}
               placeholder={
                 isDisabled
@@ -101,7 +111,7 @@ export function MessageInput({
                     ? "Interview is paused. Resume to continue..."
                     : "Message interviewer..."
               }
-              className="min-h-10 max-h-80 w-full min-w-0 resize-none border-0 bg-transparent p-0 text-base placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0 overflow-y-auto"
+              className="min-h-10 max-h-80 w-full min-w-0 resize-none border-0 bg-transparent p-0 text-base placeholder:text-muted-foreground ring-0  overflow-y-auto"
               onKeyDown={(e) => {
                 if (
                   e.key === "Enter" &&
@@ -183,7 +193,7 @@ export function MessageInput({
                 !isLoading &&
                 !isOverLimit &&
                 !isDisabled
-                  ? "bg-primary hover:bg-primary/90 text-primary-foreground"
+                  ? "bg-primary hover:bg-primary text-primary-foreground"
                   : "bg-muted text-muted-foreground cursor-not-allowed"
               }`}
               aria-label={

@@ -13,13 +13,113 @@ interface UserSubscription {
 
 interface UserUsage {
   interviewCount: number;
-  periodStart: Date | { toDate?: () => Date };
-  lastInterviewAt: Date | { toDate?: () => Date };
+  periodStart?: Date | { toDate?: () => Date } | null;
+  lastInterviewAt?: Date | { toDate?: () => Date } | null;
 }
 
 interface UserData {
   subscription?: UserSubscription;
   usage?: UserUsage;
+}
+
+const DAILY_LIMIT = 2;
+const RESET_PERIOD_HOURS = 24;
+
+export interface UsageStatusResult {
+  canStart: boolean;
+  currentCount: number;
+  maxCount: number;
+  isPro: boolean;
+  resetAtMs: number | null;
+}
+
+export async function getUsageStatus(
+  userId: string,
+): Promise<UsageStatusResult> {
+  if (!process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
+    return {
+      canStart: true,
+      currentCount: 0,
+      maxCount: DAILY_LIMIT,
+      isPro: false,
+      resetAtMs: null,
+    };
+  }
+
+  try {
+    const adminDb = getAdminFirestore();
+    const userDoc = await adminDb.collection("users").doc(userId).get();
+
+    if (!userDoc.exists) {
+      return {
+        canStart: true,
+        currentCount: 0,
+        maxCount: DAILY_LIMIT,
+        isPro: false,
+        resetAtMs: null,
+      };
+    }
+
+    const userData = userDoc.data() as UserData;
+    const subscription = userData?.subscription;
+    const isPro =
+      subscription?.plan === "pro" && subscription?.status === "active";
+
+    if (isPro) {
+      return {
+        canStart: true,
+        currentCount: 0,
+        maxCount: DAILY_LIMIT,
+        isPro: true,
+        resetAtMs: null,
+      };
+    }
+
+    const usage = userData?.usage || {
+      interviewCount: 0,
+      periodStart: null,
+      lastInterviewAt: null,
+    };
+    const now = new Date();
+
+    const toDate = (v: unknown): Date | null => {
+      if (!v) return null;
+      if (v instanceof Date) return v;
+      if (typeof (v as { toDate?: () => Date }).toDate === "function")
+        return (v as { toDate: () => Date }).toDate();
+      return null;
+    };
+
+    const periodStart =
+      toDate(usage.periodStart) ??
+      toDate((usage as { lastInterviewAt?: unknown }).lastInterviewAt) ??
+      now;
+
+    const diffHours =
+      (now.getTime() - periodStart.getTime()) / (1000 * 60 * 60);
+    const currentCount =
+      diffHours >= RESET_PERIOD_HOURS ? 0 : usage.interviewCount;
+    const canStart = currentCount < DAILY_LIMIT;
+    const resetAtMs =
+      periodStart.getTime() + RESET_PERIOD_HOURS * 60 * 60 * 1000;
+
+    return {
+      canStart,
+      currentCount,
+      maxCount: DAILY_LIMIT,
+      isPro: false,
+      resetAtMs: canStart ? null : resetAtMs,
+    };
+  } catch (error) {
+    console.error("Error getting usage status:", error);
+    return {
+      canStart: true,
+      currentCount: 0,
+      maxCount: DAILY_LIMIT,
+      isPro: false,
+      resetAtMs: null,
+    };
+  }
 }
 
 export async function checkAndIncrementUsage(userId: string): Promise<boolean> {
@@ -38,7 +138,18 @@ export async function checkAndIncrementUsage(userId: string): Promise<boolean> {
     return await adminDb.runTransaction(async (transaction) => {
       const userDoc = await transaction.get(userRef);
       if (!userDoc.exists) {
-        throw new Error("User not found");
+        transaction.set(
+          userRef,
+          {
+            usage: {
+              interviewCount: 1,
+              lastInterviewAt: FieldValue.serverTimestamp(),
+              periodStart: FieldValue.serverTimestamp(),
+            },
+          },
+          { merge: true },
+        );
+        return true;
       }
 
       const userData = userDoc.data() as UserData;
@@ -47,8 +158,8 @@ export async function checkAndIncrementUsage(userId: string): Promise<boolean> {
       // Default usage if missing (migration/safety)
       const usage = userData?.usage || {
         interviewCount: 0,
-        periodStart: new Date(),
-        lastInterviewAt: new Date(),
+        periodStart: null,
+        lastInterviewAt: null,
       };
 
       console.log("📊 Usage data:", {
@@ -64,23 +175,28 @@ export async function checkAndIncrementUsage(userId: string): Promise<boolean> {
         return true;
       }
 
-      // 2. CHECK 1-HOUR RESET
+      // 2. CHECK 24-HOUR RESET
       const now = new Date();
-      const lastInterviewAt =
-        usage.lastInterviewAt instanceof Date
-          ? usage.lastInterviewAt
-          : (usage.lastInterviewAt as { toDate?: () => Date })?.toDate?.() ||
-            new Date();
 
-      const diffMs = now.getTime() - lastInterviewAt.getTime();
-      const diffMin = diffMs / (1000 * 60);
+      const toDateInc = (v: unknown): Date | null => {
+        if (!v) return null;
+        if (v instanceof Date) return v;
+        if (typeof (v as { toDate?: () => Date }).toDate === "function")
+          return (v as { toDate: () => Date }).toDate();
+        return null;
+      };
 
-      // Reset period: 60 minutes (1 hour)
-      const RESET_PERIOD_MINUTES = 60;
+      const periodStart =
+        toDateInc(usage.periodStart) ?? toDateInc(usage.lastInterviewAt) ?? now;
+
+      const diffMs = now.getTime() - periodStart.getTime();
+      const diffHours = diffMs / (1000 * 60 * 60);
+
+      const RESET_PERIOD_HOURS_INC = 24;
       let currentCount = usage.interviewCount;
 
-      if (diffMin >= RESET_PERIOD_MINUTES) {
-        console.log("🔄 1-hour reset period passed, resetting count");
+      if (diffHours >= RESET_PERIOD_HOURS_INC) {
+        console.log("🔄 24-hour reset period passed, resetting count");
         currentCount = 0;
       }
 
@@ -96,12 +212,14 @@ export async function checkAndIncrementUsage(userId: string): Promise<boolean> {
       }
 
       // 4. INCREMENT USAGE
-      // Reset periodStart when the count was reset (new period started)
-      const shouldResetPeriod = diffMin >= RESET_PERIOD_MINUTES;
+      // Write periodStart when starting a new window (count was 0) OR if the
+      // field was never written (migration: old users without periodStart).
+      const periodStartMissing = !usage.periodStart;
+      const shouldWritePeriodStart = currentCount === 0 || periodStartMissing;
       transaction.update(userRef, {
         "usage.interviewCount": currentCount + 1,
         "usage.lastInterviewAt": FieldValue.serverTimestamp(),
-        ...(shouldResetPeriod
+        ...(shouldWritePeriodStart
           ? { "usage.periodStart": FieldValue.serverTimestamp() }
           : {}),
       });

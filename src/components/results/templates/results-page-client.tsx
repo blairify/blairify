@@ -15,7 +15,7 @@ export function ResultsPageClient({ user }: ResultsPageClientProps) {
 
   if (!user) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen flex justify-center items-center">
         <ResultsContent user={null} />
       </div>
     );

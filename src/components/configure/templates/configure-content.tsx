@@ -2,7 +2,6 @@
 
 import {
   ArrowRight,
-  Crown,
   Link2Icon,
   Loader2,
   Shield,
@@ -15,6 +14,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FaJava } from "react-icons/fa";
 import { FiCopy } from "react-icons/fi";
+import { IoIosFlash } from "react-icons/io";
 import {
   SiCss3,
   SiDocker,
@@ -333,7 +333,9 @@ export function ConfigureContent() {
   const seedQuestion = searchParams.get("seedQuestion") ?? "";
   const seedAnswer = searchParams.get("seedAnswer") ?? "";
   const autoStart = searchParams.get("autoStart") === "1";
+  const autoAnalyze = searchParams.get("autoAnalyze") === "1";
   const hasAutoStartedRef = useRef(false);
+  const hasAutoAnalyzedRef = useRef(false);
   const initialFlowMode = (() => {
     const flow = searchParams.get("flow");
     if (flow === "paste") return "paste";
@@ -368,6 +370,18 @@ export function ConfigureContent() {
   const [currentStep, setCurrentStep] = useState(() => {
     const requestedStepId = searchParams.get("step");
     const stepsForFlow = getVisibleStepsForFlow(initialFlowMode);
+    // When arriving from the landing page with autoAnalyze, jump straight to
+    // the description step so the text is visible and analysis can fire.
+    if (
+      !requestedStepId &&
+      searchParams.get("autoAnalyze") === "1" &&
+      initialFlowMode === "paste"
+    ) {
+      const descIndex = stepsForFlow.findIndex(
+        (s) => s.id === DESCRIPTION_STEP_ID,
+      );
+      if (descIndex >= 0) return descIndex;
+    }
     const requestedIndex = stepsForFlow.findIndex(
       (step) => step.id === requestedStepId,
     );
@@ -513,9 +527,10 @@ export function ConfigureContent() {
 
   const renderNextButton = () => {
     const shouldHidePrimaryAction =
-      currentStepId === "technologies" &&
-      !!autoAdvanceTechChoices &&
-      autoAdvanceTechChoices.length === 1;
+      currentStepId === "position" ||
+      (currentStepId === "technologies" &&
+        !!autoAdvanceTechChoices &&
+        autoAdvanceTechChoices.length === 1);
 
     if (shouldHidePrimaryAction) {
       return <div className="w-[70px]" />; // Spacer for mobile layout alignment
@@ -599,6 +614,46 @@ export function ConfigureContent() {
       Back
     </Button>
   );
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        // Do not intercept if user is typing a text area
+        const target = e.target as HTMLElement;
+        if (target.tagName.toLowerCase() === "textarea") {
+          return;
+        }
+
+        const isStartStep = currentStep === visibleSteps.length - 1;
+        if (isStartStep) {
+          if (
+            isConfigComplete &&
+            usageStatus.checked &&
+            (usageStatus.canStart || usageStatus.isPro)
+          ) {
+            handleStartInterview();
+          }
+        } else {
+          if (checkCanGoNext(currentStepId, config)) {
+            setCurrentStep((prev) =>
+              prev < visibleSteps.length - 1 ? prev + 1 : prev,
+            );
+          }
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [
+    currentStep,
+    currentStepId,
+    config,
+    visibleSteps.length,
+    isConfigComplete,
+    usageStatus,
+    handleStartInterview,
+  ]);
 
   const handleFlowSelect = (mode: ConfigureFlowMode) => {
     setConfig((prev) => ({
@@ -739,34 +794,37 @@ export function ConfigureContent() {
     ],
   );
 
-  const handleAnalyzeDescription = async (
-    event?: React.FormEvent | React.MouseEvent,
-  ): Promise<ExtractedJobDescription | null> => {
-    event?.preventDefault();
+  const handleAnalyzeDescription = useCallback(
+    async (
+      event?: React.FormEvent | React.MouseEvent,
+    ): Promise<ExtractedJobDescription | null> => {
+      event?.preventDefault();
 
-    const trimmed = config.pastedDescription.trim();
-    if (!trimmed) {
-      setAnalysisError("Paste a job description first.");
-      return null;
-    }
-    if (/^https?:\/\/\S+$/i.test(trimmed)) {
-      setAnalysisError(
-        'Looks like you pasted a URL. Switch to "Paste job link" flow to analyze a link, or paste the full job description text here.',
+      const trimmed = config.pastedDescription.trim();
+      if (!trimmed) {
+        setAnalysisError("Paste a job description first.");
+        return null;
+      }
+      if (/^https?:\/\/\S+$/i.test(trimmed)) {
+        setAnalysisError(
+          'Looks like you pasted a URL. Switch to "Paste job link" flow to analyze a link, or paste the full job description text here.',
+        );
+        return null;
+      }
+      if (trimmed.length < 50) {
+        setAnalysisError(
+          "Please provide a job description with at least 50 characters.",
+        );
+        return null;
+      }
+      return await runAnalysis(
+        "/api/job-description/extract",
+        { description: config.pastedDescription },
+        "Job description analyzed",
       );
-      return null;
-    }
-    if (trimmed.length < 50) {
-      setAnalysisError(
-        "Please provide a job description with at least 50 characters.",
-      );
-      return null;
-    }
-    return await runAnalysis(
-      "/api/job-description/extract",
-      { description: config.pastedDescription },
-      "Job description analyzed",
-    );
-  };
+    },
+    [config.pastedDescription, runAnalysis],
+  );
 
   const handleAnalyzeUrl = useCallback(
     async (
@@ -791,6 +849,68 @@ export function ConfigureContent() {
     },
     [config.pastedUrl, runAnalysis],
   );
+
+  useEffect(() => {
+    if (!autoAnalyze) return;
+    if (hasAutoAnalyzedRef.current) return;
+    if (config.flowMode !== "paste") return;
+    const desc = config.pastedDescription?.trim() ?? "";
+    if (desc.length < 50) return;
+    if (currentStepId !== DESCRIPTION_STEP_ID) return;
+
+    hasAutoAnalyzedRef.current = true;
+    autoStartInProgressRef.current = true;
+    void (async () => {
+      try {
+        const extracted = await handleAnalyzeDescription();
+        if (!extracted) {
+          autoStartInProgressRef.current = false;
+          setIsAnalyzingDescription(false);
+          return;
+        }
+
+        const overrideConfig: InterviewConfig = {
+          ...config,
+          flowMode: "paste",
+          position: extracted.position,
+          seniority: extracted.seniority,
+          technologies: extracted.technologies,
+          company: extracted.company ?? "",
+          jobDescription: extracted.jobDescription,
+          jobRequirements: extracted.jobRequirements,
+          companyProfile: extracted.companyProfile ?? config.companyProfile,
+          contextType: "job-specific",
+          interviewMode: "regular",
+        };
+
+        console.info(
+          "[configure] auto-start config from paste:",
+          overrideConfig,
+        );
+
+        if (!canStartInterview(overrideConfig)) {
+          autoStartInProgressRef.current = false;
+          setIsAnalyzingDescription(false);
+          return;
+        }
+
+        autoStartInProgressRef.current = false;
+        setIsAnalyzingDescription(false);
+        handleStartInterview(overrideConfig);
+      } finally {
+        autoStartInProgressRef.current = false;
+        setIsAnalyzingDescription(false);
+      }
+    })();
+  }, [
+    autoAnalyze,
+    config,
+    config.flowMode,
+    config.pastedDescription,
+    currentStepId,
+    handleAnalyzeDescription,
+    handleStartInterview,
+  ]);
 
   useEffect(() => {
     if (!autoStart) return;
@@ -832,6 +952,8 @@ export function ConfigureContent() {
           contextType: "job-specific",
           interviewMode: "regular",
         };
+
+        console.info("[configure] auto-start config from url:", overrideConfig);
 
         if (!canStartInterview(overrideConfig)) {
           setAnalysisError(
@@ -1183,7 +1305,13 @@ export function ConfigureContent() {
                     ? "ring-1 ring-primary border-primary bg-primary/5"
                     : "border-border"
                 }`}
-                onClick={() => updateConfig("position", position.value)}
+                onClick={() => {
+                  updateConfig("position", position.value);
+                  // Auto-advance to next step
+                  if (currentStep < visibleSteps.length - 1) {
+                    setCurrentStep(currentStep + 1);
+                  }
+                }}
               >
                 <CardContent className="flex flex-col items-left gap-4">
                   <Icon className="size-5 text-primary flex-shrink-0" />
@@ -1415,14 +1543,21 @@ export function ConfigureContent() {
                         {usageStatus.remainingMinutes > 0 && (
                           <span className="flex items-center gap-2 mt-4">
                             <Timer className="size-4" />
-                            Please wait {usageStatus.remainingMinutes} minute
-                            {usageStatus.remainingMinutes !== 1 ? "s" : ""}{" "}
-                            before starting another session.
+                            Please wait {(() => {
+                              const hoursRemaining = Math.floor(
+                                usageStatus.remainingMinutes / 60,
+                              );
+                              const minsRemaining =
+                                usageStatus.remainingMinutes % 60;
+                              return hoursRemaining > 0
+                                ? `${hoursRemaining}h ${minsRemaining}m`
+                                : `${minsRemaining} minute${minsRemaining !== 1 ? "s" : ""}`;
+                            })()} before starting another session.
                           </span>
                         )}
                       </Typography.CaptionMedium>
                       <div className="mt-1 flex items-center gap-2">
-                        <Crown className="size-4 text-amber-600 dark:text-amber-400" />
+                        <IoIosFlash className="size-4 text-amber-600 dark:text-amber-400" />
                         <Typography.CaptionMedium color="secondary">
                           Want unlimited interviews? Upgrade to Pro for
                           unrestricted access.

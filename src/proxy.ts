@@ -44,6 +44,8 @@ export default async function proxy(request: NextRequest) {
     const isGuestAllowedRoute =
       pathname === "/results" ||
       pathname.startsWith("/auth") ||
+      pathname.startsWith("/interview") ||
+      pathname.startsWith("/configure") ||
       pathname === "/";
 
     if (!isGuestAllowedRoute) {

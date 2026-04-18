@@ -1160,7 +1160,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   if (isAnalyzing) {
     return (
       <main
-        className={`flex-1 overflow-auto flex items-center justify-center p-4 ${backgroundClass}`}
+        className={`flex-1 overflow-auto flex items-center justify-center top-[50%] min-h-screen p-4 ${backgroundClass}`}
       >
         <Card className="w-full max-w-lg py-0 border shadow-lg animate-in fade-in duration-500">
           <CardContent className="pt-16 pb-16">
@@ -1259,7 +1259,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   if (!results) {
     return (
       <main
-        className={`flex-1 overflow-auto flex items-center justify-center p-4 ${backgroundClass}`}
+        className={`flex-1 overflow-auto flex items-center min-h-screen justify-center p-4 ${backgroundClass}`}
       >
         <Card className="w-full max-w-lg border shadow-lg animate-in fade-in duration-500">
           <CardContent className="pt-12 pb-12 text-center">
@@ -1294,6 +1294,8 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         return "Interview terminated: inappropriate language";
       case "inappropriate-behavior":
         return "Interview terminated: inappropriate behavior";
+      case "cheat":
+        return "Interview terminated: AI usage detected";
       default: {
         const _never: never = termination.reason;
         throw new Error(`Unhandled termination reason: ${_never}`);
