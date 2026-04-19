@@ -286,8 +286,8 @@ const AI_CHEAT_PATTERNS = [
 ];
 
 export function detectAiCheat(message: string) {
-  // Em dashes ("—") are very commonly output by AI
-  if (message.includes("—")) {
+  // Em dashes ("-") are very commonly output by AI
+  if (message.includes("-")) {
     return { containsAiCheat: true };
   }
 

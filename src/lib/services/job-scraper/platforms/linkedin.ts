@@ -44,7 +44,7 @@ export function extractText(html: string): string {
     "";
 
   const partial = html.includes("Join to see full job details")
-    ? "\n\n[Note: This listing may be partially visible — LinkedIn requires login for full details.]"
+    ? "\n\n[Note: This listing may be partially visible - LinkedIn requires login for full details.]"
     : "";
 
   return (

@@ -95,7 +95,7 @@ export interface UserPreferences {
 }
 
 export interface UserSubscription {
-  plan: "free" | "pro";
+  plan: "free" | "pro" | "student";
   status: "active" | "cancelled" | "expired";
   expiresAt?: Timestamp;
   features: string[];

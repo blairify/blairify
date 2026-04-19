@@ -105,7 +105,7 @@ async function extractUsingAI(
 You are an expert technical recruiter. Extract structured data from a job description.
 Return ONLY JSON that matches this schema exactly:
 {
-  "summary": "3-5 sentence description of the role, responsibilities, and mission. MUST be non-empty — if unsure, copy the first 2-3 sentences from the input verbatim.",
+  "summary": "3-5 sentence description of the role, responsibilities, and mission. MUST be non-empty - if unsure, copy the first 2-3 sentences from the input verbatim.",
   "position": "One of: frontend, backend, fullstack, devops, mobile, data-engineer, data-scientist, cybersecurity, product",
   "seniority": "One of: entry, junior, mid, senior",
   "technologies": ["lowercase technology keywords, max 8"],

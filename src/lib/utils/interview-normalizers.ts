@@ -207,7 +207,7 @@ export function formatKnowledgeGapTitle(
   const slice = firstClause.slice(0, maxLen);
   const cut = slice.lastIndexOf(" ");
   const safe = (cut > 18 ? slice.slice(0, cut) : slice)
-    .replace(/[,:;\-–—]+\s*$/g, "")
+    .replace(/[,:;\-–-]+\s*$/g, "")
     .trim();
   return safe.length > 0 ? safe : tagTopic || "Knowledge gap";
 }
@@ -264,9 +264,9 @@ export function formatKnowledgeGapDescription(params: {
   const prefix = (() => {
     switch (params.priority) {
       case "high":
-        return "High priority — ";
+        return "High priority - ";
       case "medium":
-        return "Priority — ";
+        return "Priority - ";
       case "low":
         return "";
       default:
@@ -333,7 +333,7 @@ export function formatKnowledgeGapBlurb(params: {
       `Give a quick “wrong vs right” example for ${base} that you could do on a whiteboard.`,
     ],
     "react-rules": [
-      `Turn this into a rule-of-thumb: ${base} — what React guarantees vs what it doesn’t.`,
+      `Turn this into a rule-of-thumb: ${base} - what React guarantees vs what it doesn’t.`,
       `Explain the constraint behind ${base}, then show a tiny “bad → good” rewrite.`,
       `Give one example where ${base} silently fails and how you’d catch it in review.`,
       `Show the safest default approach for ${base}, then name the common exception.`,

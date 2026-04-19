@@ -484,7 +484,7 @@ function getModeSpecificPrompt(
     flash: `
 ## FLASH INTERVIEW (EXACTLY 3 Questions Only)
 - This is a RAPID ASSESSMENT with only 3 questions total drawn from the question bank
-- You MUST ONLY use questions from the mandatory practice library question list — no AI-generated or situational questions
+- You MUST ONLY use questions from the mandatory practice library question list - no AI-generated or situational questions
 - Ask focused, concise questions that quickly evaluate core competencies
 - You may ask 1-2 brief follow-ups per question to clarify key details before moving on
 - End the interview after exactly 3 primary questions - do not continue
@@ -645,7 +645,7 @@ function generateFirstQuestionPrompt(
 ): string {
   const interviewerName = interviewer?.name || "TEST2";
 
-  // Flash mode always uses DB questions — skip situational/mixed AI generation
+  // Flash mode always uses DB questions - skip situational/mixed AI generation
   if (
     config.interviewMode !== "flash" &&
     (config.interviewType === "situational" || config.interviewType === "mixed")
@@ -805,7 +805,7 @@ function generateUnknownResponsePrompt(
   questionCount: number,
   currentQuestionPrompt?: string,
 ): string {
-  // Flash mode always uses DB questions — skip situational/mixed AI generation
+  // Flash mode always uses DB questions - skip situational/mixed AI generation
   if (
     config.interviewMode !== "flash" &&
     (config.interviewType === "situational" || config.interviewType === "mixed")
@@ -890,7 +890,7 @@ function generateNextQuestionPrompt(
     )
     .join("\n");
 
-  // Flash mode always uses DB questions — skip situational/mixed AI generation
+  // Flash mode always uses DB questions - skip situational/mixed AI generation
   if (
     config.interviewMode !== "flash" &&
     (config.interviewType === "situational" || config.interviewType === "mixed")

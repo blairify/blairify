@@ -220,7 +220,10 @@ export async function checkUsageStatus(userId: string): Promise<{
       new Date();
 
     const isPro =
-      subscription?.plan === "pro" && subscription?.status === "active";
+      (subscription?.plan === "pro" ||
+        subscription?.plan === "student" ||
+        userData?.role === "student") &&
+      subscription?.status === "active";
 
     if (isPro) {
       return {
@@ -300,7 +303,10 @@ export async function checkAndIncrementUsage(userId: string): Promise<{
       };
 
       const isPro =
-        subscription?.plan === "pro" && subscription?.status === "active";
+        (subscription?.plan === "pro" ||
+          subscription?.plan === "student" ||
+          userData?.role === "student") &&
+        subscription?.status === "active";
 
       const now = new Date();
       const lastInterviewAtDate =

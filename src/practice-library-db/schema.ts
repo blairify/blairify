@@ -205,6 +205,16 @@ export const matchingQuestions = pgTable("matching_questions", {
   pairs: jsonb("pairs").$type<MatchingPair[] | null>(),
 });
 
+export const universityDomains = pgTable("university_domains", {
+  id: text("id").primaryKey(),
+  universityName: text("university_name").notNull(),
+  domain: text("domain").notNull().unique(),
+  country: text("country").notNull(),
+  isActive: boolean("is_active").notNull().default(true),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull(),
+});
+
 export const systemDesignQuestions = pgTable("system_design_questions", {
   id: text("id").primaryKey(),
   status: text("status").$type<QuestionStatus>().notNull(),

@@ -22,7 +22,7 @@ export function extractJsonLd(html: string): Record<string, unknown> | null {
         if (posting) return posting;
       }
     } catch {
-      // invalid JSON block — skip
+      // invalid JSON block - skip
     }
 
     match = scriptRegex.exec(html);

@@ -43,7 +43,7 @@ export function extractText(html: string): string {
     root.querySelector(".location")?.textContent ??
     "";
 
-  // Google Careers pages are heavy SPAs — if selectors fail, try extracting
+  // Google Careers pages are heavy SPAs - if selectors fail, try extracting
   // all visible text from the main content area as a fallback
   if (!description.trim()) {
     const mainContent =

@@ -685,7 +685,7 @@ export function InterviewContent({
             id: Date.now().toString(),
             type: "ai",
             content:
-              "🎬 **Demo already completed**\n\nYou've already used your free guest demo. [Create a free account](/auth?mode=register&redirect=%2Finterview) to continue practicing — you'll get more interviews per day and unlock the full experience.",
+              "I see that you’ve already completed your free guest demo. Create a free account to continue practicing and unlock the full experience. ",
             timestamp: new Date(),
           });
           setIsLoading(false);
@@ -1114,7 +1114,7 @@ export function InterviewContent({
 
   const hasAutoStartedRef = useRef(false);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: handleStartInterview omitted intentionally — hasAutoStartedRef.current prevents stale re-execution
+  // biome-ignore lint/correctness/useExhaustiveDependencies: handleStartInterview omitted intentionally - hasAutoStartedRef.current prevents stale re-execution
   useEffect(() => {
     if (!mounted) return;
     if (isInterviewStarted) return;

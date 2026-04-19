@@ -83,7 +83,7 @@ Atomic Design: atoms → molecules → organisms
 
 <code_style>
 - Colocate types with usage
-- No comments — convert to named functions or variables instead
+- No comments - convert to named functions or variables instead
 - Single responsibility functions
 - Early returns over nesting; flat code over indentation
 - Prefer hash-maps over switch-case:
@@ -98,15 +98,15 @@ const handler = handlers[action];
 ```
 
 - Prefer string literals over concatenation
-- No magic strings — extract to named constants or enums
+- No magic strings - extract to named constants or enums
 - Don't declare constants or functions inside components; keep them pure
 - Extract all logic outside component scope
 </code_style>
 
 <data_fetching>
-- Never fetch data in useEffect — use React Query
+- Never fetch data in useEffect - use React Query
 - Avoid useEffect in general; prefer use(), useTransition, startTransition
-- Use enum/factory for React Query cache keys — no magic strings:
+- Use enum/factory for React Query cache keys - no magic strings:
 
 ```ts
 enum QueryKey {
@@ -130,7 +130,7 @@ enum QueryKey {
 - e2e type-safety: share types across client/server; no `any`
 - Accessibility: WCAG 2.0 AA minimum on every PR
 - Security: follow OWASP best practices; sanitise inputs, validate server-side
-- No premature optimisation — KISS and YAGNI
+- No premature optimisation - KISS and YAGNI
 - Avoid useless abstractions:
   - Helper functions used only once
   - Functions that mainly call one other function
@@ -139,9 +139,9 @@ enum QueryKey {
 <testing>
 
 ## Assertion style
-- `assert actual == expected` — actual first, expected second, always
-- One clear, complete assertion per test — no multiple partial assertions
-- Never use `should` — use 3rd person present tense verbs:
+- `assert actual == expected` - actual first, expected second, always
+- One clear, complete assertion per test - no multiple partial assertions
+- Never use `should` - use 3rd person present tense verbs:
   - ✅ `renders the submit button`
   - ❌ `should render the submit button`
 
@@ -175,7 +175,7 @@ describe('CheckoutForm', () => {
 ## Naming
 - Mirror the production naming rules: no abbreviations, concrete names
 - Test file: `<subject>.test.ts` colocated with the module it tests
-- Factory/fixture file: `<subject>.fixture.ts` — no inline magic literals
+- Factory/fixture file: `<subject>.fixture.ts` - no inline magic literals
 
 ## Monitoring & error handling tests
 - Wrap the HOF under test; assert the wrapped behaviour:
@@ -197,7 +197,7 @@ describe('withErrorMonitoring', () => {
 ## Component purity tests
 - Import the extracted helper/validator directly; test it in isolation
 - Never import a component just to test a function declared inside it
-- Assert the pure function's output — do not render the component:
+- Assert the pure function's output - do not render the component:
 
 ```ts
 describe('formatOrderTotal', () => {
@@ -215,7 +215,7 @@ describe('formatOrderTotal', () => {
 ```
 
 ## Data fetching tests (React Query)
-- Use `createWrapper` with `QueryClientProvider` — one per test to avoid cache bleed
+- Use `createWrapper` with `QueryClientProvider` - one per test to avoid cache bleed
 - Test against `useSuspenseQuery` with `<Suspense>` wrapping in the render:
 
 ```ts
@@ -232,7 +232,7 @@ describe('useUserOrders', () => {
 });
 ```
 
-- Use `QueryKey` enum values as cache keys in tests — no magic strings
+- Use `QueryKey` enum values as cache keys in tests - no magic strings
 
 ## Error boundary tests
 - Render the errorBoundary wrapping a component that throws
@@ -263,8 +263,8 @@ describe('QueryErrorBoundary', () => {
 - Assert server-side validation rejects malformed input before it reaches the DB layer
 
 ## Anti-patterns to reject in review
-- `it('works')` — rename to describe what it actually does
-- `expect(thing).toBeTruthy()` — assert the exact value
-- Shared mutable state between tests — use `beforeEach` resets
-- `// TODO: add test` comments — write the test or delete the line
+- `it('works')` - rename to describe what it actually does
+- `expect(thing).toBeTruthy()` - assert the exact value
+- Shared mutable state between tests - use `beforeEach` resets
+- `// TODO: add test` comments - write the test or delete the line
 </testing>

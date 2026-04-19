@@ -46,7 +46,9 @@ export function useUsageStatus() {
 
   // Check if user is Pro from userData (can be used before fetching full status)
   const isPro =
-    userData?.subscription?.plan === "pro" &&
+    (userData?.subscription?.plan === "pro" ||
+      userData?.subscription?.plan === "student" ||
+      userData?.role === "student") &&
     userData?.subscription?.status === "active";
 
   const fetchUsageStatus = useCallback(async () => {

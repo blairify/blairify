@@ -1,16 +1,23 @@
 "use client";
 
-import { Eye, EyeOff } from "lucide-react";
+import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type React from "react";
-import { useEffect, useState } from "react";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import { useCallback, useEffect, useState } from "react";
+import { FaGithub, FaGoogle, FaUserGraduate } from "react-icons/fa6";
 import LoadingPage from "@/components/common/atoms/loading-page";
 import { Typography } from "@/components/common/atoms/typography";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { useGuestGuard } from "@/hooks/use-auth-guard";
@@ -24,7 +31,9 @@ import {
 } from "@/lib/services/auth/auth";
 import { safeRedirect } from "@/lib/utils/safe-redirect";
 
-type AuthMode = "login" | "register";
+type AuthMode = "login" | "register" | "student-register";
+
+type StudentStep = "email" | "code" | "details";
 
 interface AuthFormProps {
   mode: AuthMode;
@@ -58,6 +67,21 @@ export default function AuthForm({
   const [isResettingPassword, setIsResettingPassword] = useState(false);
   const [resetMessage, setResetMessage] = useState("");
 
+  const [studentStep, setStudentStep] = useState<StudentStep>("email");
+  const [studentSubMode, setStudentSubMode] = useState<"register" | "login">(
+    "register",
+  );
+  const [studentData, setStudentData] = useState({
+    email: "",
+    code: "",
+    displayName: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [studentError, setStudentError] = useState("");
+  const [isStudentLoading, setIsStudentLoading] = useState(false);
+  const [resendCooldown, setResendCooldown] = useState(0);
+
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -70,7 +94,13 @@ export default function AuthForm({
     confirmPassword: "",
   });
 
-  const totalSteps = 3;
+  const totalSteps = 4;
+
+  const [agreements, setAgreements] = useState({
+    termsOfService: false,
+    privacyPolicy: false,
+    marketingEmails: false,
+  });
 
   const [_showEmailValidation, _setShowEmailValidation] = useState(false);
 
@@ -102,6 +132,40 @@ export default function AuthForm({
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const handleStudentVerifyCode = useCallback(async () => {
+    setStudentError("");
+    setIsStudentLoading(true);
+    try {
+      const res = await fetch("/api/student/validate-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: studentData.email,
+          code: studentData.code,
+        }),
+      });
+      const data = (await res.json()) as { error?: string; valid?: boolean };
+      if (!res.ok || !data.valid) {
+        setStudentError(
+          data.error ?? "Invalid verification code. Please try again.",
+        );
+        setStudentData((p) => ({ ...p, code: "" }));
+        return;
+      }
+      setStudentStep("details");
+    } catch {
+      setStudentError("Network error. Please try again.");
+    } finally {
+      setIsStudentLoading(false);
+    }
+  }, [studentData.email, studentData.code]);
+
+  useEffect(() => {
+    if (studentStep === "code" && studentData.code.length === 6) {
+      handleStudentVerifyCode();
+    }
+  }, [studentData.code, studentStep, handleStudentVerifyCode]);
 
   if (authLoading) {
     return <LoadingPage />;
@@ -158,6 +222,32 @@ export default function AuthForm({
     setError("");
 
     try {
+      const domain = loginData.email.split("@")[1]?.toLowerCase() ?? "";
+      if (domain) {
+        const checkRes = await fetch("/api/student/check-domain", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ domain }),
+        });
+        if (checkRes.ok) {
+          const { isUniversity } = (await checkRes.json()) as {
+            isUniversity: boolean;
+          };
+          if (isUniversity) {
+            setError("");
+            setStudentData((p) => ({
+              ...p,
+              email: loginData.email,
+              password: loginData.password,
+            }));
+            setStudentSubMode("login");
+            setStudentStep("email");
+            handleModeSwitch("student-register");
+            return;
+          }
+        }
+      }
+
       const { user, error } = await signInWithEmailAndPassword(
         loginData.email,
         loginData.password,
@@ -308,8 +398,419 @@ export default function AuthForm({
   };
 
   const handleModeSwitch = (newMode: AuthMode) => {
+    if (newMode !== currentMode) {
+      setStudentStep("email");
+      setStudentSubMode("register");
+      setStudentData({
+        email: "",
+        code: "",
+        displayName: "",
+        password: "",
+        confirmPassword: "",
+      });
+      setStudentError("");
+    }
     if (onModeChange) {
       onModeChange(newMode);
+    }
+  };
+
+  const handleStudentSendOtp = async (email: string) => {
+    setIsStudentLoading(true);
+    setStudentError("");
+    try {
+      const res = await fetch("/api/student/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = (await res.json()) as {
+        error?: string;
+        retryAfterMs?: number;
+      };
+      if (!res.ok) {
+        setStudentError(data.error ?? "Failed to send code.");
+        return;
+      }
+      setStudentStep("code");
+      setResendCooldown(60);
+      const interval = setInterval(() => {
+        setResendCooldown((prev) => {
+          if (prev <= 1) {
+            clearInterval(interval);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    } catch {
+      setStudentError("Network error. Please try again.");
+    } finally {
+      setIsStudentLoading(false);
+    }
+  };
+
+  const handleStudentRegister = async () => {
+    if (!studentData.displayName.trim()) {
+      setStudentError("Please enter your name.");
+      return;
+    }
+    if (studentData.password.length < 6) {
+      setStudentError("Password must be at least 6 characters.");
+      return;
+    }
+    if (studentData.password !== studentData.confirmPassword) {
+      setStudentError("Passwords do not match.");
+      return;
+    }
+    setIsStudentLoading(true);
+    setStudentError("");
+    try {
+      const res = await fetch("/api/student/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: studentData.email,
+          code: studentData.code,
+          displayName: studentData.displayName,
+          password: studentData.password,
+        }),
+      });
+      const data = (await res.json()) as { error?: string; uid?: string };
+      if (!res.ok) {
+        setStudentError(data.error ?? "Registration failed.");
+        return;
+      }
+      await signInWithEmailAndPassword(studentData.email, studentData.password);
+      router.push(postAuthDestination);
+    } catch {
+      setStudentError("Network error. Please try again.");
+    } finally {
+      setIsStudentLoading(false);
+    }
+  };
+
+  const renderStudentForm = () => {
+    switch (studentStep) {
+      case "email":
+        return (
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="student-email">University email</Label>
+              <Input
+                id="student-email"
+                type="email"
+                placeholder="your@university.edu"
+                value={studentData.email}
+                onChange={(e) =>
+                  setStudentData((p) => ({ ...p, email: e.target.value }))
+                }
+                disabled={isStudentLoading}
+                className="bg-input border-gray-300"
+              />
+            </div>
+
+            {studentSubMode === "login" && (
+              <div className="space-y-2">
+                <Label htmlFor="student-login-password">Password</Label>
+                <div className="relative">
+                  <Input
+                    id="student-login-password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Your password"
+                    value={studentData.password}
+                    onChange={(e) =>
+                      setStudentData((p) => ({
+                        ...p,
+                        password: e.target.value,
+                      }))
+                    }
+                    disabled={isStudentLoading}
+                    className="bg-input border-gray-300 pr-10"
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    className="absolute right-1 top-1/2 -translate-y-1/2 size-9 p-0 hover:bg-transparent"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <EyeOff className="size-4 text-muted-foreground" />
+                    ) : (
+                      <Eye className="size-4 text-muted-foreground" />
+                    )}
+                  </Button>
+                </div>
+              </div>
+            )}
+
+            {studentError && (
+              <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-600 dark:border-red-800 dark:bg-red-900/20 dark:text-red-400">
+                {studentError}
+              </div>
+            )}
+
+            {studentSubMode === "register" ? (
+              <Button
+                type="button"
+                className="w-full"
+                disabled={isStudentLoading || !studentData.email}
+                onClick={() => handleStudentSendOtp(studentData.email)}
+              >
+                {isStudentLoading ? "Sending code…" : "Send verification code"}
+              </Button>
+            ) : (
+              <Button
+                type="button"
+                className="w-full"
+                disabled={
+                  isStudentLoading ||
+                  !studentData.email ||
+                  !studentData.password
+                }
+                onClick={async () => {
+                  setIsStudentLoading(true);
+                  setStudentError("");
+                  try {
+                    const { user, error } = await signInWithEmailAndPassword(
+                      studentData.email,
+                      studentData.password,
+                    );
+                    if (error) {
+                      setStudentError(error);
+                      return;
+                    }
+                    if (user) {
+                      router.push(postAuthDestination);
+                    }
+                  } catch {
+                    setStudentError("Invalid email or password.");
+                  } finally {
+                    setIsStudentLoading(false);
+                  }
+                }}
+              >
+                {isStudentLoading ? "Logging in…" : "Log In"}
+              </Button>
+            )}
+
+            <Typography.Caption color="secondary" className="text-center block">
+              {studentSubMode === "register" ? (
+                <>
+                  Already have a university account?{" "}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setStudentSubMode("login");
+                      setStudentError("");
+                    }}
+                    className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
+                  >
+                    Log in
+                  </button>
+                </>
+              ) : (
+                <>
+                  New student?{" "}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setStudentSubMode("register");
+                      setStudentError("");
+                    }}
+                    className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
+                  >
+                    Register here
+                  </button>
+                </>
+              )}
+            </Typography.Caption>
+          </div>
+        );
+
+      case "code":
+        return (
+          <div className="space-y-4 mx-auto">
+            <div className="space-y-2 flex justify-center gap-1 items-center">
+              <InputOTP
+                maxLength={6}
+                value={studentData.code}
+                onValueChange={(value) =>
+                  setStudentData((p) => ({ ...p, code: value }))
+                }
+                disabled={isStudentLoading}
+              >
+                <InputOTPGroup className="flex gap-1 py-1">
+                  <InputOTPSlot index={0} />
+                  <InputOTPSlot index={1} />
+                  <InputOTPSlot index={2} />
+                  <InputOTPSlot index={3} />
+                  <InputOTPSlot index={4} />
+                  <InputOTPSlot index={5} />
+                </InputOTPGroup>
+              </InputOTP>
+            </div>
+            {studentError && (
+              <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-600 dark:border-red-800 dark:bg-red-900/20 dark:text-red-400">
+                {studentError}
+              </div>
+            )}
+            <button
+              type="button"
+              disabled={resendCooldown > 0 || isStudentLoading}
+              onClick={() => handleStudentSendOtp(studentData.email)}
+              className="w-full text-sm text-muted-foreground hover:underline disabled:opacity-50"
+            >
+              {resendCooldown > 0
+                ? `Resend code in ${resendCooldown}s`
+                : "Resend code"}
+            </button>
+          </div>
+        );
+
+      case "details":
+        return (
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="student-name">Full name</Label>
+              <Input
+                id="student-name"
+                type="text"
+                placeholder="Your full name"
+                value={studentData.displayName}
+                onChange={(e) =>
+                  setStudentData((p) => ({ ...p, displayName: e.target.value }))
+                }
+                disabled={isStudentLoading}
+                className="bg-input border-gray-300"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="student-password">Password</Label>
+              <div className="relative">
+                <Input
+                  id="student-password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Min. 6 characters"
+                  value={studentData.password}
+                  onChange={(e) =>
+                    setStudentData((p) => ({ ...p, password: e.target.value }))
+                  }
+                  disabled={isStudentLoading}
+                  className="bg-input border-gray-300 pr-10"
+                />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="absolute right-1 top-1/2 -translate-y-1/2 size-9 p-0 hover:bg-transparent"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? (
+                    <EyeOff className="size-4 text-muted-foreground" />
+                  ) : (
+                    <Eye className="size-4 text-muted-foreground" />
+                  )}
+                </Button>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <Label htmlFor="student-confirm-password">
+                  Confirm password
+                </Label>
+                {studentData.password &&
+                  studentData.confirmPassword &&
+                  studentData.password !== studentData.confirmPassword && (
+                    <Typography.Caption color="error">
+                      Passwords do not match
+                    </Typography.Caption>
+                  )}
+              </div>
+              <div className="relative">
+                <Input
+                  id="student-confirm-password"
+                  type={showConfirmPassword ? "text" : "password"}
+                  placeholder="Confirm password"
+                  value={studentData.confirmPassword}
+                  onChange={(e) =>
+                    setStudentData((p) => ({
+                      ...p,
+                      confirmPassword: e.target.value,
+                    }))
+                  }
+                  disabled={isStudentLoading}
+                  className="bg-input border-gray-300 pr-10"
+                />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="absolute right-1 top-1/2 -translate-y-1/2 size-9 p-0 hover:bg-transparent"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  {showConfirmPassword ? (
+                    <EyeOff className="size-4 text-muted-foreground" />
+                  ) : (
+                    <Eye className="size-4 text-muted-foreground" />
+                  )}
+                </Button>
+              </div>
+            </div>
+            {studentError && (
+              <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-600 dark:border-red-800 dark:bg-red-900/20 dark:text-red-400">
+                {studentError}
+              </div>
+            )}
+            <Button
+              type="button"
+              className="w-full"
+              disabled={
+                isStudentLoading ||
+                !studentData.displayName.trim() ||
+                studentData.password.length < 6 ||
+                studentData.password !== studentData.confirmPassword
+              }
+              onClick={handleStudentRegister}
+            >
+              {isStudentLoading
+                ? "Creating account…"
+                : "Create student account"}
+            </Button>
+          </div>
+        );
+
+      default: {
+        const _never: never = studentStep;
+        throw new Error(`Unhandled student step: ${_never}`);
+      }
+    }
+  };
+
+  const getStudentStepTitle = () => {
+    if (studentStep === "email")
+      return studentSubMode === "login"
+        ? "Student login"
+        : "Student registration";
+    switch (studentStep) {
+      case "code":
+        return "Check your inbox";
+      case "details":
+        return "Almost there";
+    }
+  };
+
+  const getStudentStepDescription = () => {
+    if (studentStep === "email")
+      return studentSubMode === "login"
+        ? "Log in with your university email"
+        : "Enter your university email to get a free student plan";
+    switch (studentStep) {
+      case "code":
+        return "Enter the 6-digit code we sent to your university email";
+      case "details":
+        return "Set your name and password to complete registration";
     }
   };
 
@@ -334,12 +835,15 @@ export default function AuthForm({
           formData.password === formData.confirmPassword &&
           formData.password.length >= 6
         );
+      case 4:
+        return agreements.termsOfService && agreements.privacyPolicy;
       default:
         return false;
     }
   };
 
   const getStepTitle = () => {
+    if (currentMode === "student-register") return getStudentStepTitle();
     if (currentMode === "login") {
       if (showResetForm) {
         return "Reset your password";
@@ -354,12 +858,15 @@ export default function AuthForm({
         return "What's your name?";
       case 3:
         return "Create a password";
+      case 4:
+        return "Agreements";
       default:
         return "Create Account";
     }
   };
 
   const getStepDescription = () => {
+    if (currentMode === "student-register") return getStudentStepDescription();
     if (currentMode === "login") {
       if (showResetForm) {
         return "Enter your email address to receive a password reset link";
@@ -374,8 +881,10 @@ export default function AuthForm({
         return "We'll use this as your display name";
       case 3:
         return "Make it strong and secure";
+      case 4:
+        return "Review and accept our terms";
       default:
-        return "Start your AI-powered interview preparation journey";
+        return "";
     }
   };
 
@@ -621,6 +1130,98 @@ export default function AuthForm({
           </div>
         );
 
+      case 4:
+        return (
+          <div className="space-y-4">
+            <Typography.Body color="secondary" className="text-sm">
+              Please review and accept the following agreements to continue.
+            </Typography.Body>
+
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="termsOfService"
+                  checked={agreements.termsOfService}
+                  onCheckedChange={(checked) =>
+                    setAgreements({
+                      ...agreements,
+                      termsOfService: checked === true,
+                    })
+                  }
+                  disabled={isLoading}
+                />
+                <label
+                  htmlFor="termsOfService"
+                  className="text-sm leading-tight cursor-pointer"
+                >
+                  <Typography.Caption>
+                    I agree to the{" "}
+                    <Link
+                      href="/legal/terms"
+                      className="underline hover:text-foreground"
+                    >
+                      Terms of Service
+                    </Link>{" "}
+                    <span className="text-red-500">*</span>
+                  </Typography.Caption>
+                </label>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="privacyPolicy"
+                  checked={agreements.privacyPolicy}
+                  onCheckedChange={(checked) =>
+                    setAgreements({
+                      ...agreements,
+                      privacyPolicy: checked === true,
+                    })
+                  }
+                  disabled={isLoading}
+                />
+                <label
+                  htmlFor="privacyPolicy"
+                  className="text-sm leading-tight cursor-pointer"
+                >
+                  <Typography.Caption>
+                    I have read and agree to the{" "}
+                    <Link
+                      href="/legal/privacy"
+                      className="underline hover:text-foreground"
+                    >
+                      Privacy Policy
+                    </Link>{" "}
+                    <span className="text-red-500">*</span>
+                  </Typography.Caption>
+                </label>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="marketingEmails"
+                  checked={agreements.marketingEmails}
+                  onCheckedChange={(checked) =>
+                    setAgreements({
+                      ...agreements,
+                      marketingEmails: checked === true,
+                    })
+                  }
+                  disabled={isLoading}
+                />
+                <label
+                  htmlFor="marketingEmails"
+                  className="text-sm leading-tight cursor-pointer"
+                >
+                  <Typography.Caption>
+                    I would like to receive marketing emails about product
+                    updates, tips, and promotions
+                  </Typography.Caption>
+                </label>
+              </div>
+            </div>
+          </div>
+        );
+
       default:
         return null;
     }
@@ -647,6 +1248,16 @@ export default function AuthForm({
       >
         <FaGoogle className="mr-2 flex-shrink-0" />
         Google
+      </Button>
+      <Button
+        type="button"
+        variant="outline"
+        className="flex flex-1 min-w-0 items-center justify-center bg-transparent border border-border text-foreground hover:bg-accent/10 hover:text-foreground transition-colors h-10 sm:h-9"
+        onClick={() => handleModeSwitch("student-register")}
+        disabled={isLoading}
+      >
+        <FaUserGraduate className="mr-2 flex-shrink-0" />
+        <span>University</span>
       </Button>
     </div>
   );
@@ -679,7 +1290,9 @@ export default function AuthForm({
                     : "opacity-100 transform translate-x-0 scale-100"
                 }`}
               >
-                {currentMode === "login" ? (
+                {currentMode === "student-register" ? (
+                  renderStudentForm()
+                ) : currentMode === "login" ? (
                   showResetForm ? (
                     <>
                       {renderLoginForm()}
@@ -801,17 +1414,17 @@ export default function AuthForm({
                     </div>
 
                     <div className="mt-8 flex justify-between">
-                      <Button
-                        type="button"
-                        variant="outline"
-                        size="lg"
-                        onClick={handlePrevious}
-                        disabled={
-                          currentStep === 1 || isLoading || isCheckingEmail
-                        }
-                      >
-                        Previous
-                      </Button>
+                      {currentStep > 1 && (
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="lg"
+                          onClick={handlePrevious}
+                          disabled={isLoading || isCheckingEmail}
+                        >
+                          Previous
+                        </Button>
+                      )}
 
                       {currentStep === totalSteps ? (
                         <Button
@@ -846,7 +1459,7 @@ export default function AuthForm({
                   >
                     {currentMode === "login" && !showResetForm && (
                       <>
-                        Don't have an account?{" "}
+                        Don&apos;t have an account?{" "}
                         {onModeChange ? (
                           <button
                             type="button"
@@ -889,13 +1502,36 @@ export default function AuthForm({
                         )}
                       </>
                     )}
+
+                    {currentMode === "student-register" && (
+                      <>
+                        Not a student?{" "}
+                        {onModeChange ? (
+                          <button
+                            type="button"
+                            onClick={() => handleModeSwitch("login")}
+                            className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
+                            disabled={isStudentLoading || isTransitioning}
+                          >
+                            Sign in normally
+                          </button>
+                        ) : (
+                          <Button
+                            onClick={() => handleModeSwitch("login")}
+                            className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
+                          >
+                            Sign in normally
+                          </Button>
+                        )}
+                      </>
+                    )}
                   </Typography.Caption>
                 </div>
               </div>
             </CardContent>
           </Card>
         ) : (
-          <div className="w-full grid md:grid-cols-2 rounded-3xl overflow-hidden border border-[color:var(--border)]/60 shadow-2xl">
+          <div className="w-full grid  md:grid-cols-2 rounded-3xl overflow-hidden border border-[color:var(--border)]/60 shadow-2xl">
             <div className="hidden md:flex flex-col items-center justify-center bg-[hsl(var(--blairify-bg-200))] text-[color:var(--foreground)] relative min-h-[32rem]">
               <div className="relative w-40 h-40 sm:w-56 sm:h-56">
                 <Image
@@ -908,14 +1544,17 @@ export default function AuthForm({
               </div>
               {onAudienceChange && (
                 <div className="absolute inset-x-0 bottom-10 flex justify-center">
-                  <Button
-                    type="button"
-                    onClick={() => onAudienceChange("enterprise")}
-                    variant="outline"
-                    className="border-border/30 text-muted-foreground hover:text-foreground hover:bg-background/80 h-9 px-2 text-xs leading-tight"
+                  <Link
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onAudienceChange("enterprise");
+                    }}
+                    className="flex items-center gap-1 hover:gap-1.5 text-sm text-muted-foreground hover:text-foreground px-2 leading-tight transition-all duration-200"
                   >
                     Blairify for Enterprise
-                  </Button>
+                    <ArrowRight className="size-3 mt-1" />
+                  </Link>
                 </div>
               )}
             </div>
@@ -954,7 +1593,9 @@ export default function AuthForm({
                         : "opacity-100 transform translate-x-0 scale-100"
                     }`}
                   >
-                    {currentMode === "login" ? (
+                    {currentMode === "student-register" ? (
+                      renderStudentForm()
+                    ) : currentMode === "login" ? (
                       showResetForm ? (
                         renderLoginForm()
                       ) : (
@@ -1065,7 +1706,7 @@ export default function AuthForm({
                   >
                     {currentMode === "login" && !showResetForm && (
                       <>
-                        Don't have an account?{" "}
+                        Don&apos;t have an account?{" "}
                         {onModeChange ? (
                           <button
                             type="button"
@@ -1081,6 +1722,29 @@ export default function AuthForm({
                             className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
                           >
                             Sign up
+                          </Button>
+                        )}
+                      </>
+                    )}
+
+                    {currentMode === "student-register" && (
+                      <>
+                        Not a student?{" "}
+                        {onModeChange ? (
+                          <button
+                            type="button"
+                            onClick={() => handleModeSwitch("login")}
+                            className="text-primary hover:underline focus:outline-none focus:underline transition-colors duration-200"
+                            disabled={isStudentLoading || isTransitioning}
+                          >
+                            Sign in normally
+                          </button>
+                        ) : (
+                          <Button
+                            onClick={() => handleModeSwitch("login")}
+                            className="bg-transparent p-0 text-primary hover:underline hover:bg-transparent"
+                          >
+                            Sign in normally
                           </Button>
                         )}
                       </>

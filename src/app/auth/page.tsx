@@ -6,7 +6,7 @@ import LoadingPage from "@/components/common/atoms/loading-page";
 import AuthForm from "@/components/landing-page/organisms/auth-form";
 import Navbar from "@/components/landing-page/organisms/landing-page-navbar";
 
-type AuthMode = "login" | "register";
+type AuthMode = "login" | "register" | "student-register";
 type AuthAudience = "individual" | "enterprise";
 
 function AuthPageContent() {

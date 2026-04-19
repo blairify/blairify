@@ -23,10 +23,10 @@ export default function ComparisonSection() {
               VS
             </Typography.CaptionBold>
             <div className="flex-shrink-0 hidden sm:block">
-              <Logo variant="transparent" iconSize={100} />
+              <Logo variant="iconOnly" iconSize={96} />
             </div>
             <div className="flex-shrink-0 block sm:hidden">
-              <Logo variant="transparent" iconSize={120} />
+              <Logo variant="iconOnly" iconSize={96} />
             </div>
           </div>
           <Typography.HeroSubHeading id="comparison-heading" className="mb-4">
@@ -39,10 +39,10 @@ export default function ComparisonSection() {
           </Typography.Body>
         </header>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto w-full mx-auto sm:w-3/4">
           <table
             className="w-full border-collapse"
-            aria-label="Comparison: prompted chat versus Active Assessment"
+            aria-label="Comparison: prompted chat versus Blairify"
           >
             <thead>
               <tr className="border-b border-border/50">
@@ -52,13 +52,13 @@ export default function ComparisonSection() {
                 <th scope="col" className="text-center p-4 sm:p-6">
                   <div className="flex items-center justify-center gap-2">
                     <Typography.BodyBold color="secondary">
-                      Prompted ChatGPT
+                      ChatGPT
                     </Typography.BodyBold>
                   </div>
                 </th>
                 <th scope="col" className="text-center p-4 sm:p-6">
                   <div className="flex items-center justify-center gap-2">
-                    <Typography.BodyBold>Active Assessment</Typography.BodyBold>
+                    <Typography.BodyBold>Blairify</Typography.BodyBold>
                   </div>
                 </th>
               </tr>
@@ -112,7 +112,10 @@ export default function ComparisonSection() {
                 </th>
                 <td className="p-4 sm:p-6 text-center">
                   <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
-                    <X className="size-7 text-red-500" aria-hidden="true" />
+                    <Check
+                      className="size-7 text-green-600"
+                      aria-hidden="true"
+                    />{" "}
                   </div>
                 </td>
                 <td className="p-4 sm:p-6 text-center">
@@ -152,7 +155,10 @@ export default function ComparisonSection() {
                 </th>
                 <td className="p-4 sm:p-6 text-center">
                   <div className="size-10 px-2 mx-auto rounded-full bg-red-300/10 flex items-center justify-center mt-0.5">
-                    <X className="size-7 text-red-500" aria-hidden="true" />
+                    <Check
+                      className="size-7 text-green-600"
+                      aria-hidden="true"
+                    />{" "}
                   </div>
                 </td>
                 <td className="p-4 sm:p-6 text-center">

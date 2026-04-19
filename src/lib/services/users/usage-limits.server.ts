@@ -7,7 +7,7 @@ import { FieldValue } from "firebase-admin/firestore";
 import { getAdminFirestore } from "@/lib/firebase-admin";
 
 interface UserSubscription {
-  plan: "free" | "pro";
+  plan: "free" | "pro" | "student";
   status: "active" | "cancelled" | "expired";
 }
 
@@ -20,6 +20,7 @@ interface UserUsage {
 interface UserData {
   subscription?: UserSubscription;
   usage?: UserUsage;
+  role?: string;
 }
 
 const DAILY_LIMIT = 2;
@@ -63,7 +64,10 @@ export async function getUsageStatus(
     const userData = userDoc.data() as UserData;
     const subscription = userData?.subscription;
     const isPro =
-      subscription?.plan === "pro" && subscription?.status === "active";
+      (subscription?.plan === "pro" ||
+        subscription?.plan === "student" ||
+        userData.role === "student") &&
+      subscription?.status === "active";
 
     if (isPro) {
       return {

@@ -91,10 +91,6 @@ export default function Navbar({ scrollThreshold = 100 }: NavbarProps) {
         aria-label="Main navigation"
         data-analytics-id="home-navbar"
       >
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/70 to-transparent"
-          aria-hidden="true"
-        />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
             <div className="flex-shrink-0">

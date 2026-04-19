@@ -1,5 +1,5 @@
 import { AiOutlineBug } from "react-icons/ai";
-import { SiOpenai } from "react-icons/si";
+import { FiActivity } from "react-icons/fi";
 import { VscSymbolStructure } from "react-icons/vsc";
 import { Typography } from "@/components/common/atoms/typography";
 
@@ -29,7 +29,7 @@ export default function ProblemSection() {
         <div className="grid gap-6 md:grid-cols-3">
           <article className="rounded-2xl border border-border/50 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
             <div className="size-12 sm:size-14 rounded-2xl  bg-background flex items-center justify-left">
-              <AiOutlineBug
+              <FiActivity
                 className="size-10 text-muted-foreground"
                 aria-hidden="true"
               />
@@ -46,13 +46,13 @@ export default function ProblemSection() {
 
           <article className="rounded-2xl border border-border/50 bg-background/80 backdrop-blur p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md">
             <div className="size-14 sm:size-14 rounded-2xl bg-background flex items-center justify-left">
-              <SiOpenai
+              <AiOutlineBug
                 className="size-10 text-muted-foreground"
                 aria-hidden="true"
               />
             </div>
             <Typography.Heading3 className="mt-6 mb-2">
-              The ChatGPT Halucinations
+              AI Halucinations
             </Typography.Heading3>
             <Typography.Body color="secondary">
               Even the perfect prompt can't bypass static training data.

@@ -159,7 +159,7 @@ export function generateOutcomeMessage(params: OutcomeMessageParams): string {
         return pickOne(
           [
             `You cleared the threshold ${subject}. ${highlight ?? "Keep building consistency."}`,
-            `Passing performance ${subject}. ${highlight ?? "The foundation is there—now strengthen weak spots."}`,
+            `Passing performance ${subject}. ${highlight ?? "The foundation is there-now strengthen weak spots."}`,
             `You met expectations ${subject}. ${highlight ?? "Next steps will make the difference."}`,
           ],
           rng,
@@ -167,7 +167,7 @@ export function generateOutcomeMessage(params: OutcomeMessageParams): string {
       case "near":
         return pickOne(
           [
-            `A narrow pass ${subject}. ${highlight ?? "You got over the line—now make it comfortable."}`,
+            `A narrow pass ${subject}. ${highlight ?? "You got over the line-now make it comfortable."}`,
             `You passed ${subject}, but it was close. ${highlight ?? "Focus on consistency."}`,
             `You cleared the bar ${subject} by a small margin. ${highlight ?? "Target the biggest gaps next."}`,
           ],
@@ -176,7 +176,7 @@ export function generateOutcomeMessage(params: OutcomeMessageParams): string {
       case "mid":
         return pickOne(
           [
-            `You passed ${subject}. ${highlight ?? "This was a lower-scoring pass—use the feedback to level up."}`,
+            `You passed ${subject}. ${highlight ?? "This was a lower-scoring pass-use the feedback to level up."}`,
             `Passing result ${subject}. ${highlight ?? "You’ll benefit most from tightening fundamentals."}`,
             `You met the threshold ${subject}. ${highlight ?? "Next round: raise your floor."}`,
           ],

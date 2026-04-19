@@ -567,7 +567,7 @@ export function OnboardingPageClient({
   };
 
   const infoChipClassName =
-    "inline-flex items-center gap-2 rounded-sm border bg-background/70 px-3 py-1.5 shadow-sm hover:bg-background";
+    "inline-flex items-center gap-2 rounded-sm border-none bg-background/70 px-3 py-1.5 shadow-sm hover:bg-background";
   const infoContentClassName = "max-w-sm p-3";
 
   const onlyOurBestContent = (
@@ -622,7 +622,7 @@ export function OnboardingPageClient({
               <Typography.SubCaptionMedium color="secondary">
                 {params.label}
               </Typography.SubCaptionMedium>
-              <Info className="size-4 " />
+              <Info className="size-4" />
             </TooltipTrigger>
             <TooltipContent>{params.content}</TooltipContent>
           </Tooltip>
@@ -920,7 +920,7 @@ export function OnboardingPageClient({
                     checked={earlyJobMatchingEnabled}
                     onCheckedChange={setEarlyJobMatchingEnabled}
                     disabled={isSaving}
-                    className="h-7 w-12 rounded-full border-0 shadow-inner transition-colors data-[state=unchecked]:bg-red-500 dark:data-[state=unchecked]:bg-red-500 data-[state=checked]:bg-emerald-500 dark:bg-emerald-700 [&_[data-slot=switch-thumb]]:size-6 [&_[data-slot=switch-thumb]]:bg-white [&_[data-slot=switch-thumb]]:shadow-md [&_[data-slot=switch-thumb]]:ring-1 [&_[data-slot=switch-thumb]]:ring-black/5 dark:[&_[data-slot=switch-thumb]]:ring-white/10 [&_[data-slot=switch-thumb]]:data-[state=unchecked]:!translate-x-0.5 [&_[data-slot=switch-thumb]]:data-[state=checked]:!translate-x-[20px]"
+                    className="h-7 w-12 rounded-full border-0 shadow-inner transition-colors data-[state=unchecked]:bg-red-400 dark:data-[state=unchecked]:bg-red-400 data-[state=checked]:bg-emerald-500 dark:bg-emerald-700 [&_[data-slot=switch-thumb]]:size-6 [&_[data-slot=switch-thumb]]:bg-white [&_[data-slot=switch-thumb]]:shadow-md [&_[data-slot=switch-thumb]]:ring-1 [&_[data-slot=switch-thumb]]:ring-black/5 dark:[&_[data-slot=switch-thumb]]:ring-white/10 [&_[data-slot=switch-thumb]]:data-[state=unchecked]:!translate-x-0.5 [&_[data-slot=switch-thumb]]:data-[state=checked]:!translate-x-[20px]"
                   />
                 </div>
 
