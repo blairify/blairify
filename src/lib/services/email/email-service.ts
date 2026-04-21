@@ -1,7 +1,6 @@
 import { Resend } from "resend";
 import { buildVerificationEmailHtml } from "./templates/verification-email";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "noreply@blairify.com";
 
 export async function sendVerificationEmail(
@@ -9,6 +8,12 @@ export async function sendVerificationEmail(
   code: string,
   universityName: string,
 ): Promise<void> {
+  const resendApiKey = process.env.RESEND_API_KEY;
+  if (typeof resendApiKey !== "string" || resendApiKey.trim().length === 0) {
+    throw new Error("Missing RESEND_API_KEY");
+  }
+
+  const resend = new Resend(resendApiKey);
   const { error } = await resend.emails.send({
     from: FROM_EMAIL,
     to,
