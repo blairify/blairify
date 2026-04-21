@@ -95,6 +95,43 @@ interface ResultsContentProps {
   user: UserData | null;
 }
 
+function readCachedAnalysis(value: string | null): {
+  results?: InterviewResults;
+  interviewConfig?: InterviewConfig;
+  generatedExampleAnswers?: string[];
+  generatedFollowUpExampleAnswers?: string[];
+  generatedExampleAnswerByQuestionText?: Record<string, string>;
+  questionTitlesByText?: Record<string, string>;
+} | null {
+  if (typeof window === "undefined") return null;
+  if (!value) return null;
+  const raw = window.sessionStorage.getItem(value);
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    if (!parsed || typeof parsed !== "object") return null;
+    return parsed as {
+      results?: InterviewResults;
+      interviewConfig?: InterviewConfig;
+      generatedExampleAnswers?: string[];
+      generatedFollowUpExampleAnswers?: string[];
+      generatedExampleAnswerByQuestionText?: Record<string, string>;
+      questionTitlesByText?: Record<string, string>;
+    };
+  } catch {
+    return null;
+  }
+}
+
+function getInitialAnalysisCacheKey(): string | null {
+  if (typeof window === "undefined") return null;
+  const raw = window.localStorage.getItem("interviewSessionId");
+  if (typeof raw !== "string") return null;
+  const interviewSessionId = raw.trim();
+  if (interviewSessionId.length === 0) return null;
+  return `analysisCache:${interviewSessionId}`;
+}
+
 export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -104,14 +141,18 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     refreshUserData,
     loading: authLoading,
   } = useAuth();
+  const [hasMounted, setHasMounted] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(true);
   const [results, setResults] = useState<InterviewResults | null>(null);
   const [interviewConfig, setInterviewConfig] =
     useState<InterviewConfig | null>(null);
+  const [analysisArtifactsReady, setAnalysisArtifactsReady] = useState(false);
   const [savedSessionId, setSavedSessionId] = useState<string | null>(null);
   const [resultsView, setResultsView] = useState<"deck" | "full">("deck");
   const [isLoadingSession, setIsLoadingSession] = useState(false);
   const justCreatedSessionIdRef = useRef<string | null>(null);
+  const persistAttemptedRef = useRef(false);
+  const [persistAttemptNonce, setPersistAttemptNonce] = useState(0);
   const [savedSession, setSavedSession] = useState<InterviewSession | null>(
     null,
   );
@@ -262,10 +303,65 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
   );
   const isGuest = !authLoading && !authUser;
 
+  const analysisCacheKey = useMemo(() => {
+    if (!hasMounted) return null;
+    return getInitialAnalysisCacheKey();
+  }, [hasMounted]);
+
+  const persistedSessionIdCacheKey = useMemo(() => {
+    if (!analysisCacheKey) return null;
+    return `persistedSessionId:${analysisCacheKey}`;
+  }, [analysisCacheKey]);
+
   const sessionIdFromQuery = useMemo(() => {
     const raw = searchParams.get("sessionId");
     return typeof raw === "string" && raw.trim().length > 0 ? raw : null;
   }, [searchParams]);
+
+  const lastSavedResultsSessionIdKey = useMemo(() => {
+    if (!activeUserId) return null;
+    return `lastSavedResultsSessionId:${activeUserId}`;
+  }, [activeUserId]);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hasMounted) return;
+    if (results) return;
+
+    const cached = readCachedAnalysis(analysisCacheKey);
+    if (!cached?.results || !cached.interviewConfig) return;
+
+    setResults(cached.results);
+    setInterviewConfig(cached.interviewConfig);
+    setGeneratedExampleAnswers(
+      Array.isArray(cached.generatedExampleAnswers)
+        ? cached.generatedExampleAnswers
+        : [],
+    );
+    setGeneratedFollowUpExampleAnswers(
+      Array.isArray(cached.generatedFollowUpExampleAnswers)
+        ? cached.generatedFollowUpExampleAnswers
+        : [],
+    );
+    setGeneratedExampleAnswerByQuestionText(
+      cached.generatedExampleAnswerByQuestionText &&
+        typeof cached.generatedExampleAnswerByQuestionText === "object"
+        ? cached.generatedExampleAnswerByQuestionText
+        : {},
+    );
+    setQuestionTitlesByText(
+      cached.questionTitlesByText &&
+        typeof cached.questionTitlesByText === "object"
+        ? cached.questionTitlesByText
+        : {},
+    );
+    setAnalysisArtifactsReady(true);
+    setProgress(100);
+    setIsAnalyzing(false);
+  }, [analysisCacheKey, hasMounted, results]);
 
   // Set current date and analysis messages on client side only to avoid hydration mismatch
   useEffect(() => {
@@ -276,7 +372,22 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     const interviewSessionId = localStorage.getItem("interviewSessionId");
 
     if (!interviewSessionRaw && !sessionIdFromQuery) {
-      router.replace(initialUser?.uid ? "/history" : "/");
+      if (authLoading) return;
+
+      if (activeUserId && lastSavedResultsSessionIdKey) {
+        const lastSaved = window.localStorage.getItem(
+          lastSavedResultsSessionIdKey,
+        );
+        if (typeof lastSaved === "string" && lastSaved.trim().length > 0) {
+          router.replace(`/results?sessionId=${lastSaved}`);
+          return;
+        }
+
+        router.replace("/history");
+        return;
+      }
+
+      router.replace("/");
       return;
     }
 
@@ -411,7 +522,13 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     } catch {
       // noop
     }
-  }, [router, sessionIdFromQuery, initialUser?.uid]);
+  }, [
+    activeUserId,
+    authLoading,
+    lastSavedResultsSessionIdKey,
+    router,
+    sessionIdFromQuery,
+  ]);
 
   const getExampleAnswer = (question: Question): string | null => {
     switch (question.type) {
@@ -679,6 +796,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         setSavedSession(null);
 
         if (!activeUserId) {
+          if (authLoading) return;
           setIsLoadingSession(false);
           return;
         }
@@ -699,6 +817,13 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         setSavedSession(session as InterviewSession);
         setResults(mapSessionToInterviewResults(session as InterviewSession));
 
+        if (lastSavedResultsSessionIdKey) {
+          window.localStorage.setItem(
+            lastSavedResultsSessionIdKey,
+            sessionIdFromQuery,
+          );
+        }
+
         const cfg = session.config as unknown;
         if (cfg && typeof cfg === "object") {
           setInterviewConfig(cfg as InterviewConfig);
@@ -714,7 +839,13 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     return () => {
       active = false;
     };
-  }, [activeUserId, router, sessionIdFromQuery]);
+  }, [
+    activeUserId,
+    authLoading,
+    lastSavedResultsSessionIdKey,
+    router,
+    sessionIdFromQuery,
+  ]);
 
   useEffect(() => {
     if (sessionIdFromQuery) {
@@ -722,26 +853,74 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
       return;
     }
 
-    const shouldPersistToAccount = Boolean(activeUserId);
+    if (!authLoading && activeUserId && persistedSessionIdCacheKey) {
+      const persisted = window.sessionStorage.getItem(
+        persistedSessionIdCacheKey,
+      );
+      if (typeof persisted === "string" && persisted.trim().length > 0) {
+        router.replace(`/results?sessionId=${persisted}`);
+        setIsAnalyzing(false);
+        return;
+      }
+    }
 
     let isMounted = true;
 
     const loadAnalysis = async (retryCount = 0) => {
       try {
+        setAnalysisArtifactsReady(false);
+
+        const cached = readCachedAnalysis(analysisCacheKey);
+        if (cached?.results && cached.interviewConfig) {
+          setResults(cached.results);
+          setInterviewConfig(cached.interviewConfig);
+          setGeneratedExampleAnswers(
+            Array.isArray(cached.generatedExampleAnswers)
+              ? cached.generatedExampleAnswers
+              : [],
+          );
+          setGeneratedFollowUpExampleAnswers(
+            Array.isArray(cached.generatedFollowUpExampleAnswers)
+              ? cached.generatedFollowUpExampleAnswers
+              : [],
+          );
+          setGeneratedExampleAnswerByQuestionText(
+            cached.generatedExampleAnswerByQuestionText &&
+              typeof cached.generatedExampleAnswerByQuestionText === "object"
+              ? cached.generatedExampleAnswerByQuestionText
+              : {},
+          );
+          setQuestionTitlesByText(
+            cached.questionTitlesByText &&
+              typeof cached.questionTitlesByText === "object"
+              ? cached.questionTitlesByText
+              : {},
+          );
+          setAnalysisArtifactsReady(true);
+          setProgress(100);
+          setIsAnalyzing(false);
+          return;
+        }
+
         const interviewData = localStorage.getItem("interviewSession");
         const interviewConfig = localStorage.getItem("interviewConfig");
         const interviewSessionId = localStorage.getItem("interviewSessionId");
-
-        const clearInterviewStorage = () => {
-          localStorage.removeItem("interviewSession");
-          localStorage.removeItem("interviewConfig");
-          localStorage.removeItem("interviewSessionId");
-        };
 
         if (!interviewData || !interviewConfig) {
           if (retryCount < 6) {
             await new Promise((r) => setTimeout(r, 250));
             return loadAnalysis(retryCount + 1);
+          }
+
+          if (!authLoading && activeUserId && lastSavedResultsSessionIdKey) {
+            const lastSaved = window.localStorage.getItem(
+              lastSavedResultsSessionIdKey,
+            );
+            if (typeof lastSaved === "string" && lastSaved.trim().length > 0) {
+              router.replace(`/results?sessionId=${lastSaved}`);
+              setIsAnalyzing(false);
+              return;
+            }
           }
 
           if (
@@ -1005,133 +1184,27 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
         setGeneratedFollowUpExampleAnswers(followUpExampleAnswers);
         setGeneratedExampleAnswerByQuestionText(exampleAnswerByQuestionText);
         setQuestionTitlesByText(questionTitleMap);
+        setAnalysisArtifactsReady(true);
 
-        const existingSessionId = localStorage.getItem("interviewSessionId");
-
-        if (!shouldPersistToAccount) {
-          setIsAnalyzing(false);
-          return;
-        }
-
-        try {
-          const nextSavedSessionId = await DatabaseService.saveInterviewResults(
-            activeUserId as string,
-            {
-              ...(session as {
-                messages: Array<{
-                  type: string;
-                  content: string;
-                  isFollowUp?: boolean;
-                }>;
-                questionIds?: string[];
-                isComplete: boolean;
-              }),
-              exampleAnswers: mainExampleAnswers,
-              followUpExampleAnswers: followUpExampleAnswers,
-              isComplete: true,
-            },
-            {
-              position: config.position,
-              seniority: config.seniority,
-              interviewType: config.interviewType,
-              interviewMode: config.interviewMode,
-              duration: Number(config.duration),
-              ...(config.specificCompany
-                ? { specificCompany: config.specificCompany }
-                : {}),
-            },
-            data.feedback,
-            existingSessionId,
+        if (analysisCacheKey) {
+          window.sessionStorage.setItem(
+            analysisCacheKey,
+            JSON.stringify({
+              results: data.feedback,
+              interviewConfig: config,
+              generatedExampleAnswers: mainExampleAnswers,
+              generatedFollowUpExampleAnswers: followUpExampleAnswers,
+              generatedExampleAnswerByQuestionText: exampleAnswerByQuestionText,
+              questionTitlesByText: questionTitleMap,
+            } satisfies {
+              results: InterviewResults;
+              interviewConfig: InterviewConfig;
+              generatedExampleAnswers: string[];
+              generatedFollowUpExampleAnswers: string[];
+              generatedExampleAnswerByQuestionText: Record<string, string>;
+              questionTitlesByText: Record<string, string>;
+            }),
           );
-
-          try {
-            const fallbackOldXP = fallbackOldXPRef.current;
-
-            const shouldAwardXP = (() => {
-              if (
-                typeof nextSavedSessionId !== "string" ||
-                nextSavedSessionId.trim().length === 0
-              ) {
-                return true;
-              }
-              const awardKey = `xpAwarded:${nextSavedSessionId}`;
-              return window.sessionStorage.getItem(awardKey) !== "1";
-            })();
-
-            if (!shouldAwardXP) {
-              await refreshUserData();
-              return;
-            }
-
-            const durationMinutes = (() => {
-              const rawDuration = (session as { totalDuration?: unknown })
-                .totalDuration;
-              return typeof rawDuration === "number" &&
-                Number.isFinite(rawDuration)
-                ? rawDuration
-                : Number(config.duration);
-            })();
-
-            const xp = await addUserXP(
-              activeUserId as string,
-              data.feedback.score,
-              durationMinutes,
-            );
-
-            const derivedOldXP = Math.max(
-              0,
-              Math.round(xp.totalXP - Math.max(0, Math.round(xp.xpGained))),
-            );
-            const oldXP = Number.isFinite(derivedOldXP)
-              ? derivedOldXP
-              : fallbackOldXP;
-
-            toast.success(
-              xp.newAchievements.length > 0
-                ? `+${xp.xpGained} XP · ${xp.newAchievements.length} achievement${xp.newAchievements.length === 1 ? "" : "s"}`
-                : `+${xp.xpGained} XP`,
-            );
-
-            if (
-              typeof nextSavedSessionId === "string" &&
-              nextSavedSessionId.trim().length > 0
-            ) {
-              window.sessionStorage.setItem(
-                `xpAwarded:${nextSavedSessionId}`,
-                "1",
-              );
-            }
-
-            window.sessionStorage.setItem(
-              "postInterviewRewards",
-              JSON.stringify({
-                xpGained: xp.xpGained,
-                newAchievementIds: xp.newAchievements,
-                oldXP,
-                newXP: xp.totalXP,
-              } satisfies RewardsPayload),
-            );
-            setRewardsPayload({
-              xpGained: xp.xpGained,
-              newAchievementIds: xp.newAchievements,
-              oldXP,
-              newXP: xp.totalXP,
-            });
-            await refreshUserData();
-          } catch (xpError) {
-            console.error("Error awarding XP:", xpError);
-            toast.error("Failed to award XP. Please retry.");
-          }
-
-          if (!isMounted) return;
-          if (typeof nextSavedSessionId === "string" && nextSavedSessionId) {
-            setSavedSessionId(nextSavedSessionId);
-            clearInterviewStorage();
-            justCreatedSessionIdRef.current = nextSavedSessionId;
-            router.replace(`/results?sessionId=${nextSavedSessionId}`);
-          }
-        } catch (dbError) {
-          console.error("Error saving to database:", dbError);
         }
       } catch (e) {
         console.error("Analysis error:", e);
@@ -1147,7 +1220,266 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     return () => {
       isMounted = false;
     };
-  }, [activeUserId, refreshUserData, router, sessionIdFromQuery]);
+  }, [
+    activeUserId,
+    analysisCacheKey,
+    authLoading,
+    lastSavedResultsSessionIdKey,
+    persistedSessionIdCacheKey,
+    router,
+    sessionIdFromQuery,
+  ]);
+
+  useEffect(() => {
+    if (sessionIdFromQuery) return;
+    if (!activeUserId) return;
+    if (!results) return;
+    if (!interviewConfig) return;
+    if (!analysisArtifactsReady) return;
+
+    if (persistedSessionIdCacheKey) {
+      const persisted = window.sessionStorage.getItem(
+        persistedSessionIdCacheKey,
+      );
+      if (typeof persisted === "string" && persisted.trim().length > 0) {
+        router.replace(`/results?sessionId=${persisted}`);
+        return;
+      }
+    }
+
+    if (persistAttemptedRef.current) return;
+
+    let isMounted = true;
+
+    const persistToAccount = async () => {
+      const interviewData = localStorage.getItem("interviewSession");
+      const interviewSessionId = localStorage.getItem("interviewSessionId");
+
+      const clearInterviewStorage = () => {
+        localStorage.removeItem("interviewSession");
+        localStorage.removeItem("interviewConfig");
+        localStorage.removeItem("interviewSessionId");
+      };
+
+      try {
+        if (!interviewData) {
+          persistAttemptedRef.current = false;
+          return;
+        }
+
+        let session: {
+          messages?: unknown;
+          totalDuration?: unknown;
+          questionIds?: unknown;
+        };
+
+        try {
+          session = JSON.parse(interviewData) as {
+            messages?: unknown;
+            totalDuration?: unknown;
+            questionIds?: unknown;
+          };
+        } catch {
+          persistAttemptedRef.current = false;
+          return;
+        }
+
+        if (!Array.isArray(session.messages) || session.messages.length === 0) {
+          persistAttemptedRef.current = false;
+          return;
+        }
+
+        persistAttemptedRef.current = true;
+
+        const nextSavedSessionId = await DatabaseService.saveInterviewResults(
+          activeUserId,
+          {
+            ...(session as {
+              messages: Array<{
+                type: string;
+                content: string;
+                isFollowUp?: boolean;
+              }>;
+              questionIds?: string[];
+            }),
+            exampleAnswers: generatedExampleAnswers,
+            followUpExampleAnswers: generatedFollowUpExampleAnswers,
+            isComplete: true,
+          },
+          {
+            position: interviewConfig.position,
+            seniority: interviewConfig.seniority,
+            interviewType: interviewConfig.interviewType,
+            interviewMode: interviewConfig.interviewMode,
+            duration: Number(interviewConfig.duration),
+            ...(interviewConfig.specificCompany
+              ? { specificCompany: interviewConfig.specificCompany }
+              : {}),
+          },
+          results,
+          interviewSessionId,
+        );
+
+        try {
+          const fallbackOldXP = fallbackOldXPRef.current;
+
+          const shouldAwardXP = (() => {
+            if (
+              typeof nextSavedSessionId !== "string" ||
+              nextSavedSessionId.trim().length === 0
+            ) {
+              return true;
+            }
+            const awardKey = `xpAwarded:${nextSavedSessionId}`;
+            return window.sessionStorage.getItem(awardKey) !== "1";
+          })();
+
+          if (!shouldAwardXP) {
+            await refreshUserData();
+            return;
+          }
+
+          const durationMinutes = (() => {
+            const rawDuration = session.totalDuration;
+            return typeof rawDuration === "number" &&
+              Number.isFinite(rawDuration)
+              ? rawDuration
+              : Number(interviewConfig.duration);
+          })();
+
+          const xp = await addUserXP(
+            activeUserId,
+            results.score,
+            durationMinutes,
+          );
+
+          const derivedOldXP = Math.max(
+            0,
+            Math.round(xp.totalXP - Math.max(0, Math.round(xp.xpGained))),
+          );
+          const oldXP = Number.isFinite(derivedOldXP)
+            ? derivedOldXP
+            : fallbackOldXP;
+
+          toast.success(
+            xp.newAchievements.length > 0
+              ? `+${xp.xpGained} XP · ${xp.newAchievements.length} achievement${xp.newAchievements.length === 1 ? "" : "s"}`
+              : `+${xp.xpGained} XP`,
+          );
+
+          if (
+            typeof nextSavedSessionId === "string" &&
+            nextSavedSessionId.trim().length > 0
+          ) {
+            window.sessionStorage.setItem(
+              `xpAwarded:${nextSavedSessionId}`,
+              "1",
+            );
+          }
+
+          window.sessionStorage.setItem(
+            "postInterviewRewards",
+            JSON.stringify({
+              xpGained: xp.xpGained,
+              newAchievementIds: xp.newAchievements,
+              oldXP,
+              newXP: xp.totalXP,
+            } satisfies RewardsPayload),
+          );
+          setRewardsPayload({
+            xpGained: xp.xpGained,
+            newAchievementIds: xp.newAchievements,
+            oldXP,
+            newXP: xp.totalXP,
+          });
+          await refreshUserData();
+        } catch (xpError) {
+          console.error("Error awarding XP:", xpError);
+          toast.error("Failed to award XP. Please retry.");
+        }
+
+        if (!isMounted) return;
+        if (typeof nextSavedSessionId === "string" && nextSavedSessionId) {
+          setSavedSessionId(nextSavedSessionId);
+          if (persistedSessionIdCacheKey) {
+            window.sessionStorage.setItem(
+              persistedSessionIdCacheKey,
+              nextSavedSessionId,
+            );
+          }
+
+          if (lastSavedResultsSessionIdKey) {
+            window.localStorage.setItem(
+              lastSavedResultsSessionIdKey,
+              nextSavedSessionId,
+            );
+          }
+
+          clearInterviewStorage();
+          justCreatedSessionIdRef.current = nextSavedSessionId;
+          router.replace(`/results?sessionId=${nextSavedSessionId}`);
+        }
+      } catch (dbError) {
+        console.error("Error saving to database:", dbError);
+        if (!isMounted) return;
+        persistAttemptedRef.current = false;
+        const retryDelayMs = Math.min(15000, 3000 * (persistAttemptNonce + 1));
+        setTimeout(() => {
+          if (!isMounted) return;
+          setPersistAttemptNonce((n) => n + 1);
+        }, retryDelayMs);
+      }
+    };
+
+    void persistToAccount();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [
+    activeUserId,
+    analysisArtifactsReady,
+    generatedExampleAnswers,
+    generatedFollowUpExampleAnswers,
+    interviewConfig,
+    lastSavedResultsSessionIdKey,
+    persistAttemptNonce,
+    refreshUserData,
+    results,
+    router,
+    persistedSessionIdCacheKey,
+    sessionIdFromQuery,
+  ]);
+
+  useEffect(() => {
+    if (sessionIdFromQuery) return;
+    if (isAnalyzing) return;
+    if (error) return;
+    if (results) return;
+    if (authLoading) return;
+    if (!activeUserId) return;
+
+    if (lastSavedResultsSessionIdKey) {
+      const lastSaved = window.localStorage.getItem(
+        lastSavedResultsSessionIdKey,
+      );
+      if (typeof lastSaved === "string" && lastSaved.trim().length > 0) {
+        router.replace(`/results?sessionId=${lastSaved}`);
+        return;
+      }
+    }
+
+    router.replace("/history");
+  }, [
+    activeUserId,
+    authLoading,
+    error,
+    isAnalyzing,
+    lastSavedResultsSessionIdKey,
+    results,
+    router,
+    sessionIdFromQuery,
+  ]);
 
   // ...
 
@@ -1175,21 +1507,22 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                 </div>
               </div>
             </div>
-            <Typography.Heading2 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-gray-100 animate-in fade-in slide-in-from-top-2 duration-700">
+            <Typography.Heading2 className="mb-6 text-center animate-in fade-in slide-in-from-top-2 duration-700">
               Analyzing Your Performance
             </Typography.Heading2>
-            <Typography.Body className="text-base text-gray-600 dark:text-gray-400 text-center min-h-[3rem] mb-8 leading-relaxed px-4 animate-in fade-in duration-500">
+            <Typography.Body
+              color="secondary"
+              className="text-center min-h-[3rem] mb-8 px-4 animate-in fade-in duration-500"
+            >
               {analysisMessages[currentMessageIndex]}
             </Typography.Body>
 
             <div className="w-full max-w-md mx-auto space-y-3">
               <div className="flex justify-between items-center">
-                <Typography.CaptionMedium className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                <Typography.CaptionMedium color="secondary">
                   Analysis Progress
                 </Typography.CaptionMedium>
-                <Typography.BodyBold className="text-sm font-bold text-gray-900 dark:text-gray-100">
-                  {progress}%
-                </Typography.BodyBold>
+                <Typography.BodyBold>{progress}%</Typography.BodyBold>
               </div>
               <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-3 overflow-hidden shadow-inner">
                 <div
@@ -1197,7 +1530,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
-              <Typography.SubCaption className="text-xs text-gray-500 dark:text-gray-500 text-center">
+              <Typography.SubCaption color="secondary" className="text-center">
                 Usually takes 30-90 seconds
               </Typography.SubCaption>
             </div>
@@ -1223,10 +1556,13 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                 <AlertTriangle className="size-8 text-red-600 dark:text-red-400" />
               </div>
             </div>
-            <Typography.Heading3 className="text-xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
+            <Typography.Heading3 className="mb-4 text-center">
               Analysis Unavailable
             </Typography.Heading3>
-            <Typography.Body className="text-gray-600 dark:text-gray-400 text-center mb-8 leading-relaxed px-4">
+            <Typography.Body
+              color="secondary"
+              className="text-center mb-8 px-4"
+            >
               {error}
             </Typography.Body>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -1252,6 +1588,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
     );
   }
 
+  if (!results && !sessionIdFromQuery && (authLoading || !!activeUserId)) {
+    return <LoadingPage message="Loading results..." />;
+  }
+
   // ============================================================================
   // RENDER: NO RESULTS STATE
   // ============================================================================
@@ -1266,10 +1606,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
             <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mx-auto mb-6">
               <FileText className="size-8 text-gray-400" />
             </div>
-            <Typography.Heading3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+            <Typography.Heading3 className="mb-4">
               No Results Available
             </Typography.Heading3>
-            <Typography.Body className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed px-4">
+            <Typography.Body color="secondary" className="mb-8 px-4">
               Complete an interview to receive detailed performance feedback and
               insights.
             </Typography.Body>
@@ -1362,10 +1702,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                           <AlertTriangle className="size-6" />
                         </div>
                         <div>
-                          <div className="text-lg font-bold text-red-900 dark:text-red-100 mb-1">
+                          <Typography.Heading3 color="error" className="mb-1">
                             {terminationTitle}
-                          </div>
-                          <Typography.Body className="text-sm leading-relaxed text-red-700 dark:text-red-300">
+                          </Typography.Heading3>
+                          <Typography.Body color="error">
                             {termination.message}
                           </Typography.Body>
                         </div>
@@ -1535,7 +1875,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                                 <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-colors group-hover:scale-110 bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">
                                   <CheckCircle className="w-3 h-3" />
                                 </div>
-                                <Typography.Body className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                                <Typography.Body color="secondary">
                                   {strength}
                                 </Typography.Body>
                               </li>
@@ -1544,7 +1884,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                         ) : (
                           <div className="text-center py-8">
                             <Award className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-                            <Typography.Body className="text-sm text-gray-500 dark:text-gray-500 italic">
+                            <Typography.Body
+                              color="secondary"
+                              className="italic"
+                            >
                               Building foundational skills - keep developing
                               your technical expertise!
                             </Typography.Body>
@@ -1582,7 +1925,7 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                                 >
                                   <TrendingUp className="w-3 h-3" />
                                 </div>
-                                <Typography.Body className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                                <Typography.Body color="secondary">
                                   {stripLinks(improvement)}
                                 </Typography.Body>
                               </li>
@@ -1591,7 +1934,10 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                         ) : (
                           <div className="text-center py-8">
                             <Target className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-                            <Typography.Body className="text-sm text-gray-500 dark:text-gray-500 italic">
+                            <Typography.Body
+                              color="secondary"
+                              className="italic"
+                            >
                               Excellent foundation - continue building advanced
                               competencies!
                             </Typography.Body>
@@ -1639,9 +1985,9 @@ export function ResultsContent({ user: initialUser }: ResultsContentProps) {
                   return (
                     <Card className="border shadow-md hover:shadow-lg transition-shadow duration-500 animate-in fade-in slide-in-from-bottom-4">
                       <div className="flex flex-col items-center gap-2 px-3 pt-6 pb-2">
-                        <Typography.Caption className="text-xl sm:text-2xl font-bold tracking-tight text-center">
+                        <Typography.Heading3 className="text-center">
                           Answers & Transcript
-                        </Typography.Caption>
+                        </Typography.Heading3>
                         <Typography.Caption className="text-center">
                           Conducted by {interviewer.name}
                         </Typography.Caption>

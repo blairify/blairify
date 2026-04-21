@@ -4,6 +4,7 @@ import { Timestamp } from "firebase/firestore";
 import { Loader2 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
+import { Typography } from "@/components/common/atoms/typography";
 import { FloatingNotification } from "@/components/common/molecules/floating-notification";
 import { Button } from "@/components/ui/button";
 import {
@@ -586,21 +587,26 @@ export function InterviewContent({
       setCurrentMessage(text);
     });
 
+  const isDemoNotificationMode = config.isDemoMode || !user?.uid;
+
   // Auto-hide notification after 5 seconds
   useEffect(() => {
+    if (!showNotification) return;
+    const durationMs = isDemoNotificationMode ? 15000 : 5000;
     const timer = setTimeout(() => {
       setShowNotification(false);
-    }, 5000);
+    }, durationMs);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isDemoNotificationMode, showNotification]);
 
   // Hide notification when interview starts
   useEffect(() => {
     if (isInterviewStarted) {
+      if (isDemoNotificationMode) return;
       setShowNotification(false);
     }
-  }, [isInterviewStarted]);
+  }, [isDemoNotificationMode, isInterviewStarted]);
 
   const handleStartInterview = async () => {
     onInterviewStart?.();
@@ -672,22 +678,21 @@ export function InterviewContent({
       }
 
       if (!response.ok) {
-        console.error("❌ Failed to start interview:", {
-          status: response.status,
-          error: data.error,
-          code: data.code,
-          details: data.details,
-          config: effectiveConfig,
-        });
-
         if (data.code === "GUEST_DEMO_USED") {
-          addMessage({
+          const blockedMessage: Message = {
             id: Date.now().toString(),
             type: "ai",
             content:
               "I see that you’ve already completed your free guest demo. Create a free account to continue practicing and unlock the full experience. ",
             timestamp: new Date(),
+          };
+          addMessage(blockedMessage);
+          interviewCompletedRef.current = true;
+          updateSession({
+            isComplete: true,
+            endedEarly: true,
           });
+          markInterviewComplete([...session.messages, blockedMessage]);
           setIsLoading(false);
           return;
         }
@@ -723,9 +728,23 @@ export function InterviewContent({
             content: `🚫 **Daily Interview Limit Reached**\n\nYou've used all your free interviews for today. Your limit resets in **${resetTimeMessage}** (at midnight UTC).\n\n💡 **Want unlimited interviews?** Upgrade to Pro for unrestricted access to all interview modes and features.`,
             timestamp: new Date(),
           });
+          interviewCompletedRef.current = true;
+          updateSession({
+            isComplete: true,
+            endedEarly: true,
+          });
+          markInterviewComplete();
           setIsLoading(false);
           return;
         }
+
+        console.error("❌ Failed to start interview:", {
+          status: response.status,
+          error: data.error,
+          code: data.code,
+          details: data.details,
+          config: effectiveConfig,
+        });
 
         throw new Error(data.error || "Failed to start interview");
       }
@@ -1341,22 +1360,22 @@ export function InterviewContent({
   }
 
   return (
-    <main className="flex-1 flex flex-col h-full overflow-hidden bg-gradient-to-b from-background to-muted/20">
+    <main className="relative flex-1 flex flex-col h-full overflow-hidden bg-gradient-to-b from-background to-muted/20">
       <FloatingNotification
         show={showNotification}
         onClose={() => setShowNotification(false)}
       >
-        <p className="text-xs sm:text-sm font-medium text-amber-950/90 dark:text-amber-100/90 leading-relaxed">
+        <Typography.BodyMedium color="secondary">
           This experience is in testing phase. If you encounter any issues, type{" "}
-          <span className="font-semibold text-amber-950 dark:text-amber-50 bg-amber-950/10 dark:bg-amber-500/20 px-1 sm:px-1.5 py-0.5 rounded text-[11px] sm:text-xs">
-            continue
-          </span>{" "}
-          or press the{" "}
-          <span className="font-semibold text-amber-950 dark:text-amber-50 bg-amber-950/10 dark:bg-amber-500/20 px-1 sm:px-1.5 py-0.5 rounded text-[11px] sm:text-xs">
-            Skip
-          </span>{" "}
+          <Typography.CaptionMedium className="px-1.5 py-0.5 bg-amber-500/15 rounded-md">
+            /bug
+          </Typography.CaptionMedium>{" "}
+          and press the{" "}
+          <Typography.CaptionMedium className="px-1.5 py-0.5 bg-amber-500/15 rounded-md">
+            Enter
+          </Typography.CaptionMedium>{" "}
           button.
-        </p>
+        </Typography.BodyMedium>
       </FloatingNotification>
 
       <Dialog open={isExitDialogOpen} onOpenChange={setIsExitDialogOpen}>

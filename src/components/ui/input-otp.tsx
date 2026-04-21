@@ -1,9 +1,10 @@
 "use client";
 
-import { REGEXP_ONLY_DIGITS } from "input-otp";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+
+const REGEXP_ONLY_DIGITS = /^[0-9]*$/;
 
 const InputOTPContext = React.createContext<{
   maxLength: number;
@@ -23,17 +24,18 @@ interface InputOTPProps extends React.ComponentPropsWithoutRef<"div"> {
   value?: string;
   onValueChange?: (value: string) => void;
   disabled?: boolean;
-  ref?: React.Ref<HTMLDivElement>;
+  containerRef?: React.Ref<HTMLDivElement>;
 }
 
 function InputOTP({
   className,
   maxLength = 6,
-  pattern = REGEXP_ONLY_DIGITS as unknown as RegExp,
+  pattern = REGEXP_ONLY_DIGITS,
   value = "",
   onValueChange,
   disabled = false,
-  ref,
+  containerRef,
+  children,
   ...props
 }: InputOTPProps) {
   return (
@@ -41,32 +43,43 @@ function InputOTP({
       value={{ maxLength, pattern, value, onValueChange, disabled }}
     >
       <div
-        ref={ref}
+        ref={containerRef}
         className={cn("flex items-center gap-2", className)}
         {...props}
-      />
+      >
+        {children}
+      </div>
     </InputOTPContext.Provider>
   );
 }
 
 function InputOTPGroup({
   className,
-  ref,
+  groupRef,
   ...props
 }: React.ComponentPropsWithoutRef<"div"> & {
-  ref?: React.Ref<HTMLDivElement>;
+  groupRef?: React.Ref<HTMLDivElement>;
 }) {
   return (
-    <div ref={ref} className={cn("flex items-center", className)} {...props} />
+    <div
+      ref={groupRef}
+      className={cn("flex items-center", className)}
+      {...props}
+    />
   );
 }
 
 interface InputOTPSlotProps extends React.ComponentPropsWithoutRef<"div"> {
   index: number;
-  ref?: React.Ref<HTMLDivElement>;
+  slotRef?: React.Ref<HTMLDivElement>;
 }
 
-function InputOTPSlot({ className, index, ref, ...props }: InputOTPSlotProps) {
+function InputOTPSlot({
+  className,
+  index,
+  slotRef,
+  ...props
+}: InputOTPSlotProps) {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const { maxLength, pattern, value, onValueChange, disabled } =
     React.useContext(InputOTPContext);
@@ -143,11 +156,13 @@ function InputOTPSlot({ className, index, ref, ...props }: InputOTPSlotProps) {
     onValueChange?.(newCode.join(""));
 
     const lastFilledIndex = Math.min(pastedData.length, maxLength) - 1;
-    inputs[lastFilledIndex]?.focus();
+    if (lastFilledIndex >= 0) {
+      inputs[lastFilledIndex]?.focus();
+    }
   };
 
   return (
-    <div ref={ref} className={cn("relative", className)} {...props}>
+    <div ref={slotRef} className={cn("relative", className)} {...props}>
       <input
         ref={inputRef}
         type="text"
